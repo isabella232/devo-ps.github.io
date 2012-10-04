@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+  <title>{{ page.title }}</title>
+
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="description" content="DevOps tool to better manage your infrastructure">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS -->
+  <link href="/assets/css/normalize.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/6.2/styles/monokai.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Imprima' rel='stylesheet' type='text/css'>
+  <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
+
+  <!-- RSS -->
+  <link href="http://feeds.feedburner.com/RonanBerder" rel="alternate" title="Ronan Berder" type="application/atom+xml">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+</head>
+<body>
+  <nav id="header">
+  	<h1><a href="{{ base.url }}/">Ronan Berder's blog</a></h1>	
+    <p id="about">I am Ronan Berder, a Shanghai-based entrepreneur with a knack for technology and aesthetics. I run <a href="http://wiredcraft.com">Wiredcraft</a> and then some more.</p>
+    <ul id="links">
+      <li class="linkedin"><a href="http://cn.linkedin.com/in/ronanberder">Ronan Berder's LinkedIn profile</a></li>
+      <li class='twitter'><a href="http://twitter.com/hunvreus">Ronan Berder's Twitter account</a></li>
+      <li class='rss'><a href="/atom.xml">Ronan Berder's blog RSS feed</a></li>
+    </ul>
+  </nav>
+  <div id="content">
+    {{ content }}
+  </div>
+  
+  <!-- JS -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+  <script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+  <script type="text/javascript">(function($) { hljs.initHighlightingOnLoad(); })(jQuery);</script>
+  <!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-773975-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+</body>
+</html>
