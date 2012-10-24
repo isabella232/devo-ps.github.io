@@ -198,11 +198,24 @@ time:before {
   padding: 0 15px;
 }
 
-#how h3.servers:before {
+#how h3:before {
   content: 'S';
   font-family: 'Pictos Custom';
-  font-size: 28px;
-  margin-bottom: 5px;
+  font-size: 80px;
+  margin-bottom: 0;
+  height: 60px;
+  font-weight: normal;
+  display: block;
+  text-align: center;
+  line-height: 100%;
+}
+
+#how h3.apps:before {
+  content: 'A';
+}
+
+#how h3.bundles:before {
+  content: 'B';
 }
 
 #how .content > p {
