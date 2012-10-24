@@ -223,7 +223,7 @@ time:before {
   content: 'B';
 }
 
-#how > p {
+#how p {
   margin: 0;
 }
 
