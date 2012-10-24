@@ -198,7 +198,7 @@ time:before {
   padding: 0 15px;
 }
 
-#how h3.server:before {
+#how h3.servers:before {
   content: 'S';
   font-family: 'Pictos Custom';
   font-size: 28px;
