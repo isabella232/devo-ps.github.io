@@ -175,12 +175,12 @@ time:before {
 }
 
 #how ul {
-  background: rgba(0, 0, 0, 0.01);
+  background: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: block;
   float: left;
   list-style: none;
@@ -195,7 +195,7 @@ time:before {
 }
 
 #how ul li .wrapper {
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #eee;
   padding: 0 15px;
 }
 
@@ -223,7 +223,7 @@ time:before {
   content: 'B';
 }
 
-#how .content > p {
+#how > p {
   margin: 0;
 }
 
