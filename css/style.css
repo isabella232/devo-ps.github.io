@@ -189,13 +189,14 @@ h1 a {
 
 time {
   color: #999;
-/*  font-size: 12px;*/
+  font-size: 12px;
   margin-right: 10px;
 }
 
 time:before {
   content: 'c';
   font-family: 'Pictos Custom';
+  margin-right: 5px;
 }
 
 /* Footer */
