@@ -8,10 +8,11 @@
   <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
 
   <!-- CSS -->
-  <link href='/assets/css/normalize.css' rel='stylesheet' type='text/css'>
+  <link href='/css/normalize.css' rel='stylesheet' type='text/css'>
   <link href='http://yandex.st/highlightjs/6.2/styles/monokai.min.css' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link href='/assets/css/style.css' rel='stylesheet' type='text/css'>
+  <link href='//get.pictos.cc/fonts/2527/1' rel='stylesheet' type='text/css'>
+  <link href='/css/style.css' rel='stylesheet' type='text/css'>  
 
   <!-- RSS -->
   <link href='/atom.xml' rel='alternate' title='Ronan Berder' type='application/atom+xml'>
@@ -35,16 +36,16 @@
     </div>
   </header>
   
-  <section id='content'>
+  <div id='content'>
     {{ content }}
-  </section>
+  </div>
   
   <footer id='footer'>
     <div class='content'>
       <nav class='social'>
-        <a href='http://twitter.com/devo_ps' class=''>Twitter</a>
-        <a href='{{ base.url }}/atom.xml'>Blog</a>
-        <a href='http://mailchimp.com' class=''>Newsletter</a>
+        <a href='http://twitter.com/devo_ps' class='twitter'>Twitter</a>
+        <a href='{{ base.url }}/atom.xml' class='feed'>Feed</a>
+        <a href='http://mailchimp.com' class='newsletter'>Newsletter</a>
       </nav>
       <p class='slogan'><a href='{{ base.url }}/'>devo.ps</a> Build sustainable DevOps infrastructures.</p>
       <p class='copyright'>Copyright © Solution Beam LLC.</p>
