@@ -276,20 +276,6 @@ time:before {
   margin-right: 20px;
 }
 
-#footer nav a:before {
-  content: 't';
-  font-family: 'Pictos Custom';
-  margin-right: 5px;
-}
-
-#footer nav a.feed:before {
-  content: 'f';
-}
-
-#footer nav a.newsletter:before {
-  content: 'n';
-}
-
 @media only screen and (max-width: 800px) {
   
 }
