@@ -214,7 +214,7 @@ time:before {
   content: 'A';
 }
 
-#how h3.bundles:before {
+#how h3.jobs:before {
   content: 'B';
 }
 
