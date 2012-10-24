@@ -3,46 +3,58 @@
   <title>{{ page.title }}</title>
 
   <!-- Meta -->
-  <meta charset="utf-8">
-  <meta name="description" content="DevOps tool to better manage your infrastructure">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset='utf-8'>
+  <meta name='description' content='Build a sustainable DevOps strategy.'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
 
   <!-- CSS -->
-  <link href="/assets/css/normalize.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="http://yandex.st/highlightjs/6.2/styles/monokai.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Imprima' rel='stylesheet' type='text/css'>
-  <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
+  <link href='/assets/css/normalize.css' rel='stylesheet' type='text/css'>
+  <link href='http://yandex.st/highlightjs/6.2/styles/monokai.min.css' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='/assets/css/style.css' rel='stylesheet' type='text/css'>
 
   <!-- RSS -->
-  <link href="http://feeds.feedburner.com/RonanBerder" rel="alternate" title="Ronan Berder" type="application/atom+xml">
+  <link href='/atom.xml' rel='alternate' title='Ronan Berder' type='application/atom+xml'>
 
   <!-- Icons -->
-  <link rel="shortcut icon" href="/images/favicon.ico">
-  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+  <link rel='shortcut icon' href='/images/favicon.ico'>
+  <link rel='apple-touch-icon' href='/images/apple-touch-icon.png'>
+  <link rel='apple-touch-icon' sizes='72x72' href='/images/apple-touch-icon-72x72.png'>
+  <link rel='apple-touch-icon' sizes='114x114' href='/images/apple-touch-icon-114x114.png'>
 </head>
 <body>
-  <nav id="header">
-  	<h1><a href="{{ base.url }}/">devo.ps</a></h1>
-    <ul id="links">
-      <li class='twitter'><a href="http://twitter.com/hunvreus">Ronan Berder's Twitter account</a></li>
-      <li class='rss'><a href="/atom.xml">devo.ps' blog RSS feed</a></li>
-    </ul>
-  </nav>
-  <div id="content">
+  <header id='header'>
+    <div class='content'>
+    	<h1><a href='{{ base.url }}/'>devo.ps</a></h1>
+      <nav>
+        <a href='{{ base.url }}/#pitch'>What is devo.ps?</a>
+        <a href='{{ base.url }}/#how'>How does it work?</a>
+        <a href='{{ base.url }}/#signup'>Sign up</a>
+        <a href='{{ base.url }}/#blog'>Blog</a>
+      </nav>
+    </div>
+  </header>
+  
+  <section id='content'>
     {{ content }}
-  </div>
+  </section>
+  
+  <footer id='footer'>
+    <div class='content'>
+      <a href='http://twitter.com'>What is devo.ps?</a>
+      <a href='#signup'>Sign up</a>
+      <a href='#blog'>Blog</a>
+    </div>
+  </footer>
   
   <!-- JS -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-  <script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
-  <script type="text/javascript">(function($) { hljs.initHighlightingOnLoad(); })(jQuery);</script>
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js' type='text/javascript'></script>
+  <script src='http://yandex.st/highlightjs/6.2/highlight.min.js'></script>
+  <script type='text/javascript'>(function($) { hljs.initHighlightingOnLoad(); })(jQuery);</script>
   <!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	
-  <script type="text/javascript">
+		<script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script>
+	<![endif]-->	
+  <script type='text/javascript'>
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-773975-1']);

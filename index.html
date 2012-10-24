@@ -3,20 +3,34 @@ layout: default
 title: devo.ps
 ---
 
-<article>
-  <time datetime="{{ site.posts.first.date | xmlschema }}">{{ site.posts.first.date | date: "%B %d, %Y" }}</time>
-  <h2><a href="{{ site.posts.first.url }}">{{ site.posts.first.title }}</a></h2>
-  {{ site.posts.first.content }}
-</article>
+<section id='pitch' name='pitch'>
+  <div class='noise'>
+    <div class='content'>
+      <h2>We help you manage your servers and what runs on it.</h2>
+      <h3>Spin off new servers on EC2, Rackspace or your own cloud, install and configure services and deploy your applications. All in one place.</h3>
+    </div>
+  </div>
+</section>
 
-<div id="archive">
-  <h2>Older posts</h2>
-  <ul id="posts">
-    {% for post in site.posts offset:1 %}
-      <li>
-        <time datetime="{{ post.date | xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time> ›
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
+  
+<section id='blog' name='blog'>
+  <div class='content'>
+    <article>
+      <time datetime='{{ site.posts.first.date | xmlschema }}'>{{ site.posts.first.date | date: '%B %d, %Y' }}</time>
+      <h2><a href='{{ site.posts.first.url }}'>{{ site.posts.first.title }}</a></h2>
+      {{ site.posts.first.content }}
+    </article>
+  
+    <div id='archive'>
+      <h2>Older posts</h2>
+      <ul id='posts'>
+        {% for post in site.posts offset:1 %}
+          <li>
+            <time datetime='{{ post.date | xmlschema }}'>{{ post.date | date: '%B %d, %Y' }}</time> ›
+            <a href='{{ post.url }}'>{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
