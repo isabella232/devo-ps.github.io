@@ -175,11 +175,12 @@ time:before {
 }
 
 #how ul {
-  background: #fff;
+  background: rgba(0, 0, 0, 0.01);
+  border: 1px solid #ddd;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) inset;
   display: block;
   float: left;
   list-style: none;
@@ -194,8 +195,12 @@ time:before {
 }
 
 #how ul li .wrapper {
-  border-right: 1px solid #eee;
+  border-right: 1px solid #ddd;
   padding: 0 15px;
+}
+
+#how ul li:last-child .wrapper {
+  border: 0;
 }
 
 #how h3:before {
