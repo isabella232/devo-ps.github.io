@@ -54,7 +54,7 @@ pre code {
 
 .content {
   margin: 0 auto;
-  max-width: 890px;
+  max-width: 800px;
   padding: 20px 15px;
   text-align: left;
 }
@@ -88,9 +88,11 @@ h1 a {
 
 #header nav a {
   border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
   color: #ddd;
   font-size: 12px;
-  margin-right: 20px;
+  margin-left: 20px;
   text-transform: uppercase;
 }
 #header nav a:hover {
@@ -139,6 +141,39 @@ h1 a {
   display: block;
   margin: 40px auto -20px;
   width: 70%;
+}
+
+/* Blog */
+#how h2,
+#blog h2 {
+  font-size: 18px;
+  text-align: center;
+}
+
+#content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#content ul li {
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+#content ul li:first-child {
+  border: ;
+}
+
+#content ul li time {
+  background: #ddd;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #666;
+  font-size: 12px;
+  margin-right: 10px;
+  padding: 3px 6px;
 }
 
 /* Footer */

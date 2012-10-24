@@ -1,13 +1,11 @@
 ---
 layout: post
 published: true
-title: "Getting Down To Business; Kicking Off devo.ps, A Tool To Manage"
+title: "Getting Down To Business; Applying To YCombinator"
 comments: true
 ---
 
-We're pretty excited to 
+We had the idea for devo.ps stuck in our head for almost 2 years now; after
 
 
-## Holder post for now
-
-That does not mean anything, we're merely testing the design.
+In the past 6 to 8 months, we've  <a href='http://wiredcraft.com'>Wiredcraft</a> member
