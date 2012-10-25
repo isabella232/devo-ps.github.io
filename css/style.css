@@ -287,6 +287,15 @@ ul.columns li p {
   border: 0;
 }
 
+#post article p+img {
+  text-align: center;
+}
+
+#post article img {
+  margin: 0 auto;
+  width: 50%;
+}
+
 #comments {
   border: 1px solid #ddd;
   border-radius: 5px;
