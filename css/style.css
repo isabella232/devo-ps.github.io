@@ -29,7 +29,8 @@ code {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   line-height: 140%;
   margin: 0 0 20px;
 }
@@ -40,6 +41,10 @@ h2 {
 
 h3 {
   font-size: 16px;
+}
+
+h4 {
+  font-weight: normal;
 }
 
 pre code {
@@ -120,6 +125,39 @@ time:before {
   margin-right: 5px;
 }
 
+ul.columns {
+  display: block;
+  float: left;
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+ul.columns li {
+  display: block;
+  float: left;
+  text-align: center;
+  width: 33.33%;
+}
+
+ul.columns li .wrapper {
+  border-right: 1px solid #ddd;
+  padding: 0 15px;
+}
+
+ul.columns li:last-child .wrapper {
+  border: 0;
+}
+
+ul.columns li p {
+  text-align: left;
+}
+
+.youtube {
+  margin: 0 auto 20px;
+  text-align: center;
+}
+
 /* Pitch */
 #pitch {
   background: #58c3f0;
@@ -181,39 +219,6 @@ time:before {
   text-align: center;
 }
 
-#how ul {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: block;
-  float: left;
-  list-style: none;
-  margin: 0 0 20px;
-  padding: 15px 0;
-}
-
-#how ul li {
-  display: block;
-  float: left;
-  width: 33.33%;
-}
-
-#how ul li .wrapper {
-  border-right: 1px solid #eee;
-  padding: 0 15px;
-}
-
-#how ul li:last-child .wrapper {
-  border: 0;
-}
-
-#how h3 {
-  text-align: center;
-}
-
 #how h3:before {
   content: 'S';
   font-family: 'Pictos Custom';
@@ -238,6 +243,30 @@ time:before {
   margin: 0;
 }
 
+#how ul.columns {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+}
+
+/* Team */
+#team h2 {
+  text-align: center;
+}
+
+#team h3 {
+  margin: 0;
+}
+
+#team ul.columns li img {
+  margin: 5%;
+  width: 70%;
+}
+
 /* Blog */
 #blog h2 {
   text-align: center;
@@ -256,6 +285,16 @@ time:before {
 
 #posts li:first-child {
   border: 0;
+}
+
+#comments {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
+  margin: 0 0 20px;
+  padding: 15px;
 }
 
 /* Footer */
