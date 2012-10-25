@@ -251,6 +251,7 @@ ul.columns li p {
   -webkit-border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 15px 0;
+  width: 100%;
 }
 
 /* Team */
@@ -354,23 +355,46 @@ ul.columns li p {
     display: block;
   }
   
-  ul.columns {
+  #header h1 {
+    float: none;
     text-align: center;
   }
   
-  ul.columns li {
+  #header h1 a {
+    margin: 0 auto 10px;
+  }
+  
+  #header nav {
+    clear: both;
+    text-align: center;
+  }
+  
+  #header nav a {
+    font-size: 12px;
+    margin: 0 5px;
+  }
+  
+  #header nav a.sign-up {
+    display: none;
+  }
+  
+  #team {
+    margin: 0 -15px;
+  }
+  
+  #how ul.columns li {
     float: none;
     margin: 0 auto;
     width: auto;
   }
 
-  ul.columns li .wrapper {
+  #how ul.columns li .wrapper {
     border: 0;
     border-bottom: 1px solid #eee;
     padding-bottom: 15px;
   }
   
-  ul.columns li:last-child .wrapper {
+  #how ul.columns li:last-child .wrapper {
     border: 0;
     padding-bottom: 0;
   }
