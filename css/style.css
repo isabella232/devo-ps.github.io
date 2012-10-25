@@ -306,6 +306,10 @@ ul.columns li p {
   padding: 15px;
 }
 
+#comments #disqus_thread {
+  margin: -15px 0 -30px 0;
+}
+
 /* Footer */
 #footer {
   background: #fff;
