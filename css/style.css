@@ -335,6 +335,52 @@ ul.columns li p {
   margin-right: 20px;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 800px) {  
+  body,
+  input,
+  textarea {
+    font-size: 14px;
+  }
   
+  h2 {
+    font-size: 20px;
+  }
+  
+  h3 {
+    font-size: 14px;
+  }
+  
+  time {
+    display: block;
+  }
+  
+  ul.columns {
+    text-align: center;
+  }
+  
+  ul.columns li {
+    float: none;
+    margin: 0 auto;
+    width: auto;
+  }
+
+  ul.columns li .wrapper {
+    border: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+  }
+  
+  ul.columns li:last-child .wrapper {
+    border: 0;
+    padding-bottom: 0;
+  }
+  
+  #footer {
+    font-size: 12px;
+  }
+  
+  #footer .slogan a {
+    display: none;
+    margin: 0;
+  }
 }
