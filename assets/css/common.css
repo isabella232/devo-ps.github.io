@@ -71,7 +71,8 @@ a:hover {
   line-height: 99%;
 }
 
-.button.primary {
+.button.primary,
+#mc_embed_signup .button {
   background: #008cdd;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#05a3ff), to(#008cdd));
   background-image: -moz-linear-gradient(top, #05a3ff, #008cdd);
@@ -82,14 +83,16 @@ a:hover {
   margin: -1px;
   text-shadow: -1px -1px #0078f0;
 }
-.button.primary:hover {
+.button.primary:hover,
+#mc_embed_signup .button:hover {
   background: #0098f0;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#19aaff), to(#0098f0));
   background-image: -moz-linear-gradient(top, #19aaff, #0098f0);
   box-shadow: none;
   color: #fff;
 }
-.button.primary:active {
+.button.primary:active,
+#mc_embed_signup .button:active {
   background: #0098f0;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#008cdd), to(#0098f0));
   background-image: -moz-linear-gradient(top, #008cdd, #0098f0);
