@@ -1,89 +1,28 @@
 ---
 layout: default
-title: devo.ps
+title: DevOps as a Service. Manage your whole infrastructure, from servers to automation.
 ---
 
-<section id='pitch' name='pitch'>
-  <div class='wrapper'>
-    <div class='content'>
-      <h2>We help you manage your servers and what runs on them.</h2>
-      <h3>Create servers on EC2, Rackspace or your own cloud, install and configure services and deploy your applications. All in one place.</h3>
-      <p>
-        <img src='/images/preview-app.png' alt='preview' title='Application screen preview'>
-        <img src='/images/preview-app.png' alt='preview' title='Application screen preview'>
-        <img src='/images/preview-app.png' alt='preview' title='Application screen preview'>
-      </p>
-    </div>
-  </div>
-</section>
+<section>
+    <section id='why' name='why'>
+        <h2>We help you take control of your infrastructure, may it be on AWS, Rackspace or your own servers, from provisioning to automation.</h2>
+        <p>Ever wished you could reach the same level of sophistication as one of the many PaaS out there on your own servers? devo.ps brings you the best practices, expertise and tools to do so. We know that finding scaling operations is a tough problem, especially </p>
+    </section>
 
-<section id='how' name='how'>
-  <div class='content'>
-    <h2>How does it work?</h2>
-    <ul class='columns'>
-      <li>
-        <div class='wrapper'>
-          <h3 class='servers'>Add and set up servers</h3>
-          <p>Simply launch instances on AWS, Rackspace or Linode or manually hook any server to devo.ps. You can then manage services; add, remove or configure MySQL, Varnish, RabbitMQ or any of our supported technologies.</p>
-        </div>
-      </li>
-      <li>
-        <div class='wrapper'>
-          <h3 class='apps'>Deploy your apps</h3>
-          <p>Once your infrastructure is set up, you can deploy your applications on it, leveraging the various technologies you have made available; MongoDB, CouchDB, PHP, node.js or Python.</p>
-        </div>
-      </li>
-      <li>
-        <div class='wrapper'>
-          <h3 class='jobs'>Automate your jobs</h3>
-          <p>Leverage devo.ps actions for each supported technology to quickly build series of tasks (aka "jobs"). Trigger these jobs on various events (cron, git repository update, SMS input) for both servers and applications.</p>
-        </div>
-      </li>
-    </ul>
-    <p id='signup' name='signup'>This makes us sad pandas, but devo.ps is not planned to be publicly released before middle of November 2012. In the meantime, you can stay tuned through <a href='http://eepurl.com/oFMS1'>our mailing list</a> or <a href='http://twitter.com/devo_ps'>follow us on twitter</a>.</p>
-  </div>
-</section>
-
-<section id='team' name='team'>
-  <div class='content'>
-    <h2>The team</h2>
-    <ul class='columns'>
-      <li>
-        <div class='wrapper'>
-          <img src='/images/avatars/makara.png'>
-          <h3 class='servers'>Makara Wang</h3>
-          <h4>Development</h4>
-        </div>
-      </li>
-      <li>
-        <div class='wrapper'>
-          <img src='/images/avatars/ronan.png'>
-          <h3 class='servers'>Ronan Berder</h3>
-          <h4>Product</h4>
-        </div>
-      </li>
-      <li>
-        <div class='wrapper'>
-          <img src='/images/avatars/vincent.png'>
-          <h3 class='servers'>Vincent Viallet</h3>
-          <h4>Infrastructure</h4>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-
-<section id='blog' name='blog'>
-  <div class='content'>
-    <h2>The blog</h2>
-    <ul id='posts'>
-      {% for post in site.posts offset:0 %}
-        <li>
-          <time datetime='{{ post.date | xmlschema }}'>{{ post.date | date: '%B %d, %Y' }}</time>
-          <a href='{{ post.url }}'>{{ post.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+    <section id='how' name='how'>
+        <ul class='columns'>
+            <li>
+                <h3 class='servers'>Add and set up servers</h3>
+                <p>Simply launch instances on AWS, Rackspace or Linode or manually hook any server to devo.ps. You can then manage services; add, remove or configure MySQL, Varnish, RabbitMQ or any of our supported technologies.</p>
+            </li>
+            <li>
+                <h3 class='apps'>Deploy your apps</h3>
+                <p>Once your infrastructure is set up, you can deploy your applications on it, leveraging the various technologies you have made available; MongoDB, CouchDB, PHP, node.js or Python.</p>
+            </li>
+            <li>
+                <h3 class='jobs'>Automate your jobs</h3>
+                <p>Leverage devo.ps actions for each supported technology to quickly build series of tasks (aka "jobs"). Trigger these jobs on various events (cron, git repository update, SMS input) for both servers and applications.</p>
+            </li>
+        </ul>
+    </section>
 </section>

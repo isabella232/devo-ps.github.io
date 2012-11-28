@@ -1,0 +1,16 @@
+<nav id='nav'>
+    <a href='/' id='logo'>devo.ps</a>
+    <a class='sign-in' href='http://app.devo.ps'>Log in</a> or <a class='sign-up' href='#signup'>Sign up</a>
+</nav>
+
+{% if page.url == '/index.html' %}
+<section id='pitch' name='pitch'>
+    <h1>DevOps as a Service.</h1>
+    <h2>We help you manage your servers and what runs on it: services, applications, automation.</h2>
+    <p class='preview'>
+        <img src='/assets/images/preview-app.png' alt='preview' title='Application screen preview'>
+        <img src='/assets/images/preview-app.png' alt='preview' title='Application screen preview'>
+        <img src='/assets/images/preview-app.png' alt='preview' title='Application screen preview'>
+    </p>
+</section>
+{% endif %}
