@@ -53,9 +53,9 @@
   	<script type="text/javascript">
       (function($) { 
         $('body > .subscribe input').focus(function() {
-            $(this).parent().parent().addClass('active');
+            $('body > .subscribe').addClass('active');
           }).blur(function() {
-            $(this).parent().parent().removeClass('active');            
+            $('body > .subscribe').removeClass('active');            
           });
       })(jQuery);
     </script>
