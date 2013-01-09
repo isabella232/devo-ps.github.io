@@ -1,9 +1,10 @@
 ---
+category: blog
+title: 'Nginx vs. Apache'
+author: balou
+
 layout: post
 published: false
-title: 'Nginx vs. Apache'
-comments: true
-author: balou
 ---
 
 Apache:

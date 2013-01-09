@@ -1,9 +1,10 @@
 ---
+category: blog
+title: 'Backup strategies - MySQL'
+author: balou
+
 layout: post
 published: false
-title: 'Backup strategies - MySQL'
-comments: true
-author: balou
 ---
 
 Backup is hard and the right strategy is highly dependent on the platform, the need for accuracy, the allowed time to recovery, etc.

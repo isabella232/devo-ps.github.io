@@ -1,9 +1,9 @@
 ---
-layout: post
-published: false
+category: blog
 title: 'Always best practices!'
-comments: true
 author: balou
+
+layout: post
 ---
 
 Always means always. Many developers, sys-admins, you-name-it like to brag about how best practices are important in one's work; and how they are able to apply them to their work, most of the time... 

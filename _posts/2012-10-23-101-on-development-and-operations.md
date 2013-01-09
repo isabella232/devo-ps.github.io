@@ -1,9 +1,10 @@
 ---
-layout: post
+category: blog
 published: true
-title: "101 on Development and Operations"
-comments: true
+title: '101 on Development and Operations'
 author: balou
+
+layout: post
 ---
 
 Here is what usually happens: the development team wants to push new features as fast as possible in production, while operations wants to ensure that the platform is stable and stay that way. Both teams are evaluated on criteria that are often directly conflicting; the stronger team gets to win one argument... Until the next crisis. And we're not eveng talking about other teams; they too have different objectives that will eventually go against those of one another.
