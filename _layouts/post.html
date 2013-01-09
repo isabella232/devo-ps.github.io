@@ -1,45 +1,16 @@
 ---
 layout: default
 ---
-
-<section id='post'>
-    <article>
-        <time datetime='{{ page.date | xmlschema }}'>{{ page.date | date: '%B %d, %Y' }}</time>
-        <h2>{{ page.title }}</h2>
-        {{ content }}
-    </article>
-    
-    {% if page.comments %}
-    <div id='comments'><div id='disqus_thread'></div></div>
-    <script type='text/javascript'>
-        var disqus_shortname = 'teddyfr';
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
-    {% endif %}
-</section>
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type='text/javascript' src='/js/swfobject.js'></script>
-<script type='text/javascript'>
-  var videoCount = 0;
-  $('.youtube').each(function () {
-    var videoID = 'youtube-'+ videoCount;
-    var embed = $('<div id='+ videoID +'></div>');
-    $(this).html(embed);
-    swfobject.embedSWF(
-      'http://www.youtube.com/v/'+ $(this).attr('rel') +'?enablejsapi=1&playerapiid=ytplayer&version=3',
-      videoID,
-      '425',
-      '356',
-      '8',
-      null,
-      null,
-      { allowScriptAccess: 'always' }
-    );
-  });
-</script>
+<article>
+  <time datetime='{{ page.date | xmlschema }}'>{{ page.date | date: '%B %d, %Y' }}</time>
+  <h2>{{ page.title }}</h2>
+  <section>
+    {{ content }}
+  </section>
+  {% if page.tags %}<div class='tags'>Tags: {{ page.tags | join: ', ' }}</div>{% endif %}
+  <nav>
+    {% if page.previous %}<a href='{{ site.url }}{{ page.previous.url }}' class='previous'>‹ Previous post</a>{% endif %}
+    {% if page.next %}<a href='{{ site.url }}{{ page.next.url }}' class='next'>Next post ›</a>{% endif %}
+    <a href='{{ site.url }}{{ page.url }}'>Permalink</a>
+  </nav>
+</article>

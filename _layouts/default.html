@@ -1,75 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>devo.ps | {{page.title}}</title>
-    <!-- Meta -->
-    <meta charset='utf-8'>
-    <meta name='description' content='DevOps as a service. Take control of your infrastructure, from provisioning to automation.'>
-    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
-    
-    <!-- RSS -->
-    <link href='{{ base.url }}/atom.xml' rel='alternate' title='devo.ps' type='application/atom+xml'>
-    
-    <!-- CSS -->
-    <link href='{{ base.url }}/assets/css/normalize.css' rel='stylesheet' type='text/css'>
-    <link href='http://yandex.st/highlightjs/6.2/styles/monokai.min.css' rel='stylesheet' type='text/css'>
-    <link href='//get.pictos.cc/fonts/2527/1' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans'>
-    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Asap'>
-    <link href='{{ base.url }}/assets/css/common.css' rel='stylesheet' type='text/css'>  
-    <link href='{{ base.url }}/assets/css/style.css' rel='stylesheet' type='text/css'>  
+  <title>{{ page.title }} | {{ site.name }}</title>
 
-    <!-- Icons -->
-    <link rel='shortcut icon' href='/images/favicon.ico'>
-    <link rel='apple-touch-icon' href='/images/apple-touch-icon.png'>
-    <link rel='apple-touch-icon' sizes='72x72' href='/images/apple-touch-icon-72x72.png'>
-    <link rel='apple-touch-icon' sizes='114x114' href='/images/apple-touch-icon-114x114.png'>
+  <!-- Meta -->
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'/>
+
+  <!-- CSS -->
+  <link href='{{ site.url }}/assets.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
-    <section id='subscribe-top' class='subscribe' name='subscribe'>
-        <p>We're not quite open yet: leave us your email and we'll get back to you when we're ready.</p>
-        {% include subscribe.html %}
-    </section>
-    
-    <header id='header'>
-        {% include header.html %}
-    </header>
-    
-    <section id='content'>
-        {{content}}
-    </section>
-    
-    <footer id='footer'>
-        {% include footer.html %}
-    </footer>
-    
-    <!-- JS -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-    <script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
-    <script type="text/javascript">(function($) { $('code').each(function(i, e) {hljs.highlightBlock(e)}); })(jQuery);</script>
-    <!--[if lt IE 9]>
-  		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  	<![endif]-->
-  	<script type="text/javascript">
-      (function($) { 
-        $('body > .subscribe input').focus(function() {
-            $('body > .subscribe').addClass('active');
-          }).blur(function() {
-            $('body > .subscribe').removeClass('active');            
-          });
-      })(jQuery);
-    </script>
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34006371-1']);
-      _gaq.push(['_setDomainName', 'devo.ps']);
-      _gaq.push(['_trackPageview']);
+  <header id='header'>
+    <h1><a href='{{ site.url }}/'>{{ site.name }}</a></h1>
+    <nav>
+      <a href='{{ site.url }}/'>Home</a>
+      <a href='{{ site.url }}/blog.html'>Blog</a>
+    </nav>
+  </header>
+  <section id='content'>
+    {{ content }}
+  </section>
+  <footer id='footer'>Copyright © {{ site.name }}. All rights reserved.</footer>
+  
+  <!-- JS -->
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script src='{{ site.url }}/assets.js' type='text/javascript'></script>
+  
+	{% if site.ga %}
+	<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '{{ site.ga }}']);
+    _gaq.push(['_trackPageview']);
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  {% endif %}
 </body>
 </html>

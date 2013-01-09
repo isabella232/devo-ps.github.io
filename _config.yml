@@ -1,5 +1,10 @@
 ---
-exclude: ['README.markdown']
-permalink: pretty
+exclude: ['README.markdown', 'Makefile', 'component.json']
 pygments: true
 safe: false
+
+name: Foundation
+url: http://wiredcraft.github.com/foundation
+author: Bob Smith
+email: bob@example.com
+# ga: 'UA-XXXXXXX-X'
