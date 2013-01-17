@@ -1,19 +1,34 @@
 ---
-layout: default
+layout: plain
 ---
 
-<article>
-  <time datetime='{{ page.date | xmlschema }}'>{{ page.date | date: '%B %d, %Y' }}</time>
-  <h2>{{ page.title }}</h2>
-  <section>
-    {{ content }}
-  </section>
-  {% if page.tags %}<div class='tags'>Tags: {{ page.tags | join: ', ' }}</div>{% endif %}
-  <nav>
-    {% if page.previous %}<a href='{{ site.url }}{{ page.previous.url }}' class='previous'>‹ Previous post</a>{% endif %}
-    {% if page.next %}<a href='{{ site.url }}{{ page.next.url }}' class='next'>Next post ›</a>{% endif %}
-    <a href='{{ site.url }}{{ page.url }}'>Permalink</a>
-  </nav>
-</article>
+<header class='back'><a href='/blog.html'>‹ Read other posts from the blog</a><header>
 
-<script type='text/javascript' src='/assets/js/youtube.js'></script>
+<article class='post'>
+  <aside class='meta'>
+    {% for member in site.categories.team %}
+    {% if member.user == page.author %}
+    <div class='vcard'>
+      <img class='photo' alt='Picture of {{ member.title }}' src='/images/team/{{ member.user }}.png'/> 
+      <div class='fn'>{{ member.title }}</div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    <time datetime='{{ page.date | xmlschema }}'>{{ page.date | date: '%B %d, %Y' }}</time>
+    
+    <div id='about'>
+      {% include about.html %}
+    </div>
+  </aside>
+  
+  <section class='main'>
+    <h2>{{ page.title }}</h2>
+    <section>
+      {{ content }}
+    </section>
+    <ul>
+      <li><a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url={{ site.url }}{{ page.url }}' target='_blank'>React on Twitter</a></li>
+      {% if page.hn %}<li><a href='http://news.ycombinator.com/item?id={{ page.hn }}' target='_blank'>On Hacker News</a></li>{% endif %}
+    </ul>
+  </section>
+</article>

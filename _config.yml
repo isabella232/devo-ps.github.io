@@ -3,8 +3,8 @@ exclude: ['README.markdown', 'Makefile', 'component.json']
 pygments: true
 safe: false
 
-name: Foundation
-# url: http://wiredcraft.github.com/foundation
+name: devo.ps
+# url: http://devo.ps
 author: devo.ps
 email: info@devo.ps
-ga: 'UA-XXXXXXX-X'
+# ga: 'UA-34006371-1'

@@ -1,7 +1,7 @@
 ---
 category: blog
 title: 'San Francisco: Here We Come!'
-author: hunvreus
+author: ronan
 
 layout: post
 ---

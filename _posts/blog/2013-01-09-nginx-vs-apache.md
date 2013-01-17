@@ -1,10 +1,11 @@
 ---
+published: true
+
 category: blog
 title: 'Nginx vs. Apache'
-author: balou
+author: vincent
 
 layout: post
-published: false
 ---
 
 Apache:

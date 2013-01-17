@@ -1,7 +1,9 @@
 ---
+published: true
+
 category: blog
 title: 'Always best practices!'
-author: balou
+author: vincent
 
 layout: post
 ---

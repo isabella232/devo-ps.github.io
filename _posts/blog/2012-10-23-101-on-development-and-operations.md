@@ -1,8 +1,7 @@
 ---
 category: blog
-published: true
 title: '101 on Development and Operations'
-author: balou
+author: vincent
 
 layout: post
 ---
