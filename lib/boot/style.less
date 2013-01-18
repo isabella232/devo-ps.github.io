@@ -92,11 +92,29 @@ blockquote {
   margin-left: 40px;
 }
 
-.content {
-  display: block;
-  margin: 0 auto;
-  max-width: @width;
-  text-align: left;
+#header,
+#content,
+#footer {
+  .content {
+    display: block;
+    margin: 0 auto;
+    max-width: @width;
+    text-align: left;
+  }
+}
+
+div.dialog {
+  display: none;
+}
+
+#dialog {
+  border: 0;
+  .border-radius(2px, 2px, 2px, 2px);
+  .drop-shadow(0, 0, 10px, 0.2);
+  max-width: 740px;
+  .content {
+    padding: 20px;
+  }
 }
 
 /* Forms */
@@ -230,6 +248,7 @@ input:focus {
   }
   h2 {
     color: lighten(@primary, 35%);
+    margin-bottom: 40px;
   }
 }
 
@@ -335,37 +354,48 @@ input:focus {
   margin: 0;
 }
 
-/* Blog */
+/* Blog, pages... */
 .post {
   border-top: 1px solid @highlight;
   margin: 15px 0 30px;
-  padding-top: 15px;
+  padding-top: 20px;
 }
 
-.meta {
-  color: desaturate(lighten(@body, 20%), 10%);
-  float: right;
-  font-size: 14px;
-  width: 222px;
+.static,
+.post {
+  .main {
+    width: 726px;
+  }
+  
+  .meta {
+    color: desaturate(lighten(@body, 20%), 10%);
+    float: right;
+    font-size: 14px;
+    width: 222px;
+  }
+  
+  .meta img {
+    float: left;
+    margin-right: 15px;
+    width: 50px;
+  }
+  
+  .meta time {
+    font-style: italic;
+  }
 }
 
-.meta h2 {
+.sticky {
+  background: @highlight;
+  .border-radius(2px, 2px, 2px, 2px);
+  list-style: none;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.sticky h3 {
   font-size: 14px;
   text-transform: uppercase;
-}
-
-.post .meta img {
-  float: left;
-  margin-right: 15px;
-  width: 50px;
-}
-
-.post .meta time {
-  font-style: italic;
-}
-
-.post .main {
-  width: 726px;
 }
 
 /* FOOTER */
@@ -375,16 +405,20 @@ input:focus {
   clear: both;
   font-size: 14px;
   padding: 20px 0 30px;
-  text-transform: uppercase;
+}
+
+#footer h3 {
+  color: #fff;
 }
 
 #footer ul {
   .inline();
 }
 
-#footer a {
+#footer ul a {
   color: lighten(@body, 35%);
   margin-right: 20px;
+  text-transform: uppercase;
   &:hover,
   &:active {
     color: #fff;

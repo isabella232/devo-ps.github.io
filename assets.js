@@ -10208,11 +10208,10 @@ $('a[href="#subscription"]').click(function () {
  /**
   * Preview video
   */
-var preview = dialog('this is a preview');
-preview.closable();
-
-$('#preview a').click(function () {
-    preview.overlay().show();
+$('a.dialog').click(function () {
+    var that = $(this),
+        content = that.next('div.dialog').html(),
+        preview = dialog($(content)).closable().overlay().show();
     return false;
 });
 });

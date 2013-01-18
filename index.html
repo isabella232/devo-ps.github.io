@@ -14,7 +14,10 @@ layout: default
       {% include subscribe.html %}
     </article>
     <article id='preview'>
-      <a href='http://google.com'><img src='/images/screenshot.png' class='screenshot'/></a>
+      <a href='http://google.com' class='dialog' rel='preview-video'><img src='/images/screenshot.png' class='screenshot'/></a>
+      <div id='preview-video' class='dialog'>
+        <iframe src="http://player.vimeo.com/video/48054442" width="500" height="313" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+      </div>
     </article>
   </div>
 </section>

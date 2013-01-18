@@ -14,7 +14,7 @@ components: component.json
 	@component convert $<
 
 %.css: %.less
-	lessc $< $@
+	@lessc $< $@
 
 clean:
 	rm -fr build components $(TEMPLATES)
