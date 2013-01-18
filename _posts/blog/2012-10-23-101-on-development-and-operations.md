@@ -1,4 +1,6 @@
 ---
+published: false
+
 category: blog
 title: '101 on Development and Operations'
 author: vincent
