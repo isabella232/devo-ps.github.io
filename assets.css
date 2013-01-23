@@ -485,7 +485,6 @@ table {
   -moz-transform: scale(0);
 }
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 /*---------------------------------------------------
     LESS Elements 0.9
   ---------------------------------------------------
@@ -535,19 +534,29 @@ a:active,
 a.active {
   color: #1b9de0;
 }
-code {
-  background: #eee;
-  border: 1px solid #ddd;
-  border-radius: 1px;
-  -moz-border-radius: 1px;
-  -webkit-border-radius: 1px;
-  font: 14px/160% monospace, sans-serif;
+code,
+pre code {
+  background: #e7e2eb;
+  color: #4f3e5d;
+  font: 14px/160% 'Monaco', monospace, sans-serif;
   padding: 1px 2px;
 }
 pre code {
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-topleft: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
   display: block;
   padding: 20px;
 }
@@ -559,7 +568,7 @@ tbody tr:nth-child(odd) {
 }
 table th,
 table td {
-  border: 1px solid #ddd;
+  border: 1px solid #e7e2eb;
   padding: 5px 10px;
 }
 blockquote {
@@ -907,6 +916,7 @@ input:focus {
   -moz-background-clip: padding-box;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+  color: #4f3e5d;
   list-style: none;
   margin-top: 20px;
   padding: 20px;
@@ -948,161 +958,123 @@ input:focus {
   color: #42374a;
 }
 
-/*
-
-Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
-
-*/
-
-pre code {
-  display: block; padding: 0.5em;
-  background: #000; color: #f8f8f8;
+/* Pretty printing styles. Used with prettify.js. */
+/* SPAN elements with the classes below are added by prettyprint. */
+.pln {
+  color: #000000;
 }
-
-pre .comment,
-pre .template_comment,
-pre .javadoc {
-  color: #aeaeae;
-  font-style: italic;
+/* plain text */
+@media screen {
+  .str {
+    color: #008800;
+  }
+  /* string content */
+  .kwd {
+    color: #000088;
+  }
+  /* a keyword */
+  .com {
+    color: #880000;
+  }
+  /* a comment */
+  .typ {
+    color: #660066;
+  }
+  /* a type name */
+  .lit {
+    color: #006666;
+  }
+  /* a literal value */
+  /* punctuation, lisp open bracket, lisp close bracket */
+  .pun,
+  .opn,
+  .clo {
+    color: #666600;
+  }
+  .tag {
+    color: #000088;
+  }
+  /* a markup tag name */
+  .atn {
+    color: #660066;
+  }
+  /* a markup attribute name */
+  .atv {
+    color: #008800;
+  }
+  /* a markup attribute value */
+  .dec,
+  .var {
+    color: #660066;
+  }
+  /* a declaration; a variable name */
+  .fun {
+    color: #ff0000;
+  }
+  /* a function name */
 }
-
-pre .keyword,
-pre .ruby .function .keyword,
-pre .request,
-pre .status,
-pre .nginx .title {
-  color: #E28964;
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str {
+    color: #006600;
+  }
+  .kwd {
+    color: #006;
+    font-weight: bold;
+  }
+  .com {
+    color: #600;
+    font-style: italic;
+  }
+  .typ {
+    color: #404;
+    font-weight: bold;
+  }
+  .lit {
+    color: #004444;
+  }
+  .pun,
+  .opn,
+  .clo {
+    color: #444400;
+  }
+  .tag {
+    color: #006;
+    font-weight: bold;
+  }
+  .atn {
+    color: #440044;
+  }
+  .atv {
+    color: #006600;
+  }
 }
-
-pre .function .keyword,
-pre .sub .keyword,
-pre .method,
-pre .list .title {
-  color: #99CF50;
+/* Put a border around prettyprinted code snippets. */
+pre.prettyprint {
+  padding: 2px;
+  border: 1px solid #888888;
 }
-
-pre .string,
-pre .tag .value,
-pre .cdata,
-pre .filter .argument,
-pre .attr_selector,
-pre .apache .cbracket,
-pre .date,
-pre .tex .command {
-  color: #65B042;
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
 }
-
-pre .subst {
-  color: #DAEFA3;
+/* IE indents via margin-left */
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 {
+  list-style-type: none;
 }
-
-pre .regexp {
-  color: #E9C062;
-}
-
-pre .title,
-pre .sub .identifier,
-pre .pi,
-pre .tag,
-pre .tag .keyword,
-pre .decorator,
-pre .shebang,
-pre .prompt {
-  color: #89BDFF;
-}
-
-pre .class .title,
-pre .haskell .type,
-pre .smalltalk .class,
-pre .javadoctag,
-pre .yardoctag,
-pre .phpdoc {
-  text-decoration: underline;
-}
-
-pre .symbol,
-pre .ruby .symbol .string,
-pre .number {
-  color: #3387CC;
-}
-
-pre .params,
-pre .variable,
-pre .clojure .attribute {
-  color: #3E87E3;
-}
-
-pre .css .tag,
-pre .rules .property,
-pre .pseudo,
-pre .tex .special {
-  color: #CDA869;
-}
-
-pre .css .class {
-  color: #9B703F;
-}
-
-pre .rules .keyword {
-  color: #C5AF75;
-}
-
-pre .rules .value {
-  color: #CF6A4C;
-}
-
-pre .css .id {
-  color: #8B98AB;
-}
-
-pre .annotation,
-pre .apache .sqbracket,
-pre .nginx .built_in {
-  color: #9B859D;
-}
-
-pre .preprocessor {
-  color: #8996A8;
-}
-
-pre .hexcolor,
-pre .css .value .number {
-  color: #DD7B3B;
-}
-
-pre .css .function {
-  color: #DAD085;
-}
-
-pre .diff .header,
-pre .chunk,
-pre .tex .formula {
-  background-color: #0E2231;
-  color: #F8F8F8;
-  font-style: italic;
-}
-
-pre .diff .change {
-  background-color: #4A410D;
-  color: #F8F8F8;
-}
-
-pre .addition {
-  background-color: #253B22;
-  color: #F8F8F8;
-}
-
-pre .deletion {
-  background-color: #420E09;
-  color: #F8F8F8;
-}
-
-pre .coffeescript .javascript,
-pre .javascript .xml,
-pre .tex .formula,
-pre .xml .javascript,
-pre .xml .vbscript,
-pre .xml .css,
-pre .xml .cdata {
-  opacity: 0.5;
+/* Alternate shading for lines */
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 {
+  background: #eeeeee;
 }

@@ -59,20 +59,16 @@ a.active {
   color: lighten(@link, 10%);
 }
 
-code {
-  background: #eee;
-  border: 1px solid #ddd;
-  border-radius: 1px;
-  -moz-border-radius: 1px;
-  -webkit-border-radius: 1px;
-  font: 14px/160% monospace, sans-serif;
+code,
+pre code {
+  background: @highlight;
+  color: darken(@highlight, 60%);
+  font: 14px/160% 'Monaco', monospace, sans-serif;
   padding: 1px 2px;
 }
 
 pre code {
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  .border-radius(2px, 2px, 2px, 2px);
   display: block;
   padding: 20px;
 }
@@ -87,7 +83,7 @@ tbody tr:nth-child(odd) {
 
 table th,
 table td {
-  border: 1px solid #ddd;
+  border: 1px solid @highlight;
   padding: 5px 10px;
 }
 
@@ -393,6 +389,7 @@ input:focus {
 .sticky {
   background: @highlight;
   .border-radius(2px, 2px, 2px, 2px);
+  color: darken(@highlight, 60%);
   list-style: none;
   margin-top: 20px;
   padding: 20px;

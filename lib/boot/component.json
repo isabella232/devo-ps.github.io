@@ -6,7 +6,7 @@
         "component/jquery": "*",
         "component/dialog": "*"
     },
-    "local": ["highlightjs"],
+    "local": ["prettify"],
     "scripts": ["index.js"],
-    "styles": ["style.css", "highlight.css"]
+    "styles": ["style.css", "prettify.css"]
 }
