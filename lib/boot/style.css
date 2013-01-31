@@ -492,17 +492,34 @@ input:focus {
     padding: 0 20px;
   }
   /* Hero */
+  #hero {
+    padding-bottom: 20px;
+  }
   #pitch {
     float: none;
     width: auto;
   }
   #preview {
+    display: none;
     max-height: none;
     width: auto;
   }
   /* About */
+  #about .content {
+    border: 0;
+    margin-bottom: 0;
+  }
   /* Features */
+  #features ul li {
+    display: block;
+    float: none;
+    padding: 0;
+    width: auto;
+  }
   /* Register */
+  #register .content {
+    border: 0;
+  }
   /* Blog, pages... */
   .static .main,
   .post .main {
