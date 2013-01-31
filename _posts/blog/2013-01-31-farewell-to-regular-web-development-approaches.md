@@ -23,6 +23,6 @@ Most of what we build at devo.ps is stemming from this accelerated recovery and 
 1. We start by defining our API interface through user stories and methods,
 2. Both backend and front-end teams are getting cranking on implementing and solving the challenges specific to their part,
 
-A lot of things happen in parallel and changes on one side rarely impact the other: we can make drastic changes in the UI without any change on the backend. And there were a lot of unexpected gains too, in security, speed and overall maintainability. More importantly, we've fred a lot of our resources to focus on building compelling user experiences instead of fighting a large piece of software to do what we want it to do.
+A lot of things happen in parallel and changes on one side rarely impact the other: we can make drastic changes in the UI without any change on the backend. And there were a lot of unexpected gains too, in security, speed and overall maintainability. More importantly, we've freed a lot of our resources to focus on building compelling user experiences instead of fighting a large piece of software to do what we want it to do.
 
 If you haven't tried building things that way yet, give it a try honestly (when relevant); it may be a larger initial investment in some cases but you'll come out on top at almost every level.
