@@ -7,7 +7,7 @@ author: ronan
 layout: post
 ---
 
-At my [my previous company](http://wiredcraft.com), we built Web applications for medium to large organizations, often in the humanitarian and non-profit space, facing original problems revolving around data. Things like building the [voting infrastructure for the Southern Sudan Referendum](http://wiredcraft.com/work/southern-sudan-referendum/index.html) helped us diversify our technical chops. But until a year ago, we were still mostly building regular Web applications; the user requests a page that we build and serve back.
+At my [previous company](http://wiredcraft.com), we built Web applications for medium to large organizations, often in the humanitarian and non-profit space, facing original problems revolving around data. Things like building the [voting infrastructure for the Southern Sudan Referendum](http://wiredcraft.com/work/southern-sudan-referendum/index.html) helped us diversify our technical chops. But until a year ago, we were still mostly building regular Web applications; the user requests a page that we build and serve back.
 
 **Until we started falling in love with APIs and static clients.**
 

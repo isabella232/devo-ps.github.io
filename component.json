@@ -2,6 +2,6 @@
     "name": "devops",
     "description": "devo.ps website",
     "version": "0.0.1",
-    "local": ["boot", "cart"],
+    "local": ["boot"],
     "paths": ["lib"]
 }
