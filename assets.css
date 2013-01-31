@@ -999,6 +999,18 @@ input:focus {
   #footer .content {
     padding: 0 20px;
   }
+  /* Hero */
+  #pitch {
+    float: none;
+    width: auto;
+  }
+  #preview {
+    max-height: none;
+    width: auto;
+  }
+  /* About */
+  /* Features */
+  /* Register */
   /* Blog, pages... */
   .static .main,
   .post .main {
