@@ -3,4 +3,5 @@
 !.gitmodules
 *~
 
+components/
 _site/

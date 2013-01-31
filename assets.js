@@ -10235,9 +10235,9 @@ $('a[href="#subscription"]').click(function () {
     console.log('sdf');
 });
 
- /**
-  * Preview video
-  */
+/**
+ * Preview video
+ */
 $('a.dialog').click(function () {
     var that = $(this),
         content = that.next('div.dialog').html(),
@@ -10251,9 +10251,6 @@ $('a.dialog').click(function () {
 $('code').addClass('prettyprint');
 require('prettify')
 prettyPrint();
-});
-require.register("cart/index.js", function(exports, require, module){
-
 });
 require.alias("boot/index.js", "devops/deps/boot/index.js");
 
@@ -10272,7 +10269,4 @@ require.alias("component-emitter/index.js", "component-overlay/deps/emitter/inde
 require.alias("component-jquery/index.js", "component-overlay/deps/jquery/index.js");
 
 require.alias("prettify/index.js", "boot/deps/prettify/index.js");
-
-require.alias("cart/index.js", "devops/deps/Cart/index.js");
-require.alias("component-jquery/index.js", "cart/deps/jquery/index.js");
 
