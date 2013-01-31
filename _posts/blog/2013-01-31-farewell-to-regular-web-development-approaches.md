@@ -15,7 +15,7 @@ It's not that we fundamentally disliked the previous approach. We just reached a
 
 We've gradually adopted a pattern of building front-ends as static clients (may they be Web, mobile or 3rd party integrations) combined with, usually, one RESTful JSON API in the backend. And it works marvelously, thanks in part to some awesome tech much smarter people figured out for us:
 
-- [Marionette](http://marionettejs.org) and [Backbone.js](http://backbonejs.org), [Component](http://github.com/component/component) (a personal favorite) and [Jekyll](http://github.com/mojombo/jekyll) allow us to build static HTML5 + JS + CSS clients for Web and mobile,
+- [Marionette](http://marionettejs.com) and [Backbone.js](http://backbonejs.org), [Component](http://github.com/component/component) (a personal favorite) and [Jekyll](http://github.com/mojombo/jekyll) allow us to build static HTML5 + JS + CSS clients for Web and mobile,
 - [node.js](http://nodejs.org) and [carcass](http://github.com/devo-ps/carcass) (alpha quality at this stage) in the backend for our APIs.
 
 Most of what we build at devo.ps is stemming from this accelerated recovery and follow usually that order:
