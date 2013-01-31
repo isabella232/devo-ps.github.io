@@ -430,3 +430,53 @@ input:focus {
 #copyright {
   color: lighten(@body, 15%);
 }
+
+@media only screen and (max-width: 800px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+  
+  #header,
+  #content,
+  #footer {
+    .content {
+      padding: 0 20px;
+    }
+  }
+  
+  /* Blog, pages... */
+  .static,
+  .post {
+    .main {
+      width: auto;
+    }
+
+    .meta {
+      float: none;
+    }
+
+    .meta img {
+      width: 30px;
+    }
+    
+    img {
+      max-width: 60%;
+    }
+  }
+}

@@ -978,6 +978,45 @@ input:focus {
 #copyright {
   color: #42374a;
 }
+@media only screen and (max-width: 800px) {
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+  #header .content,
+  #content .content,
+  #footer .content {
+    padding: 0 20px;
+  }
+  /* Blog, pages... */
+  .static .main,
+  .post .main {
+    width: auto;
+  }
+  .static .meta,
+  .post .meta {
+    float: none;
+  }
+  .static .meta img,
+  .post .meta img {
+    width: 30px;
+  }
+  .static img,
+  .post img {
+    max-width: 60%;
+  }
+}
 
 /* Pretty printing styles. Used with prettify.js. */
 /* SPAN elements with the classes below are added by prettyprint. */
