@@ -499,10 +499,19 @@ input:focus {
   .static .meta,
   .post .meta {
     float: none;
+    font-size: 12px;
+    text-align: right;
+    width: auto;
+  }
+  .static .vcard,
+  .post .vcard,
+  .static .fn,
+  .post .fn {
+    float: left;
   }
   .static .meta img,
   .post .meta img {
-    width: 30px;
+    display: none;
   }
   .static img,
   .post img {
