@@ -3,6 +3,7 @@ published: true
 category: blog
 title: 'Farewell to Regular Web Development Approaches'
 author: ronan
+hn: 5144188
 
 layout: post
 ---
