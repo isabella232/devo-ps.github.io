@@ -3,7 +3,7 @@ published: true
 category: blog
 title: 101 On DevOps And How We Plan On Helping
 author: vincent
-hn: 
+hn: 5181253
 
 layout: post
 --- 
