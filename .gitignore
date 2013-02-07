@@ -3,5 +3,6 @@
 !.gitmodules
 *~
 
+server/node_modules/
 components/
 _site/

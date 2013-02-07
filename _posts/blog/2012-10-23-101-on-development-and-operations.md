@@ -1,27 +1,21 @@
 ---
-published: false
-
+published: true
 category: blog
-title: '101 on Development and Operations'
+title: 101 On DevOps And How We Plan On Helping
 author: vincent
+hn: 
 
 layout: post
----
+--- 
 
-Here is what usually happens: the development team wants to push new features as fast as possible in production, while operations wants to ensure that the platform is stable and stay that way. Both teams are evaluated on criteria that are often directly conflicting; the stronger team gets to win one argument... Until the next crisis. And we're not eveng talking about other teams; they too have different objectives that will eventually go against those of one another.
+Here's what usually happens: on one side the development team wants to push new features as fast as possible to production, while on the other side, operations are trying to keep things stable. Both teams are evaluated on criteria that are often directly conflicting. The stronger team win one argument... Until the next crisis. And we're not even talking about other teams, they too have conflicting agendas to throw in the mix.
 
-There is no silver bullet to get everybody to play along nicely. That being said, getting Dev and Ops on the path to cooperation is not impossible. DevOps and best practices can be leveraged to get there: there's a better way to communicate between these two teams than yelling "The site is dooooowwwwwn!".
+There's no silver bullet for getting evryone to play nicely. That being said, having Dev and Ops on the path of cooperation is not impossible. [DevOps](http://en.wikipedia.org/wiki/Devops) is exactly this; fostering a culture of best practices and collaboration between these teams.
 
-### What's DevOps exactly?
+In a very similar fashion to what happened with the agile movement, a lot of tools and approaches emerged that can help: methodologies (SCRUMs, kanban...), tools for configuration management (Chef, Puppet), orchestration, automation, logging... But at the core lies the need for nurturing a specific culture.
 
-For the complete, uncensored version of what DevOps is, I will refer you to the almighty [Wikipedia page](http://en.wikipedia.org/wiki/Devops). In a nutshell: agile methodology applied to operations.
+Operations teams have been slower to adopt these methodologies compared to development teams. The average system administrator spend more time working in FIFO, putting up fires, rather than making long term investments in automation or setting up best practices. Moreover, operations teams are usually faced with a logic of budget cuts and cost "optimizations", compared to the larger R&D budget development teams seem to enjoy.
 
-If this includes leveraging the same type of "tricks" as development use (SCRUMs, kanban, regular communication...), at the core lies the need for faster release cycles and a large use of best practice and modern technical approaches; IaaS, automation, configuration management (Chef, Puppets), orchestration...
+Even when conditions (and resources) are favorable to the growth of a proper culture, recruiting the right profiles can prove very challenging. We're here talking about people with a wide range of skills, on-hands experience and strong collaboration and organizational skills. All of this take time. Best practices are forged through years of experience.
 
-### Why is it so hard then?
-
-While agile methodologies have long been popularized among development teams, it hasn't been so among operations teams. System administrators, for example. often end up working in a fairly stretched FIFO way, running from one fire to another instead of making long term investment in automating their infrastructure. Operations teams tend to have less resources than development teams; less R&D, more cost-cutting.
-
-Even when resources are available to these teams, it is difficult to recruit professionals with the proper experience and expertise who are able to build sustainable infrastructures. These profiles are simple rare because they require to be skilled in a wide range of skills and usually demand a fairly decent (understand long) experience on the job; best practices take time to shape.
-
-And that's why we're building [devo.ps](http://devo.ps); helping lower the barriers to entry and helping scale DevOps professionals in their role. We're a motivated team of developers and sys-admins who have worked on small to very large online infrastructures and try to make things easier and more manageable for technical teams.
+That is why we're building [devo.ps](http://devo.ps). We're trying to lower the barriers of entry to this field and help professionals scale themselves in their role. We're a motivated team of engineers who have worked on both sides of the fence, with small to very large code bases and infrastructures. We hope to untangle the mess that often is infrastructure and application management, letting technical teams focus on the higher value tasks of the job.

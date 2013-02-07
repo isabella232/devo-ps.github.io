@@ -8,23 +8,23 @@ author: vincent
 layout: post
 ---
 
-Apache:
+INTRO: little story that provides context
 
-- pros:
-    - this
-    - that
-- cons:
-    - this 
-    - that
-    
-Nginx:
+PROBLEM: need to drop ou statemet
 
-- pros:
-    - this
-    - that
-- cons:
-    - this 
-    - that
+Apache: awful default settings, serious limitations w/ mem CPU etc due to thread management
+NGINX: Russian, organized around multithreading
+
+- Goes along our approach to dev (Node.js, Backbone.js...)
+- Better out of the box performances
+- Back it up w/ examples of CNNGo or Axel Springer
+
+
+DETAIL
+
+DETAIl
+
+CONCLUSION
 
 Common reason for using Apache, common fear from switching over to Nginx.
 Rarely anyone want to switch over from Nginx back to Apache.

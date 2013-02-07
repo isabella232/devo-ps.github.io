@@ -2,7 +2,7 @@
 published: false
 
 category: blog
-title: 'Always best practices!'
+title: 'Your Best Practices Are Worthless i-'
 author: vincent
 
 layout: post
