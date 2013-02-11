@@ -3,6 +3,7 @@ published: true
 category: blog
 title: "Best Practices: It's Always Or Never ( And Preferably Always)"
 author: vincent
+hn: 5200847
 
 layout: post
 ---
