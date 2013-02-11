@@ -1,35 +1,37 @@
 ---
-published: false
+published: true
 
 category: blog
-title: 'Your Best Practices Are Worthless i-'
+title: 'Best Practices: It's Always Or Never ( And Preferably Always)'
 author: vincent
 
 layout: post
 ---
 
-Always means always. Many developers, sys-admins, you-name-it like to brag about how best practices are important in one's work; and how they are able to apply them to their work, most of the time... 
+So there you are: the development team needs a box and you're already contemplating the gazillion other urgent tasks that need to be done on the existing infrastructure. *Just that one time*<sup>TM</sup>, you're going to skip your own rules. You're just gonna spawn an instance, set up the few services needed and be done with it. You'll drop some of the usual time suckers: backup strategy, access rules, init scripts, documentation... You can't just do the whole of it AND handle the rest of your day-to-day responsibilities. After all, it's just a development server and you'll probably fold it in a couple weeks, or you'll clean it up once your plate is a tad less full.
 
-Remember that time where you were asked to quickly spawn that box, quick and dirty, setup some random service and get access to your dev team? Yes, that one time... That one time where you didn't want to bother setting up 1) init script, 2) backup, 3) proper access, 4) adding the SSH to your github and simply copy paste some script, 5) document your work? Choose whichever case you fall into. And after a couple of weeks, the quick and dirty box become a critical component to your team's infrastructure. And it dies/restart/crash! And you don't remember what was on it, you don't remember how you built it, which wiki page you found on the internet from where you did your copy/paste, you can't restore the backup, you don't get why the app doesn't work because mongo / couch / ES didn't start at boot, etc.
+A few weeks later, the box is still there and your backlog is far from looking less crowded. The development team just rolled out their production application on the same box. **And things start crashing... badly.**
 
-# Best practices is not optional
+After a couple of not so courteous emails from the dev team mentioning repetitive crashes, you log in the box and the fun starts. You can't figure out what services have been deployed, or how exactly they were installed. You can't restore the database because you can't find the backups. You waste time to find out that CouchDB wasn't started at boot. All of this while receiving emails of "encouragement" from your colleagues.
 
-Best practices may be painful, it takes time to be apply them systematically. Worst even, you may know how to apply them and do it most of the time, but this is that 'most of the time' that will fail you that specific day.
+Just because of that "one time". Except that it's never "just" that one time. 
 
-There is no time where best practices should not be applied. Such guideline need to be done right at the beginning and all along the life of the project;
+## Best practices are not freaking optional
 
-- Documentation; 
-  - in your code! You know already you won't come back review your code later when you reach the 10k lines in 20 files...
-  - when you write your code! Nothing is worse than relying on an API doc that is outdated...
-  - when performing the setup! If you don't, you know you'll miss that one tiny single step and you'll bang your head against the wall later
-- Backup;
-  - Off-site; don't end up storing your backup on the same physical box, disk fails, S3 / Glacier are really good at storing data
-  - DB + code; simple backup but backup!
-- Setup;
-  - reliable providers; don't pickup that random AWS AMI from XYZ, or that RPM from Bob's awesome repo
-  - end-to-end; full setup! including init script, dedicated running user, env. variables, etc. Please don't start from rc.local your java from your home folder
-  - automation; be consistent with you setup, deployment, automate as much as you can
+I hear you: coming up with these best practices and sticking to it **systematically** is hard. It's high investment. But based on our common experience, it's one you can't afford not making. The "quick and dirty that one time" approach will ultimately fail you.
 
-# Automate Best practice
+A few things you should never consider skipping:
 
-Many of the best practices can be automated and become much less of a burden. Rely on a team of experts to build and maintain the best practices; devo.ps help you with that. Get your practices easy to manage, painless to apply and simple to understand.
+- **Document the hell out of everything as you go**. You probably won't have time to get it done once you shipped it, and you probably won't remember what you did or why you did it in a few weeks from now. Your colleagues will probably be even more clueless.
+
+- **Off-site backups for everything**. Don't even think of keeping your backups on the same physical box. Disks fail (a lot) and storage like S3/Glacier is dirt cheap. Find out a way to backup your code and data and stick to it.
+
+- **Full setup and reliable sources**. Avoid random AWS AMIs or RPM repositories. And when settings things up, go through the whole shebang: init script, dedicated running user, environment variables and such are not optional. <small>Some of us also think that you shouldn't use rc.local for your Web services ever again.</small>
+
+## Infrastructure As Code And Automation
+
+Obviously, given what we're working on at [devo.ps](http://devo.ps), we're pretty strong adopters of infrastructure as code and automation. What tools to use is a much larger discussion. Go have a look at the comments on [the announcement of the new version of Chef](http://news.ycombinator.com/item?id=5197389) to get an idea of people's opinion.
+
+Ultimately these are just opinions, but behind them are concepts worth investing in. Capturing the work you do on your infrastructure in repeatable and testable code, and automating as much as you can is helping to remove yourself from the equation. Doing so is helping you to reduce the human factor and free yourself of the repetitive boilerplate while you focus on the challenging tasks that only a creative brain can tackle.
+
+Not building upon best practices is simply not an option. By doing so, you fail at investing in the foundation for a more robust infrastructure, and more importantly it is depriving you from scaling yourself.
