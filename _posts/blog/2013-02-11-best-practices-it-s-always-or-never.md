@@ -36,3 +36,5 @@ Obviously, given what we're working on at [devo.ps](http://devo.ps), we're prett
 Ultimately these are just opinions, but behind them are concepts worth investing in. Capturing the work you do on your infrastructure in repeatable and testable code, and automating as much as you can helps removing yourself from the equation. Doing so is helping you to reduce the human factor and free yourself of the repetitive boilerplate while you focus on the challenging tasks that only a creative brain can tackle.
 
 Not building upon best practices is simply not an option. By doing so, you fail at investing in the foundation for a more robust infrastructure, and more importantly it is depriving you from scaling yourself.
+
+*[<small>Picture from comedy_nose</small>](http://www.flickr.com/photos/comedynose/4103140420/)*
