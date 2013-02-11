@@ -2,7 +2,7 @@
 published: false
 
 category: blog
-title: 'Your Best Practices Are Worthless i-'
+title: 'Best Practices: It's Always Or Never ( And Preferably Always)'
 author: vincent
 
 layout: post
@@ -10,26 +10,31 @@ layout: post
 
 Always means always. Many developers, sys-admins, you-name-it like to brag about how best practices are important in one's work; and how they are able to apply them to their work, most of the time... 
 
-Remember that time where you were asked to quickly spawn that box, quick and dirty, setup some random service and get access to your dev team? Yes, that one time... That one time where you didn't want to bother setting up 1) init script, 2) backup, 3) proper access, 4) adding the SSH to your github and simply copy paste some script, 5) document your work? Choose whichever case you fall into. And after a couple of weeks, the quick and dirty box become a critical component to your team's infrastructure. And it dies/restart/crash! And you don't remember what was on it, you don't remember how you built it, which wiki page you found on the internet from where you did your copy/paste, you can't restore the backup, you don't get why the app doesn't work because mongo / couch / ES didn't start at boot, etc.
+So here you are: the development team needs a box and you're already contemplating the gazillion other urgent tasks that need to be done on the existing infrastructure. *Just that one time*<sup>TM</sup>, you're going to skip your self imposed rules. You're just gonna spawn an instance, set up the few services needed and be done with it. You'll drop some of the usual time suckers: backup strategy, access rules, init scripts, documentation... One will have to give because you can't just do the whole of it AND handle the rest of your day-to-day responsibilities. After all, it's just a development server and you'll probably fold it in a couple weeks, or you'll clean it up once your plate is a tad less full.
 
-# Best practices is not optional
+A few weeks in, the box is still there and your plate is far from being less full. The development team just rolled out their application on the same box. **Things start crashing... badly.**
 
-Best practices may be painful, it takes time to be apply them systematically. Worst even, you may know how to apply them and do it most of the time, but this is that 'most of the time' that will fail you that specific day.
+After receiving a couple not-so-courteous emails from the dev team about repetitive crashes, you log in the box and that's when the fun starts. You can't figure out what services you deployed, or how exactly you installed them. You can't figure out where the backups are to restore the app. You waste time to realize CouchDB wasn't started at boot. And all the way through you receive emails of "encouragement" from your colleagues.
 
-There is no time where best practices should not be applied. Such guideline need to be done right at the beginning and all along the life of the project;
+All of that because of that "one time"
 
-- Documentation; 
-  - in your code! You know already you won't come back review your code later when you reach the 10k lines in 20 files...
-  - when you write your code! Nothing is worse than relying on an API doc that is outdated...
-  - when performing the setup! If you don't, you know you'll miss that one tiny single step and you'll bang your head against the wall later
-- Backup;
-  - Off-site; don't end up storing your backup on the same physical box, disk fails, S3 / Glacier are really good at storing data
-  - DB + code; simple backup but backup!
+## Best practices are not freaking optional
+
+I hear you: coming up with best practices and sticking to it **systematically** is hard work. Actually it's high investment. But based on our common experience, it's a worthwhile one. The "quick and dirty that one time" approach will ultimately fail you.
+
+A few tips on what to do, and what to avoid:
+
+- **Document the hell out of everything**, which includes:
+    - **In your code**: you already know you won't come back to review your code later when you reach the 10k lines in 20 files.
+    - **As you go**: don't wait until after you wrote the whole thing to get started on documentation, that won't happen. Something is shipped once it's deployed in production AND documented.
+    - When performing the setup! If you don't, you know you'll miss that one tiny single step and you'll bang your head against the wall later
+- **Back everything up**;
+    - Off-site; don't end up storing your backup on the same physical box, disk fails, S3 / Glacier are really good at storing data
+    - DB + code; simple backup but backup!
 - Setup;
-  - reliable providers; don't pickup that random AWS AMI from XYZ, or that RPM from Bob's awesome repo
+  - Reliable providers; don't pickup that random AWS AMI from XYZ, or that RPM from Bob's awesome repo
   - end-to-end; full setup! including init script, dedicated running user, env. variables, etc. Please don't start from rc.local your java from your home folder
-  - automation; be consistent with you setup, deployment, automate as much as you can
 
-# Automate Best practice
-
+## Automation is key
+  - Automation; be consistent with you setup, deployment, automate as much as you can
 Many of the best practices can be automated and become much less of a burden. Rely on a team of experts to build and maintain the best practices; devo.ps help you with that. Get your practices easy to manage, painless to apply and simple to understand.
