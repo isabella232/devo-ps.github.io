@@ -3,6 +3,7 @@ published: true
 category: blog
 title: "Best Practices: It's Always Or Never ( And Preferably Always)"
 author: vincent
+hn: 5200847
 
 layout: post
 ---
@@ -17,7 +18,7 @@ After a couple of not so courteous emails from the dev team mentioning repetitiv
 
 Just because of that "one time". Except that it's never just that one time. 
 
-## Best practices are not freaking optional
+### Best practices are not freaking optional
 
 I hear you: coming up with these best practices and sticking to it **systematically** is hard. It's high investment. But based on our common experience, it's one you can't afford not making. The "quick and dirty that one time" approach will ultimately fail you.
 
@@ -29,7 +30,7 @@ A few things you should never consider skipping:
 
 - **Full setup and reliable sources**. Avoid random AWS AMIs or RPM repositories. And when settings things up, go through the whole shebang: init script, dedicated running user, environment variables and such are not optional. <small>Some of us also think that you shouldn't use rc.local for your Web services ever again.</small>
 
-## Infrastructure As Code And Automation
+### Infrastructure As Code And Automation
 
 Obviously, given what we're working on at [devo.ps](http://devo.ps), we're pretty strong adopters of infrastructure as code and automation. What tools to use is a much larger discussion. Go have a look at the comments on [the announcement of the new version of Chef](http://news.ycombinator.com/item?id=5197389) to get an idea of what's out there.
 
