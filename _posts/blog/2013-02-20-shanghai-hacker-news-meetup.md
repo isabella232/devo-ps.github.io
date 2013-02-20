@@ -3,6 +3,7 @@ published: true
 category: blog
 title: Shanghai Hacker News Meetup
 author: ronan
+hn: 5250249
 
 layout: post
 ---
