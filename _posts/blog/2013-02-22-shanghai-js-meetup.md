@@ -3,6 +3,7 @@ published: true
 category: blog
 title: Shanghai JS Meetup
 author: makara
+hn: 5263993
 
 layout: post
 ---
