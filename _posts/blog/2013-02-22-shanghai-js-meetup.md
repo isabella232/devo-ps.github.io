@@ -7,6 +7,8 @@ author: makara
 layout: post
 ---
 
+![Shanghai JS](http://farm9.staticflickr.com/8112/8497478078_2e54043f29.jpg)
+
 We'll be hosting the Shanghai Javascript meetup tomorrow at [Wiredcraft's office](http://goo.gl/maps/lNb1Q) starting 1:30 PM. More information can be found on the [Shanghai Open Source website](http://shanghaios.org).
 
 It will be more of an informal one to help us gather feedback from the community and plan for the March edition that will take place in a much larger venue in People Square. Don't miss it if you want to get involved. The format of the event will be the same as next month;
