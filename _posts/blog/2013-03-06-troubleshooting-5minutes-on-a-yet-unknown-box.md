@@ -151,6 +151,16 @@ less /var/log/auth
 - Do you see any hardware error, or filesystem error?
 - Can you correlate the time from those events with the information provided beforehand?
 
+## Cronjobs
+```
+ls /etc/cron* + cat
+for user in $(cat /etc/passwd | cut -f1 -d:); do crontab -l -u $user; done
+```
+
+- Is there any cron job that is running too often?
+- Is there some users' cron that are "hidden" from the common eyes?
+- Is there a backup of some sort running at the time of the known issue?
+
 ## Application logs
 There is a wide list of logs that can be analyzed there, but it's unlikely you can do all of it within the first 5 minutes!
 
