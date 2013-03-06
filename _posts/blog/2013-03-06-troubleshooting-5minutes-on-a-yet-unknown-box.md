@@ -38,21 +38,24 @@ Non exhaustive list;
 Now while all of this is useful and may even already give you "the" answer (especially the monitoring/logging part), let's get back to business and jump on the box.
 
 ## Who is there
-```w
+```
+w
 last
 ```
 
 Figure out who's in already. Not that it is highly important, but you don't want to end up troubleshooting on a platform that is under maintenance, or which behavior has been impaired by someone else work.
 
 ## What is running
-```pstree -a
+```
+pstree -a
 ps aux
 ```
 
 Always good to know, while ```ps aux``` tend to be very verbose, ```pstree -a``` gives you a nice condensed view of what is running and who called what.
 
 ## Listening services
-```netstat -ntlp
+```
+netstat -ntlp
 netstat -nulp
 netstat -nxlp
 ```
@@ -64,7 +67,8 @@ Identify there the running services, whether they are expected to be running or 
 Preferring to deal with properly structured platform where services are separated I tend to make a note when I see 3 dozens of listening ports on a single box.
 
 ## CPU and RAM
-```free -m
+```
+free -m
 uptime
 top / htop
 ```
@@ -77,7 +81,8 @@ A couple of things to figure out there;
 - What is the load on the box?
 
 ## Hardware
-```lspci
+```
+lspci
 dmidecode
 ethtool
 ```
@@ -88,7 +93,8 @@ While many now get their platform on the cloud, there is still a huge amount of 
 - Is you NIC properly set? Are you running in half-duplex? in 10MBps? any TX/RX errors?
 
 ## IO Performances
-```iostat -kx 2
+```
+iostat -kx 2
 vmstat 2 10
 mpstat 2 10
 dstat --top-io --top-bio
@@ -102,7 +108,8 @@ Very useful tools to analyze the overall performance of your backend;
 - (my all-time-favorite dstat) What is using the IO? is MySQL sucking the resources? or is it your PHP processes?
 
 ## Mount points and filesystem
-```mount
+```
+mount
 cat /etc/fstab
 vgs / pvs / lvs
 df -h
@@ -117,7 +124,8 @@ lsof +D / (beware not to kill your box)
 - Do you have room to extend a partition if disk space is an issue?
 
 ## Kernel, interrupts and network usage
-```sysctl -a | grep ...
+```
+sysctl -a | grep ...
 cat /proc/interrupts
 cat /proc/net/ip_conntrack (may take some time on busy servers)
 netstat
@@ -131,7 +139,8 @@ ss -s
 - ```netstat``` can be a bit slow to display all the existing connections, you may want to use ```ss``` instead to get a broad summary
 
 ## System logs and kernel messages
-```dmesg
+```
+dmesg
 less /var/log/messages
 less /var/log/secure / auth
 ```
