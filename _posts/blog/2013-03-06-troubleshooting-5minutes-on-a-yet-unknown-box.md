@@ -13,6 +13,7 @@ layout: post
 At devo.ps and in our previous ventures, we have often been asked by customers to perform performance review, troubleshooting of slow websites, and basically come back with a quick set of ideas to what may (or may not) be the root cause of the described behavior.
 
 We work with many different customers and we rarely end-up with clones. While the technologies in their stack is rather common (nginx, php, mysql, mongo, you name it), there is always a first few steps of analyze to identify;
+
 1. the exact running stack
 1. the possible bottlenecks
 1. the ...
@@ -43,7 +44,7 @@ w
 last
 ```
 
-Figure out who's in already. Not that it is highly important, but you don't want to end up troubleshooting on a platform that is under maintenance, or which behavior has been impaired by someone else work.
+Figure out who's in already. Not that it is critical, but you don't want to end up troubleshooting a platform that is under maintenance, or which behavior has been impaired by someone else work.
 
 ## What is running
 ```
@@ -117,8 +118,8 @@ lsof +D / (beware not to kill your box)
 ```
 
 - How many filesystem are being mounted?
-- Is there dedicated filesystem for some services? (not to name mysql?)
-- What are the filesystem mount options? (noatime? default?) have some FS be remounted RO?
+- Is there dedicated filesystem for some services? (not to name - mysql?)
+- What are the filesystem mount options? (noatime? default?) have some FS be re-mounted read-only?
 - Do you have any disk space left?
 - Is there any big (deleted) files that have not been flushed out?
 - Do you have room to extend a partition if disk space is an issue?
@@ -142,7 +143,8 @@ ss -s
 ```
 dmesg
 less /var/log/messages
-less /var/log/secure / auth
+less /var/log/secure
+less /var/log/auth
 ```
 
 - Look for any error or warning messages; is it spitting issues about number of connections in your conntrack being too high?
@@ -154,11 +156,11 @@ There is a wide list of logs that can be analyzed there, but it's unlikely you c
 
 Just to name a few;
 
-- Apache / Nginx; chase down access and error logs, look for 5xx errors, look for possible limit_zone errors,
-- MySQL; look for error in the mysql.log; trace of corrupted tables; innodb repair process in progress; chase down slow logs and define if there is disk / index / query issues
-- PHP-FPM; if you have the php-slow logs it's a good time to dig inside and identify possible errors (php, mysql, memcache, etc.)
-- Varnish; in varnishlog and varnishstat - check your hit/miss ratio, are you missing some rules in your config that let end-users hit your backend instead?
-- HA-Proxy; what are your backend status, are your health-check successful? Do you hit your max queue size on the frontend or your backends?
+- __Apache__ / __Nginx__; chase down access and error logs, look for 5xx errors, look for possible limit_zone errors,
+- __MySQL__; look for error in the mysql.log; trace of corrupted tables; innodb repair process in progress; chase down slow logs and define if there is disk / index / query issues
+- __PHP-FPM__; if you have the php-slow logs it's a good time to dig inside and identify possible errors (php, mysql, memcache, etc.)
+- __Varnish__; in varnishlog and varnishstat - check your hit/miss ratio, are you missing some rules in your config that let end-users hit your backend instead?
+- __HA-Proxy__; what are your backend status, are your health-check successful? Do you hit your max queue size on the frontend or your backends?
 
 ## Conclusion 
 
