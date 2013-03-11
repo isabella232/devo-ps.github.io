@@ -4,7 +4,7 @@ pygments: true
 safe: false
 
 name: devo.ps
-# url: http://devo.ps
+url: http://devo.ps
 author: devo.ps
 email: info@devo.ps
 ga: 'UA-34006371-1'
