@@ -1,31 +1,30 @@
 ---
-layout: plain
+layout: static
 ---
 
-<header class='back'><a href='/blog.html'>‹ Read other posts from the blog</a><header>
+<header class='back'><a href='/blog.html'>‹ Read other posts from the blog</a></header>
 
 <article class='post'>
   <aside class='meta'>
     {% for member in site.categories.team %}
     {% if member.user == page.author %}
-    <div class='vcard'>
+    <span class='vcard'>
       <img class='photo' alt='Picture of {{ member.title }}' src='/images/team/{{ member.user }}.png'/> 
-      <div class='fn'>{{ member.title }}</div>
-    </div>
+      <span class='fn'>{{ member.title }}</span>
+    </span>
     {% endif %}
     {% endfor %}
-    <time datetime='{{ page.date | xmlschema }}'>{{ page.date | date: '%B %d, %Y' }}</time>
+    <span class='time'>on <time datetime='{{ page.date | xmlschema }}'>{{ page.date | date: '%B %d, %Y' }}</time></span>
   </aside>
   
-  <section class='main'>
-    <h2>{{ page.title }}</h2>
-    <section>
-      {{ content }}
-    </section>
-    
-    <ul class='sticky'>
-      <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url={{ site.url }}{{ page.url }}' target='_blank'>Let us know on Twitter</a>.</li>
-      {% if page.hn %}<li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id={{ page.hn }}' target='_blank'>Hacker News</a>.</li>{% endif %}
-    </ul>
+  <h2>{{ page.title }}</h2>
+  
+  <section>
+    {{ content }}
   </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url={{ site.url }}{{ page.url }}' target='_blank'>Let us know on Twitter</a>.</li>
+    {% if page.hn %}<li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id={{ page.hn }}' target='_blank'>Hacker News</a>.</li>{% endif %}
+  </ul>
 </article>

@@ -8,20 +8,13 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
   <link href='{{ site.url }}/assets.css?v=1' rel='stylesheet' type='text/css'/>
 </head>
-{% case page.url %}
-{% when '/blog.html' or '/blog' %}
-{% assign class = 'blog' %}
-<body class='blog'>
-{% when '/index.html' or '/' %}
-<body class='front'>
-{% else %}
 <body>
-{% endcase %}
   <header id='header'>
     <div class='content'>
       <a href='{{ site.url }}/' id='home'><img src='{{ site.url }}/images/logo.png' alt='{{ site.name }}'/></a>
       <nav>
         <ul>
+          <li><a href='{{ site.url }}/blog.html'>Blog</a></li>
           <li><a href='http://app.devo.ps'>login</a></li>
         </ul>
       </nav>
@@ -32,8 +25,9 @@
   </section>
   <footer id='footer'>
     <div class='content'>
+      <div class='newsletter'>{% include subscribe.html %}</div>
       {% include nav.html %}
-      <div id='copyright'>Copyright © {{ site.name }}. All rights reserved.</div>
+      <div class='copyright'>Copyright © {{ site.name }}. All rights reserved.</div>
     </section>
   </footer>
   

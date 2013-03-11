@@ -10202,7 +10202,8 @@ PR_NOCODE:"nocode",PR_PLAIN:"pln",PR_PUNCTUATION:"pun",PR_SOURCE:"src",PR_STRING
 require.register("boot/index.js", function(exports, require, module){
 // Dependencies
 var $ = require('jquery'),
-    dialog = require('dialog');
+    dialog = require('dialog'),
+    Sticky = require('sticky');
 
 /**
  * Replace youtube links with an embed
@@ -10249,7 +10250,7 @@ $('a.dialog').click(function () {
  * Syntax highlighting
  */
 $('code').addClass('prettyprint');
-require('prettify')
+require('prettify');
 prettyPrint();
 });
 require.alias("boot/index.js", "devops/deps/boot/index.js");
