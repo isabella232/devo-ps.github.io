@@ -517,6 +517,19 @@ input:focus {
   #footer .content {
     padding: 0 20px;
   }
+  /* CONTENT */
+  #content .sidebar {
+    float: none;
+    margin-bottom: 20px;
+    width: auto;
+  }
+  #content .main {
+    width: auto;
+  }
+  #content img {
+    display: block;
+    max-width: 90%;
+  }
   /* Hero */
   #hero {
     padding-bottom: 20px;
@@ -546,30 +559,15 @@ input:focus {
   #register .content {
     border: 0;
   }
-  /* Blog, pages... */
-  .static .main,
-  .post .main {
-    width: auto;
-  }
-  .static .meta,
-  .post .meta {
+  #footer .newsletter {
     float: none;
-    font-size: 12px;
-    text-align: right;
-    width: auto;
+    margin-bottom: 20px;
+    text-align: center;
   }
-  .static .vcard,
-  .post .vcard,
-  .static .fn,
-  .post .fn {
-    float: left;
+  #footer .newsletter .field {
+    display: block;
   }
-  .static .meta img,
-  .post .meta img {
-    display: none;
-  }
-  .static img,
-  .post img {
-    max-width: 60%;
+  #footer .newsletter .field .button {
+    margin-left: 0;
   }
 }

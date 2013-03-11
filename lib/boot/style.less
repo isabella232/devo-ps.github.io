@@ -474,6 +474,22 @@ input:focus {
       padding: 0 20px;
     }
   }
+
+  /* CONTENT */
+  #content {
+    .sidebar {
+      float: none;
+      margin-bottom: 20px;
+      width: auto;
+    }
+    .main {
+      width: auto;
+    }
+    img {
+      display: block;
+      max-width: 90%;
+    }
+  }
   
   /* Hero */
   #hero {
@@ -509,32 +525,18 @@ input:focus {
   #register .content {
     border: 0;
   }
-  
-  /* Blog, pages... */
-  .static,
-  .post {
-    .main {
-      width: auto;
-    }
 
-    .meta {
+  #footer {
+    .newsletter {
       float: none;
-      font-size: 12px;
-      text-align: right;
-      width: auto;
-    }
-    
-    .vcard,
-    .fn {
-      float: left;
-    }
-
-    .meta img {
-      display: none;
-    }
-    
-    img {
-      max-width: 60%;
+      margin-bottom: 20px;
+      text-align: center;
+      .field {
+        display: block;
+        .button {
+          margin-left: 0;
+        }
+      }
     }
   }
 }
