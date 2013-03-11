@@ -8,84 +8,95 @@ hn:
 layout: post
 ---
 
-# 5 minutes to discovery
+At [our previous company](http://wiredcraft.com), our team often dealt with clients who needed us to troubleshoot poorly performing applications and infrastructures of various sizes. Tight deadlines, "exotic" technical stacks and lack of information usually make for a fun time. Some of us grew a tough skin; let me share what we usually went through (while receiving a constant stream of emails or, lucky us, phone calls).
 
-At devo.ps and in our previous ventures, we have often been asked by customers to perform performance review, troubleshooting of slow websites, and basically come back with a quick set of ideas to what may (or may not) be the root cause of the described behavior.
+## Get the context right
 
-We work with many different customers and we rarely end-up with clones. While the technologies in their stack is rather common (nginx, php, mysql, mongo, you name it), there is always a first few steps of analyze to identify;
+Don't rush on the servers just yet; you need to assess what info you can get and how much is known about the specifics of the issue. Failing to do so often result in time wasted exploring useless theories.
 
-1. the exact running stack
-1. the possible bottlenecks
-1. the ...
+A few must have:
 
-Let me walk you through the first 5 minutes of the discovery phase.
+- What exactly are the symptoms of the issue? Unresponsiveness:? Errors?
+- When did the problem started being noticed?
+- Is it reproducible?
+- Any pattern (e.g. happens every hour)?
+- What were the latest changes on the platform (code, servers, stack)?
+- Is it specific to specific user segments (logged in, logged out, geographically limited...)?
+- Is there any documentation of the architecture (physical and logical)?
+- Is there a monitoring platform?
+- Centralized logs?
 
-## Info gathering from the owner
-Before rushing on the server(s) it is always good to get proper information about what we are to analyze. Without this phase we often may end up shooting in the dark and my eventually come with suggestions to problems that weren't  noticed ... yet.
+These last two ones are usually pretty informative, but, despite being best practices, we've seen 
 
-Non exhaustive list;
+## Who's there?
 
-- what is the type of the issue, slowness? errors? non-responsive?
-- since when?
-- reproducible?
-- time sensitive? at 8am everyday?
-- latest changes on the platform (code, servers, stack)
-- affecting everyone? or subset of users? anonymous? logged users? geographically limited?
-- architecture diagram, physical and logical
-- monitoring platform, if any,
-- centralized log,
-- etc.
-
-Now while all of this is useful and may even already give you "the" answer (especially the monitoring/logging part), let's get back to business and jump on the box.
-
-## Who is there
 ```
-w
-last
+> w
+```
+```
+> last
 ```
 
-Figure out who's in already. Not that it is critical, but you don't want to end up troubleshooting a platform that is under maintenance, or which behavior has been impaired by someone else work.
+Not necessarily critical, but you'd rather not be troubleshooting a platform that others are playing with. One cook in the kitchen is enough.
 
-## What is running
+## What is running?
+
 ```
-pstree -a
-ps aux
+> pstree -a
+```
+```
+> ps aux
 ```
 
 Always good to know, while ```ps aux``` tend to be very verbose, ```pstree -a``` gives you a nice condensed view of what is running and who called what.
 
 ## Listening services
+
 ```
-netstat -ntlp
-netstat -nulp
-netstat -nxlp
+> netstat -ntlp
+```
+```
+> netstat -nulp
+```
+```
+> netstat -nxlp
 ```
 
-I tend to prefer running them separately just because I don't like the services to be all mixed together, but this is just my pov. You can always go for a faster ```netstat -nalp```. You may want to omit the ```numeric``` option but IPs are more talkative to me.
+I tend to prefer running them separately just because I don't like the services to be all mixed together, but this is just my point of view. You can always go for a faster ```netstat -nalp```. You may want to omit the ```numeric``` option but IPs are more talkative to me.
 
 Identify there the running services, whether they are expected to be running or not. Look for the various listening ports. You can always match the PID of the process with the output of ```ps aux```; it tend to be quite useful especially when you end up with 2 or 3 java or erlang processes.
 
 Preferring to deal with properly structured platform where services are separated I tend to make a note when I see 3 dozens of listening ports on a single box.
 
 ## CPU and RAM
+
 ```
-free -m
-uptime
-top / htop
+> free -m
+```
+```
+> uptime
+```
+```
+> top / htop
 ```
 
-A couple of things to figure out there;
+We're trying to answer a few questions here:
 
 - Any free RAM? Is it swapping? 
-- Is there still some CPU left? How many CPU cores are available on the server? Is 1 CPU core overloaded?
+- Is there still some CPU left? How many CPU cores are available on the server? Is one of the cores overloaded?
 - What is sucking the most on the box? RAM and CPU wise?
 - What is the load on the box?
 
 ## Hardware
+
 ```
-lspci
-dmidecode
-ethtool
+> lspci
+```
+```
+> dmidecode
+```
+```
+> ethtool
 ```
 
 While many now get their platform on the cloud, there is still a huge amount of servers running bare-metal; 
@@ -94,6 +105,7 @@ While many now get their platform on the cloud, there is still a huge amount of 
 - Is you NIC properly set? Are you running in half-duplex? in 10MBps? any TX/RX errors?
 
 ## IO Performances
+
 ```
 iostat -kx 2
 vmstat 2 10
@@ -184,5 +196,4 @@ You may even have found the exact root cause and remedy to your issue, if not, y
 
 ## Useful links
 
-- [Linux TCP tuning](http://www.lognormal.com/blog/2012/09/27/linux-tcpip-tuning/) - worth having a look at if the issue appear to be linked with the network stack
-- []()
+- [Linux TCP tuning](http://www.lognormal.com/blog/2012/09/27/linux-tcpip-tuning/): worth having a look at if the issue appear to be linked with the network stack
