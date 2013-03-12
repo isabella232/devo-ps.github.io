@@ -3,6 +3,7 @@ published: true
 category: blog
 title: First 5 Minutes Troubleshooting A Server
 author: vincent
+hn: 5361335
 
 layout: post
 ---
