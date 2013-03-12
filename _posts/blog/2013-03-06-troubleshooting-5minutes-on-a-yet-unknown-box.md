@@ -7,7 +7,7 @@ author: vincent
 layout: post
 ---
 
-Back when our team was dealinG with operations, optimization and scalability at [our previous company](http://wiredcraft.com), we had our fair share of troubleshooting poorly performing applications and infrastructures of various sizes, often large (think CNN or the World Bank). Tight deadlines, "exotic" technical stacks and lack of information usually made for memorable experiences.
+Back when our team was dealing with operations, optimization and scalability at [our previous company](http://wiredcraft.com), we had our fair share of troubleshooting poorly performing applications and infrastructures of various sizes, often large (think CNN or the World Bank). Tight deadlines, "exotic" technical stacks and lack of information usually made for memorable experiences.
 
 The cause of the issues rarely was obvious at first sight: here are a few things we usually got started with.
 
