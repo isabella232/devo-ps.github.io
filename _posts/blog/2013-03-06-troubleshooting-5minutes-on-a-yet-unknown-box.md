@@ -41,7 +41,7 @@ Not critical, but you'd rather not be troubleshooting a platform others are play
 
     $ history
 
-Always a good thing to look at; combined with the knowledge of who was on the box previously. Be responsible by all means, being admin shouldn't allow you to break ones privacy.
+Always a good thing to look at; combined with the knowledge of who was on the box earlier on. Be responsible by all means, being admin shouldn't allow you to break ones privacy.
 
 A quick mental note for later, you may want to update the environment variable ```HISTTIMEFORMAT``` to keep track of the time those commands were ran. Nothing is more frustrating than investigating an outdated list of commands...
 
