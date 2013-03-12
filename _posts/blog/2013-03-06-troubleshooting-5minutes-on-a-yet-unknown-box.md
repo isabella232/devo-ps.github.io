@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 category: blog
 title: First 5 Minutes Troubleshooting A Server
 author: vincent
@@ -7,11 +7,11 @@ author: vincent
 layout: post
 ---
 
-Back when our team was dealinG with operations, optimization and scalability at [our previous company](http://wiredcraft.com), we had our fair share of troubleshooting poorly performing applications and infrastructures of various sizes, often large (think CNN or the World Bank). Tight deadlines, "exotic" technical stacks and lack of information usually made for memorable experiences.
+Back when our team was dealing with operations, optimization and scalability at [our previous company](http://wiredcraft.com), we had our fair share of troubleshooting poorly performing applications and infrastructures of various sizes, often large (think CNN or the World Bank). Tight deadlines, "exotic" technical stacks and lack of information usually made for memorable experiences.
 
-The cause of the issues rarely was obvious at first sight: here are a few things we usually got started with.
+The cause of the issues was rarely obvious: here are a few things we usually got started with.
 
-### Getting some context
+### Get some context
 
 Don't rush on the servers just yet, you need to figure out how much is already known about the server and the specifics of the issues. You don't want to waste your time (trouble) shooting in the dark.
 
@@ -22,32 +22,32 @@ A few "must have":
 - Is it reproducible?
 - Any pattern (e.g. happens every hour)?
 - What were the latest changes on the platform (code, servers, stack)?
-- Is it specific to specific user segments (logged in, logged out, from a specific location...)?
+- Does it affect a specific user segment (logged in, logged out, geographically located...)?
 - Is there any documentation for the architecture (physical and logical)?
-- **Is there a monitoring platform?**
-- **Any (centralized) logs?**
+- **Is there a monitoring platform?** Munin, Zabbix, Nagios, [New Relic](http://newrelic.com/)... Anything will do.
+- **Any (centralized) logs?**. Loggly, Airbrake, Graylog...
 
-The last two ones are usually the most useful, and based on my experience they're also the ones usually painfully absent. Tough luck: make a note to get this corrected and move on.
+The last two ones are the most convenient sources of information, but don't expect too much: they're also the ones usually painfully absent. Tough luck, make a note to get this corrected and move on.
 
 ### Who's there?
 
-    w
-    last
+    $ w
+    $ last
 
 Not critical, but you'd rather not be troubleshooting a platform others are playing with. One cook in the kitchen is enough.
 
 ### What is running?
 
-    pstree -a
-    ps aux
+    $ pstree -a
+    $ ps aux
 
 While `ps aux` tends to be pretty verbose, `pstree -a` gives you a nice condensed view of what is running and who called what.
 
 ### Listening services
 
-    netstat -ntlp
-    netstat -nulp
-    netstat -nxlp
+    $ netstat -ntlp
+    $ netstat -nulp
+    $ netstat -nxlp
 
 I tend to prefer running them separately, mainly because I don't like looking at all the services at the same time. `netstat -nalp` will do to though. Even then, I'd ommit the `numeric` option (IPs are more readable IMHO).
 
@@ -57,54 +57,54 @@ We usual prefer to have more or less specialized boxes, with a low number of ser
 
 ### CPU and RAM
 
-    free -m
-    uptime
-    top
-    htop
+    $ free -m
+    $ uptime
+    $ top
+    $ htop
 
 This should answer a few questions:
 
 - Any free RAM? Is it swapping? 
 - Is there still some CPU left? How many CPU cores are available on the server? Is one of them overloaded?
-- What is causing the most load on the box? What is the average load?
+- What is causing the most load on the box? What is the load average?
 
 ### Hardware
 
-    lspci
-    dmidecode
-    ethtool
+    $ lspci
+    $ dmidecode
+    $ ethtool
 
-THere are still a lot of bare-metal servers out there, this should help with;
+There are still a lot of bare-metal servers out there, this should help with;
 
-- Identifying the RAID card (with BBU?), the CPU, the available memory slots (which may give you some hints on potential issues or performance improvement).
+- Identifying the RAID card (with BBU?), the CPU, the available memory slots. This may give you some hints on potential issues and/or performance improvements.
 - Is your NIC properly set? Are you running in half-duplex? In 10MBps? Any TX/RX errors?
 
 ### IO Performances
 
-	iostat -kx 2
-	vmstat 2 10
-	mpstat 2 10
-	dstat --top-io --top-bio
+	$ iostat -kx 2
+	$ vmstat 2 10
+	$ mpstat 2 10
+	$ dstat --top-io --top-bio
 
-Very useful tools to analyze the overall performances of your backend;
+Very useful commands to analyze the overall performances of your backend;
 
-- Checking the disk usage, has the box a filesystem/disk with 100% disk usage?
-- Is the swap currently in use? (si/so)
-- What is using the CPU, system? User? Stolen (VM)?
+- Checking the disk usage: has the box a filesystem/disk with 100% disk usage?
+- Is the swap currently in use (si/so)?
+- What is using the CPU: system? User? Stolen (VM)?
 - `dstat` is my all-time favorite. What is using the IO? Is MySQL sucking up the resources? Is it your PHP processes?
 
-### Mount points and filesystem
+### Mount points and filesystems
 
-	mount
-	cat /etc/fstab
-	vgs
-	pvs
-	lvs
-	df -h
-    lsof +D / /* beware not to kill your box */
+	$ mount
+	$ cat /etc/fstab
+	$ vgs
+	$ pvs
+	$ lvs
+	$ df -h
+    $ lsof +D / /* beware not to kill your box */
 
 - How many filesystems are mounted?
-- Is there a dedicated filesystem for some services? (MySQL by any chance..?)
+- Is there a dedicated filesystem for some of the services? (MySQL by any chance..?)
 - What are the filesystem mount options: noatime? default? Have some filesystem been re-mounted as read-only?
 - Do you have any disk space left?
 - Is there any big (deleted) files that haven't been flushed yet?
@@ -112,24 +112,26 @@ Very useful tools to analyze the overall performances of your backend;
 
 ### Kernel, interrupts and network usage
 
-	sysctl -a | grep ...
-	cat /proc/interrupts
-	cat /proc/net/ip_conntrack /* may take some time on busy servers */
-	netstat
-	ss -s
+	$ sysctl -a | grep ...
+	$ cat /proc/interrupts
+	$ cat /proc/net/ip_conntrack /* may take some time on busy servers */
+	$ netstat
+	$ ss -s
 
 - Are your IRQ properly balanced across the CPU? Or is one of the core overloaded because of network interrupts, raid card, ...?
-- How much is swappinness set to? 60 is good enough for workstations, but when it come to servers this is generally a bad idea: you do not want your server to swap... ever. Otherwise your swapping process will be locked while data are read/written to the disk.
+- How much is swappinness set to? 60 is good enough for workstations, but when it come to servers this is generally a bad idea: you do not want your server to swap... ever. Otherwise your swapping process will be locked while data is read/written to the disk.
 - Is `conntrack_max` set to a high enough number to handle your traffic?
-- How long do you maintain TCP connections in the various states? (`TIME_WAIT`, ...)?
-- `netstat` can be a bit slow to display all the existing connections, you may want to use `ss` instead to get a broad summary.
+- How long do you maintain TCP connections in the various states (`TIME_WAIT`, ...)?
+- `netstat` can be a bit slow to display all the existing connections, you may want to use `ss` instead to get a summary.
+
+Have a look at [Linux TCP tuning](http://www.lognormal.com/blog/2012/09/27/linux-tcpip-tuning/) for some more pointer as to how to tune your network stack.
 
 ### System logs and kernel messages
 
-	dmesg
-	less /var/log/messages
-	less /var/log/secure
-	less /var/log/auth
+	$ dmesg
+	$ less /var/log/messages
+	$ less /var/log/secure
+	$ less /var/log/auth
 
 - Look for any error or warning messages; is it spitting issues about the number of connections in your conntrack being too high?
 - Do you see any hardware error, or filesystem error?
@@ -137,8 +139,8 @@ Very useful tools to analyze the overall performances of your backend;
 
 ### Cronjobs
 
-	ls /etc/cron* + cat
-	for user in $(cat /etc/passwd | cut -f1 -d:); do crontab -l -u $user; done
+	$ ls /etc/cron* + cat
+	$ for user in $(cat /etc/passwd | cut -f1 -d:); do crontab -l -u $user; done
 
 - Is there any cron job that is running too often?
 - Is there some user's cron that is "hidden" to the common eyes?
@@ -159,11 +161,7 @@ There is a lot to analyze here, but it's unlikely you'll have time to be exhaust
 After these first 5 minutes (give or take 10 minutes) you should have a better understanding of:
 
 - What is running.
-- Wether the issue seems to be related to IO/hardware/networking or configuration (bad code, kernel tuning, ...).
-- If there's a pattern with some previously faced issue (either on that server, or some others); for example a bad use of the DB indexes, or too many apache workers, or.
+- Whether the issue seems to be related to IO/hardware/networking or configuration (bad code, kernel tuning, ...).
+- Whether there's a pattern you recognize: for example a bad use of the DB indexes, or too many apache workers.
 
-You may even have found the exact root cause and remedy to your issue, if not, you should now be ready to analyze more in depth one or few of the components of your stack and avoid chasing ghosts.
-
-### Useful links
-
-- [Linux TCP tuning](http://www.lognormal.com/blog/2012/09/27/linux-tcpip-tuning/): worth having a look at if the issue appear to be linked with the network stack.
+You may even have found the actual root cause. If not, you should be in a good place to start digging further, with the knowledge that you've covered the obvious.

@@ -1004,7 +1004,7 @@ input:focus {
 #footer .newsletter .field .button:active {
   color: #fff;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1028px) {
   body {
     font-size: 14px;
   }
