@@ -37,6 +37,14 @@ The last two ones are the most convenient sources of information, but don't expe
 
 Not critical, but you'd rather not be troubleshooting a platform others are playing with. One cook in the kitchen is enough.
 
+### What was previously done?
+
+    $ history
+
+Always a good thing to look at; combined with the knowledge of who was on the box previously. Be responsible by all means, being admin shouldn't allow you to break ones privacy.
+
+A quick mental note for later, you may want to update the environment variable ```HISTTIMEFORMAT``` to keep track of the time those commands were ran. Nothing is more frustrating than investigating an outdated list of commands...
+
 ### What is running?
 
     $ pstree -a
