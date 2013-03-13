@@ -3,7 +3,7 @@ published: true
 category: blog
 title: Shanghai Open Source Meetup
 author: ronan
-hn: 
+hn: 5367878
 
 layout: post
 ---
