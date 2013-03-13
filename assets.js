@@ -10202,8 +10202,7 @@ PR_NOCODE:"nocode",PR_PLAIN:"pln",PR_PUNCTUATION:"pun",PR_SOURCE:"src",PR_STRING
 require.register("boot/index.js", function(exports, require, module){
 // Dependencies
 var $ = require('jquery'),
-    dialog = require('dialog'),
-    Sticky = require('sticky');
+    dialog = require('dialog');
 
 /**
  * Replace youtube links with an embed

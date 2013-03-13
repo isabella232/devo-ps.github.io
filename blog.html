@@ -12,7 +12,7 @@ layout: static
     {% for member in site.categories.team %}
     {% if member.user == post.author %}
     <span class='vcard'>
-      <img class='photo' alt='Picture of {{ member.title }}' src='/images/team/{{ member.user }}.png'/> 
+      <img class='photo' alt='Picture of {{ member.title }}' src='/images/team/{{ member.user }}-small.png'/> 
       <span class='fn'>{{ member.title }}</span>
     </span>
     {% endif %}
