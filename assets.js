@@ -9612,7 +9612,25 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 })( window );
 
 });
+require.register("component-indexof/index.js", function(exports, require, module){
+
+var indexOf = [].indexOf;
+
+module.exports = function(arr, obj){
+  if (indexOf) return arr.indexOf(obj);
+  for (var i = 0; i < arr.length; ++i) {
+    if (arr[i] === obj) return i;
+  }
+  return -1;
+};
+});
 require.register("component-emitter/index.js", function(exports, require, module){
+
+/**
+ * Module dependencies.
+ */
+
+var index = require('indexof');
 
 /**
  * Expose `Emitter`.
@@ -9699,6 +9717,14 @@ Emitter.prototype.off =
 Emitter.prototype.removeListener =
 Emitter.prototype.removeAllListeners = function(event, fn){
   this._callbacks = this._callbacks || {};
+
+  // all
+  if (0 == arguments.length) {
+    this._callbacks = {};
+    return this;
+  }
+
+  // specific event
   var callbacks = this._callbacks[event];
   if (!callbacks) return this;
 
@@ -9709,7 +9735,7 @@ Emitter.prototype.removeAllListeners = function(event, fn){
   }
 
   // remove specific handler
-  var i = callbacks.indexOf(fn._off || fn);
+  var i = index(callbacks, fn._off || fn);
   if (~i) callbacks.splice(i, 1);
   return this;
 };
@@ -9763,6 +9789,15 @@ Emitter.prototype.hasListeners = function(event){
 };
 
 });
+require.register("component-inherit/index.js", function(exports, require, module){
+
+module.exports = function(a, b){
+  var fn = function(){};
+  fn.prototype = b.prototype;
+  a.prototype = new fn;
+  a.prototype.constructor = a;
+};
+});
 require.register("component-overlay/index.js", function(exports, require, module){
 
 /**
@@ -9770,6 +9805,7 @@ require.register("component-overlay/index.js", function(exports, require, module
  */
 
 var Emitter = require('emitter')
+  , inherit = require('inherit')
   , o = require('jquery');
 
 /**
@@ -9816,7 +9852,7 @@ function Overlay(options) {
  * Inherits from `Emitter.prototype`.
  */
 
-Overlay.prototype.__proto__ = Emitter.prototype;
+inherit(Overlay, Emitter);
 
 /**
  * Show the overlay.
@@ -10082,8 +10118,7 @@ Dialog.prototype.escapable = function(){
 Dialog.prototype.show = function(){
   var overlay = this._overlay;
 
-  this.emit('show');
-
+  // overlay
   if (overlay) {
     overlay.show();
     this.el.addClass('modal');
@@ -10092,8 +10127,10 @@ Dialog.prototype.show = function(){
   // escape
   if (!overlay || overlay.closable) this.escapable();
 
+  // position
   this.el.appendTo('body');
   this.el.css({ marginLeft: -(this.el.width() / 2) + 'px' });
+
   this.emit('show');
   return this;
 };
@@ -10259,12 +10296,16 @@ require.alias("component-jquery/index.js", "boot/deps/jquery/index.js");
 require.alias("component-dialog/index.js", "boot/deps/dialog/index.js");
 require.alias("component-dialog/template.js", "boot/deps/dialog/template.js");
 require.alias("component-emitter/index.js", "component-dialog/deps/emitter/index.js");
+require.alias("component-indexof/index.js", "component-emitter/deps/indexof/index.js");
 
 require.alias("component-jquery/index.js", "component-dialog/deps/jquery/index.js");
 
 require.alias("component-overlay/index.js", "component-dialog/deps/overlay/index.js");
 require.alias("component-overlay/template.js", "component-dialog/deps/overlay/template.js");
 require.alias("component-emitter/index.js", "component-overlay/deps/emitter/index.js");
+require.alias("component-indexof/index.js", "component-emitter/deps/indexof/index.js");
+
+require.alias("component-inherit/index.js", "component-overlay/deps/inherit/index.js");
 
 require.alias("component-jquery/index.js", "component-overlay/deps/jquery/index.js");
 
