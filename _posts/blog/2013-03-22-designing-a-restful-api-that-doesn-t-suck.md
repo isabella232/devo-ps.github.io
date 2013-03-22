@@ -31,7 +31,7 @@ As we're getting closer to shipping the first version of [devo.ps](http://devo.p
 
 Relying on HTTP status codes and verbs should already help you keep your API calls and responses lean enough. Less crucial, but still useful:
 
-* **Prefer JSON**, then extend to other formats if needed and if time permits.
+* **JSON first**, then extend to other formats if needed and if time permits.
 * **[Unix time](http://en.wikipedia.org/wiki/Unix_time)**, or you'll have a bad time.
 * **Prepend your URLs with the API version**, like `/v1/emails/1234`.
 * **Lowercase everywhere in URLs**.
