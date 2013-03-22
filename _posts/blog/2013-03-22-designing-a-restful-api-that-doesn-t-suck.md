@@ -3,7 +3,7 @@ published: true
 category: blog
 title: Designing A RESTful API That Doesn't Suck
 author: ronan
-hn: 
+hn: 5422402
 
 layout: post
 ---
