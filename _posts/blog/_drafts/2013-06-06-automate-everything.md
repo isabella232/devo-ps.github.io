@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 category: blog
 title: Reduce Friction, Automate All The Things
 author: ronan
