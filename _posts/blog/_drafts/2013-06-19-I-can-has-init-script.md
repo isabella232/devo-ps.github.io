@@ -1,3 +1,13 @@
+---
+published: false
+
+category: blog
+title: 'I can has init script'
+author: vincent
+
+layout: post
+---
+
 Sysadmins heavily rely on init scripts for their day to day operations, from starting to stopping a service going through all the steps of .. restarting and reloading. It is a bit cynical and reducing but it is a [best practice]() you can not cope with.  
 Remember that power outage that let your server down without X, Y or Z up and running when the juice flew again?
 
