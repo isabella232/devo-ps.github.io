@@ -14,9 +14,9 @@ Something went awfully wrong, and a rogue process is eating up all of the resour
 
 You don't get to think about them very often, but init scripts are a key piece of a sound, scalable strategy for your infrastructure. It's a [mandatory best practice](). Period. And there are quite a few things in the way of getting them to work properly at scale in production environments. It's a tough world out there.
 
-## What we're dealing with...
+### What we're dealing with...
 
-### Packages
+#### Packages
 
 Often enough, you're gonna end up installing a service using the package manager of your distro: `yum`, `apt-get`, you name it. These packages usually come with an init script that should get you started.
 
@@ -31,7 +31,7 @@ Sadly, as your architecture grows in complexity, you'll probably run into some w
 
 Honestly: PITA.
 
-### Built from source
+#### Built from source
 
 First things first: **you shouldn't be building from source** (unless you really, really need to).
 
@@ -48,14 +48,14 @@ And that makes things "fun" when you're [trying to unfuck things on a box](http:
 
 Great.
 
-## Why existing solutions suck
+### Why existing solutions suck
 
 Well, based on what we've just seen, you really only have two options:
 
 1. **DIY**; but if you're good at what you do, you're probably also lazy. You may do it the first couple times, but that's not gonna scale, especially when dealing with the various flavors of init daemons (upstart, systemd...),
 1. **Use that thing called "the Internet"**; you read through forum pages, issue queues, gists and if you're lucky you'll find a perfect one (or more likely 10 sucky ones). Kuddos to all those of whom shared their work, but you'll probably be back to option 1.
 
-## We can do better than this
+### We can do better than this
 
 You'll find a gazillion sites for pictures of kittens, but as far as I know, there is not an authorative source for reliable init scripts. Come on Internet, let's build it! 
 
