@@ -12,7 +12,7 @@ Sysadmins heavily rely on init scripts for their day to day operations, from sta
 Remember that power outage that let your server down without X, Y or Z up and running when the juice flew again?
 
 The thing is that init scripts are usually only dealt with once and are then forgotten for the life time of the box; there is little affection provided to them. Most of the packaged init script are designed for common use case and cover only simple architectures. But it quickly breaks when scaling in production; clusters, lack of optimization, etc.
-So far, their is limited resources available to help on that matter, a couple of tools to help on the management of processes (mmonit, systemd, supervisord, etc.), but not addressing the core issues.
+So far, their is limited resources available to help on that matter, a couple of tools to help on the management of processes (mmonit, supervisord, etc.), but not addressing the core issues.
 
 # Where are the init scripts ?
 
