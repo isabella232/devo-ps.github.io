@@ -37,13 +37,13 @@ First things first: **you shouldn't be building from source** (unless you really
 
 Now if you do, you'll have to be thorough: there may be samples of init scripts in there, but you'll have to dig them out. `/contrib`, `/addons`, ... it's never in the same place.
 
-And that makes things "fun" when you're [trying to unfuck things on a box](http://devo.ps/blog/2013/03/06/troubleshooting-5minutes-on-a-yet-unknown-box.html):
+And that makes things "fun" when you're [trying to unscrew things on a box](http://devo.ps/blog/2013/03/06/troubleshooting-5minutes-on-a-yet-unknown-box.html):
 
 - You figured out that MySQL is running from `/home/user/src/mysql`,
 - You check if there's an init script: no luck this time...
 - You try to understand what exactly launched `mysqld_safe`,
 - You spend a while digging into the bash history smiling at typos,
-- You stumble on a `run.sh` script (uncommented, of course) in the home directory. Funny enough, it seems to be starting everything from mysql, nginx and php-fpm to the coffee maker.
+- You stumble on a `run.sh` script (uncommented, of course) in the home directory. Funny enough, it seems to be starting everything from MySQL, NGINX and php-fpm to the coffee maker.
 - You make a mental note to try and track down the "genius" who did that mess of a job, and get busy with converting everything to a proper init script.
 
 Great.
@@ -53,11 +53,11 @@ Great.
 Well, based on what we've just seen, you really only have two options:
 
 1. **DIY**; but if you're good at what you do, you're probably also lazy. You may do it the first couple times, but that's not gonna scale, especially when dealing with the various flavors of init daemons (upstart, systemd...),
-1. **Use that thing called "the Internet"**; you read through forum pages, issue queues, gists and if you're lucky you'll find a perfect one (or more likely 10 sucky ones). Kuddos to all those of whom shared their work, but you'll probably be back to option 1.
+1. **Use that thing called "the Internet"**; you read through forum pages, issue queues, gists and if you're lucky you'll find a perfect one (or more likely 10 sucky ones). Kudos to all those of whom shared their work, but you'll probably be back to option 1.
 
 ### We can do better than this
 
-You'll find a gazillion sites for pictures of kittens, but as far as I know, there is not an authorative source for reliable init scripts. That's not right: I have to fix it. A few things I'm aiming for:
+You'll find a gazillion websites for pictures of kittens, but as far as I know, there is not an authoritative source for reliable init scripts. That's not right: I have to fix it. A few things I'm aiming for:
 
 - **Scalable**; allow for multiple instances of a service to be started at once from different config files (see the memcache/redis example),
 - **Secure**; ensure `configtest` is run before a restart/reload (because, you know, a faulty config file preventing the service to restart is kind of a bummer),
@@ -65,4 +65,4 @@ You'll find a gazillion sites for pictures of kittens, but as far as I know, the
 
 [I've just created a repo](https://github.com/devo-ps/init-scripts) where I'll be dumping various init scripts that will hopefully be helpful to others. I'd love to get suggestions or help.
 
-And by the way, things are not much better with applications, though we're trying our best to imrove things with things like [pm2](https://github.com/Unitech/pm2) (fresh and shinny, more to come in a later post).
+And by the way, things are not much better with applications, though we're trying our best to improve things with things like [pm2](https://github.com/Unitech/pm2) (fresh and shinny, more to come in a later post).
