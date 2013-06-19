@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 category: blog
 title: I Can Haz Init Script
 author: vincent
@@ -9,6 +9,8 @@ layout: post
 ---
 
 Something went awfully wrong, and a rogue process is eating up all of the resources on one of your servers. You have no other choice but to restart it. No big deal, really; this is the age of disposable infrastructure after all. Except when it comes back up, everything starts going awry. Half the stuff supposed to be running is down and it's screwing with the rest of your setup.
+
+![INIT SCRIPTS, Y U NO LIKE?](/images/posts/y-u-no-like.jpg)
 
 You don't get to think about them very often, but init scripts are a key piece of a sound, scalable strategy for your infrastructure. It's a [mandatory best practice](). Period. And there are quite a few things in the way of getting them to work properly at scale in production environments. It's a tough world out there.
 
@@ -46,34 +48,23 @@ And that makes things "fun" when you're [trying to unfuck things on a box](http:
 
 Great.
 
-## Existing solutions (what people use) suck
+## Why existing solutions suck
 
+Well, based on what we've just seen, you really only have two options:
 
+1. **DIY**; but if you're good at what you do, you're probably also lazy. You may do it the first couple times, but that's not gonna scale, especially when dealing with the various flavors of init daemons (upstart, systemd...),
+1. **Use that thing called "the Internet"**; you read through forum pages, issue queues, gists and if you're lucky you'll find a perfect one (or more likely 10 sucky ones). Kuddos to all those of whom shared their work, but you'll probably be back to option 1.
 
-## Services
+## We can do better than this
 
-So you are good to hack your way through the init script? And you start looking for existing init scripts on the Internet. Internet is full of shit and has no central location for good init scripts.
+You'll find a gazillion sites for pictures of kittens, but as far as I know, there is not an authorative source for reliable init scripts. Come on Internet, let's build it! 
 
-You walk through the forum pages, issue queues, gists and if you are lucky you'll find a perfect one - or more likely 10 sucky ones. Kuddos to all of those who shared them online, they can't be blamed for sharing something that works in their use case. Sadly they most of the time can only be considered as a starting base and you end-up inspiring yourself from it and re-write your own...
+A few things we should aim for (IMHO):
 
-And then yet you build your near perfect script and your IT department make the move from outdated CentOS to new shinny Ubuntu / Fedora. Welcome to the conversion cycle from your SysV to Upstart / Systemd.
+- **Scalable**; allow for multiple instance of a service to be started at once from different config files (see the memcache/redis example),
+- **Secure**; ensure `configtest` is ran before a restart/reload (because, you know, a faulty config file preventing the service to restart is kind of a bummer),
+- **Smart**; ensuring for example that the cache is aggressively flushed before restarting your database (so that you don't end-up waiting 50 min for the DB to cleanly shutdown).
 
+[I've just created a repo](https://github.com/devo-ps/init-scripts) where I'll be dumping various init scripts that will hopefully be helpful to others. I'd love to get suggestions or help.
 
-
-# Init script repository
-
-Init script can be made better, smarter and more scalable. Having a central location also greatly helps the community.
-
-Nothing new in the improvements list, from experience and digging through various books and online resources give a good idea of the best practices that could be implemented in such scripts;
-
-- **scalability**; allow multi services to be started at the same time from different config file (the memcache / redis examples)
-- **security**; ensure configtest is ran before running restart / reload, do not ever end up with a faulty config file that prevent your service from being restarted...
-- **smart**; ensure the cache is aggressively flushed before restarting your database, do not end-up waiting for 50 min for the DB to cleanly shutdown
-
-We are starting a [simple repo](https://github.com/devo-ps/init-scripts) to dump various init scripts that hopefully will help others; do not hesitate to drop your thoughts in the issue queue.
-
-
-SIDE NOT MENTIONING OUR WORK ON APPS IN SIMILAR FIELD
-
-The issue is somehow similar to the regular services problem but sometime even more exacerbated in case of custom apps. 
-A couple technologies provide convenient daemonification tools, node.js has a few; [forever](https://github.com/nodejitsu/forever), [nodemon](http://remy.github.io/nodemon/), [pm2](https://github.com/Unitech/pm2) (fresh and shinny - check it out, more in a later post).
+And by the way, things are not much better with applications, though we're trying our best to imrove things with things like [pm2](https://github.com/Unitech/pm2) (fresh and shinny, more to come in a later post).
