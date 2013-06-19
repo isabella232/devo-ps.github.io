@@ -40,7 +40,7 @@ In a previous post we were discussing the [discovery phase of a server](/blog/20
 - You check if there is an init script - no luck this time... 
 - You try to figure out what launched mysqld_safe, 
 - dig into the bash history, 
-- find out an awkward run.sh script in the home directory that along with mysql starts custom build nginx and php-fpm processes. Because you know … *I needed that neat feature and ... I was bored …* 
+- find out an awkward ```run.sh``` script (without comments please!) in the home directory that along with mysql starts custom build nginx and php-fpm processes. Because you know … *I needed that neat feature and ... I was bored …* 
 
 Now go restart your DB
 
