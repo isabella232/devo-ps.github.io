@@ -69,4 +69,4 @@ Nothing new in the improvements list, from experience and digging through variou
 - **security**; ensure configtest is ran before running restart / reload, do not ever end up with a faulty config file that prevent your service from being restarted...
 - **smart**; ensure the cache is aggressively flushed before restarting your database, do not end-up waiting for 50 min for the DB to cleanly shutdown
 
-We are starting a simple repo to dump various init scripts that hopefully will help others; do not hesitate to drop your thoughts in the issue queue.
+We are starting a [simple repo](https://github.com/devo-ps/init-scripts) to dump various init scripts that hopefully will help others; do not hesitate to drop your thoughts in the issue queue.
