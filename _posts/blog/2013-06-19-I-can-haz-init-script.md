@@ -57,9 +57,7 @@ Well, based on what we've just seen, you really only have two options:
 
 ### We can do better than this
 
-You'll find a gazillion sites for pictures of kittens, but as far as I know, there is not an authorative source for reliable init scripts. Come on Internet, let's build it! 
-
-A few things we should aim for (IMHO):
+You'll find a gazillion sites for pictures of kittens, but as far as I know, there is not an authorative source for reliable init scripts. That's not right: I have to fix it. A few things I'm aiming for:
 
 - **Scalable**; allow for multiple instances of a service to be started at once from different config files (see the memcache/redis example),
 - **Secure**; ensure `configtest` is run before a restart/reload (because, you know, a faulty config file preventing the service to restart is kind of a bummer),
