@@ -57,7 +57,7 @@ Well, based on what we've just seen, you really only have two options:
 
 ### We can do better than this
 
-You'll find a gazillion websites for pictures of kittens, but as far as I know, there is not an authoritative source for reliable init scripts. That's not right: I have to fix it. A few things I'm aiming for:
+You'll find a gazillion websites for pictures of kittens, but as far as I know, there is no authoritative source for  init scripts. That's just not right: we have to fix it. A few things I'm aiming for:
 
 - **Scalable**; allow for multiple instances of a service to be started at once from different config files (see the memcache/redis example),
 - **Secure**; ensure `configtest` is run before a restart/reload (because, you know, a faulty config file preventing the service to restart is kind of a bummer),
@@ -65,4 +65,4 @@ You'll find a gazillion websites for pictures of kittens, but as far as I know, 
 
 [I've just created a repo](https://github.com/devo-ps/init-scripts) where I'll be dumping various init scripts that will hopefully be helpful to others. I'd love to get suggestions or help.
 
-And by the way, things are not much better with applications, though we're trying our best to improve things with things like [pm2](https://github.com/Unitech/pm2) (fresh and shinny, more to come in a later post).
+And by the way, things are not much better with applications, though we're trying our best to improve things there too with things like [pm2](https://github.com/Unitech/pm2) (fresh and shinny, more about it in a later post).
