@@ -8,7 +8,7 @@ author: vincent
 layout: post
 ---
 
-Sysadmins heavily rely on init scripts for their day to day operations, from starting to stopping a service going through all the steps of .. restarting and reloading. It is a bit cynical and reducing but it is a [best practice]() you can not cope with.  
+Sysadmins heavily rely on init scripts for their day to day operations, from starting to stopping a service going through all the steps of .. restarting and reloading. It is a bit cynical and reducing but it is a [best practice](/blog/2013/02/11/best-practices-it-s-always-or-never.html) you can not cope with.  
 Remember that power outage that let your server down without X, Y or Z up and running when the juice flew again?
 
 The thing is that init scripts are usually only dealt with once and are then forgotten for the life time of the box; there is little affection provided to them. Most of the packaged init script are designed for common use case and cover only simple architectures. But it quickly breaks when scaling in production; clusters, lack of optimization, etc.
@@ -35,7 +35,7 @@ What a pain.
 
 I'm gonna make it short here; unless you have need for highly customized packages, **don't do it!** Even if a couple of programs include sample init scripts it is too simple to forget to add it or completely skip that step.
 
-In a previous post we were discussing the [discovery phase of a server](). You just ran onto that unknown box and you figured out mysql is running from ```/home/user/src/mysql```. As a sysadmin you do what? 
+In a previous post we were discussing the [discovery phase of a server](/blog/2013/03/06/troubleshooting-5minutes-on-a-yet-unknown-box.html). You just ran onto that unknown box and you figured out mysql is running from ```/home/user/src/mysql```. As a sysadmin you do what? 
 
 - You check if there is an init script - no luck this time... 
 - You try to figure out what launched mysqld_safe, 
@@ -57,7 +57,7 @@ And then yet you build your near perfect script and your IT department make the 
 ## Applications
 
 The issue is somehow similar to the regular services problem but sometime even more exacerbated in case of custom apps. 
-A couple technologies provide convenient daemonification tools, node.js has a few; [forever](), [nodemon](), [pm2](https://github.com/Unitech/pm2) (fresh and shinny - check it out, more in a later post), 
+A couple technologies provide convenient daemonification tools, node.js has a few; [forever](https://github.com/nodejitsu/forever), [nodemon](http://remy.github.io/nodemon/), [pm2](https://github.com/Unitech/pm2) (fresh and shinny - check it out, more in a later post).
 
 # Init script repository
 
