@@ -61,8 +61,8 @@ You'll find a gazillion sites for pictures of kittens, but as far as I know, the
 
 A few things we should aim for (IMHO):
 
-- **Scalable**; allow for multiple instance of a service to be started at once from different config files (see the memcache/redis example),
-- **Secure**; ensure `configtest` is ran before a restart/reload (because, you know, a faulty config file preventing the service to restart is kind of a bummer),
+- **Scalable**; allow for multiple instances of a service to be started at once from different config files (see the memcache/redis example),
+- **Secure**; ensure `configtest` is run before a restart/reload (because, you know, a faulty config file preventing the service to restart is kind of a bummer),
 - **Smart**; ensuring for example that the cache is aggressively flushed before restarting your database (so that you don't end-up waiting 50 min for the DB to cleanly shutdown).
 
 [I've just created a repo](https://github.com/devo-ps/init-scripts) where I'll be dumping various init scripts that will hopefully be helpful to others. I'd love to get suggestions or help.
