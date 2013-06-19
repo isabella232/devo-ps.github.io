@@ -3,7 +3,7 @@ published: true
 category: blog
 title: I Can Haz Init Script
 author: vincent
-hn: 
+hn: 5905051
 
 layout: post
 ---
