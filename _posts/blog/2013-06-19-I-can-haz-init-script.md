@@ -10,7 +10,7 @@ layout: post
 
 Something went awfully wrong, and a rogue process is eating up all of the resources on one of your servers. You have no other choice but to restart it. No big deal, really; this is the age of disposable infrastructure after all. Except when it comes back up, everything starts going awry. Half the stuff supposed to be running is down and it's screwing with the rest of your setup.
 
-![INIT SCRIPTS, Y U NO LIKE?](/images/posts/y-u-no-like.jpg)
+![INIT SCRIPTS, Y U NO LIKE?](/images/posts/y-u-no-guy.png)
 
 You don't get to think about them very often, but init scripts are a key piece of a sound, scalable strategy for your infrastructure. It's a [mandatory best practice](). Period. And there are quite a few things in the way of getting them to work properly at scale in production environments. It's a tough world out there.
 
