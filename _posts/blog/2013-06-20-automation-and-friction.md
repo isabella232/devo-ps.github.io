@@ -32,7 +32,8 @@ Our team has tried a lot of different approaches over the years. We kicked the t
 1. **Automate**. We automate pretty much everything we can. When you apply to one of our job by email for example, we push the attachments in Dropbox (likely your resume) and create a ticket with the relevant information on Github. [Zapier](http://zapier.com) is great for this kind of stuff by the way.
 
 1. **Make it accessible**. That's the most important point for us at this stage. Borat, our [Hubot](http://hubot.github.com) chat bot, is hooked up with most of our infrastructure and is able to pass on requests to the services we use as well as some of our automation. If one of us is awake, chances are you can find us on the chat, making it the most ubiquitous interface for our team:
-  - Need to deploy some code on production? Ask Borat.
+  - Need to deploy some code on production or ? Ask Borat, he'll relay your demands to the [devo.ps](http://devo.ps) API.
+
   - Your latest commit broke the build? A new mail came from support? Expect to hear about it from Borat.
   - Need to use our time tracker? Just drop a message to the bot when you're starting your task and let him know when you're done.
   - Need to call for a SCRUM? Just mention the Github team you want to chat with and Borat will create a separate channel and invite the right people to join.
