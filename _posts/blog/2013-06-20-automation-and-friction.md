@@ -25,6 +25,8 @@ This trend grew in parallel with the adoption of SaaS. SaaS are the results of t
 
 ### A bot to rule them all...
 
+![Borat is omnipotent](http://devo.ps/images/posts/borat.png)
+
 Our team has tried a lot of different approaches over the years. We kicked the tires on a lot of products and ended up doing as usual:
 
 1. **Simplify**. For example, we use Github to manage most tasks and discussions, including operations (HR, admin, ...), and marketing. We used [Trello](http://trello.com/) alongside Github for a while and we loved it. But it silo-ed the discussions. Everything from our employee handbook to tasks for buying snacks for the office are now on Github. It also had an interesting side effect on transparency, but I'll talk about this another time.
@@ -37,8 +39,6 @@ Our team has tried a lot of different approaches over the years. We kicked the t
   - Need to use our time tracker? Just drop a message to the bot when you're starting your task and let him know when you're done.
   - Need to call for a SCRUM? Just mention the Github team you want to chat with and Borat will create a separate channel and invite the right people to join.
   - Somebody is at the door? Ask the bot to open it for you (you gotta love hacking on Raspberry PI).
-
-![Borat is omnipotent](http://devo.ps/images/posts/borat.png)
 
 Anybody with access to our bot's repository can add a script to hook him up to a new service. Git push, kill the bot and wait for him to come back to life with new skills. The tedious stuff ends up sooner or later scripted and one sentence away.
 
