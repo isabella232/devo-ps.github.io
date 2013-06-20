@@ -3,7 +3,7 @@ published: true
 category: blog
 title: Automation And Friction
 author: ronan
-hn: 
+hn: 5911507
 
 layout: post
 ---
