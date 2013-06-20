@@ -38,7 +38,7 @@ Our team has tried a lot of different approaches over the years. We kicked the t
   - Need to call for a SCRUM? Just mention the Github team you want to chat with and Borat will create a separate channel and invite the right people to join.
   - Somebody is at the door? Ask the bot to open it for you (you gotta love hacking on Raspberry PI).
 
-![Borat is omnipotent](/images/posts/borat.png)
+![Borat is omnipotent](http://devo.ps/images/posts/borat.png)
 
 Anybody with access to our bot's repository can add a script to hook him up to a new service. Git push, kill the bot and wait for him to come back to life with new skills. The tedious stuff ends up sooner or later scripted and one sentence away.
 
