@@ -27,7 +27,7 @@ This trend grew in parallel with the adoption of SaaS. SaaS are the results of t
 
 Our team has tried a lot of different approaches over the years. We kicked the tires on a lot of products and ended up doing as usual:
 
-1. **Simplify**. For example, we use Github to manage most tasks and discussions, including operations (HR, admin, ...), and marketing. We used [Trello](http://trello.com/) alongside Github for a while and we loved it. But it silo-ed the discussions. Everything from our employee handbook to tasks for buying snacks for the office are now on Github. It had also interesting side effect on transparency, but I'll talk about this another time.
+1. **Simplify**. For example, we use Github to manage most tasks and discussions, including operations (HR, admin, ...), and marketing. We used [Trello](http://trello.com/) alongside Github for a while and we loved it. But it silo-ed the discussions. Everything from our employee handbook to tasks for buying snacks for the office are now on Github. It also had an interesting side effect on transparency, but I'll talk about this another time.
 
 1. **Automate**. We automate pretty much everything we can. When you apply to one of our job by email for example, we push the attachments in Dropbox (likely your resume) and create a ticket with the relevant information on Github. [Zapier](http://zapier.com) is great for this kind of stuff by the way.
 
