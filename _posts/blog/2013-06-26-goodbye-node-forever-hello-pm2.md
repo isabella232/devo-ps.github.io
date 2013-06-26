@@ -103,7 +103,7 @@ So things are nice and dandy, your processes are humming and you need to do a ha
 
     $ pm2 dump
 
-From now on, you should be able to resurrect things up from file:
+From there, you should be able to resurrect things from file:
 
     $ pm2 kill     // let's simulate a pm2 stop
     $ pm2 resurect // All my processes are now up and running 
