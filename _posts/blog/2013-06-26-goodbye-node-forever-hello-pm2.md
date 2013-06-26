@@ -8,6 +8,8 @@ hn:
 layout: post
 ---
 
+[https://github.com/unitech/pm2/raw/master/pres/pm22.png](https://github.com/unitech/pm2/raw/master/pres/pm22.png)
+
 It's no secret that the devo.ps team has a crush on Javascript; node.js in the backend, AngularJS for our clients, there isn't much of our stack that isn't at least in part built with it. Our approach of building [static clients and RESTful JSON APIs](http://devo.ps/blog/2013/01/31/farewell-to-regular-web-development-approaches.html) means that we run a lot of node.js and I must admit that, despite all of it awesomeness, node.js still is a bit of a headache when it comes to running in production. Tooling and best practices (think monitoring, logging, error traces...) are still lacking when compared to some of the more established languages.
 
 So far, we had been relying on the pretty nifty [node-forever](https://github.com/nodejitsu/forever). Great tool, but a few things were missing:
