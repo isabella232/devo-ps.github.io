@@ -55,7 +55,7 @@ Then;
 
 Which should display something like (ASCII UI FTW);
 
-![pm2 list](https://github.com/unitech/pm2/raw/master/pres/pm2-list.png)
+![pm2 list](http://apps.hemca.com/pm2/pres/pm2-list.png)
 
 As you can see, your app is now forked into multiple processes depending on the number of CPUs available.
 
@@ -67,7 +67,7 @@ It's nice enough to have an overview of the running processes and their status w
 
 You should get the CPU usage and memory consumption by process (and cluster).
 
-![pm2 monit](https://github.com/unitech/pm2/raw/master/pres/pm2-monit.png)
+![pm2 monit](http://apps.hemca.com/pm2/pres/pm2-monit.png)
 
 **Disclaimer**: [node-usage](https://github.com/arunoda/node-usage) doesn't support MacOS for now (feel free to PR). It works just fine on Linux though.
 
@@ -95,7 +95,7 @@ But we're nice, so we wrote the `logs` feature:
 
     $ pm2 logs
 
-![pm2 monit](https://github.com/unitech/pm2/raw/master/pres/pm2-logs.png)
+![pm2 monit](http://apps.hemca.com/pm2/pres/pm2-logs.png)
 
 ### Resurrection
 
