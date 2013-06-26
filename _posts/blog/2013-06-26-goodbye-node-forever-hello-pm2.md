@@ -110,7 +110,7 @@ From there, you should be able to resurrect things from file:
 
 ### API Health point
 
-Let's say you want to monitor all the processes managed by PM2, as well as the status of the machine they run on (and making a nice Angular app to consume this API :)
+Let's say you want to monitor all the processes managed by PM2, as well as the status of the machine they run on (and maybe even build a nice Angular app to consume this API...):
 
     $ pm2 web
 
