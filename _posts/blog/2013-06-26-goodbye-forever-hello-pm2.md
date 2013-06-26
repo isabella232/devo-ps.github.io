@@ -178,7 +178,20 @@ Done. Open your browser, and go to http://localhost:9615.
 
 We developed PM2 to offer an advanced and complete solution for process management to the Node community. 
 
-We are open to pull-requests, issues reporting [https://github.com/Unitech/pm2](https://github.com/Unitech/pm2)
+We are open to issues reporting and pull requests [https://github.com/Unitech/pm2](https://github.com/Unitech/pm2)
+
+Once we will have a battle hardened PM2 core we plan to implement features like :
+
+- Remote administration/status checking
+- Builtin Inter process communication channel (message bus)
+- V8 GC memory leak detection
+- Web interface
+- Tracking monitoring data
+- Notification via email when something is going wrong
+- Integrated wrk utils endpoint benchmark
+
+Thanks to [Makara Wang](https://github.com/makara) for concepts/tools and [Alex Kocharin](https://github.com/rlidwka) for advices and pull requests :)
+
 
 
 - Come help us + reminder about Github repo
