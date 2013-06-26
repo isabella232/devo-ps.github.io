@@ -20,7 +20,7 @@ IDEA This is why we came up with PM2 (w00t) which aims at solving these issues, 
 
 ## DEVELOPMENT
 
-### Forever VS PM2
+### Forever VS ⌬ PM2
 
 | Tool        | Keep Alive | Coffeescript | Log aggregation | API | Terminal monitoring | Clustering | JSON configuration |
 | ------------|:----------:|:------------:|:---------------:|:---:|:-------------------:|:----------:|:-----------------------:|
@@ -44,7 +44,7 @@ Github repos (we love stars) :
 
 Since Node v0.6, the cluster feature permits to easily share the same socket accross multiple networked Node applications.
 The problem is that you need to change the code in your main file, in order to have one master process and multiple children.
-So here we are, with PM2 you can now clusterize application natively, without adding one line of code ! PM2 acts as the
+So here we are, with ⌬ PM2 you can now clusterize application natively, without adding one line of code ! PM2 acts as the
 master process and wrap your code into a special clustered process, as Nodejs do, to add some global variables to your files.
 
 To start a clustered app using all the CPUs you just need to type this :
@@ -190,7 +190,7 @@ Once we will have a battle hardened PM2 core we plan to implement features like 
 - Notification via email when something is going wrong
 - Integrated wrk utils endpoint benchmark
 
-Thanks to [Makara Wang](https://github.com/makara) for concepts/tools and [Alex Kocharin](https://github.com/rlidwka) for advices and pull requests :)
+Special thanks to [Makara Wang](https://github.com/makara) for concepts/tools and [Alex Kocharin](https://github.com/rlidwka) for advices and pull requests :)
 
 
 
