@@ -120,7 +120,7 @@ Point your browser at `http://localhost:9615`, aaaaand... done!
 
 - Full tests,
 - Generation of `update-rc.d` (`pm2 startup`), though still very alpha,
-- Development mode with auto restart on file change (pm2 dev), still very drafty too,
+- Development mode with auto restart on file change (`pm2 dev`), still very drafty too,
 - Log flushing,
 - Management of your applications fleet via JSON file,
 - Log uncaught exceptions in error logs,
