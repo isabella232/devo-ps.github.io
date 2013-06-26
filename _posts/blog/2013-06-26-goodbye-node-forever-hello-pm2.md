@@ -116,8 +116,6 @@ Let's say you want to monitor all the processes managed by PM2, as well as the s
 
 Point your browser at `http://localhost:9615`, aaaaand... done!
 
-**Disclaimer**: If you store password into your env, you should protect this API (pm2/lib/HttpInterface)
-
 ### And there's more...
 
 - Full tests,
