@@ -71,7 +71,7 @@ You should get the CPU usage and memory consumption by process (and cluster).
 
 **Disclaimer**: [node-usage](https://github.com/arunoda/node-usage) doesn't support MacOS for now (feel free to PR). It works just fine on Linux though.
 
-Now, what about checking on our clusters and GC cleaning the memory stack? Let's consider you already have an HTTP benchmark tool (if not, you should definitely check [WRK](https://github.com/wg/wrk)):
+Now, what about checking on our clusters and GC cleaning of the memory stack? Let's consider you already have an HTTP benchmark tool (if not, you should definitely check [WRK](https://github.com/wg/wrk)):
 
     $ express bufallo     // Create an express app
     $ cd bufallo
