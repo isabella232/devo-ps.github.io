@@ -127,7 +127,7 @@ Point your browser at `http://localhost:9615`, aaaaand... done!
 - Log of restart count and time,
 - Automated killing of processes exiting too fast.
 
-### What next?
+### What's next?
 
 Well first, you could show your love on Github (we love stars): [https://github.com/Unitech/pm2](https://github.com/Unitech/pm2).
 
