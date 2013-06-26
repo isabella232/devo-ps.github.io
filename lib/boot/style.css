@@ -66,6 +66,7 @@ pre code {
   padding: 20px;
 }
 table {
+  margin-bottom: 20px;
   width: 100%;
 }
 tbody tr:nth-child(odd) {
@@ -75,6 +76,9 @@ table th,
 table td {
   border: 1px solid #e7e2eb;
   padding: 5px 10px;
+}
+tbody tr:nth-child(odd) {
+  background-color: #eeebf2;
 }
 blockquote {
   color: #555;
@@ -400,6 +404,9 @@ input:focus {
 }
 .post .sticky {
   margin-top: 20px;
+}
+.post img {
+  max-width: 726px;
 }
 /* FOOTER */
 #footer {

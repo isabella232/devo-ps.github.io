@@ -75,6 +75,7 @@ pre code {
 }
 
 table {
+  margin-bottom: 20px;
   width: 100%;
 }
 
@@ -86,6 +87,10 @@ table th,
 table td {
   border: 1px solid @highlight;
   padding: 5px 10px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: lighten(@highlight, 3%);
 }
 
 blockquote {
@@ -391,6 +396,9 @@ input:focus {
   }
   .sticky {
     margin-top: 20px;
+  }
+  img {
+    max-width: 726px; 
   }
 }
 
