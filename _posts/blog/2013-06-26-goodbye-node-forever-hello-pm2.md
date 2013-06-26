@@ -69,7 +69,7 @@ You should get the CPU usage and memory consumption by process (and cluster).
 
 ![pm2 monit](https://github.com/unitech/pm2/raw/master/pres/pm2-monit.png)
 
-**Disclaimer**: [node-usage](https://github.com/arunoda/node-usage) doesn't support the MacOS systems for now (feel free to pull-req). It works just fine on Linux though.
+**Disclaimer**: [node-usage](https://github.com/arunoda/node-usage) doesn't support MacOS for now (feel free to PR). It works just fine on Linux though.
 
 Now, what about checking on our clusters and GC cleaning the memory stack? Let's consider you already have an HTTP benchmark tool (if not, you should definitely check [WRK](https://github.com/wg/wrk)):
 
