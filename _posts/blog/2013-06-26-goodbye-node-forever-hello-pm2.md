@@ -41,9 +41,7 @@ And now let me geek a tad more about the main features...
 
 ### Native clusterization
 
-Node v0.6 introduce the cluster feature, allowing you to share a socket across multiple networked Node applications. 
-
-Problem is, it doesn't work out of the box and requires some tweaking to handle master and children processes.
+Node v0.6 introduced the cluster feature, allowing you to share a socket across multiple networked Node applications. Problem is, it doesn't work out of the box and requires some tweaking to handle master and children processes.
 
 PM2 handles this natively, without any extra code: PM2 itself will act as the master process and wrap your code into a special clustered process, as Nodejs does, to add some global variables to your files.
 
@@ -63,7 +61,7 @@ As you can see, your app is now forked into multiple processes depending on the 
 
 ### Monitoring *a la* termcaps-HTOP
 
-It;s nice enough to have an overview of the running processes and their status with the `pm2 list command`. But what about tracking their resources consumption? Fear not:
+It's nice enough to have an overview of the running processes and their status with the `pm2 list` command. But what about tracking their resources consumption? Fear not:
 
     $ pm2 monit
 
