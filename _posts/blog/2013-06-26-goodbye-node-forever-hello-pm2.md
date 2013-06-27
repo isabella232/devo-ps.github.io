@@ -3,7 +3,7 @@ published: true
 category: blog
 title: Goodbye node-forever, hello PM2
 author: alex
-hn: 
+hn: 5945420
 
 layout: post
 ---
