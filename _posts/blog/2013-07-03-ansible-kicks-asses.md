@@ -20,6 +20,10 @@ What makes it awesome? Well, let's be specific:
 
 Now, Ansible is still very much in its infancy and some technologies may not yet be supported. But there are a great deal of  teams pushing hard on contributions, including us. In the past few weeks for example, we've contributed both Digital Ocean and Linode modules. And we have a lot more coming, including some dabbling with Vagrant (largely misunderstood IMHO).
 
+MORE DETAILS ABOUT HOW TO USE BOTH MODULES (LINODE, DO) WITH LINKS TO REPOS
+
+NOT SURE THE FOLLOWING IS USEFUL
+
 The support is yet imcomplete, but is improving, each cloud provider has his own methods and features; to name a few
 ec2: instance, size, region, security groups, keys, and more advanced options like kernel, optimized IO disks, EBS based images, etc.
 
