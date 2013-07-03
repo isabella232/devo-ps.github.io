@@ -22,7 +22,7 @@ Now, Ansible is still very much in its infancy and some technologies may not yet
 
 Now, an interesting aspect of Ansible, and one that makes it so simple, is that it comes by default with a tool-belt. Understand that it is shipped with a range of modules that add support for well known technologies: [EC2, Rackspace, MySQL, PostgreSQL, rpm, apt,...](http://www.ansibleworks.com/docs/modules.html). This now includes our Linode contribution. That means that with the latest version of Ansible you can spin off a new Linode box as easily as:
 
-    ansible -m linode -a "name='my-linode-box' plan=1 datacenter=2 distribution=99 password='p@ssword' "
+    ansible all -m linode -a "name='my-linode-box' plan=1 datacenter=2 distribution=99 password='p@ssword' "
 
 Doing this with Chef would probably mean chasing down a knife plugin for adding Linode support, and would simply require a full Chef stack (say hello to RabbitMQ, Solr, CouchDB and a gazillion smaller dependencies). Getting Ansible up and running is as easy as:
 
