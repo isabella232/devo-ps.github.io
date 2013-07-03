@@ -1,7 +1,7 @@
 ---
 published: true
 category: blog
-title: Ansible Kicks Asses The Simple Way
+title: Ansible Simply Kicks Ass
 author: vincent
 hn: 
 
