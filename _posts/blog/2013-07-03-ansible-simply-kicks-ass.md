@@ -3,7 +3,7 @@ published: true
 category: blog
 title: Ansible Simply Kicks Ass
 author: vincent
-hn: 
+hn: 5983918
 
 layout: post
 ---
