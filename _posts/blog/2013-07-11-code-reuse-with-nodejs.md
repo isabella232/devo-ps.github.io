@@ -8,6 +8,8 @@ hn:
 layout: post
 ---
 
+![Code recycling](http://devo.ps/images/posts/recycle.png)
+
 Any project that grows to a decent size will need to re-use parts of its code extensively. That often means, through the development cycle, a fair amount of rewrites and refactoring exercises. Elegant code re-use is hard to pull off.
 
 With node.js, which we use quite a bit at [devo.ps](http://devo.ps), the most common ways to do this often rely on prototype or class inheritance. The problem is, as the inheritance chain grows, managing attributes and functions can become quite complex.
