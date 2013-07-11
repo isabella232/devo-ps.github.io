@@ -163,3 +163,8 @@ I'll wrap this up mentioning one more method we use, admittedly less often: "Obj
     
         return obj;
     };
+    
+### Resources
+
+- [A case for prototypes](http://killdream.github.io/2011/10/09/understanding-javascript-oop.html)
+- [MDN Object reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
