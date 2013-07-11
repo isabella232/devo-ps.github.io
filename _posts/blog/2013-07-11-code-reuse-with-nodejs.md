@@ -138,8 +138,8 @@ Feature | Loader A | Loader C
 **Appearance** | Generates a function | Builds a typical instance which is an object.
 **Invoking directly** | `a()` or `a.get()` | `c.get()`
 **Invoking as a callback** | `ipsum(a)` | `ipsum(c.get.bind(c))`
-**Performance <sup>†</sup>** | - | 100x faster
-**Invoking** | *idem* | *idem*
+**Performance <sup>†</sup> of instantiating** | - | 100x faster
+**Performance of invoking** | *idem* | *idem*
 
 **†**: (check it yourself by [benchmarking Carcass with `make bm`](https://github.com/devo-ps/carcass/blob/master/Makefile))
 
