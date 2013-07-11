@@ -3,7 +3,7 @@ published: true
 category: blog
 title: Meat And Beer With Hackers + Founders
 author: ronan
-hn: 
+hn: 6025135
 
 layout: post
 ---
