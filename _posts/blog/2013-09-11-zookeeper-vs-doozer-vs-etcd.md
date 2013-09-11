@@ -28,7 +28,7 @@ It stores variables in a structure similar to a file system, an approach that bo
   * **It's... Java**; not that we especially hate Java, but it is on the heavy side and introduce a lot of dependencies. We wanted to keep our machines as lean as possible and usually shy away from dependency heavy technologies.
   * **Apache...**; we have mixed feelings about the Apache Foundation. ["Has Apache Lost Its Way?"](http://www.infoworld.com/d/open-source-software/has-apache-lost-its-way-225267) summarizes it pretty well.
 
-## Doozer, kinda dead
+### Doozer, kinda dead
 
 [Doozer](https://github.com/ha/doozerd) was developed by Heroku a few years ago. It's written in Go (yay!), which means it compiles into a single binary that runs without dependencies. On a side-note, if you're writing code to manage infrastructure, you should spend some time [learning Go](http://golang.org/).
 
@@ -48,7 +48,7 @@ Doozer was a step in the right direction. It is simple to use and setup. However
   * **Security**; no encryption and a fairly simple secure-word based authentication.
   * **No ACL**; and we badly needed this.
  
-## etcd 
+### etcd 
  
 After experiencing the shortcomings of Doozer, we stumbled upon a new distributed configuration storage called [etcd](https://github.com/coreos/etcd). 
 It was first released by the [CoreOS](http://coreos.com) team a month ago.
@@ -69,10 +69,10 @@ Beyond the fact that it answered some of our more advanced needs, we were seduce
   * (Very) **young project**; interfaces are still moving pretty quickly.
   * Still not a perfect match, especially in the way that data is spread.
   
-## The DIY approach (yeah, right..?)
+### The DIY approach (yeah, right..?)
 
 It is only fair that technical teams may rely on their understanding of their infrastructure and script skills to get *something that just works™* in place. We haven't seriously considered this approach as we felt that getting security and distributed state sharing right was going to be a bigger endeavor than we could afford (the backlog is full enough for now).
 
-## Conclusion
+### Conclusion
 
 In the end, we decided to give etcd a try. So far it seems to work well for our needs and the very active development pace seems to validate our choice. It has proven resilient so far and will likely hold well until we have the resources to either customize its data propagation approach, or build our own solution that will answer some needs etcd is likely not going to answer (we've already looked into doing so with ZeroMQ and Go).
