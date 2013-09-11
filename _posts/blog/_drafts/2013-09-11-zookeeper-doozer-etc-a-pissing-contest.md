@@ -1,4 +1,5 @@
 ---
+published: false
 category: blog
 title: "ZooKeeper, Doozer And Etcd: A Pissing Contest"
 author: juha
