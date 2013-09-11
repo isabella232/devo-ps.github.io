@@ -14,11 +14,18 @@ That's what got us to evaluate some of the options available out there; the DIY 
 
 ## ZooKeeper, the old dog
 
-ZooKeeper is the most well known (and oldest) project we've looked into. It's used by quite a few companies (EXAMPLES???) and feel pretty mature. 
+ZooKeeper is the most well known (and oldest) project we've looked into. It's used by quite a few big  companies (Rackspace, Yahoo and eBay) and feels pretty mature technology. 
 
-*EXPLAIN WHO BUILT IT AND WHY*
+*EXPLAIN WHO BUILT IT AND WHY* DONE
+Link: http://developer.yahoo.com/blogs/hadoop/apache-zookeeper-making-417.html
+- Build by Yahoo to reach the "ground truth"(quote from link) on the state of the cluster variables.
+ - They decided to store variables in file-like folder structure that modern tools still follow.
+ - Open sourced after first year (SourceForge) and later moved to Apache.
 
-*EXPLAIN HOW IT WORKS (ROUGHLY)*
+*EXPLAIN HOW IT WORKS (ROUGHLY)* DONE
+
+When you use zookeeper to keep distributed configuration data you have cluster of zookeeper servers that communicate with each other and share the state. Cluster has one leader. Clients can connect to any server getting the most up to date data whichever server they connect to.
+
 
 ----
 
@@ -33,9 +40,11 @@ ZooKeeper is the most well known (and oldest) project we've looked into. It's us
 
 ## Doozer, kinda dead
 
-Doozer was originally developed by Heroku (at least based on this doc: link) a few years ago (link). It was one of the first practical implementations (as far as I know) of the Paxos algorithm (link). Doozer is implemented in Go, which is good because we get one binary that can run without any dependencies (why Go is awesome for writing devops tools, link?). 
+Doozer was originally developed by Heroku (at least based on this doc: link) a few years ago (link). It was one of the first practical implementations (as far as I know) of the Paxos algorithm (link). Doozer is implemented in Go, which is good because we get one binary that can run without any dependencies (this why Go is awesome for writing devops tools). 
 
 Doozer seemed to get a warm welcome from the programming community (links?) but recently the project has seriously stagnated and fragmented. There are lots of forks with different useful features, but no active core developers that would push the project forward and merge useful features (help them out if you like Go!). 
+
+Doozer is divided into two projects Doozerd (the server, https://github.com/ha/doozerd) and Doozer (the client, https://github.com/ha/doozerd). The deployment is relatively easy for the simple usecase, you just start the doozer servers in your servers. After starting the first server you point the following doozer servers to the existing instances creating a cluster. Clients can then get and set data connecting to any server. The operations will be very slow compared to simple databases because clster-wide consensus has to be acquired before committing the operation. This takes some time doing it over the network. Doozer user paxos algorithm was originally designed for cross-processor communication (http://en.wikipedia.org/wiki/Paxos_%28computer_science%29). 
 
 Doozer was a step towards the right direction. It is very simple to use an setup and they even have a cool logo! After starting to use it we started to notice that it wasn't as finished as we had hoped (incomplete documentation for example) and wasn't answering our specific needs very well. For example we would need enryption at some point that doozer didn't provide.
 
@@ -54,12 +63,17 @@ Pros:
  
  Only after lots of research and starting to use Doozer we stumbled into a new distributed configuration storage called Etcd. It had it's first release of v0.1.0 last month (Aug 2013), but despite the young age we gave it a try. It is developed by CoreOS team that is developing new innovative os for ...(todo).
  
+On surface Etcd and Doozer seem very similar but clearest technical difference is that it uses aft algorithm instead of Paxos. Raft is designed to be simpler and easier to implement (https://ramcloud.stanford.edu/wiki/download/attachments/11370504/raft.pdf    http://kellabyte.com/2013/05/09/an-alternative-to-paxos-the-raft-consensus-algorithm/) than the Paxos (known to be hard to implement).
+
+Etcd system is archtected similarly to Doozer cluster. You setup the servers pointing to eachother and state is automatically shared. It however also keeps it's data persistent (writes log and snapshots). This was valuable in our usecase because we may have single-server clusters. The security features are using CA's, certs and private keys. Setting those up takes some effort, but provides nice layer of safety.
+
 It was lacking doozer's cool logo, but otherwise it felt very finished, at least considering its age. It is still under very active development and we even found a simple Python client binding (link) that came handy. Etcd is based on Raft protocol (link), and it offers encryption and authentication that we will eventually need. Another cool thing is that it uses http as the client interface making it useful for cases where we just want to pull a value using curl from a bash script.
 
 Pros:
  - Simple deployment 
  - Easy to use (especially because of http interface)
  - Planned ACL implementation (there is a ticket)
+ - Data persistency
   - Encryption
   - Authentication (private keys)
   - Good documentation (but not very comprehensive)
