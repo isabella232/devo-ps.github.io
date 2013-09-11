@@ -12,7 +12,7 @@ While [devo.ps](http://devo.ps) is fast approaching a public release, the team h
 
 That's what got us to evaluate some of the options available out there; ZooKeeper, Doozer and etcd. These tools all solve similar sets of problems but their approach differ quite significantly. Since we spent some time evaluating them, we thought we'd share our findings.
 
-## ZooKeeper, the old dog
+### ZooKeeper, the old dog
 
 [ZooKeeper](http://zookeeper.apache.org/) is the most well known (and oldest) project we've looked into. It's used by a few big players (Rackspace, Yahoo, eBay) and is pretty mature.
 
