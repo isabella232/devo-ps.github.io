@@ -21,7 +21,7 @@ It was created by Yahoo to deal with distributed systems applications. I strongl
 It stores variables in a structure similar to a file system, an approach that both Doozer and etcd still follow. With ZooKeeper, you maintain a cluster of servers communicating with each other that share the state of the distributed configuration data. Each cluster elects one "leader" and clients can connect to any of the servers within the cluster to retrieve the data. Zookeeper uses its own algorithm to handle distributed storage.
 
 * **Pros**:
-  - **Mature technology**; it is by some big players (eBay, Yahoo et al).
+  - **Mature technology**; it used by some big players (eBay, Yahoo et al).
   - **Feature-rich**; lots of client bindings, tools, API...
 - **Cons**:
   * **Complex**; ZooKeeper is not for the faint of heart. It is pretty heavy and will require you to maintain a fairly large stack.
