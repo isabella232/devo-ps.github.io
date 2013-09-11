@@ -14,7 +14,7 @@ That's what got us to evaluate some of the options available out there; ZooKeepe
 
 ### ZooKeeper, the old dog
 
-[ZooKeeper](http://zookeeper.apache.org/) is the most well known (and oldest) project we've looked into. It's used by a few big players (Rackspace, Yahoo, eBay) and is pretty mature.
+[ZooKeeper](http://zookeeper.apache.org/) is the most well known (and oldest) project we've looked into. It's used by a few big players (Rackspace, Yahoo, eBay, [Youtube](https://news.ycombinator.com/item?id=6367979)) and is pretty mature.
 
 It was created by Yahoo to deal with distributed systems applications. I strongly recommend you [read the "making of"](http://developer.yahoo.com/blogs/hadoop/apache-zookeeper-making-417.html) if you're interested in understanding where Yahoo came from when they wrote it. 
 
