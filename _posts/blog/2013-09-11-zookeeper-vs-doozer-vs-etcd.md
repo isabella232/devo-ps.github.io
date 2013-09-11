@@ -75,4 +75,4 @@ It is only fair that technical teams may rely on their understanding of their in
 
 ### Conclusion
 
-In the end, we decided to give etcd a try. So far it seems to work well for our needs and the very active development pace seems to validate our choice. It has proven resilient so far and will likely hold well until we have the resources to either customize its data propagation approach, or build our own solution that will answer some needs etcd is likely not going to answer (we've already looked into doing so with ZeroMQ and Go).
+In the end, we decided to give etcd a try. So far it seems to work well for our needs and the very active development pace seems to validate our choice. It has proven resilient and will likely hold well until we have the resources to either customize its data propagation approach, or build our own solution that will answer some needs it is likely not going to answer (we've already looked into doing so with ZeroMQ and Go).
