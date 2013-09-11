@@ -48,7 +48,7 @@ Doozer was a step in the right direction. It is simple to use and setup. However
   * **Security**; no encryption and a fairly simple secure-word based authentication.
   * **No ACL**; and we badly needed this.
  
- ## etcd 
+## etcd 
  
 After experiencing the shortcomings of Doozer, we stumbled upon a new distributed configuration storage called [etcd](https://github.com/coreos/etcd). 
 It was first released by the [CoreOS](http://coreos.com) team a month ago.
