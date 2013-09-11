@@ -55,7 +55,7 @@ It was first released by the [CoreOS](http://coreos.com) team a month ago.
  
 Etcd and Doozer look pretty similar, at least on the surface. The most obvious technical difference is that ectd uses the [Raft algorithm](http://en.wikipedia.org/wiki/Raft_%28computer_science%29) instead of Paxos. Raft is designed to be [simpler](https://ramcloud.stanford.edu/wiki/download/attachments/11370504/raft.pdf) and [easier](http://kellabyte.com/2013/05/09/an-alternative-to-paxos-the-raft-consensus-algorithm/) to implement than Paxos.
 
-Etcd's architecture is similar to Doozer's. It does however stores data persistently (writes log and snapshots), which was of value to us for some of our edge case. It also has a stronger security, with CA's, certs and private keys. While setting it up is not straightforward, it adds conveniency and safety of mind.
+Etcd's architecture is similar to Doozer's. It does however store data persistently (writes log and snapshots), which was of value to us for some edge cases. It also has a better take on security, with CA's, certs and private keys. While setting it up is not straightforward, it adds conveniency and safety of mind.
 
 Beyond the fact that it answered some of our more advanced needs, we were seduced (and impressed) by the development pace of the project.
 
