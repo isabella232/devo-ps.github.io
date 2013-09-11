@@ -34,11 +34,11 @@ It stores variables in a structure similar to a file system, an approach that bo
 
 Doozer got some initial excitement from the developer community but seems to have stalled more recently, with many forks being sporadically maintained and no active core development.
 
-It is composed of [a daemon](https://github.com/ha/doozerd) and [a client](https://github.com/ha/doozer). Once you got at least one Doozer server up, you can add any number of servers and have clients get and set data by talking to any of the servers within that cluster.
+It is composed of [a daemon](https://github.com/ha/doozerd) and [a client](https://github.com/ha/doozer). Once you have at least one Doozer server up, you can add any number of servers and have clients get and set data by talking to any of the servers within that cluster.
 
 It was one of the first practical implementations (as far as I know) of the [Paxos algorithm](http://en.wikipedia.org/wiki/Paxos_(computer_science)). This means operations can be slow when compared to dealing with a straight database since cluster-wide consensus needs to be reached before committing any operation. 
 
-Doozer was a step in the right direction. It is simple to use and setup. However,  after using it for a while we started noticing that a lot of its part felt unfinished, moreover it wasn't answering well some of our needs (encryption and ACL).
+Doozer was a step in the right direction. It is simple to use and setup. However,  after using it for a while we started noticing that a lot of its parts felt unfinished. Moreover, it wasn't answering some of our needs very well (encryption and ACL).
 
 * **Pros**:
   * **Easy to deploy, setup and use** (Go, yay!)
@@ -55,7 +55,7 @@ It was first released by the [CoreOS](http://coreos.com) team a month ago.
  
 Etcd and Doozer look pretty similar, at least on the surface. The most obvious technical difference is that ectd uses the [Raft algorithm](http://en.wikipedia.org/wiki/Raft_%28computer_science%29) instead of Paxos. Raft is designed to be [simpler](https://ramcloud.stanford.edu/wiki/download/attachments/11370504/raft.pdf) and [easier](http://kellabyte.com/2013/05/09/an-alternative-to-paxos-the-raft-consensus-algorithm/) to implement than Paxos.
 
-Etcd's architecture is similar to Doozer's. It does however store data persistently (writes log and snapshots), which was of value to us for some edge cases. It also has a better take on security, with CA's, certs and private keys. While setting it up is not straightforward, it adds conveniency and safety of mind.
+Etcd's architecture is similar to Doozer's. It does, however, store data persistently (writes log and snapshots), which was of value to us for some edge cases. It also has a better take on security, with CA's, certs and private keys. While setting it up is not straightforward, it adds conveniency and safety of mind.
 
 Beyond the fact that it answered some of our more advanced needs, we were seduced (and impressed) by the development pace of the project.
 
@@ -75,4 +75,4 @@ It is only fair that technical teams may rely on their understanding of their in
 
 ### Conclusion
 
-In the end, we decided to give etcd a try. So far it seems to work well for our needs and the very active development pace seems to validate our choice. It has proven resilient and will likely hold well until we have the resources to either customize its data propagation approach, or build our own solution that will answer some needs it is likely not going to answer (we've already looked into doing so with ZeroMQ and Go).
+In the end, we decided to give etcd a try. So far it seems to work well for our needs and the very active development pace seems to validate our choice. It has proven resilient and will likely hold well until we have the resources to either customize its data propagation approach, or build our own solution that will answer some needs it is not likely to answer (we've already looked into doing so with ZeroMQ and Go).
