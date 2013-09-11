@@ -71,7 +71,7 @@ Beyond the fact that it answered some of our more advanced needs, we were seduce
   
 ### The DIY approach (yeah, right..?)
 
-It is only fair that technical teams may rely on their understanding of their infrastructure and script skills to get *something that just works™* in place. We haven't seriously considered this approach as we felt that getting security and distributed state sharing right was going to be a bigger endeavor than we could afford (the backlog is full enough for now).
+It is only fair that technical teams may rely on their understanding of their infrastructure and coding skills to get *something that just works™* in place. We haven't seriously considered this approach as we felt that getting security and distributed state sharing right was going to be a bigger endeavor than we could afford (the backlog is full enough for now).
 
 ### Conclusion
 
