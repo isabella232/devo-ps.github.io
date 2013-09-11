@@ -16,7 +16,7 @@ That's what got us to evaluate some of the options available out there; ZooKeepe
 
 [ZooKeeper](http://zookeeper.apache.org/) is the most well known (and oldest) project we've looked into. It's used by a few big players (Rackspace, Yahoo, eBay) and is pretty mature.
 
-It was created by Yahoo to deal with distributed systems applications. I strongly recommend you [read the "making of"](http://developer.yahoo.com/blogs/hadoop/apache-zookeeper-making-417.html) if you're interested in understanding were Yahoo came from when they wrote it. 
+It was created by Yahoo to deal with distributed systems applications. I strongly recommend you [read the "making of"](http://developer.yahoo.com/blogs/hadoop/apache-zookeeper-making-417.html) if you're interested in understanding where Yahoo came from when they wrote it. 
 
 It stores variables in a structure similar to a file system, an approach that both Doozer and etcd still follow. With ZooKeeper, you maintain a cluster of servers communicating with each other that share the state of the distributed configuration data. Each cluster elects one "leader" and clients can connect to any of the servers within the cluster to retrieve the data. Zookeeper uses its own algorithm to handle distributed storage.
 
@@ -53,9 +53,9 @@ Doozer was a step in the right direction. It is simple to use and setup. However
 After experiencing the shortcomings of Doozer, we stumbled upon a new distributed configuration storage called [etcd](https://github.com/coreos/etcd). 
 It was first released by the [CoreOS](http://coreos.com) team a month ago.
  
-Etcd and Doozer look pretty similar, at least on the surface. The most obvious technical difference is that ectd uses the [Raft algorithm](http://en.wikipedia.org/wiki/Raft_(computer_science)) instead of Paxos. Raft is designed to be [simpler](https://ramcloud.stanford.edu/wiki/download/attachments/11370504/raft.pdf) and [easier](http://kellabyte.com/2013/05/09/an-alternative-to-paxos-the-raft-consensus-algorithm/) to implement than Paxos.
+Etcd and Doozer look pretty similar, at least on the surface. The most obvious technical difference is that ectd uses the [Raft algorithm](http://en.wikipedia.org/wiki/Raft_%28computer_science%29) instead of Paxos. Raft is designed to be [simpler](https://ramcloud.stanford.edu/wiki/download/attachments/11370504/raft.pdf) and [easier](http://kellabyte.com/2013/05/09/an-alternative-to-paxos-the-raft-consensus-algorithm/) to implement than Paxos.
 
-Etcd's architecture is similar to Doozer's cluster. It does however stores data persistently (writes log and snapshots), which was of value to us for some of our edge case. It also has a stronger security, with CA's, certs and private keys. While setting it up is not straightforward, it adds conveniency and safety of mind.
+Etcd's architecture is similar to Doozer's. It does however stores data persistently (writes log and snapshots), which was of value to us for some of our edge case. It also has a stronger security, with CA's, certs and private keys. While setting it up is not straightforward, it adds conveniency and safety of mind.
 
 Beyond the fact that it answered some of our more advanced needs, we were seduced (and impressed) by the development pace of the project.
 
