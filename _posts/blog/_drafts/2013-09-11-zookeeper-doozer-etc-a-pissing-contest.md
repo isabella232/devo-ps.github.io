@@ -8,33 +8,30 @@ hn:
 layout: post
 ---
 
+While devo.ps is fast approaching a public release, the team has been dealing with an increasing complex infrastructure. We more recently faced an interesting issue; how do you share configuration across a cluster of servers? More importantly, how do you do so in a resilient, secure, easily deployable and speedy fashion?
 
+That's what got us to evaluate some of the options available out there; the DIY approach, ZooKeeper, Doozer and etcd. These tools all solve similar sets of problems but their approach differ quite significantly. Since we spent the time evaluating these, we thought we'd share our findings.
 
-While Devo.ps is approaching public release and the complexity of the system grows we are being faced with new interesting challenges. Most recent was to decide an approach to share configuration variables across servers within a cluster. We have lots of restrictions and requirements for the this part of the system coming from the strict security and resiliency requirements that we have. 
+## ZooKeeper, the old dog
 
-The main requirements we had:
-  - Resiliency (system should keep functioning in EVERY situation)
-  - Security (encryption and authorization)
-  - Easy deployment and minimize dependencies.
-  Things of secondary importance:
-   - Speed (we only have at most some hundred variables)
-   
-These things made us think harder and look into all feasible options available. What we ome up were: Zookeeper, Doozer, ETCD and DIY approach. All listed tools try to solve very similar problem but approach it a bit differently. In addition to these we kept in mind that we could build our own system  to answer our needs (good chance to get to use Go!), that's why Heroku originally built Doozer (link).
+ZooKeeper is the most well known (and oldest) project we've looked into. It's used by quite a few companies (EXAMPLES???) and feel pretty mature. 
 
+*EXPLAIN WHO BUILT IT AND WHY*
 
-Zookeeper:
+*EXPLAIN HOW IT WORKS (ROUGHLY)*
 
-Lets start from the most known (and oldest) pproject: Zookeeper. We know it's mature technology and has been used widely by a lot of companies. However it had a few aspects that made us loose our interest on it. First of all it's Java! I actually like programming with Java, but installing the heavy java runtime just for this wasn't attractive choise for us. It's also hosted by Apache which isn't as positive thing as it used to be (link: Has the Apache Software Foundation Lost Its Way?). Zookeeper uses its own algorithm to handle distributed storage.
+----
 
-Pros:
- - Mature Technology
- - Offers a lot
-Cons:
- - Java
- - Complex
- - 
+ We know it's mature technology and has been used widely by a lot of companies. However it had a few aspects that made us loose our interest on it. First of all it's Java! I actually like programming with Java, but installing the heavy java runtime just for this wasn't attractive choise for us. It's also hosted by Apache which isn't as positive thing as it used to be (link: Has the Apache Software Foundation Lost Its Way?). Zookeeper uses its own algorithm to handle distributed storage.
 
-Doozer:
+* **Pros**:
+  - **Mature Technology**;
+  - **Feature-rich**;
+- **Cons**:
+  * **Complex**
+  * **It's... Java**
+
+## Doozer, kinda dead
 
 Doozer was originally developed by Heroku (at least based on this doc: link) a few years ago (link). It was one of the first practical implementations (as far as I know) of the Paxos algorithm (link). Doozer is implemented in Go, which is good because we get one binary that can run without any dependencies (why Go is awesome for writing devops tools, link?). 
 
@@ -89,3 +86,18 @@ Pros:
 Conclusions
 
 In the end we decided to give etcd a try, it seems most feasible for our usecase, has active developent and seems resilient enough for us. However we'll keep in the back of our heads that we may have to write custom solution in the future when we want to do things etcd just isn't designed for. At devo.ps we like ZeroMQ and it could provide a nice base for our efforts, but we'll cross that bridge when we get to it!
+
+
+
+
+
+
+
+
+These things made us think harder and look into all feasible options available. What we ome up were: Zookeeper, Doozer, ETCD and DIY approach. All listed tools try to solve very similar problem but approach it a bit differently. In addition to these we kept in mind that we could build our own system  to answer our needs (good chance to get to use Go!), that's why Heroku originally built Doozer (link).
+
+-; the system should keep functioning in EVERY situation)
+  - Security (encryption and authorization)
+  - Easy deployment and minimize dependencies.
+  Things of secondary importance:
+   - Speed (we only have at most some hundred variables)
