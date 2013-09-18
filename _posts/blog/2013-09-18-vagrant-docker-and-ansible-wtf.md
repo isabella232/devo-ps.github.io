@@ -25,6 +25,30 @@ Let's get started.
 
 [Vagrant](http://www.vagrantup.com/)
 
+By now most of the developers have heard about Vagrant, at least on the titles of the blog posts. Vagrant was build by Mitchell Hashimoto released Jan 2010 (read more: http://www.vagrantup.com/about.html). It is a simple tool, but has made a big difference in the way we think about runtime environments.
+
+On it's core Vagrant is just a simple wrapper around Virtualbox or VMWare offering command line interface with a few extra features. Just enough features to make using the tool easy and natural. Here are a few of our favorite features:
+ - Load pre-packaged boxes form the internet
+ - Snapshot your current machine to a vagrant box file you can easily share (very useful for prebuilding development machines).
+ - Assign ip-interfaces to the machine
+ - Setup port forwarding.
+ - CLI and conf file to do this all!
+
+Many of these are made through the Vagrantfile which includes the vagrant configuration of the machine. Downloading image, initializing, starting the machine and ssh'ing into the machine only takes three commands (http://docs.vagrantup.com/v2/getting-started/):
+```
+$ vagrant init precise32 http://files.vagrantup.com/precise32.box
+$ vagrant up
+$ vagrant ssh
+```
+Uncommenting and editing a few pre-written lines in `Vagantfile` gets the machine new ip interface, port forwarding in host and shared folder:
+```
+config.vm.network :private_network, ip: "192.168.3.88"
+config.vm.network :forwarded_port, guest: 80, host: 8080
+config.vm.synced_folder "../data", "/vagrant_data"
+```
+
+The fact that vagrant makes it so easy to manage virtual machines helps us consider our runtime environments as a set of conficuration files. We can destroy the box (just as servers can break in deployment systems) and be ready to re-initialize it into the previous state with minimal effort. Approaching development like this guarantees to keep the ops-team happy.
+
 > GIVE AN INTRO TO VAGRANT:
 > - WHY IT WAS CREATED AND BY WHOM?
 > - WHAT IT DOES
@@ -102,6 +126,38 @@ docker run -t -i howareyou/nodejs_0.10.18 /bin/bash
 > - WHAT ARE THE PROS
 
 > SIMPLE FEW LINES TO DEPLOY A SIMPLE NODE.JS APP (HUBOT?) IN THE DOCKER CONTAINER
+
+
+- Ansible was create by [ansibleworks](www.ansibleworks.com).Ansible is a radically simple IT orchestration engine that makes your applications and systems easier to deploy. Avoid writing scripts or custom code to deploy and update your applications— automate in a language that approaches plain English, using SSH, with no agents to install on remote systems.
+- Example
+  - Write an nginx yml file like this 
+   ```
+     ---
+      - name: Ensure nginx is installed
+          apt: pkg=nginx state=present
+          notify: enable nginx
+
+      - name: Backup origin nginx config
+          command: mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
+                   creates=/etc/nginx/nginx.conf.orig
+                   removes=/etc/nginx/nginx.conf
+
+      - name: Add new nginx conf
+          command: cp -f ./nginx.conf /etc/nginx/nginx.conf
+
+      - name: Start nginx
+   ```
+     `nginx.conf` is our custom nginx configure file, proxy the node js application to 80 port.
+     You can also install git with ansible, it's simple to clone git from git repository,just add 
+     ```
+        -name: Ensure git installed 
+           apt: pkg=git stare=present
+      ```
+     in a task.
+    
+    Use `ansible-playbook yourplaybook.yml` run all playbooks and start the container with nodejs application. You can open `your custome url` in the browser
+    , you will get what you want.
+
 
 ## Conclusion
 
