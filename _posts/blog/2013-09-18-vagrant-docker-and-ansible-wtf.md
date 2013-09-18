@@ -25,6 +25,28 @@ Let's get started.
 
 [Vagrant](http://www.vagrantup.com/)
 
+By now most of the developers have heard about Vagrant, at least on the titles of the blog posts. Vagrant was build by Mitchell Hashimoto released Jan 2010 (read more: http://www.vagrantup.com/about.html). It is a simple tool, but has made a big difference in the way we think about runtime environments.
+
+On it's core Vagrant is just a simple wrapper around Virtualbox (or xxx) offering command line interface with a few extra features. Just enough features to make using the tool easy and natural. Here are a few of our favorite features:
+ - Load pre-packaged boxes form the internet
+ - Snapshot your current machine to a vagrant box file you can easily share (very useful for prebuilding development machines).
+ - Assign ip-interfaces to the machine
+ - Setup port forwarding.
+
+Many of these are made through the Vagrantfile which includes the vagrant configuration of the machine. Downloading image, initializing, starting the machine and ssh'ing into the machine only takes three commands (http://docs.vagrantup.com/v2/getting-started/):
+```
+$ vagrant init precise32 http://files.vagrantup.com/precise32.box
+$ vagrant up
+$ vagrant ssh
+```
+Uncommenting and editing a few pre-written lines in `Vagantfile` gets the machine new ip interface, port forwarding in host and shared folder:
+```
+config.vm.network :private_network, ip: "192.168.3.88"
+config.vm.network :forwarded_port, guest: 80, host: 8080
+config.vm.synced_folder "../data", "/vagrant_data"
+```
+
+
 > GIVE AN INTRO TO VAGRANT:
 > - WHY IT WAS CREATED AND BY WHOM?
 > - WHAT IT DOES
