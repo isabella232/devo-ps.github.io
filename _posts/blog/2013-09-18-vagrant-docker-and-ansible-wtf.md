@@ -74,6 +74,38 @@ The fact that vagrant makes it so easy to manage virtual machines helps us consi
 
 > SIMPLE FEW LINES TO DEPLOY A SIMPLE NODE.JS APP (HUBOT?) IN THE DOCKER CONTAINER
 
+
+- Ansible was create by [ansibleworks](www.ansibleworks.com).Ansible is a radically simple IT orchestration engine that makes your applications and systems easier to deploy. Avoid writing scripts or custom code to deploy and update your applications— automate in a language that approaches plain English, using SSH, with no agents to install on remote systems.
+- Example
+  - Write an nginx yml file like this 
+   ```
+     ---
+      - name: Ensure nginx is installed
+          apt: pkg=nginx state=present
+          notify: enable nginx
+
+      - name: Backup origin nginx config
+          command: mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
+                   creates=/etc/nginx/nginx.conf.orig
+                   removes=/etc/nginx/nginx.conf
+
+      - name: Add new nginx conf
+          command: cp -f ./nginx.conf /etc/nginx/nginx.conf
+
+      - name: Start nginx
+   ```
+     `nginx.conf` is our custom nginx configure file, proxy the node js application to 80 port.
+     You can also install git with ansible, it's simple to clone git from git repository,just add 
+     ```
+        -name: Ensure git installed 
+           apt: pkg=git stare=present
+      ```
+     in a task.
+    
+    Use `ansible-playbook yourplaybook.yml` run all playbooks and start the container with nodejs application. You can open `your custome url` in the browser
+    , you will get what you want.
+
+
 ## Conclusion
 
 > HOW THIS APPROACH HELPED US: AUTOMATION, INFRASTRUCTURE AS CODE AND CONTAINING COMPLEXITY 
