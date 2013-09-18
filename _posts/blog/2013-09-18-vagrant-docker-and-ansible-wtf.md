@@ -27,11 +27,12 @@ Let's get started.
 
 By now most of the developers have heard about Vagrant, at least on the titles of the blog posts. Vagrant was build by Mitchell Hashimoto released Jan 2010 (read more: http://www.vagrantup.com/about.html). It is a simple tool, but has made a big difference in the way we think about runtime environments.
 
-On it's core Vagrant is just a simple wrapper around Virtualbox (or xxx) offering command line interface with a few extra features. Just enough features to make using the tool easy and natural. Here are a few of our favorite features:
+On it's core Vagrant is just a simple wrapper around Virtualbox or VMWare offering command line interface with a few extra features. Just enough features to make using the tool easy and natural. Here are a few of our favorite features:
  - Load pre-packaged boxes form the internet
  - Snapshot your current machine to a vagrant box file you can easily share (very useful for prebuilding development machines).
  - Assign ip-interfaces to the machine
  - Setup port forwarding.
+ - CLI and conf file to do this all!
 
 Many of these are made through the Vagrantfile which includes the vagrant configuration of the machine. Downloading image, initializing, starting the machine and ssh'ing into the machine only takes three commands (http://docs.vagrantup.com/v2/getting-started/):
 ```
@@ -46,6 +47,7 @@ config.vm.network :forwarded_port, guest: 80, host: 8080
 config.vm.synced_folder "../data", "/vagrant_data"
 ```
 
+The fact that vagrant makes it so easy to manage virtual machines helps us consider our runtime environments as a set of conficuration files. We can destroy the box (just as servers can break in deployment systems) and be ready to re-initialize it into the previous state with minimal effort. Approaching development like this guarantees to keep the ops-team happy.
 
 > GIVE AN INTRO TO VAGRANT:
 > - WHY IT WAS CREATED AND BY WHOM?
