@@ -35,12 +35,14 @@ On it's core Vagrant is just a simple wrapper around Virtualbox or VMWare offeri
  - CLI and conf file to do this all!
 
 Many of these are made through the Vagrantfile which includes the vagrant configuration of the machine. Downloading image, initializing, starting the machine and ssh'ing into the machine only takes three commands (http://docs.vagrantup.com/v2/getting-started/):
+
 ```
 $ vagrant init precise32 http://files.vagrantup.com/precise32.box
 $ vagrant up
 $ vagrant ssh
 ```
 Uncommenting and editing a few pre-written lines in `Vagantfile` gets the machine new ip interface, port forwarding in host and shared folder:
+
 ```
 config.vm.network :private_network, ip: "192.168.3.88"
 config.vm.network :forwarded_port, guest: 80, host: 8080
@@ -160,6 +162,17 @@ docker run -t -i howareyou/nodejs_0.10.18 /bin/bash
 
 
 ## Conclusion
+
+* As a small team, we need rise our level of automation as high as possible.
+
+* It save a lot of time, a lot of enegy.
+
+* Learn to use right tools in right places.
+
+* Try combine all things together as whole.
+
+
+
 
 > HOW THIS APPROACH HELPED US: AUTOMATION, INFRASTRUCTURE AS CODE AND CONTAINING COMPLEXITY 
 > HOW EACH TOOL IS USEFUL
