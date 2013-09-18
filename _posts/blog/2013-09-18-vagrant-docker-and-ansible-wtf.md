@@ -39,7 +39,60 @@ Let's get started.
 > - WHAT IT DOES
 > - WHAT ARE THE PROS
 
+
+Docker or [docker.io](http://docker.io) is a new technology that can isolate/distribute hardware resources for softwares.
+It is based on some open source technologies, including [lxc](http://en.wikipedia.org/wiki/LXC) and [AUFS](http://en.wikipedia.org/wiki/Aufs) in linux kernel, and writing in [go](http://golang.org). Created by [dotcloud](http://www.dotcloud.com/).
+
+What docker dose is running different software stacks on a same host machine at same time, but isolated them from each others completely.
+
+The best part of docker is that it allow you package complete software stack into a single images, and running them an a more economic manner, compares to traditional virtual machine.
+And it also ships with a nice api that make it can easily be integrated into other application.
+
 > SIMPLE FEW LINES TO INSTALL AND GET RUNNING WITH A BASIC DOCKER IMAGE WITH NODE.JS SUPPORT RUNNING IN OUR VAGRANT IMAGE
+
+
+```
+# install the backported kernel
+sudo apt-get update
+sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
+
+# reboot
+sudo reboot
+
+# Add the Docker repository key to your local keychain
+# using apt-key finger you can check the fingerprint matches 36A1 D786 9245 C895 0F96 6E92 D857 6A8B A88D 21E9
+sudo sh -c "curl https://get.docker.io/gpg | apt-key add -"
+
+# Add the Docker repository to your apt sources list.
+sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
+
+# Update your sources
+sudo apt-get update
+
+# Install, you will see another warning that the package cannot be authenticated. Confirm install.
+sudo apt-get install lxc-docker
+
+# Add the docker group
+sudo groupadd docker
+
+# Add the current user, in my case, ubuntu, to the docker group
+# You may have to logout and log back in again for
+# this to take effect
+sudo gpasswd -a ubuntu docker
+
+# Restart the docker daemon
+sudo service docker restart
+
+# Search is there nodejs images in public registry?
+docker search nodejs
+
+# Pull down the image from docker.io public registry, this might take sometimes
+docker pull howareyou/nodejs_0.10.18
+
+# Run it, now you have a complete nodejs evnironment running inside a container
+docker run -t -i howareyou/nodejs_0.10.18 /bin/bash 
+```
+
 
 ## Ansible
 
