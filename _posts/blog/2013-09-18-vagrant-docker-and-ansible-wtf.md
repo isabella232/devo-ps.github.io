@@ -147,7 +147,7 @@ docker run -t -i howareyou/nodejs_0.10.18 /bin/bash
                    removes=/etc/nginx/nginx.conf
 
       - name: Add new nginx conf
-          command: cp -f ./nginx.conf /etc/nginx/nginx.conf
+          copy: src=./nginx.conf dest=/etc/nginx/nginx.conf
 
       - name: Start nginx
    ```
