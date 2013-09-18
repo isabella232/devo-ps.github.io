@@ -53,19 +53,8 @@ config.vm.synced_folder "../data", "/vagrant_data"
 
 The fact that vagrant makes it so easy to manage virtual machines helps us consider our runtime environments as a set of conficuration files. We can destroy the box (just as servers can break in deployment systems) and be ready to re-initialize it into the previous state with minimal effort. Approaching development like this guarantees to keep the ops-team happy.
 
-> GIVE AN INTRO TO VAGRANT:
-> - WHY IT WAS CREATED AND BY WHOM?
-> - WHAT IT DOES
-> - WHAT ARE THE PROS
-
-> SIMPLE FEW LINES TO INSTALL AND GET RUNNING WITH A BASIC VAGRANT MACHINE (UBUNTU)
 
 ## Docker
-
-> GIVE AN INTRO TO DOCKER:
-> - WHY IT WAS CREATED AND BY WHOM?
-> - WHAT IT DOES
-> - WHAT ARE THE PROS
 
 
 Docker or [docker.io](http://docker.io) is a new technology that can isolate/distribute hardware resources for softwares.
@@ -76,7 +65,6 @@ What docker dose is running different software stacks on a same host machine at 
 The best part of docker is that it allow you package complete software stack into a single images, and running them an a more economic manner, compares to traditional virtual machine.
 And it also ships with a nice api that make it can easily be integrated into other application.
 
-> SIMPLE FEW LINES TO INSTALL AND GET RUNNING WITH A BASIC DOCKER IMAGE WITH NODE.JS SUPPORT RUNNING IN OUR VAGRANT IMAGE
 
 
 ```
@@ -124,12 +112,6 @@ docker run -t -i howareyou/nodejs_0.10.18 /bin/bash
 
 ## Ansible
 
-> GIVE AN INTRO TO ANSIBLE:
-> - WHY IT WAS CREATED AND BY WHOM?
-> - WHAT IT DOES
-> - WHAT ARE THE PROS
-
-> SIMPLE FEW LINES TO DEPLOY A SIMPLE NODE.JS APP (HUBOT?) IN THE DOCKER CONTAINER
 
 
 - Ansible was create by [ansibleworks](www.ansibleworks.com).Ansible is a radically simple IT orchestration engine that makes your applications and systems easier to deploy. Avoid writing scripts or custom code to deploy and update your applications— automate in a language that approaches plain English, using SSH, with no agents to install on remote systems.
@@ -172,8 +154,6 @@ docker run -t -i howareyou/nodejs_0.10.18 /bin/bash
 * Learn to use right tools in right places.
 
 * Try combine all things together as whole.
-
-
 
 
 > HOW THIS APPROACH HELPED US: AUTOMATION, INFRASTRUCTURE AS CODE AND CONTAINING COMPLEXITY 
