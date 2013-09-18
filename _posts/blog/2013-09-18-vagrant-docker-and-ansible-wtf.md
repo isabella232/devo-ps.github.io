@@ -33,6 +33,8 @@ On it's core Vagrant is just a simple wrapper around Virtualbox or VMWare offeri
  - Assign ip-interfaces to the machine
  - Setup port forwarding.
  - CLI and conf file to do this all!
+ - [Setup multiple servers](http://docs.vagrantup.com/v2/multi-machine/index.html) from one Vagrantfile (setup for whole cluster in one conf file).
+
 
 Many of these are made through the Vagrantfile which includes the vagrant configuration of the machine. Downloading image, initializing, starting the machine and ssh'ing into the machine only takes three commands (http://docs.vagrantup.com/v2/getting-started/):
 
