@@ -1,9 +1,9 @@
 ---
 published: false
 category: blog
-title: "Vagrant, Docker and Ansible. WTF?"
-author: xecodou
-hn: 6366665
+title: Vagrant, Docker and Ansible. WTF?
+author: xeodou
+hn:
 
 layout: post
 ---
@@ -23,129 +23,99 @@ Let's get started.
 
 ## Vagrant
 
-[Vagrant](http://www.vagrantup.com/)
+You've probably heard about [Vagrant](http://www.vagrantup.com/); a healthy number of people have been writing about it in the past 6 months. For those of you who haven't, think of it as a VM without the GUI. At its core, Vagrant is a simple wrapper around Virtualbox/VMware.
 
-By now most of the developers have heard about Vagrant, at least on the titles of the blog posts. Vagrant was build by Mitchell Hashimoto released Jan 2010 (read more: http://www.vagrantup.com/about.html). It is a simple tool, but has made a big difference in the way we think about runtime environments.
+A few interesting features:
 
-On it's core Vagrant is just a simple wrapper around Virtualbox or VMWare offering command line interface with a few extra features. Just enough features to make using the tool easy and natural. Here are a few of our favorite features:
- - Load pre-packaged boxes form the internet
- - Snapshot your current machine to a vagrant box file you can easily share (very useful for prebuilding development machines).
- - Assign ip-interfaces to the machine
- - Setup port forwarding.
- - CLI and conf file to do this all!
- - [Setup multiple servers](http://docs.vagrantup.com/v2/multi-machine/index.html) from one Vagrantfile (setup for whole cluster in one conf file).
+- **Boatloads of existing images**, just check [Vagrantbox.es](http://www.vagrantbox.es/) for example.
+- **Snapshot and package your current machine** to a Vagrant box file (and, consequently, share it back).
+- **Ability to fine tune settings of the VM**, including things like RAM, CPU, APIC...
+- **Vagrantfiles**. This allows you to setup your box on init: installing packages, modifying configuration, moving code around...
+- **Integration with CM tools** like Puppet, Chef and Ansible.
 
+Let's get it running on your machine:
 
-Many of these are made through the Vagrantfile which includes the vagrant configuration of the machine. Downloading image, initializing, starting the machine and ssh'ing into the machine only takes three commands (http://docs.vagrantup.com/v2/getting-started/):
+1. First, [download Vagrant](http://downloads.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
+1. Second, let's download an image, spin it up and SSH in:
 
-```
-$ vagrant init precise32 http://files.vagrantup.com/precise32.box
-$ vagrant up
-$ vagrant ssh
-```
-Uncommenting and editing a few pre-written lines in `Vagantfile` gets the machine new ip interface, port forwarding in host and shared folder:
+        $ vagrant init precise32 http://files.vagrantup.com/precise32.box
+        $ vagrant up
+        $ vagrant ssh
 
-```
-config.vm.network :private_network, ip: "192.168.3.88"
-config.vm.network :forwarded_port, guest: 80, host: 8080
-config.vm.synced_folder "../data", "/vagrant_data"
-```
-
-The fact that vagrant makes it so easy to manage virtual machines helps us consider our runtime environments as a set of conficuration files. We can destroy the box (just as servers can break in deployment systems) and be ready to re-initialize it into the previous state with minimal effort. Approaching development like this guarantees to keep the ops-team happy.
-
+1. There's no 3.
 
 ## Docker
 
+[Docker](http://docker.io) is a Linux container, written in [Go](http://golang.org) (yay!) and based on [lxc](http://en.wikipedia.org/wiki/LXC) (self-described as "chroot on steroids") and [AUFS](http://en.wikipedia.org/wiki/Aufs). Instead of providing a full virtual machine, like you get with Vagrant, Docker provides you lightweight containers, that share the same kernel and allow to safely execute independant processes.
 
-Docker or [docker.io](http://docker.io) is a new technology that can isolate/distribute hardware resources for softwares.
-It is based on some open source technologies, including [lxc](http://en.wikipedia.org/wiki/LXC) and [AUFS](http://en.wikipedia.org/wiki/Aufs) in linux kernel, and writing in [go](http://golang.org). Created by [dotcloud](http://www.dotcloud.com/).
+Docker is attractive for many reasons:
 
-What docker dose is running different software stacks on a same host machine at same time, but isolated them from each others completely.
+- **Lightweight**; images are much lighter than full VMs, and spinning off a new instance is lightning fast (in the range of seconds instead of minutes).
+- **Version control of the images**, which makes it much more convenient to handle builds.
+- **Lots of images** (again), just have a look at XXX.
 
-The best part of docker is that it allow you package complete software stack into a single images, and running them an a more economic manner, compares to traditional virtual machine.
-And it also ships with a nice api that make it can easily be integrated into other application.
+Let's set up a Docker container on your Vagrant machine:
 
 
+1. SSH in Vagrant if you're not in already
+   
+        $ vagrant ssh
 
-```
-# install the backported kernel
-sudo apt-get update
-sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
+1. Install Docker, [as explained on the offical website](http://docs.docker.io/en/latest/installation/ubuntulinux/#id2):
 
-# reboot
-sudo reboot
+        $ sudo apt-get update
+        $ sudo apt-get install linux-image-extra-`uname -r`
+        $ sudo sh -c "curl https://get.docker.io/gpg | apt-key add -"
+        $ sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
+        $ sudo apt-get update
+        $ sudo apt-get install lxc-docker
 
-# Add the Docker repository key to your local keychain
-# using apt-key finger you can check the fingerprint matches 36A1 D786 9245 C895 0F96 6E92 D857 6A8B A88D 21E9
-sudo sh -c "curl https://get.docker.io/gpg | apt-key add -"
+1. Verify it worked by trying to build your first container:
 
-# Add the Docker repository to your apt sources list.
-sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
+        $ sudo docker run -i -t ubuntu /bin/bash
 
-# Update your sources
-sudo apt-get update
+1. STEP 3 >> Build an actual node.js box
 
-# Install, you will see another warning that the package cannot be authenticated. Confirm install.
-sudo apt-get install lxc-docker
-
-# Add the docker group
-sudo groupadd docker
-
-# Add the current user, in my case, ubuntu, to the docker group
-# You may have to logout and log back in again for
-# this to take effect
-sudo gpasswd -a ubuntu docker
-
-# Restart the docker daemon
-sudo service docker restart
-
-# Search is there nodejs images in public registry?
-docker search nodejs
-
-# Pull down the image from docker.io public registry, this might take sometimes
-docker pull howareyou/nodejs_0.10.18
-
-# Run it, now you have a complete nodejs evnironment running inside a container
-docker run -t -i howareyou/nodejs_0.10.18 /bin/bash 
-```
-
+You now have a Docker container, inside a Vagrant box (*Inception* style), ready to run a Node.js app.
 
 ## Ansible
 
+[Ansible](http://ansible.cc) is an orchestration and configuration management tool written in Python.
 
+is a radically simple IT orchestration engine that makes your applications and systems easier to deploy. Avoid writing scripts or custom code to deploy and update your applications— automate in a language that approaches plain English, using SSH, with no agents to install on remote systems.
 
-- Ansible was create by [ansibleworks](www.ansibleworks.com).Ansible is a radically simple IT orchestration engine that makes your applications and systems easier to deploy. Avoid writing scripts or custom code to deploy and update your applications— automate in a language that approaches plain English, using SSH, with no agents to install on remote systems.
-- Example
-  - Write an nginx yml file like this 
-   ```
-     ---
-      - name: Ensure nginx is installed
-          apt: pkg=nginx state=present
-          notify: enable nginx
+Write an nginx yml file like this 
 
-      - name: Backup origin nginx config
-          command: mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
-                   creates=/etc/nginx/nginx.conf.orig
-                   removes=/etc/nginx/nginx.conf
+    ---
+    - name: Ensure nginx is installed
+        apt: pkg=nginx state=present
+        notify: enable nginx
 
-      - name: Add new nginx conf
-          copy: src=./nginx.conf dest=/etc/nginx/nginx.conf
+    - name: Backup origin nginx config
+        command: mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
+                 creates=/etc/nginx/nginx.conf.orig
+                 removes=/etc/nginx/nginx.conf
 
-      - name: Start nginx
-   ```
-     `nginx.conf` is our custom nginx configure file, proxy the node js application to 80 port.
-     You can also install git with ansible, it's simple to clone git from git repository,just add 
-     ```
-        -name: Ensure git installed 
-           apt: pkg=git stare=present
-      ```
+    - name: Add new nginx conf
+        copy: src=./nginx.conf dest=/etc/nginx/nginx.conf
+
+    - name: Start nginx
+
+`nginx.conf` is our custom nginx configure file, proxy the node js application to 80 port.
+You can also install git with ansible, it's simple to clone git from git repository,just add 
+
+    -name: Ensure git installed 
+       apt: pkg=git stare=present
+
      in a task.
     
     Use `ansible-playbook yourplaybook.yml` run all playbooks and start the container with nodejs application. You can open `your custome url` in the browser
     , you will get what you want.
 
 
-## Conclusion
+
+
+## Let's wrap it up
 
 * As a small team, we need rise our level of automation as high as possible.
 
