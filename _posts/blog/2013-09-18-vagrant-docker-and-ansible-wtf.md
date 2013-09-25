@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 category: blog
 title: Vagrant, Docker and Ansible. WTF?
 author: zbal
@@ -38,7 +38,7 @@ Let's get it running on your machine:
 1. First, [download Vagrant](http://downloads.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 1. Second, let's download an image, spin it up and SSH in:
 
-        $ vagrant init raring32 http://cloud-images.ubuntu.com/vagrant/raring/current/raring-server-cloudimg-i386-vagrant-disk1.box
+        $ vagrant init precise64 http://files.vagrantup.com/precise64.box
         $ vagrant up
         $ vagrant ssh
 
@@ -61,10 +61,11 @@ Let's set up a Docker container on your Vagrant machine:
    
         $ vagrant ssh
 
-1. Install Docker, [as explained on the offical website](http://docs.docker.io/en/latest/installation/ubuntulinux/#id2):
+1. Install Docker, [as explained on the offical website](http://http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-precise-12-04-lts-64-bit):
 
         $ sudo apt-get update
-        $ sudo apt-get install linux-image-extra-`uname -r`
+        $ sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
+        $ sudo reboot
         $ sudo sh -c "curl https://get.docker.io/gpg | apt-key add -"
         $ sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
         $ sudo apt-get update
@@ -74,13 +75,54 @@ Let's set up a Docker container on your Vagrant machine:
 
         $ sudo docker run -i -t ubuntu /bin/bash
 
-1. Now that's great, but we'll need more than a vanilla Linux. To add our dependencies, for example to run a node.js app, we're gonna start by creating a `Dockerfile`:
+1. Now that's great, but we'll need more than a vanilla Linux. To add our dependencies, for example to run a node.js app (with a mongodb backend), we're gonna start by creating a `Dockerfile`:
 
-        XXX
+        FROM ubuntu
+        MAINTAINER My Self me@example.com
+        
+        # Fetch Nodejs from the official repo (binary .. no hassle to build, etc.)
+        ADD http://nodejs.org/dist/v0.10.19/node-v0.10.19-linux-x64.tar.gz /opt/
+        
+        # Untar and add to the PATH
+        RUN cd /opt && tar xzf node-v0.10.19-linux-x64.tar.gz
+        RUN ln -s /opt/node-v0.10.19-linux-x64 /opt/node
+        RUN echo "export PATH=/opt/node/bin:$PATH" >> /etc/profile
+        
+        # A little cheat for upstart ;)
+        RUN dpkg-divert --local --rename --add /sbin/initctl
+        RUN ln -s /bin/true /sbin/initctl
+        
+        # Update apt sources list to fetch mongo
+        RUN echo "deb http://archive.ubuntu.com/ubuntu precise universe" >> /etc/apt/sources.list
+        RUN apt-get update
+        RUN apt-get install -y mongodb
+        
+        # Finally - we wanna be able to SSH in
+        RUN apt-get install -y openssh-server
+        # And we want our SSH key to be added
+        RUN mkdir /root/.ssh && chmod 700 /root/.ssh
+        ADD /home/vagrant/.ssh/id_rsa.pub /root/.ssh/authorized_keys && chmod 400 /root/.ssh/authorized_keys 
+        
+        # Expose a bunch of ports .. 22 for SSH and 3000 for our node app
+        EXPOSE 22 3000
+        
+        CMD ["/usr/sbin/sshd", "-D"]
+        
+1. Let's build our image and ..
+
+        $ sudo docker build .
+        
+        # Missing file /home/vagrant/.ssh/id_rsa.pub ... hahaha ! You need an ssh key for your vagrant user
+        $ ssh-keygen
+        
+        # Try again
+        $ sudo docker build .
+        
+        # Great Success! High Five!
 
 1. Let's now spin off a container with that setup and log into it:
 
-        $ sudo docker run -p 40022:22 -d myBox
+        $ sudo docker run -p 40022:22 -p 80:3000 -d myBox
         $ ssh root@localhost -p 40022
 
 You now have a Docker container, inside a Vagrant box (*Inception* style), ready to run a Node.js app.
@@ -92,9 +134,25 @@ You now have a Docker container, inside a Vagrant box (*Inception* style), ready
 Let's get to work. We're now gonna deploy an app in our container:
 
 1. [Install Ansible](/blog/2013/07/03/ansible-simply-kicks-ass.html), as we showed you in our previous post.
+1. Prepare your inventory file (host):
+
+        app ansible_ssh_host=127.0.0.1 ansible_ssh_port=40022
+
 1. Create a simple playbook to deploy our app (`deploy.yml`):
 
-        XXX
+        ---
+        - hosts: app
+          user: root
+          tasks:
+            - name: Ensure we got the App code
+              git:
+                repo=git://github.com/madhums/node-express-mongoose-demo.git
+                dest=/opt/node-express-mongoose-demo
+            - name: Ensure the npm dependencies are installed
+              command:
+                chdir=/opt/node-express-mongoose-demo
+                /opt/node/bin/npm install
+            - name: Ensure 
 
 1. Run that baby:
 
