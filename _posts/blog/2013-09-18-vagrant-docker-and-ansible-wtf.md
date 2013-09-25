@@ -206,10 +206,10 @@ That's it. You've just deployed your app on Docker (in Vagrant).
 
 ## Let's wrap it up
 
-We just saw (roughly) how these tools can be used, and how they can be complementary:
+So we just saw (roughly) how these tools can be used, and how they can be complementary:
 
-1. Vagrant is great to provide you a hardware / cloud server like platform that supports docker
-1. Docker is more of a
-1. Ansible serves as 
+1. Vagrant will provide you with a full VMs, including the OS. It's great at providing you a Linux environment for example when you're on MacOS.
+1. Docker is a lightweight VM of some sort. It will allow you to build multiple contained architectures faster and cheaper than with Vagrant.
+1. Ansible is what you'll use to orchestrate and fine tuned things. That's what you want to structure your deployment strategy.
 
-It takes a bit of reading to get more familiar with these tools, and we will likely follow up on this post in the next few weeks. However, especially as a small team, this kind of technology allows you to automate and commoditize huge parts of your development and ops workflows. We storngly encourage to make that investment; it's helped us tremendously increase the pace of our team, as well as the quality of our software.
+It takes a bit of reading to get more familiar with these tools, and we will likely follow up on this post in the next few weeks. However, especially as a small team, this kind of technology allows you to automate and commoditize huge parts of your development and ops workflows. We strongly encourage you to make that investment. It has helped us tremendously increase the pace and quality of our throughput.
