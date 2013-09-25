@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 category: blog
 title: Vagrant, Docker and Ansible. WTF?
 author: xeodou
@@ -38,7 +38,7 @@ Let's get it running on your machine:
 1. First, [download Vagrant](http://downloads.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 1. Second, let's download an image, spin it up and SSH in:
 
-        $ vagrant init precise32 http://files.vagrantup.com/precise32.box
+        $ vagrant init raring32 http://cloud-images.ubuntu.com/vagrant/raring/current/raring-server-cloudimg-i386-vagrant-disk1.box
         $ vagrant up
         $ vagrant ssh
 
@@ -74,55 +74,42 @@ Let's set up a Docker container on your Vagrant machine:
 
         $ sudo docker run -i -t ubuntu /bin/bash
 
-1. STEP 3 >> Build an actual node.js box
+1. Now that's great, but we'll need more than a vanilla Linux. To add our dependencies, for example to run a node.js app, we're gonna start by creating a `Dockerfile`:
+
+        XXX
+
+1. Let's now spin off a container with that setup and log into it:
+
+        $ sudo docker run -p 40022:22 -d myBox
+        $ ssh root@localhost -p 40022
 
 You now have a Docker container, inside a Vagrant box (*Inception* style), ready to run a Node.js app.
 
 ## Ansible
 
-[Ansible](http://ansible.cc) is an orchestration and configuration management tool written in Python.
+[Ansible](http://ansible.cc) is an orchestration and configuration management tool written in Python. If you want to learn more about Ansible (and you should...), [we wrote about it a few weeks ago](/blog/2013/07/03/ansible-simply-kicks-ass.html).
 
-is a radically simple IT orchestration engine that makes your applications and systems easier to deploy. Avoid writing scripts or custom code to deploy and update your applications— automate in a language that approaches plain English, using SSH, with no agents to install on remote systems.
+Let's get to work. We're now gonna deploy an app in our container:
 
-Write an nginx yml file like this 
+1. [Install Ansible](/blog/2013/07/03/ansible-simply-kicks-ass.html), as we showed you in our previous post.
+1. Create a simple playbook to deploy our app (`deploy.yml`):
 
-    ---
-    - name: Ensure nginx is installed
-        apt: pkg=nginx state=present
-        notify: enable nginx
+        XXX
 
-    - name: Backup origin nginx config
-        command: mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
-                 creates=/etc/nginx/nginx.conf.orig
-                 removes=/etc/nginx/nginx.conf
+1. Run that baby:
 
-    - name: Add new nginx conf
-        copy: src=./nginx.conf dest=/etc/nginx/nginx.conf
+        $ ansible-playbokk devploy.yml
 
-    - name: Start nginx
+1. We're done, point your browser at `http://XXX`.
 
-`nginx.conf` is our custom nginx configure file, proxy the node js application to 80 port.
-You can also install git with ansible, it's simple to clone git from git repository,just add 
-
-    -name: Ensure git installed 
-       apt: pkg=git stare=present
-
-     in a task.
-    
-    Use `ansible-playbook yourplaybook.yml` run all playbooks and start the container with nodejs application. You can open `your custome url` in the browser
-    , you will get what you want.
+That's it. You've just deployed your app on Docker (in Vagrant).
 
 ## Let's wrap it up
 
-* As a small team, we need rise our level of automation as high as possible.
+We just saw (roughly) how these tools can be used, and how they can be complementary:
 
-* It save a lot of time, a lot of enegy.
+1. Vagrant is great to provide you
+1. Docker is more of a
+1. Ansible serves as
 
-* Learn to use right tools in right places.
-
-* Try combine all things together as whole.
-
-
-> HOW THIS APPROACH HELPED US: AUTOMATION, INFRASTRUCTURE AS CODE AND CONTAINING COMPLEXITY 
-> HOW EACH TOOL IS USEFUL
-> SOME THINGS WE'RE ROOTING FOR
+It takes a bit of reading to get more familiar with these tools, and we will likely follow up on this post in the next few weeks. However, especially as a small team, this kind of technology allows you to automate and commoditize huge parts of your development and ops workflows. We storngly encourage to make that investment; it's helped us tremendously increase the pace of our team, as well as the quality of our software.
