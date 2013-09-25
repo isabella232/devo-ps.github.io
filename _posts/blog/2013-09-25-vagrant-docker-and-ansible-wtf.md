@@ -3,12 +3,12 @@ published: true
 category: blog
 title: Vagrant, Docker and Ansible. WTF?
 author: vincent
-hn:
+hn: 6444084
 
 layout: post
 ---
 
-Given that we're building a SaaS that helps our client managing their infrastructure, our team is pretty familiar with leveraging VMs and configuration management tools. We actually have been heavy users of Vagrant and [Ansible](http://devo.ps/blog/2013/07/03/ansible-simply-kicks-ass.html) for the past year, and it's helped us tremendously normalize our development process, making sure everybody is running .
+Given that we're building a SaaS that helps our client managing their infrastructure, our team is pretty familiar with leveraging VMs and configuration management tools. We've actually been heavy users of Vagrant and [Ansible](http://devo.ps/blog/2013/07/03/ansible-simply-kicks-ass.html) for the past year, and it's helped us tremendously normalize our development process.
 
 As our platform grew in complexity, some additional needs emerged:
 
