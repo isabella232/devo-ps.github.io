@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 category: blog
 title: Vagrant, Docker and Ansible. WTF?
 author: xeodou
@@ -111,9 +111,6 @@ You can also install git with ansible, it's simple to clone git from git reposit
     
     Use `ansible-playbook yourplaybook.yml` run all playbooks and start the container with nodejs application. You can open `your custome url` in the browser
     , you will get what you want.
-
-
-
 
 ## Let's wrap it up
 
