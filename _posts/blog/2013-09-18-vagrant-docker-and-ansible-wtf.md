@@ -2,7 +2,7 @@
 published: true
 category: blog
 title: Vagrant, Docker and Ansible. WTF?
-author: xeodou
+author: zbal
 hn:
 
 layout: post
