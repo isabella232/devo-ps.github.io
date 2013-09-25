@@ -43,7 +43,7 @@ Let's get it running on your machine:
         $ vagrant ssh
 
 1. There's no 3.
-1. There's a 4 if you want to access your (soon to be) deployed app; you will need to dig around the vagrant documentation to [perform port forwarding](http://docs.vagrantup.com/v2/networking/forwarded_ports.html) and [proper networking](http://docs.vagrantup.com/v2/networking/private_network.html) and update manually your `Vagrantfile`.
+1. There's a 4 if you want to access your (soon to be) deployed app; you will need to dig around the vagrant documentation to [perform port forwarding](http://docs.vagrantup.com/v2/networking/forwarded_ports.html), [proper networking](http://docs.vagrantup.com/v2/networking/private_network.html) and update manually your `Vagrantfile`.
 
 ## Docker
 
