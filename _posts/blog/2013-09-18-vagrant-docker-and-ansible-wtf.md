@@ -53,7 +53,7 @@ Docker is attractive for many reasons:
 
 - **Lightweight**; images are much lighter than full VMs, and spinning off a new instance is lightning fast (in the range of seconds instead of minutes).
 - **Version control of the images**, which makes it much more convenient to handle builds.
-- **Lots of images** (again), just have a look at XXX.
+- **Lots of images** (again), just have a look at [the docker public index of images](https://index.docker.io).
 
 Let's set up a Docker container on your Vagrant machine:
 
