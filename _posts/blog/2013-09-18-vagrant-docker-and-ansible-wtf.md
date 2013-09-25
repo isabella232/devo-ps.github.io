@@ -108,9 +108,6 @@ Let's set up a Docker container on your Vagrant machine:
         ADD id_rsa.pub /root/.ssh/authorized_keys
         RUN chmod 400 /root/.ssh/authorized_keys && chown root. /root/.ssh/authorized_keys
         
-        # But ansible needs at least a few python modules
-        RUN pip install 
-        
         # Expose a bunch of ports .. 22 for SSH and 3000 for our node app
         EXPOSE 22 3000
         
