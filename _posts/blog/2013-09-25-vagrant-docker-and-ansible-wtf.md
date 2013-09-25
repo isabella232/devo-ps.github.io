@@ -43,11 +43,11 @@ Let's get it running on your machine:
         $ vagrant ssh
 
 1. There's no 3.
-1. There's a 4 if you want to access your (soon to be) deployed app; you will need to dig around the vagrant documentation to [perform port forwarding](http://docs.vagrantup.com/v2/networking/forwarded_ports.html), [proper networking](http://docs.vagrantup.com/v2/networking/private_network.html) and update manually your `Vagrantfile`.
+1. There's a 4 if you want to access your (soon to be) deployed app; you will need to dig around the Vagrant documentation to [perform port forwarding](http://docs.vagrantup.com/v2/networking/forwarded_ports.html), [proper networking](http://docs.vagrantup.com/v2/networking/private_network.html) and update manually your `Vagrantfile`.
 
 ## Docker
 
-[Docker](http://docker.io) is a Linux container, written in [Go](http://golang.org) (yay!) and based on [lxc](http://en.wikipedia.org/wiki/LXC) (self-described as "chroot on steroids") and [AUFS](http://en.wikipedia.org/wiki/Aufs). Instead of providing a full virtual machine, like you get with Vagrant, Docker provides you lightweight containers, that share the same kernel and allow to safely execute independant processes.
+[Docker](http://docker.io) is a Linux container, written in [Go](http://golang.org) (yay!) and based on [lxc](http://en.wikipedia.org/wiki/LXC) (self-described as "chroot on steroids") and [AUFS](http://en.wikipedia.org/wiki/Aufs). Instead of providing a full VM, like you get with Vagrant, Docker provides you lightweight containers, that share the same kernel and allow to safely execute independent processes.
 
 Docker is attractive for many reasons:
 
@@ -57,12 +57,11 @@ Docker is attractive for many reasons:
 
 Let's set up a Docker container on your Vagrant machine:
 
-
-1. SSH in Vagrant if you're not in already
+1. SSH in Vagrant if you're not in already:
    
         $ vagrant ssh
 
-1. Install Docker, [as explained on the offical website](http://http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-precise-12-04-lts-64-bit):
+1. Install Docker, [as explained on the official website](http://http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-precise-12-04-lts-64-bit):
 
         $ sudo apt-get update
         $ sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
@@ -76,7 +75,7 @@ Let's set up a Docker container on your Vagrant machine:
 
         $ sudo docker run -i -t ubuntu /bin/bash
 
-1. Now that's great, but we'll need more than a vanilla Linux. To add our dependencies, for example to run a node.js app (with a mongodb backend), we're gonna start by creating a `Dockerfile`:
+1. Great, but we'll need more than a vanilla Linux. To add our dependencies, for example to run a Node.js + MongoDB app, we're gonna start by creating a `Dockerfile`:
 
         FROM ubuntu
         MAINTAINER My Self me@example.com
@@ -113,7 +112,7 @@ Let's set up a Docker container on your Vagrant machine:
         
         ENTRYPOINT ["/usr/sbin/sshd", "-D"]
         
-1. Let's build our image and ..
+1. Let's build our image now:
 
         $ sudo docker build .
         
@@ -126,7 +125,7 @@ Let's set up a Docker container on your Vagrant machine:
         
         # Great Success! High Five!
 
-1. Let's now spin off a container with that setup and log into it ($MY_NEW_IMAGE_ID is the last id the build process returned to you):
+1. Now, let's spin off a container with that setup and log into it (`$MY_NEW_IMAGE_ID` is the last id the build process returned to you):
 
         $ sudo docker run -p 40022:22 -p 80:3000 -d $MY_NEW_IMAGE_ID
         $ ssh root@localhost -p 40022
@@ -208,8 +207,8 @@ That's it. You've just deployed your app on Docker (in Vagrant).
 
 So we just saw (roughly) how these tools can be used, and how they can be complementary:
 
-1. Vagrant will provide you with a full VMs, including the OS. It's great at providing you a Linux environment for example when you're on MacOS.
-1. Docker is a lightweight VM of some sort. It will allow you to build multiple contained architectures faster and cheaper than with Vagrant.
-1. Ansible is what you'll use to orchestrate and fine tuned things. That's what you want to structure your deployment strategy.
+1. Vagrant will provide you with a full VM, including the OS. It's great at providing you a Linux environment for example when you're on MacOS.
+1. Docker is a lightweight VM of some sort. It will allow you to build contained architectures faster and cheaper than with Vagrant.
+1. Ansible is what you'll use to orchestrate and fine-tune things. That's what you want to structure your deployment and orchestration strategy.
 
-It takes a bit of reading to get more familiar with these tools, and we will likely follow up on this post in the next few weeks. However, especially as a small team, this kind of technology allows you to automate and commoditize huge parts of your development and ops workflows. We strongly encourage you to make that investment. It has helped us tremendously increase the pace and quality of our throughput.
+It takes a bit of reading to get more familiar with these tools, and we'll likely follow up on this post in the next few weeks. However, especially as a small team, this kind of technology allows you to automate and commoditize huge parts of your development and ops workflows. We strongly encourage you to make that investment. It has helped us tremendously increase the pace and quality of our throughput.
