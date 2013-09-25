@@ -43,6 +43,7 @@ Let's get it running on your machine:
         $ vagrant ssh
 
 1. There's no 3.
+1. There's a 4 if you want to access your (soon to be) deployed app; you will need to dig around the vagrant documentation to [perform port forwarding](http://docs.vagrantup.com/v2/networking/forwarded_ports.html) and [proper networking](http://docs.vagrantup.com/v2/networking/private_network.html) and update manually your `Vagrantfile`.
 
 ## Docker
 
@@ -92,37 +93,45 @@ Let's set up a Docker container on your Vagrant machine:
         RUN dpkg-divert --local --rename --add /sbin/initctl
         RUN ln -s /bin/true /sbin/initctl
         
-        # Update apt sources list to fetch mongo
+        # Update apt sources list to fetch mongodb and a few key packages
         RUN echo "deb http://archive.ubuntu.com/ubuntu precise universe" >> /etc/apt/sources.list
         RUN apt-get update
+        RUN apt-get install -y python git
         RUN apt-get install -y mongodb
         
         # Finally - we wanna be able to SSH in
         RUN apt-get install -y openssh-server
+        RUN mkdir /var/run/sshd
+        
         # And we want our SSH key to be added
         RUN mkdir /root/.ssh && chmod 700 /root/.ssh
-        ADD /home/vagrant/.ssh/id_rsa.pub /root/.ssh/authorized_keys && chmod 400 /root/.ssh/authorized_keys 
+        ADD id_rsa.pub /root/.ssh/authorized_keys
+        RUN chmod 400 /root/.ssh/authorized_keys && chown root. /root/.ssh/authorized_keys
+        
+        # But ansible needs at least a few python modules
+        RUN pip install 
         
         # Expose a bunch of ports .. 22 for SSH and 3000 for our node app
         EXPOSE 22 3000
         
-        CMD ["/usr/sbin/sshd", "-D"]
+        ENTRYPOINT ["/usr/sbin/sshd", "-D"]
         
 1. Let's build our image and ..
 
         $ sudo docker build .
         
-        # Missing file /home/vagrant/.ssh/id_rsa.pub ... hahaha ! You need an ssh key for your vagrant user
+        # Missing file id_rsa.pub ... hahaha ! You need an ssh key for your vagrant user
         $ ssh-keygen
+        $ cp -a /home/vagrant/.ssh/id_rsa.pub .
         
         # Try again
         $ sudo docker build .
         
         # Great Success! High Five!
 
-1. Let's now spin off a container with that setup and log into it:
+1. Let's now spin off a container with that setup and log into it ($MY_NEW_IMAGE_ID is the last id the build process returned to you):
 
-        $ sudo docker run -p 40022:22 -p 80:3000 -d myBox
+        $ sudo docker run -p 40022:22 -p 80:3000 -d $MY_NEW_IMAGE_ID
         $ ssh root@localhost -p 40022
 
 You now have a Docker container, inside a Vagrant box (*Inception* style), ready to run a Node.js app.
@@ -134,7 +143,7 @@ You now have a Docker container, inside a Vagrant box (*Inception* style), ready
 Let's get to work. We're now gonna deploy an app in our container:
 
 1. [Install Ansible](/blog/2013/07/03/ansible-simply-kicks-ass.html), as we showed you in our previous post.
-1. Prepare your inventory file (host):
+1. Prepare your inventory file (`host`):
 
         app ansible_ssh_host=127.0.0.1 ansible_ssh_port=40022
 
@@ -144,21 +153,57 @@ Let's get to work. We're now gonna deploy an app in our container:
         - hosts: app
           user: root
           tasks:
+            # Fetch the code from github
             - name: Ensure we got the App code
               git:
                 repo=git://github.com/madhums/node-express-mongoose-demo.git
                 dest=/opt/node-express-mongoose-demo
+            
+            # NPM may or may not succeed, if you give it time, care, etc. it eventually works
             - name: Ensure the npm dependencies are installed
               command:
                 chdir=/opt/node-express-mongoose-demo
                 /opt/node/bin/npm install
-            - name: Ensure 
+              ignore_errors: yes
+              
+            # We will assume no changes in the default sample - or we should consider templates instead
+            - name: Ensure the config files of the app
+              command:
+                creates=/opt/node-express-mongoose-demo/config/$item.js
+                cp /opt/node-express-mongoose-demo/config/$item.example.js /opt/node-express-mongoose-demo/config/$item.js
+              with_items:
+                - config
+                - imager
+                
+            # `initctl` is now linking to `true` and we have no access to services
+            # Need to fake the start
+            - name: Ensure mongodb data folders
+              file:
+                state=directory
+                dest=$item
+                owner=mongodb
+                group=mongodb
+              with_items:
+                - /var/lib/mongodb
+                - /var/log/mongodb
+                
+            # Super cheat combo !
+            - name: Ensure mongodb is running
+              shell:
+                LC_ALL='C' /sbin/start-stop-daemon --background --start --quiet --chuid mongodb --exec  /usr/bin/mongod -- --config /etc/mongodb.conf
+            
+            # Cheating some more !
+            - name: Ensure the App is running
+              shell:
+                chdir=/opt/node-express-mongoose-demo
+                /opt/node/bin/npm start &
+              
 
 1. Run that baby:
 
-        $ ansible-playbokk devploy.yml
+        $ ansible-playbook -i host deploy.yml
 
-1. We're done, point your browser at `http://XXX`.
+1. We're done, point your browser at `http://localhost:80` - assuming you have performed the redirection mentioned in the initial setup of your vagrant box.
 
 That's it. You've just deployed your app on Docker (in Vagrant).
 
@@ -166,8 +211,8 @@ That's it. You've just deployed your app on Docker (in Vagrant).
 
 We just saw (roughly) how these tools can be used, and how they can be complementary:
 
-1. Vagrant is great to provide you
+1. Vagrant is great to provide you a hardware / cloud server like platform that supports docker
 1. Docker is more of a
-1. Ansible serves as
+1. Ansible serves as 
 
 It takes a bit of reading to get more familiar with these tools, and we will likely follow up on this post in the next few weeks. However, especially as a small team, this kind of technology allows you to automate and commoditize huge parts of your development and ops workflows. We storngly encourage to make that investment; it's helped us tremendously increase the pace of our team, as well as the quality of our software.
