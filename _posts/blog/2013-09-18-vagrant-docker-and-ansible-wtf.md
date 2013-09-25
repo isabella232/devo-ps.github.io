@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 category: blog
 title: Vagrant, Docker and Ansible. WTF?
 author: xeodou
