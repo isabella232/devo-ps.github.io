@@ -32,7 +32,7 @@ Let's open things up with the usual comparison table:
 Feature | Forever | PM2 |
 --- | :---: | :---: |
 Keep Alive | ✔ | ✔ |
-Coffeescript | ✔ | |
+Coffeescript | ✔ | ✔ |
 Log aggregation |  | ✔ |
 API |  | ✔ |
 Terminal monitoring |  | ✔ |
