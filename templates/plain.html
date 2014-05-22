@@ -1,0 +1,9 @@
+{% extends "default.html" %}
+
+{% block default_content %}
+<div class='content'>
+  {% block plain_content %}
+  {{ contents | safe }}
+  {% endblock %}
+</div>
+{% endblock %}

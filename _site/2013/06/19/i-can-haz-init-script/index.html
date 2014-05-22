@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>devo.ps</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+</head>
+<body>
+  <header id='header'>
+    <div class='content'>
+      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
+      <nav>
+        <ul>
+          <li><a href='/blog'>Blog</a></li>
+          <li><a href='http://app.devo.ps'>login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id='content'>
+    
+<div class='content'>
+  
+<aside class='sidebar'>
+    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  
+<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+
+<article class='post'>
+  <aside class='meta'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </aside>
+  
+  <h2>I Can Haz Init Script</h2>
+  
+  <section>
+    
+    <p>Something went awfully wrong, and a rogue process is eating up all of the resources on one of your servers. You have no other choice but to restart it. No big deal, really; this is the age of disposable infrastructure after all. Except when it comes back up, everything starts going awry. Half the stuff supposed to be running is down and it&#39;s screwing with the rest of your setup.</p>
+<p><img src="/images/posts/y-u-no-guy.png" alt="INIT SCRIPTS, Y U NO LIKE?"></p>
+<p>You don&#39;t get to think about them very often, but init scripts are a key piece of a sound, scalable strategy for your infrastructure. It&#39;s a <a href="">mandatory best practice</a>. Period. And there are quite a few things in the way of getting them to work properly at scale in production environments. It&#39;s a tough world out there.</p>
+<h3 id="what-we-re-dealing-with-">What we&#39;re dealing with...</h3>
+<h4 id="packages">Packages</h4>
+<p>Often enough, you&#39;re gonna end up installing a service using the package manager of your distro: <code>yum</code>, <code>apt-get</code>, you name it. These packages usually come with an init script that should get you started.</p>
+<p>Sadly, as your architecture grows in complexity, you&#39;ll probably run into some walls. Wanna have multiple memcache buckets, or several instances of redis running on the same box? You&#39;re out of luck buddy. Time to hack your way through:</p>
+<ul>
+<li>Redefine your start logic, </li>
+<li>Load one or multiple config files from <code>/etc/defaults</code> or <code>/etc/sysconfig</code>,</li>
+<li>Deal with the PIDs, log and lock files,</li>
+<li>Implement conditional logic to start/stop/restart one or more of the services,</li>
+<li>Realize you&#39;ve messed something up,</li>
+<li>Same player shoot again.</li>
+</ul>
+<p>Honestly: PITA.</p>
+<h4 id="built-from-source">Built from source</h4>
+<p>First things first: <strong>you shouldn&#39;t be building from source</strong> (unless you really, really need to).</p>
+<p>Now if you do, you&#39;ll have to be thorough: there may be samples of init scripts in there, but you&#39;ll have to dig them out. <code>/contrib</code>, <code>/addons</code>, ... it&#39;s never in the same place.</p>
+<p>And that makes things &quot;fun&quot; when you&#39;re <a href="http://devo.ps/blog/2013/03/06/troubleshooting-5minutes-on-a-yet-unknown-box.html">trying to unscrew things on a box</a>:</p>
+<ul>
+<li>You figured out that MySQL is running from <code>/home/user/src/mysql</code>,</li>
+<li>You check if there&#39;s an init script: no luck this time...</li>
+<li>You try to understand what exactly launched <code>mysqld_safe</code>,</li>
+<li>You spend a while digging into the bash history smiling at typos,</li>
+<li>You stumble on a <code>run.sh</code> script (uncommented, of course) in the home directory. Funny enough, it seems to be starting everything from MySQL, NGINX and php-fpm to the coffee maker.</li>
+<li>You make a mental note to try and track down the &quot;genius&quot; who did that mess of a job, and get busy with converting everything to a proper init script.</li>
+</ul>
+<p>Great.</p>
+<h3 id="why-existing-solutions-suck">Why existing solutions suck</h3>
+<p>Well, based on what we&#39;ve just seen, you really only have two options:</p>
+<ol>
+<li><strong>DIY</strong>; but if you&#39;re good at what you do, you&#39;re probably also lazy. You may do it the first couple times, but that&#39;s not gonna scale, especially when dealing with the various flavors of init daemons (upstart, systemd...),</li>
+<li><strong>Use that thing called &quot;the Internet&quot;</strong>; you read through forum pages, issue queues, gists and if you&#39;re lucky you&#39;ll find a perfect one (or more likely 10 sucky ones). Kudos to all those of whom shared their work, but you&#39;ll probably be back to option 1.</li>
+</ol>
+<h3 id="we-can-do-better-than-this">We can do better than this</h3>
+<p>You&#39;ll find a gazillion websites for pictures of kittens, but as far as I know, there is no authoritative source for  init scripts. That&#39;s just not right: we have to fix it. A few things I&#39;m aiming for:</p>
+<ul>
+<li><strong>Scalable</strong>; allow for multiple instances of a service to be started at once from different config files (see the memcache/redis example),</li>
+<li><strong>Secure</strong>; ensure <code>configtest</code> is run before a restart/reload (because, you know, a faulty config file preventing the service to restart is kind of a bummer),</li>
+<li><strong>Smart</strong>; ensuring for example that the cache is aggressively flushed before restarting your database (so that you don&#39;t end-up waiting 50 min for the DB to cleanly shutdown).</li>
+</ul>
+<p><a href="https://github.com/devo-ps/init-scripts">I&#39;ve just created a repo</a> where I&#39;ll be dumping various init scripts that will hopefully be helpful to others. I&#39;d love to get suggestions or help.</p>
+<p>And by the way, things are not much better with applications, though we&#39;re trying our best to improve things there too with things like <a href="https://github.com/Unitech/pm2">pm2</a> (fresh and shinny, more about it in a later post).</p>
+
+    
+  </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/06/19/i-can-haz-init-script' target='_blank'>Let us know on Twitter</a>.</li>
+    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=5905051' target='_blank'>Hacker News</a>.</li>
+  </ul>
+</article>
+
+</article>
+
+</div>
+
+  </section>
+  <footer id='footer'>
+    <div class='content'>
+      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+  </div>
+</form></div>
+      <ul class='links'>
+  <li><a href='/about'>About</a></li>
+  <li><a href='/blog'>Blog</a></li>
+</ul>
+
+      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
+    </section>
+  </footer>
+  
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

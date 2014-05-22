@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>devo.ps</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+</head>
+<body>
+  <header id='header'>
+    <div class='content'>
+      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
+      <nav>
+        <ul>
+          <li><a href='/blog'>Blog</a></li>
+          <li><a href='http://app.devo.ps'>login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id='content'>
+    
+<div class='content'>
+  
+<aside class='sidebar'>
+    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  
+  <h1 id="about">About</h1>
+<h2 id="what-is-devo-ps-">What is devo.ps?</h2>
+<p><a href="http://devo.ps">devo.ps</a> is a service which facilitates the management of technical infrastructures and operations: provisioning new servers, managing services or automating your application deployment strategy can all be organized through very straightforward JSON files (not unlike <a href="https://npmjs.org/doc/json.html">package.json</a>).</p>
+<h2 id="why-devo-ps-">Why devo.ps?</h2>
+<p>Ops are hard. While the Devops movement is gaining momentum, there are still a few things slowing down its adoption:</p>
+<ul>
+<li><strong>Tools have high barriers of entry</strong>: configuration management tools such as Chef or Puppet are not trivial to install and maintain.</li>
+<li><strong>Lack of best practices</strong>: good tools don&#39;t guarantee the value of an ops strategy. Ultimately you rely on the quality of best practices and technical decisions taken by the people implementing it. Without skilled engineers able to take informed and opinionated decisions, these tools are worthless.</li>
+<li><strong>Lack of visibility</strong>: what ops teams end up implementing is too often left opaque to outsiders. Developer, product managers and other stakeholders are left locked out of it, leaving little room to collaboration and delegation.</li>
+</ul>
+<p>That is what devo.ps addresses:</p>
+<ul>
+<li><strong>Best practices</strong>: we try and offer our users with a service that already take care of the boilerplate in terms of best practices. For example, stable versions of packages, clean and safe ways of installing services, proper backup strategies...</li>
+<li><strong>Low barriers of entry</strong>: partly because we take opinionated choices with regards to best practices, we can let you maintain your whole infrastructure in a simple, condensed way. Adding a new service to one of your servers is as easy as adding a line into a JSON file and committing it. Think <code>package.json</code> for ops.</li>
+<li><strong>Collaborative</strong>: we make it easy for teams to expose what they build, in particular managing access to the automation bits. Letting for example developers run a database snapshot or project managers trigger a code update on the staging server, letting ops focus on investing more into the infrastructure.</li>
+</ul>
+<h2 id="how-does-it-work-">How does it work?</h2>
+<ol>
+<li>Users maintain their infrastructure through our JSON Restful API or our Git API (manipulating simple JSON files describing servers, apps and automation bits).</li>
+<li>devo.ps act as a middle man to bring the infrastructure in the state described by the user, using Git, Chef and node.js.</li>
+</ol>
+
+  
+</article>
+
+</div>
+
+  </section>
+  <footer id='footer'>
+    <div class='content'>
+      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+  </div>
+</form></div>
+      <ul class='links'>
+  <li><a href='/about'>About</a></li>
+  <li><a href='/blog'>Blog</a></li>
+</ul>
+
+      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
+    </section>
+  </footer>
+  
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "plain.html" %}
+
+{% block plain_content %}
+<aside class='sidebar'>
+    <p class='about sticky'>{% include "about.html" %}</p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  {% block static_content %}
+  {{ contents | safe }}
+  {% endblock %}
+</article>
+{% endblock %}

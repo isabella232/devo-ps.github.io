@@ -1,0 +1,66 @@
+{
+    "source": "./source",
+    "destination": "./_site",
+    "metadata": {
+        "site": {
+            "title": "devo.ps",
+            "name": "devo.ps",
+            "description": "devo.ps",
+            "url": "http://devo.ps",
+            "author": "devo.ps",
+            "email": "info@devo.ps",
+            "ga": "UA-34006371-1",
+            "gauges": "510b396a613f5d2666000007",
+            "mixpanel": "7b7a659fc843818d4c523cde96863ef5"
+        }
+    },
+    "metalsmith": {
+        "metalsmith-markdown": {},
+        "metalsmith-include": {},
+        "metalsmith-drafts": {},
+        "metalsmith-build-date": true,
+        "metalsmith-collections": {
+            "blog": {
+                "sortBy": "date",
+                "reverse": true
+            },
+            "team": {}
+        },
+        "metalsmith-permalinks": {
+            "pattern": ":date/:title"
+        },
+        "metalsmith-templates": {
+            "engine": "swig",
+            "cache": false,
+            "directory": "./templates"
+        },
+        "metalsmith-assets": null,
+        "metalsmith-static": null
+    },             
+    "assets": {
+        "vendor": {
+            "js": [
+                "vendor/jquery/dist/jquery.js",
+                "vendor/highlightjs/highlight.pack.js",
+                "vendor/swipe/swipe.js"
+            ],
+            "css": [
+                "vendor/normalize-css/normalize.css"
+            ]
+        },
+        "custom": {
+            "js": [
+                "assets/js/*.js"
+            ],
+            "css": [
+                "assets/css/*.css"
+            ],
+            "scss": [
+                "assets/scss/**/*.{scss,sass}"
+            ],
+            "fonts": [
+                "assets/fonts/*"
+            ]
+        }
+    }
+}

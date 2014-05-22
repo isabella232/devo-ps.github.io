@@ -1,0 +1,29 @@
+{% extends "static.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block static_content %}
+<h1>The devo.ps blog</h1>
+
+{% for post in blog %}
+<article class='post'>
+  <aside class='meta'>
+    {% for member in team %}
+    {% if member.user == post.author %}
+    <span class='vcard'>
+      <img class='photo' alt='Picture of {{ member.title }}' src='/images/team/{{ member.user }}-small.png'/> 
+      <span class='fn'>{{ member.title }}</span>
+    </span>
+    {% endif %}
+    {% endfor %}
+    <span class='time'>on <time datetime='{{ post.date | date(c) }}'>{{ post.date | date('F d, Y') }}</time></span>
+  </aside>
+  
+  <h2><a href='/{{ post.path }}'>{{ post.title }}</a></h2>
+  
+  <section>
+    {{ post.contents | safe }}
+  </section>
+</article>
+{% endfor %}
+{% endblock %}

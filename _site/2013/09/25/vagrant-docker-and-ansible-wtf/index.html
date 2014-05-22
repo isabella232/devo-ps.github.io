@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>devo.ps</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+</head>
+<body>
+  <header id='header'>
+    <div class='content'>
+      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
+      <nav>
+        <ul>
+          <li><a href='/blog'>Blog</a></li>
+          <li><a href='http://app.devo.ps'>login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id='content'>
+    
+<div class='content'>
+  
+<aside class='sidebar'>
+    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  
+<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+
+<article class='post'>
+  <aside class='meta'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </aside>
+  
+  <h2>Vagrant, Docker and Ansible. WTF?</h2>
+  
+  <section>
+    
+    <p>Given that we&#39;re building a SaaS that helps our client managing their infrastructure, our team is pretty familiar with leveraging VMs and configuration management tools. We&#39;ve actually been heavy users of Vagrant and <a href="http://devo.ps/blog/2013/07/03/ansible-simply-kicks-ass.html">Ansible</a> for the past year, and it&#39;s helped us tremendously normalize our development process.</p>
+<p>As our platform grew in complexity, some additional needs emerged:</p>
+<ul>
+<li><strong>Containerization</strong>; we needed to be able to safely execute custom, and potentially harmful, code.</li>
+<li><strong>Weight</strong>; as we added more sub-systems to devo.ps, having full blown VMs proved to be hard to juggle with when testing and developing.</li>
+</ul>
+<p>And that&#39;s why we ended up adding Docker to our development workflow. We were already familiar with it (as it powers some parts of the devo.ps infrastructure) and knew there would be obvious wins. In practice, we are shipping Docker containers in a main Vagrant image and drive some of the customization and upgrade with Ansible.</p>
+<p>We&#39;ll probably write something about this approach in the coming weeks, but given the amount of confusion there is around what these technologies are, and how they&#39;re used, we thought we&#39;d give you a quick tour on how to use them together.</p>
+<p>Let&#39;s get started.</p>
+<h2 id="vagrant">Vagrant</h2>
+<p>You&#39;ve probably heard about <a href="http://www.vagrantup.com/">Vagrant</a>; a healthy number of people have been writing about it in the past 6 months. For those of you who haven&#39;t, think of it as a VM without the GUI. At its core, Vagrant is a simple wrapper around Virtualbox/VMware.</p>
+<p>A few interesting features:</p>
+<ul>
+<li><strong>Boatloads of existing images</strong>, just check <a href="http://www.vagrantbox.es/">Vagrantbox.es</a> for example.</li>
+<li><strong>Snapshot and package your current machine</strong> to a Vagrant box file (and, consequently, share it back).</li>
+<li><strong>Ability to fine tune settings of the VM</strong>, including things like RAM, CPU, APIC...</li>
+<li><strong>Vagrantfiles</strong>. This allows you to setup your box on init: installing packages, modifying configuration, moving code around...</li>
+<li><strong>Integration with CM tools</strong> like Puppet, Chef and Ansible.</li>
+</ul>
+<p>Let&#39;s get it running on your machine:</p>
+<ol>
+<li>First, <a href="http://downloads.vagrantup.com/">download Vagrant</a> and <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>.</li>
+<li><p>Second, let&#39;s download an image, spin it up and SSH in:</p>
+<pre><code> $ vagrant init precise64 http://files.vagrantup.com/precise64.box
+ $ vagrant up
+ $ vagrant ssh
+</code></pre></li>
+<li><p>There&#39;s no 3.</p>
+</li>
+<li>There&#39;s a 4 if you want to access your (soon to be) deployed app; you will need to dig around the Vagrant documentation to <a href="http://docs.vagrantup.com/v2/networking/forwarded_ports.html">perform port forwarding</a>, <a href="http://docs.vagrantup.com/v2/networking/private_network.html">proper networking</a> and update manually your <code>Vagrantfile</code>.</li>
+</ol>
+<h2 id="docker">Docker</h2>
+<p><a href="http://docker.io">Docker</a> is a Linux container, written in <a href="http://golang.org">Go</a> (yay!) and based on <a href="http://en.wikipedia.org/wiki/LXC">lxc</a> (self-described as &quot;chroot on steroids&quot;) and <a href="http://en.wikipedia.org/wiki/Aufs">AUFS</a>. Instead of providing a full VM, like you get with Vagrant, Docker provides you lightweight containers, that share the same kernel and allow to safely execute independent processes.</p>
+<p>Docker is attractive for many reasons:</p>
+<ul>
+<li><strong>Lightweight</strong>; images are much lighter than full VMs, and spinning off a new instance is lightning fast (in the range of seconds instead of minutes).</li>
+<li><strong>Version control of the images</strong>, which makes it much more convenient to handle builds.</li>
+<li><strong>Lots of images</strong> (again), just have a look at <a href="https://index.docker.io">the docker public index of images</a>.</li>
+</ul>
+<p>Let&#39;s set up a Docker container on your Vagrant machine:</p>
+<ol>
+<li><p>SSH in Vagrant if you&#39;re not in already:</p>
+<pre><code> $ vagrant ssh
+</code></pre></li>
+<li><p>Install Docker, <a href="http://http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-precise-12-04-lts-64-bit">as explained on the official website</a>:</p>
+<pre><code> $ sudo apt-get update
+ $ sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
+ $ sudo reboot
+ $ sudo sh -c &quot;curl https://get.docker.io/gpg | apt-key add -&quot;
+ $ sudo sh -c &quot;echo deb http://get.docker.io/ubuntu docker main &gt; /etc/apt/sources.list.d/docker.list&quot;
+ $ sudo apt-get update
+ $ sudo apt-get install lxc-docker
+</code></pre></li>
+<li><p>Verify it worked by trying to build your first container:</p>
+<pre><code> $ sudo docker run -i -t ubuntu /bin/bash
+</code></pre></li>
+<li><p>Great, but we&#39;ll need more than a vanilla Linux. To add our dependencies, for example to run a Node.js + MongoDB app, we&#39;re gonna start by creating a <code>Dockerfile</code>:</p>
+<pre><code> FROM ubuntu
+ MAINTAINER My Self me@example.com
+
+ # Fetch Nodejs from the official repo (binary .. no hassle to build, etc.)
+ ADD http://nodejs.org/dist/v0.10.19/node-v0.10.19-linux-x64.tar.gz /opt/
+
+ # Untar and add to the PATH
+ RUN cd /opt &amp;&amp; tar xzf node-v0.10.19-linux-x64.tar.gz
+ RUN ln -s /opt/node-v0.10.19-linux-x64 /opt/node
+ RUN echo &quot;export PATH=/opt/node/bin:$PATH&quot; &gt;&gt; /etc/profile
+
+ # A little cheat for upstart ;)
+ RUN dpkg-divert --local --rename --add /sbin/initctl
+ RUN ln -s /bin/true /sbin/initctl
+
+ # Update apt sources list to fetch mongodb and a few key packages
+ RUN echo &quot;deb http://archive.ubuntu.com/ubuntu precise universe&quot; &gt;&gt; /etc/apt/sources.list
+ RUN apt-get update
+ RUN apt-get install -y python git
+ RUN apt-get install -y mongodb
+
+ # Finally - we wanna be able to SSH in
+ RUN apt-get install -y openssh-server
+ RUN mkdir /var/run/sshd
+
+ # And we want our SSH key to be added
+ RUN mkdir /root/.ssh &amp;&amp; chmod 700 /root/.ssh
+ ADD id_rsa.pub /root/.ssh/authorized_keys
+ RUN chmod 400 /root/.ssh/authorized_keys &amp;&amp; chown root. /root/.ssh/authorized_keys
+
+ # Expose a bunch of ports .. 22 for SSH and 3000 for our node app
+ EXPOSE 22 3000
+
+ ENTRYPOINT [&quot;/usr/sbin/sshd&quot;, &quot;-D&quot;]
+</code></pre></li>
+<li><p>Let&#39;s build our image now:</p>
+<pre><code> $ sudo docker build .
+
+ # Missing file id_rsa.pub ... hahaha ! You need an ssh key for your vagrant user
+ $ ssh-keygen
+ $ cp -a /home/vagrant/.ssh/id_rsa.pub .
+
+ # Try again
+ $ sudo docker build .
+
+ # Great Success! High Five!
+</code></pre></li>
+<li><p>Now, let&#39;s spin off a container with that setup and log into it (<code>$MY_NEW_IMAGE_ID</code> is the last id the build process returned to you):</p>
+<pre><code> $ sudo docker run -p 40022:22 -p 80:3000 -d $MY_NEW_IMAGE_ID
+ $ ssh root@localhost -p 40022
+</code></pre></li>
+</ol>
+<p>You now have a Docker container, inside a Vagrant box (<em>Inception</em> style), ready to run a Node.js app.</p>
+<h2 id="ansible">Ansible</h2>
+<p><a href="http://ansible.cc">Ansible</a> is an orchestration and configuration management tool written in Python. If you want to learn more about Ansible (and you should...), <a href="/blog/2013/07/03/ansible-simply-kicks-ass.html">we wrote about it a few weeks ago</a>.</p>
+<p>Let&#39;s get to work. We&#39;re now gonna deploy an app in our container:</p>
+<ol>
+<li><a href="/blog/2013/07/03/ansible-simply-kicks-ass.html">Install Ansible</a>, as we showed you in our previous post.</li>
+<li><p>Prepare your inventory file (<code>host</code>):</p>
+<pre><code> app ansible_ssh_host=127.0.0.1 ansible_ssh_port=40022
+</code></pre></li>
+<li><p>Create a simple playbook to deploy our app (<code>deploy.yml</code>):</p>
+<pre><code> ---
+ - hosts: app
+   user: root
+   tasks:
+     # Fetch the code from github
+     - name: Ensure we got the App code
+       git:
+         repo=git://github.com/madhums/node-express-mongoose-demo.git
+         dest=/opt/node-express-mongoose-demo
+
+     # NPM may or may not succeed, if you give it time, care, etc. it eventually works
+     - name: Ensure the npm dependencies are installed
+       command:
+         chdir=/opt/node-express-mongoose-demo
+         /opt/node/bin/npm install
+       ignore_errors: yes
+
+     # We will assume no changes in the default sample - or we should consider templates instead
+     - name: Ensure the config files of the app
+       command:
+         creates=/opt/node-express-mongoose-demo/config/$item.js
+         cp /opt/node-express-mongoose-demo/config/$item.example.js /opt/node-express-mongoose-demo/config/$item.js
+       with_items:
+         - config
+         - imager
+
+     # `initctl` is now linking to `true` and we have no access to services
+     # Need to fake the start
+     - name: Ensure mongodb data folders
+       file:
+         state=directory
+         dest=$item
+         owner=mongodb
+         group=mongodb
+       with_items:
+         - /var/lib/mongodb
+         - /var/log/mongodb
+
+     # Super cheat combo !
+     - name: Ensure mongodb is running
+       shell:
+         LC_ALL=&#39;C&#39; /sbin/start-stop-daemon --background --start --quiet --chuid mongodb --exec  /usr/bin/mongod -- --config /etc/mongodb.conf
+
+     # Cheating some more !
+     - name: Ensure the App is running
+       shell:
+         chdir=/opt/node-express-mongoose-demo
+         /opt/node/bin/npm start &amp;
+</code></pre></li>
+</ol>
+<ol>
+<li><p>Run that baby:</p>
+<pre><code> $ ansible-playbook -i host deploy.yml
+</code></pre></li>
+<li><p>We&#39;re done, point your browser at <code>http://localhost:80</code> - assuming you have performed the redirection mentioned in the initial setup of your vagrant box.</p>
+</li>
+</ol>
+<p>That&#39;s it. You&#39;ve just deployed your app on Docker (in Vagrant).</p>
+<h2 id="let-s-wrap-it-up">Let&#39;s wrap it up</h2>
+<p>So we just saw (roughly) how these tools can be used, and how they can be complementary:</p>
+<ol>
+<li>Vagrant will provide you with a full VM, including the OS. It&#39;s great at providing you a Linux environment for example when you&#39;re on MacOS.</li>
+<li>Docker is a lightweight VM of some sort. It will allow you to build contained architectures faster and cheaper than with Vagrant.</li>
+<li>Ansible is what you&#39;ll use to orchestrate and fine-tune things. That&#39;s what you want to structure your deployment and orchestration strategy.</li>
+</ol>
+<p>It takes a bit of reading to get more familiar with these tools, and we&#39;ll likely follow up on this post in the next few weeks. However, especially as a small team, this kind of technology allows you to automate and commoditize huge parts of your development and ops workflows. We strongly encourage you to make that investment. It has helped us tremendously increase the pace and quality of our throughput.</p>
+
+    
+  </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/09/25/vagrant-docker-and-ansible-wtf' target='_blank'>Let us know on Twitter</a>.</li>
+    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=6444084' target='_blank'>Hacker News</a>.</li>
+  </ul>
+</article>
+
+</article>
+
+</div>
+
+  </section>
+  <footer id='footer'>
+    <div class='content'>
+      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+  </div>
+</form></div>
+      <ul class='links'>
+  <li><a href='/about'>About</a></li>
+  <li><a href='/blog'>Blog</a></li>
+</ul>
+
+      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
+    </section>
+  </footer>
+  
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

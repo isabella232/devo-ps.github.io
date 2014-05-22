@@ -1,0 +1,31 @@
+{% extends "static.html" %}
+
+{% block static_content %}
+<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+
+<article class='post'>
+  <aside class='meta'>
+    {% for member in team %}
+    {% if member.user == page.author %}
+    <span class='vcard'>
+      <img class='photo' alt='Picture of {{ member.title }}' src='/images/team/{{ member.user }}-small.png'/> 
+      <span class='fn'>{{ member.title }}</span>
+    </span>
+    {% endif %}
+    {% endfor %}
+  </aside>
+  
+  <h2>{{ title }}</h2>
+  
+  <section>
+    {% block post_content %}
+    {{ contents | safe }}
+    {% endblock %}
+  </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url={{ site.url }}/{{ path }}' target='_blank'>Let us know on Twitter</a>.</li>
+    {% if hn %}<li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id={{ hn }}' target='_blank'>Hacker News</a>.</li>{% endif %}
+  </ul>
+</article>
+{% endblock %}

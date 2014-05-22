@@ -1,0 +1,2017 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <title>devo.ps</title>
+ <link href="/atom.xml" rel="self"/>
+ <link href="/"/>
+ <updated>2014-05-22T02:52:44.892Z</updated>
+ <id>http://devo.ps/</id>
+ <author>
+   <name>devo.ps</name>
+   <email>info@devo.ps</email>
+ </author>
+ 
+ 
+   <entry>
+     <title>Vagrant, Docker and Ansible. WTF?</title>
+     <link href="/2013/09/25/vagrant-docker-and-ansible-wtf"/>
+     <updated>2013-09-25T00:00:00.000Z</updated>
+     <id>http://devo.ps/2013/09/25/vagrant-docker-and-ansible-wtf</id>
+     <content type="html"><!DOCTYPE html>
+<html>
+<head>
+  <title>devo.ps</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+</head>
+<body>
+  <header id='header'>
+    <div class='content'>
+      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
+      <nav>
+        <ul>
+          <li><a href='/blog'>Blog</a></li>
+          <li><a href='http://app.devo.ps'>login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id='content'>
+    
+<div class='content'>
+  
+<aside class='sidebar'>
+    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  
+<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+
+<article class='post'>
+  <aside class='meta'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </aside>
+  
+  <h2>Vagrant, Docker and Ansible. WTF?</h2>
+  
+  <section>
+    
+    <p>Given that we&#39;re building a SaaS that helps our client managing their infrastructure, our team is pretty familiar with leveraging VMs and configuration management tools. We&#39;ve actually been heavy users of Vagrant and <a href="http://devo.ps/blog/2013/07/03/ansible-simply-kicks-ass.html">Ansible</a> for the past year, and it&#39;s helped us tremendously normalize our development process.</p>
+<p>As our platform grew in complexity, some additional needs emerged:</p>
+<ul>
+<li><strong>Containerization</strong>; we needed to be able to safely execute custom, and potentially harmful, code.</li>
+<li><strong>Weight</strong>; as we added more sub-systems to devo.ps, having full blown VMs proved to be hard to juggle with when testing and developing.</li>
+</ul>
+<p>And that&#39;s why we ended up adding Docker to our development workflow. We were already familiar with it (as it powers some parts of the devo.ps infrastructure) and knew there would be obvious wins. In practice, we are shipping Docker containers in a main Vagrant image and drive some of the customization and upgrade with Ansible.</p>
+<p>We&#39;ll probably write something about this approach in the coming weeks, but given the amount of confusion there is around what these technologies are, and how they&#39;re used, we thought we&#39;d give you a quick tour on how to use them together.</p>
+<p>Let&#39;s get started.</p>
+<h2 id="vagrant">Vagrant</h2>
+<p>You&#39;ve probably heard about <a href="http://www.vagrantup.com/">Vagrant</a>; a healthy number of people have been writing about it in the past 6 months. For those of you who haven&#39;t, think of it as a VM without the GUI. At its core, Vagrant is a simple wrapper around Virtualbox/VMware.</p>
+<p>A few interesting features:</p>
+<ul>
+<li><strong>Boatloads of existing images</strong>, just check <a href="http://www.vagrantbox.es/">Vagrantbox.es</a> for example.</li>
+<li><strong>Snapshot and package your current machine</strong> to a Vagrant box file (and, consequently, share it back).</li>
+<li><strong>Ability to fine tune settings of the VM</strong>, including things like RAM, CPU, APIC...</li>
+<li><strong>Vagrantfiles</strong>. This allows you to setup your box on init: installing packages, modifying configuration, moving code around...</li>
+<li><strong>Integration with CM tools</strong> like Puppet, Chef and Ansible.</li>
+</ul>
+<p>Let&#39;s get it running on your machine:</p>
+<ol>
+<li>First, <a href="http://downloads.vagrantup.com/">download Vagrant</a> and <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>.</li>
+<li><p>Second, let&#39;s download an image, spin it up and SSH in:</p>
+<pre><code> $ vagrant init precise64 http://files.vagrantup.com/precise64.box
+ $ vagrant up
+ $ vagrant ssh
+</code></pre></li>
+<li><p>There&#39;s no 3.</p>
+</li>
+<li>There&#39;s a 4 if you want to access your (soon to be) deployed app; you will need to dig around the Vagrant documentation to <a href="http://docs.vagrantup.com/v2/networking/forwarded_ports.html">perform port forwarding</a>, <a href="http://docs.vagrantup.com/v2/networking/private_network.html">proper networking</a> and update manually your <code>Vagrantfile</code>.</li>
+</ol>
+<h2 id="docker">Docker</h2>
+<p><a href="http://docker.io">Docker</a> is a Linux container, written in <a href="http://golang.org">Go</a> (yay!) and based on <a href="http://en.wikipedia.org/wiki/LXC">lxc</a> (self-described as &quot;chroot on steroids&quot;) and <a href="http://en.wikipedia.org/wiki/Aufs">AUFS</a>. Instead of providing a full VM, like you get with Vagrant, Docker provides you lightweight containers, that share the same kernel and allow to safely execute independent processes.</p>
+<p>Docker is attractive for many reasons:</p>
+<ul>
+<li><strong>Lightweight</strong>; images are much lighter than full VMs, and spinning off a new instance is lightning fast (in the range of seconds instead of minutes).</li>
+<li><strong>Version control of the images</strong>, which makes it much more convenient to handle builds.</li>
+<li><strong>Lots of images</strong> (again), just have a look at <a href="https://index.docker.io">the docker public index of images</a>.</li>
+</ul>
+<p>Let&#39;s set up a Docker container on your Vagrant machine:</p>
+<ol>
+<li><p>SSH in Vagrant if you&#39;re not in already:</p>
+<pre><code> $ vagrant ssh
+</code></pre></li>
+<li><p>Install Docker, <a href="http://http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-precise-12-04-lts-64-bit">as explained on the official website</a>:</p>
+<pre><code> $ sudo apt-get update
+ $ sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
+ $ sudo reboot
+ $ sudo sh -c &quot;curl https://get.docker.io/gpg | apt-key add -&quot;
+ $ sudo sh -c &quot;echo deb http://get.docker.io/ubuntu docker main &gt; /etc/apt/sources.list.d/docker.list&quot;
+ $ sudo apt-get update
+ $ sudo apt-get install lxc-docker
+</code></pre></li>
+<li><p>Verify it worked by trying to build your first container:</p>
+<pre><code> $ sudo docker run -i -t ubuntu /bin/bash
+</code></pre></li>
+<li><p>Great, but we&#39;ll need more than a vanilla Linux. To add our dependencies, for example to run a Node.js + MongoDB app, we&#39;re gonna start by creating a <code>Dockerfile</code>:</p>
+<pre><code> FROM ubuntu
+ MAINTAINER My Self me@example.com
+
+ # Fetch Nodejs from the official repo (binary .. no hassle to build, etc.)
+ ADD http://nodejs.org/dist/v0.10.19/node-v0.10.19-linux-x64.tar.gz /opt/
+
+ # Untar and add to the PATH
+ RUN cd /opt &amp;&amp; tar xzf node-v0.10.19-linux-x64.tar.gz
+ RUN ln -s /opt/node-v0.10.19-linux-x64 /opt/node
+ RUN echo &quot;export PATH=/opt/node/bin:$PATH&quot; &gt;&gt; /etc/profile
+
+ # A little cheat for upstart ;)
+ RUN dpkg-divert --local --rename --add /sbin/initctl
+ RUN ln -s /bin/true /sbin/initctl
+
+ # Update apt sources list to fetch mongodb and a few key packages
+ RUN echo &quot;deb http://archive.ubuntu.com/ubuntu precise universe&quot; &gt;&gt; /etc/apt/sources.list
+ RUN apt-get update
+ RUN apt-get install -y python git
+ RUN apt-get install -y mongodb
+
+ # Finally - we wanna be able to SSH in
+ RUN apt-get install -y openssh-server
+ RUN mkdir /var/run/sshd
+
+ # And we want our SSH key to be added
+ RUN mkdir /root/.ssh &amp;&amp; chmod 700 /root/.ssh
+ ADD id_rsa.pub /root/.ssh/authorized_keys
+ RUN chmod 400 /root/.ssh/authorized_keys &amp;&amp; chown root. /root/.ssh/authorized_keys
+
+ # Expose a bunch of ports .. 22 for SSH and 3000 for our node app
+ EXPOSE 22 3000
+
+ ENTRYPOINT [&quot;/usr/sbin/sshd&quot;, &quot;-D&quot;]
+</code></pre></li>
+<li><p>Let&#39;s build our image now:</p>
+<pre><code> $ sudo docker build .
+
+ # Missing file id_rsa.pub ... hahaha ! You need an ssh key for your vagrant user
+ $ ssh-keygen
+ $ cp -a /home/vagrant/.ssh/id_rsa.pub .
+
+ # Try again
+ $ sudo docker build .
+
+ # Great Success! High Five!
+</code></pre></li>
+<li><p>Now, let&#39;s spin off a container with that setup and log into it (<code>$MY_NEW_IMAGE_ID</code> is the last id the build process returned to you):</p>
+<pre><code> $ sudo docker run -p 40022:22 -p 80:3000 -d $MY_NEW_IMAGE_ID
+ $ ssh root@localhost -p 40022
+</code></pre></li>
+</ol>
+<p>You now have a Docker container, inside a Vagrant box (<em>Inception</em> style), ready to run a Node.js app.</p>
+<h2 id="ansible">Ansible</h2>
+<p><a href="http://ansible.cc">Ansible</a> is an orchestration and configuration management tool written in Python. If you want to learn more about Ansible (and you should...), <a href="/blog/2013/07/03/ansible-simply-kicks-ass.html">we wrote about it a few weeks ago</a>.</p>
+<p>Let&#39;s get to work. We&#39;re now gonna deploy an app in our container:</p>
+<ol>
+<li><a href="/blog/2013/07/03/ansible-simply-kicks-ass.html">Install Ansible</a>, as we showed you in our previous post.</li>
+<li><p>Prepare your inventory file (<code>host</code>):</p>
+<pre><code> app ansible_ssh_host=127.0.0.1 ansible_ssh_port=40022
+</code></pre></li>
+<li><p>Create a simple playbook to deploy our app (<code>deploy.yml</code>):</p>
+<pre><code> ---
+ - hosts: app
+   user: root
+   tasks:
+     # Fetch the code from github
+     - name: Ensure we got the App code
+       git:
+         repo=git://github.com/madhums/node-express-mongoose-demo.git
+         dest=/opt/node-express-mongoose-demo
+
+     # NPM may or may not succeed, if you give it time, care, etc. it eventually works
+     - name: Ensure the npm dependencies are installed
+       command:
+         chdir=/opt/node-express-mongoose-demo
+         /opt/node/bin/npm install
+       ignore_errors: yes
+
+     # We will assume no changes in the default sample - or we should consider templates instead
+     - name: Ensure the config files of the app
+       command:
+         creates=/opt/node-express-mongoose-demo/config/$item.js
+         cp /opt/node-express-mongoose-demo/config/$item.example.js /opt/node-express-mongoose-demo/config/$item.js
+       with_items:
+         - config
+         - imager
+
+     # `initctl` is now linking to `true` and we have no access to services
+     # Need to fake the start
+     - name: Ensure mongodb data folders
+       file:
+         state=directory
+         dest=$item
+         owner=mongodb
+         group=mongodb
+       with_items:
+         - /var/lib/mongodb
+         - /var/log/mongodb
+
+     # Super cheat combo !
+     - name: Ensure mongodb is running
+       shell:
+         LC_ALL=&#39;C&#39; /sbin/start-stop-daemon --background --start --quiet --chuid mongodb --exec  /usr/bin/mongod -- --config /etc/mongodb.conf
+
+     # Cheating some more !
+     - name: Ensure the App is running
+       shell:
+         chdir=/opt/node-express-mongoose-demo
+         /opt/node/bin/npm start &amp;
+</code></pre></li>
+</ol>
+<ol>
+<li><p>Run that baby:</p>
+<pre><code> $ ansible-playbook -i host deploy.yml
+</code></pre></li>
+<li><p>We&#39;re done, point your browser at <code>http://localhost:80</code> - assuming you have performed the redirection mentioned in the initial setup of your vagrant box.</p>
+</li>
+</ol>
+<p>That&#39;s it. You&#39;ve just deployed your app on Docker (in Vagrant).</p>
+<h2 id="let-s-wrap-it-up">Let&#39;s wrap it up</h2>
+<p>So we just saw (roughly) how these tools can be used, and how they can be complementary:</p>
+<ol>
+<li>Vagrant will provide you with a full VM, including the OS. It&#39;s great at providing you a Linux environment for example when you&#39;re on MacOS.</li>
+<li>Docker is a lightweight VM of some sort. It will allow you to build contained architectures faster and cheaper than with Vagrant.</li>
+<li>Ansible is what you&#39;ll use to orchestrate and fine-tune things. That&#39;s what you want to structure your deployment and orchestration strategy.</li>
+</ol>
+<p>It takes a bit of reading to get more familiar with these tools, and we&#39;ll likely follow up on this post in the next few weeks. However, especially as a small team, this kind of technology allows you to automate and commoditize huge parts of your development and ops workflows. We strongly encourage you to make that investment. It has helped us tremendously increase the pace and quality of our throughput.</p>
+
+    
+  </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/09/25/vagrant-docker-and-ansible-wtf' target='_blank'>Let us know on Twitter</a>.</li>
+    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=6444084' target='_blank'>Hacker News</a>.</li>
+  </ul>
+</article>
+
+</article>
+
+</div>
+
+  </section>
+  <footer id='footer'>
+    <div class='content'>
+      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+  </div>
+</form></div>
+      <ul class='links'>
+  <li><a href='/about'>About</a></li>
+  <li><a href='/blog'>Blog</a></li>
+</ul>
+
+      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
+    </section>
+  </footer>
+  
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html></content>
+   </entry>
+ 
+ 
+ 
+   <entry>
+     <title>ZooKeeper vs. Doozer vs. Etcd</title>
+     <link href="/2013/09/11/zookeeper-vs-doozer-vs-etcd"/>
+     <updated>2013-09-11T00:00:00.000Z</updated>
+     <id>http://devo.ps/2013/09/11/zookeeper-vs-doozer-vs-etcd</id>
+     <content type="html"><!DOCTYPE html>
+<html>
+<head>
+  <title>devo.ps</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+</head>
+<body>
+  <header id='header'>
+    <div class='content'>
+      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
+      <nav>
+        <ul>
+          <li><a href='/blog'>Blog</a></li>
+          <li><a href='http://app.devo.ps'>login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id='content'>
+    
+<div class='content'>
+  
+<aside class='sidebar'>
+    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  
+<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+
+<article class='post'>
+  <aside class='meta'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </aside>
+  
+  <h2>ZooKeeper vs. Doozer vs. Etcd</h2>
+  
+  <section>
+    
+    <p>While <a href="http://devo.ps">devo.ps</a> is fast approaching a public release, the team has been dealing with an increasingly complex infrastructure. We more recently faced an interesting issue; how do you share configuration across a cluster of servers? More importantly, how do you do so in a resilient, secure, easily deployable and speedy fashion?</p>
+<p>That&#39;s what got us to evaluate some of the options available out there; ZooKeeper, Doozer and etcd. These tools all solve similar sets of problems but their approach differ quite significantly. Since we spent some time evaluating them, we thought we&#39;d share our findings.</p>
+<h3 id="zookeeper-the-old-dog">ZooKeeper, the old dog</h3>
+<p><a href="http://zookeeper.apache.org/">ZooKeeper</a> is the most well known (and oldest) project we&#39;ve looked into. It&#39;s used by a few big players (Rackspace, Yahoo, eBay, <a href="https://news.ycombinator.com/item?id=6367979">Youtube</a>) and is pretty mature.</p>
+<p>It was created by Yahoo to deal with distributed systems applications. I strongly recommend you <a href="http://developer.yahoo.com/blogs/hadoop/apache-zookeeper-making-417.html">read the &quot;making of&quot;</a> if you&#39;re interested in understanding where Yahoo came from when they wrote it. </p>
+<p>It stores variables in a structure similar to a file system, an approach that both Doozer and etcd still follow. With ZooKeeper, you maintain a cluster of servers communicating with each other that share the state of the distributed configuration data. Each cluster elects one &quot;leader&quot; and clients can connect to any of the servers within the cluster to retrieve the data. Zookeeper uses its own algorithm to handle distributed storage.</p>
+<ul>
+<li><strong>Pros</strong>:<ul>
+<li><strong>Mature technology</strong>; it is used by some big players (eBay, Yahoo et al).</li>
+<li><strong>Feature-rich</strong>; lots of client bindings, tools, API...</li>
+</ul>
+</li>
+<li><strong>Cons</strong>:<ul>
+<li><strong>Complex</strong>; ZooKeeper is not for the faint of heart. It is pretty heavy and will require you to maintain a fairly large stack.</li>
+<li><strong>It&#39;s... Java</strong>; not that we especially hate Java, but it is on the heavy side and introduce a lot of dependencies. We wanted to keep our machines as lean as possible and usually shy away from dependency heavy technologies.</li>
+<li><strong>Apache...</strong>; we have mixed feelings about the Apache Foundation. <a href="http://www.infoworld.com/d/open-source-software/has-apache-lost-its-way-225267">&quot;Has Apache Lost Its Way?&quot;</a> summarizes it pretty well.</li>
+</ul>
+</li>
+</ul>
+<h3 id="doozer-kinda-dead">Doozer, kinda dead</h3>
+<p><a href="https://github.com/ha/doozerd">Doozer</a> was developed by Heroku a few years ago. It&#39;s written in Go (yay!), which means it compiles into a single binary that runs without dependencies. On a side-note, if you&#39;re writing code to manage infrastructure, you should spend some time <a href="http://golang.org/">learning Go</a>.</p>
+<p>Doozer got some initial excitement from the developer community but seems to have stalled more recently, with many forks being sporadically maintained and no active core development.</p>
+<p>It is composed of <a href="https://github.com/ha/doozerd">a daemon</a> and <a href="https://github.com/ha/doozer">a client</a>. Once you have at least one Doozer server up, you can add any number of servers and have clients get and set data by talking to any of the servers within that cluster.</p>
+<p>It was one of the first practical implementations (as far as I know) of the <a href="http://en.wikipedia.org/wiki/Paxos_(computer_science">Paxos algorithm</a>). This means operations can be slow when compared to dealing with a straight database since cluster-wide consensus needs to be reached before committing any operation. </p>
+<p>Doozer was a step in the right direction. It is simple to use and setup. However,  after using it for a while we started noticing that a lot of its parts felt unfinished. Moreover, it wasn&#39;t answering some of our needs very well (encryption and ACL).</p>
+<ul>
+<li><strong>Pros</strong>:<ul>
+<li><strong>Easy to deploy, setup and use</strong> (Go, yay!)</li>
+<li><strong>It works</strong>; lots of people have actually used it in production.</li>
+</ul>
+</li>
+<li><strong>Cons</strong>:<ul>
+<li><strong>Pretty much dead</strong>: the core project hasn&#39;t been active in a while (1 commit since May) and is pretty fragmented (150 forks...).</li>
+<li><strong>Security</strong>; no encryption and a fairly simple secure-word based authentication.</li>
+<li><strong>No ACL</strong>; and we badly needed this.</li>
+</ul>
+</li>
+</ul>
+<h3 id="etcd">etcd</h3>
+<p>After experiencing the shortcomings of Doozer, we stumbled upon a new distributed configuration storage called <a href="https://github.com/coreos/etcd">etcd</a>. 
+It was first released by the <a href="http://coreos.com">CoreOS</a> team a month ago.</p>
+<p>Etcd and Doozer look pretty similar, at least on the surface. The most obvious technical difference is that ectd uses the <a href="http://en.wikipedia.org/wiki/Raft_%28computer_science%29">Raft algorithm</a> instead of Paxos. Raft is designed to be <a href="https://ramcloud.stanford.edu/wiki/download/attachments/11370504/raft.pdf">simpler</a> and <a href="http://kellabyte.com/2013/05/09/an-alternative-to-paxos-the-raft-consensus-algorithm/">easier</a> to implement than Paxos.</p>
+<p>Etcd&#39;s architecture is similar to Doozer&#39;s. It does, however, store data persistently (writes log and snapshots), which was of value to us for some edge cases. It also has a better take on security, with CA&#39;s, certs and private keys. While setting it up is not straightforward, it adds conveniency and safety of mind.</p>
+<p>Beyond the fact that it answered some of our more advanced needs, we were seduced (and impressed) by the development pace of the project.</p>
+<ul>
+<li><strong>Pros</strong>:<ul>
+<li><strong>Easy to deploy, setup and use</strong> (yay Go and yay HTTP interfaces!).</li>
+<li><strong>Data persistence</strong>.</li>
+<li><strong>Secure</strong>: encryption and  authentication by private keys.</li>
+<li><strong>Good documentation</strong> (if a little bit obscure at times).</li>
+<li>Planned ACL implementation.</li>
+</ul>
+</li>
+<li><strong>Cons</strong>:<ul>
+<li>(Very) <strong>young project</strong>; interfaces are still moving pretty quickly.</li>
+<li>Still not a perfect match, especially in the way that data is spread.</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-diy-approach-yeah-right-">The DIY approach (yeah, right..?)</h3>
+<p>It is only fair that technical teams may rely on their understanding of their infrastructure and coding skills to get <em>something that just works™</em> in place. We haven&#39;t seriously considered this approach as we felt that getting security and distributed state sharing right was going to be a bigger endeavor than we could afford (the backlog is full enough for now).</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>In the end, we decided to give etcd a try. So far it seems to work well for our needs and the very active development pace seems to validate our choice. It has proven resilient and will likely hold well until we have the resources to either customize its data propagation approach, or build our own solution that will answer some needs it is not likely to answer (we&#39;ve already looked into doing so with ZeroMQ and Go).</p>
+
+    
+  </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/09/11/zookeeper-vs-doozer-vs-etcd' target='_blank'>Let us know on Twitter</a>.</li>
+    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=6366665' target='_blank'>Hacker News</a>.</li>
+  </ul>
+</article>
+
+</article>
+
+</div>
+
+  </section>
+  <footer id='footer'>
+    <div class='content'>
+      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+  </div>
+</form></div>
+      <ul class='links'>
+  <li><a href='/about'>About</a></li>
+  <li><a href='/blog'>Blog</a></li>
+</ul>
+
+      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
+    </section>
+  </footer>
+  
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html></content>
+   </entry>
+ 
+ 
+ 
+   <entry>
+     <title>Code Reuse With Node.js</title>
+     <link href="/2013/07/11/code-reuse-with-node-js"/>
+     <updated>2013-07-11T00:00:00.000Z</updated>
+     <id>http://devo.ps/2013/07/11/code-reuse-with-node-js</id>
+     <content type="html"><!DOCTYPE html>
+<html>
+<head>
+  <title>devo.ps</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+</head>
+<body>
+  <header id='header'>
+    <div class='content'>
+      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
+      <nav>
+        <ul>
+          <li><a href='/blog'>Blog</a></li>
+          <li><a href='http://app.devo.ps'>login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id='content'>
+    
+<div class='content'>
+  
+<aside class='sidebar'>
+    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  
+<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+
+<article class='post'>
+  <aside class='meta'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </aside>
+  
+  <h2>Code Reuse With Node.js</h2>
+  
+  <section>
+    
+    <p><img src="http://devo.ps/images/posts/recycle.png" alt="Code recycling"></p>
+<p>Any project that grows to a decent size will need to re-use parts of its code extensively. That often means, through the development cycle, a fair amount of rewrites and refactoring exercises. Elegant code re-use is hard to pull off.</p>
+<p>With node.js, which we use quite a bit at <a href="http://devo.ps">devo.ps</a>, the most common ways to do this often rely on prototype or class inheritance. The problem is, as the inheritance chain grows, managing attributes and functions can become quite complex.</p>
+<p>The truth is, people usually just need the objects. This led us to adopt a certain form of object-based prototyping. We believe it to be leaner and more straightforward in most cases. But before we get there, let&#39;s have a look at how people usually approach this issue.</p>
+<h2 id="the-function-copy-">The &quot;Function copy&quot;</h2>
+<p>Usually in the form of <code>this[key] = that[key]</code>. A quick example:</p>
+<pre><code>var objectA = {
+    lorem: &#39;lorem ipsum&#39;
+};
+var objectB = {};
+
+// Direct copy of a string, but you get the idea
+objectB.lorem = objectA.lorem;
+console.log(objectB); // Will output: { lorem: &#39;lorem ipsum&#39; }
+</code></pre><p>Crude, but it works. Next...</p>
+<h2 id="object-defineproperties-">Object.defineProperties()</h2>
+<p>The previous method may work with simple structures, but it won&#39;t hold when your use cases become more complex. That&#39;s when I usually call my buddy <code>Object.defineProperties()</code>:</p>
+<pre><code>var descriptor = Object.getOwnPropertyDescriptor;
+var defineProp = Object.defineProperty;
+
+var objectA = {};
+var objectB = {};
+var objectC = {};
+
+objectA.__defineGetter__(&#39;lorem&#39;, function() {
+    return &#39;lorem ipsum&#39;;
+});
+console.log(objectA); // Will output: { lorem: [Getter] }
+
+// Direct copy, which copies the result of the getter.
+objectB.lorem = objectA.lorem;
+console.log(objectB); // Will output: { lorem: &#39;lorem ipsum&#39; }
+
+// Copying with Object.defineProperty(), and it copies the getter itself.
+defineProp(objectC, &#39;lorem&#39;, descriptor(objectA, &#39;lorem&#39;));
+console.log(objectC); // Will output: { lorem: [Getter] }
+</code></pre><p>I often use a library for that. A couple examples (more or less the same stuff with different coding styles):</p>
+<ol>
+<li><p><strong><a href="https://github.com/medikoo/es5-ext">es5-ext</a></strong></p>
+<pre><code> var extend = require(&#39;es5-ext/lib/Object/extend-properties&#39;);
+
+ var objectA = {};
+ var objectC = {};
+
+ objectA.__defineGetter__(&#39;lorem&#39;, function() {
+     return &#39;lorem ipsum&#39;;
+ });
+
+ extend(objectC, objectA);
+ console.log(objectC); // Will output: { lorem: [Getter] }
+</code></pre></li>
+<li><p><strong><a href="https://github.com/devo-ps/carcass">Carcass</a></strong></p>
+<pre><code> var carcass = require(&#39;carcass&#39;);
+
+ var objectA = {};
+ var objectC = {};
+
+ objectA.__defineGetter__(&#39;lorem&#39;, function() {
+     return &#39;lorem ipsum&#39;;
+ });
+
+ carcass.mixable(objectC);
+ objectC.mixin(objectA);
+ console.log(objectC); // Will output: { mixin: [Function: mixin], lorem: [Getter] }
+</code></pre></li>
+</ol>
+<p>Slightly better, but not optimal. Now, let&#39;s see what we end up doing more and more often:</p>
+<h2 id="prototyping-through-objects">Prototyping through objects</h2>
+<p>The basic idea is that we prepare some functions, wrap them into an object which then becomes a &quot;feature&quot;. That feature can then be re-used by simply merging it with the targeted structure (object or prototype).</p>
+<p>Let&#39;s take the example of the <a href="https://github.com/devo-ps/carcass/blob/master/lib/proto/loaderSync.js">loaderSync</a> script in <a href="https://github.com/devo-ps/carcass">Carcass</a>:</p>
+<pre><code>module.exports = {
+    source: source,
+    parser: parser,
+    reload: reload,
+    get: get
+};
+
+function get() {
+
+(...)
+</code></pre><p>Once you copy the functions to an object, this object becomes a &quot;loader&quot; that can load a &quot;source&quot; synchronously with a &quot;parser&quot;. A &quot;source&quot; can be a file path and the &quot;parser&quot; can be simply Node.js&#39; <code>require</code> function.</p>
+<p>Let&#39;s now see how to use this with a couple object builders. Once again, I&#39;ll borrow an example from Carcass; the <a href="https://github.com/devo-ps/carcass/blob/master/benchmark/proto.loaderSync.js">loaderSync benchmark script</a>. The first builder generates a function and copies the methods from what we&#39;ve prepared. The second one copies the methods to the prototype of a builder class:</p>
+<pre><code>(...)
+
+function LoaderA(_source) {
+    function loader() {
+        return loader.get();
+    }
+    loader.mixin = mixin;
+    loader.mixin(loaderSync);
+    loader.source(_source);
+    return loader;
+}
+
+(...)
+
+function LoaderC(_source) {
+    if (!(this instanceof LoaderC)) return new LoaderC(_source);
+    this.source(_source);
+}
+LoaderC.prototype.mixin = mixin;
+LoaderC.prototype.mixin(loaderSync);
+
+(...)
+</code></pre><p>Here we can see the two approaches. Let&#39;s compare them quickly:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Loader A</th>
+<th>Loader C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Instantiating</strong></td>
+<td><code>var a = LoaderA(...)</code></td>
+<td><code>var c = LoaderC(...)</code> or <code>var c = new LoaderC(...)</code></td>
+</tr>
+<tr>
+<td><strong>Appearance</strong></td>
+<td>Generates a function</td>
+<td>Builds a typical instance which is an object.</td>
+</tr>
+<tr>
+<td><strong>Invoking directly</strong></td>
+<td><code>a()</code> or <code>a.get()</code></td>
+<td><code>c.get()</code></td>
+</tr>
+<tr>
+<td><strong>Invoking as a callback</strong></td>
+<td><code>ipsum(a)</code></td>
+<td><code>ipsum(c.get.bind(c))</code></td>
+</tr>
+<tr>
+<td><strong>Performance <sup>†</sup> of instantiating</strong></td>
+<td>-</td>
+<td>100x faster</td>
+</tr>
+<tr>
+<td><strong>Performance of invoking</strong></td>
+<td><em>idem</em></td>
+<td><em>idem</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>†</strong>: (check it yourself by <a href="https://github.com/devo-ps/carcass/blob/master/Makefile">benchmarking Carcass with <code>make bm</code></a>)</p>
+<h3 id="-protos-and-beyond">&quot;Protos&quot; and beyond</h3>
+<p>That last approach is gaining traction among our team; we prepare functions for our object builders (which, by the way, we call &quot;protos&quot;). While we still choose to use prototypes in some occurrences, it is mainly because it is faster to get done. For the sake of convenience, we also sometimes rely on functions rather than objects to invoke our &quot;protos&quot;, however keep in mind that this is a performance trade-off.</p>
+<p>I&#39;ll wrap this up mentioning one more method we use, admittedly less often: &quot;Object alter&quot;. The idea is to rely on an &quot;alter&quot; function designed to change objects passed to it. This is sometimes also called a &quot;mixin&quot;. An example from <a href="https://github.com/visionmedia/configurable.js">vsionmedia&#39;s trove of awesomeness on Github</a>:</p>
+<pre><code>(...)
+
+module.exports = function(obj){
+
+    obj.settings = {};
+
+    obj.set = function(name, val){
+        (...)
+    };
+
+    (...)
+
+    return obj;
+};
+</code></pre><h3 id="resources">Resources</h3>
+<ul>
+<li><a href="http://killdream.github.io/2011/10/09/understanding-javascript-oop.html">A case for prototypes</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">MDN Object reference</a></li>
+</ul>
+
+    
+  </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/07/11/code-reuse-with-node-js' target='_blank'>Let us know on Twitter</a>.</li>
+    
+  </ul>
+</article>
+
+</article>
+
+</div>
+
+  </section>
+  <footer id='footer'>
+    <div class='content'>
+      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+  </div>
+</form></div>
+      <ul class='links'>
+  <li><a href='/about'>About</a></li>
+  <li><a href='/blog'>Blog</a></li>
+</ul>
+
+      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
+    </section>
+  </footer>
+  
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html></content>
+   </entry>
+ 
+ 
+ 
+   <entry>
+     <title>Meat And Beer With Hackers + Founders</title>
+     <link href="/2013/07/11/meat-and-beer-with-hackers-founders"/>
+     <updated>2013-07-11T00:00:00.000Z</updated>
+     <id>http://devo.ps/2013/07/11/meat-and-beer-with-hackers-founders</id>
+     <content type="html"><!DOCTYPE html>
+<html>
+<head>
+  <title>devo.ps</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+</head>
+<body>
+  <header id='header'>
+    <div class='content'>
+      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
+      <nav>
+        <ul>
+          <li><a href='/blog'>Blog</a></li>
+          <li><a href='http://app.devo.ps'>login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id='content'>
+    
+<div class='content'>
+  
+<aside class='sidebar'>
+    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  
+<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+
+<article class='post'>
+  <aside class='meta'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </aside>
+  
+  <h2>Meat And Beer With Hackers + Founders</h2>
+  
+  <section>
+    
+    <p><img src="http://devo.ps/images/posts/HF-BBQ.png" alt="H+F BBQ"></p>
+<p>We&#39;ll be <a href="http://us2.campaign-archive1.com/?u=18eb8d6c34ad5d4e781541da9&amp;id=c76a2f828c&amp;e=">meeting at a yet to be confirmed venue</a> (maybe our rooftop, who knows) next Friday for meat, beers and good company with the <a href="http://wiredcraft.com">Wiredcraft</a> folks and the usual crowd from the <strong>Hackers + Founders</strong> event.</p>
+<p><a href="http://eepurl.com/CbCx5">Register to the Wiredcraft mailing list</a> and we&#39;ll send you the details next week once we&#39;ve sorted out the details.</p>
+
+    
+  </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/07/11/meat-and-beer-with-hackers-founders' target='_blank'>Let us know on Twitter</a>.</li>
+    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=6025135' target='_blank'>Hacker News</a>.</li>
+  </ul>
+</article>
+
+</article>
+
+</div>
+
+  </section>
+  <footer id='footer'>
+    <div class='content'>
+      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+  </div>
+</form></div>
+      <ul class='links'>
+  <li><a href='/about'>About</a></li>
+  <li><a href='/blog'>Blog</a></li>
+</ul>
+
+      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
+    </section>
+  </footer>
+  
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html></content>
+   </entry>
+ 
+ 
+ 
+   <entry>
+     <title>The Problem With PaaS</title>
+     <link href="/2013/07/05/the-problem-with-paas"/>
+     <updated>2013-07-05T00:00:00.000Z</updated>
+     <id>http://devo.ps/2013/07/05/the-problem-with-paas</id>
+     <content type="html"><!DOCTYPE html>
+<html>
+<head>
+  <title>devo.ps</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+</head>
+<body>
+  <header id='header'>
+    <div class='content'>
+      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
+      <nav>
+        <ul>
+          <li><a href='/blog'>Blog</a></li>
+          <li><a href='http://app.devo.ps'>login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id='content'>
+    
+<div class='content'>
+  
+<aside class='sidebar'>
+    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  
+<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+
+<article class='post'>
+  <aside class='meta'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </aside>
+  
+  <h2>The Problem With PaaS</h2>
+  
+  <section>
+    
+    <p>Obviously biased point, but one of the reasons we&#39;ve built devo.ps is because.</p>
+<p>Black box
+Cost</p>
+<p>There are currently two options to solve your DevOps issues:</p>
+<p>The black box: Heroku, DotCloud, AppFog and the likes. You settle for somebody else&#39;s DevOps approach and decide to forget about the problem.</p>
+<p>The DIY approach: using various tools (Chef/Puppet, Capistrano, Jenkins...) and investing heavy resources into implementing parts of the DevOps tool chain (automation, orchestration, deployment...).</p>
+<p>These do not answer the fundamental challenges:</p>
+<p>The Heroku-likes are mainly solving the deployment and (horizontal) scaling problems, while obfuscating the infrastructure layer, effectively locking you out of your own infrastructure. There are many (hard) problems beyond these issues, and if you&#39;re going to invest in solving them, you&#39;d better own the solutions.</p>
+<p>Building things on your own is not only expensive, but time consuming and risky. DevOps profiles are a rare breed and hard to evaluate. Moreover, this approach lacks portability and visibility.</p>
+<p>We want to provide users who outgrew the Heroku stage but don&#39;t have a dedicated DevOps team with a platform they can invest in building their strategy, from provisioning to automation. In our experience, this is the vast majority of the market.</p>
+<p>Heroku and the likes may (wrongly) appear as competitors. They have their place in the ecosystem for teams who specifically don&#39;t want or can&#39;t worry about DevOps, however their very model is preventing them from addressing the scope we cover as the &quot;secret sauce&quot; is the product. devo.ps gives you a bunch of lego bricks to cook your own secret sauce (and a potentially stronger at that).</p>
+<p>Development and Operations are two different beasts. The Heroku stand is an attempt at obfuscating Operations from developers. </p>
+<p>The bottom line:</p>
+<p>The larger portion of the market are companies who don&#39;t have (yet) a large and/or dedicated DevOps team but are passed the scale for Heroku.</p>
+<p>Companies need a better platform they can invest in freely: no lock-in, no technology limitations (or at least none they can&#39;t contribute to remove, that&#39;s why we propose an Open Source version), access to their infrastructure.</p>
+<p>Development and Operations teams need tools with a better shared visibility for them to collaborate.</p>
+
+    
+  </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/07/05/the-problem-with-paas' target='_blank'>Let us know on Twitter</a>.</li>
+    
+  </ul>
+</article>
+
+</article>
+
+</div>
+
+  </section>
+  <footer id='footer'>
+    <div class='content'>
+      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+  </div>
+</form></div>
+      <ul class='links'>
+  <li><a href='/about'>About</a></li>
+  <li><a href='/blog'>Blog</a></li>
+</ul>
+
+      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
+    </section>
+  </footer>
+  
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html></content>
+   </entry>
+ 
+ 
+ 
+   <entry>
+     <title>Ansible Simply Kicks Ass</title>
+     <link href="/2013/07/03/ansible-simply-kicks-ass"/>
+     <updated>2013-07-03T00:00:00.000Z</updated>
+     <id>http://devo.ps/2013/07/03/ansible-simply-kicks-ass</id>
+     <content type="html"><!DOCTYPE html>
+<html>
+<head>
+  <title>devo.ps</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+</head>
+<body>
+  <header id='header'>
+    <div class='content'>
+      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
+      <nav>
+        <ul>
+          <li><a href='/blog'>Blog</a></li>
+          <li><a href='http://app.devo.ps'>login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id='content'>
+    
+<div class='content'>
+  
+<aside class='sidebar'>
+    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  
+<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+
+<article class='post'>
+  <aside class='meta'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </aside>
+  
+  <h2>Ansible Simply Kicks Ass</h2>
+  
+  <section>
+    
+    <p>The devo.ps team has been putting quite a few tools to the test over the years when it comes to managing infrastructures. We&#39;ve developed some ourselves and have adopted others. While the choice to use one over another is not always as clear-cut as we&#39;d like (I&#39;d love to rant about monitoring but will leave that for a later post), we&#39;ve definitely developed kind of a crush for <a href="https://github.com/ansible/ansible">Ansible</a> in the past 6 months. We went through years of using Puppet, then Chef and more recently Salt Stack, before Ansible gained unanimous adoption among our team.</p>
+<p>What makes it awesome? Well, on top of my head:</p>
+<ul>
+<li>It&#39;s <strong>agent-less</strong> and works by default in <strong>push mode</strong> (that last point is subjective, I know).</li>
+<li>It&#39;s <strong>easy to pick up</strong> (honestly, try and explain Chef or Puppet to a developer and see how long that takes you compared to Ansible).</li>
+<li>It&#39;s <strong>just Python</strong>. It makes it easier for people like me to contribute (Ruby is not necessarily that mainstream among ops) and also means minimal dependency on install (Python is shipped by default with Linux).</li>
+<li>It&#39;s <strong>picking up steam</strong> at an impressive pace (I believe we&#39;re at 10 to 15 pull requests a day).</li>
+<li>And it has all of the good stuff: idempotence, roles, playbooks, tasks, handlers, lookups, callback plugins...</li>
+</ul>
+<p>Now, Ansible is still very much in its infancy and some technologies may not yet be supported. But there are a great deal of teams pushing hard on contributions, including us. In the past few weeks, for example, we&#39;ve contributed both Digital Ocean and Linode modules. And we have a lot more coming, including some experimentations with Vagrant.</p>
+<p>Now, an interesting aspect of Ansible, and one that makes it so simple, is that it comes by default with a tool-belt. Understand that it is shipped with a range of modules that add support for well known technologies: <a href="http://www.ansibleworks.com/docs/modules.html">EC2, Rackspace, MySQL, PostgreSQL, rpm, apt,...</a>. This now includes our Linode contribution. That means that with the latest version of Ansible you can spin off a new Linode box as easily as:</p>
+<pre><code>ansible all -m linode -a &quot;name=&#39;my-linode-box&#39; plan=1 datacenter=2 distribution=99 password=&#39;p@ssword&#39; &quot;
+</code></pre><p>Doing this with Chef would probably mean chasing down a knife plugin for adding Linode support, and would simply require a full Chef stack (say hello to RabbitMQ, Solr, CouchDB and a gazillion smaller dependencies). Getting Ansible up and running is as easy as:</p>
+<pre><code>pip install ansible
+</code></pre><p>Et voila! You gotta appreciate the simple things in life. Especially the life of a sysadmin.</p>
+
+    
+  </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/07/03/ansible-simply-kicks-ass' target='_blank'>Let us know on Twitter</a>.</li>
+    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=5983918' target='_blank'>Hacker News</a>.</li>
+  </ul>
+</article>
+
+</article>
+
+</div>
+
+  </section>
+  <footer id='footer'>
+    <div class='content'>
+      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+  </div>
+</form></div>
+      <ul class='links'>
+  <li><a href='/about'>About</a></li>
+  <li><a href='/blog'>Blog</a></li>
+</ul>
+
+      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
+    </section>
+  </footer>
+  
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html></content>
+   </entry>
+ 
+ 
+ 
+   <entry>
+     <title>Goodbye node-forever, hello PM2</title>
+     <link href="/2013/06/26/goodbye-node-forever-hello-pm2"/>
+     <updated>2013-06-26T00:00:00.000Z</updated>
+     <id>http://devo.ps/2013/06/26/goodbye-node-forever-hello-pm2</id>
+     <content type="html"><!DOCTYPE html>
+<html>
+<head>
+  <title>devo.ps</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+</head>
+<body>
+  <header id='header'>
+    <div class='content'>
+      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
+      <nav>
+        <ul>
+          <li><a href='/blog'>Blog</a></li>
+          <li><a href='http://app.devo.ps'>login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id='content'>
+    
+<div class='content'>
+  
+<aside class='sidebar'>
+    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  
+<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+
+<article class='post'>
+  <aside class='meta'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </aside>
+  
+  <h2>Goodbye node-forever, hello PM2</h2>
+  
+  <section>
+    
+    <p><img src="http://apps.hemca.com/pm2/pres/pm22.png" alt="pm2 logo"></p>
+<p>It&#39;s no secret that the devo.ps team has a crush on Javascript; node.js in the backend, AngularJS for our clients, there isn&#39;t much of our stack that isn&#39;t at least in part built with it. Our approach of building <a href="http://devo.ps/blog/2013/01/31/farewell-to-regular-web-development-approaches.html">static clients and RESTful JSON APIs</a> means that we run a lot of node.js and I must admit that, despite all of it awesomeness, node.js still is a bit of a headache when it comes to running in production. Tooling and best practices (think monitoring, logging, error traces...) are still lacking when compared to some of the more established languages.</p>
+<p>So far, we had been relying on the pretty nifty <a href="https://github.com/nodejitsu/forever">node-forever</a>. Great tool, but a few things were missing:</p>
+<ul>
+<li>Limited monitoring and logging abilities,</li>
+<li>Poor support for process management configuration,</li>
+<li>No support for clusterization,</li>
+<li>Aging codebase (which meant frequent failures when upgrading Node).</li>
+</ul>
+<p>This is what led us to write <a href="https://github.com/Unitech/pm2">PM2</a> in the past couple months. We thought we&#39;d give you a quick look at it while we&#39;re nearing a production ready release.</p>
+<h3 id="so-what-s-in-the-box-">So what&#39;s in the box?</h3>
+<p>First things first, you can install it with <code>npm</code>:</p>
+<pre><code>npm install -g pm2
+</code></pre><p>Let&#39;s open things up with the usual comparison table:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th style="text-align:center">Forever</th>
+<th style="text-align:center">PM2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keep Alive</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td></td>
+</tr>
+<tr>
+<td>Coffeescript</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td></td>
+</tr>
+<tr>
+<td>Log aggregation</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✔</td>
+<td></td>
+</tr>
+<tr>
+<td>API</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✔</td>
+<td></td>
+</tr>
+<tr>
+<td>Terminal monitoring</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✔</td>
+<td></td>
+</tr>
+<tr>
+<td>Clustering</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✔</td>
+<td></td>
+</tr>
+<tr>
+<td>JSON configuration</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✔</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>And now let me geek a tad more about the main features...</p>
+<h3 id="native-clusterization">Native clusterization</h3>
+<p>Node v0.6 introduced the cluster feature, allowing you to share a socket across multiple networked Node applications. Problem is, it doesn&#39;t work out of the box and requires some tweaking to handle master and children processes.</p>
+<p>PM2 handles this natively, without any extra code: PM2 itself will act as the master process and wrap your code into a special clustered process, as Nodejs does, to add some global variables to your files.</p>
+<p>To start a clustered app using all the CPUs you just need to type something like that:</p>
+<pre><code>$ pm2 start app.js -i max
+</code></pre><p>Then;</p>
+<pre><code>$ pm2 list
+</code></pre><p>Which should display something like (ASCII UI FTW);</p>
+<p><img src="http://apps.hemca.com/pm2/pres/pm2-list.png" alt="pm2 list"></p>
+<p>As you can see, your app is now forked into multiple processes depending on the number of CPUs available.</p>
+<h3 id="monitoring-a-la-termcaps-htop">Monitoring <em>a la</em> termcaps-HTOP</h3>
+<p>It&#39;s nice enough to have an overview of the running processes and their status with the <code>pm2 list</code> command. But what about tracking their resources consumption? Fear not:</p>
+<pre><code>$ pm2 monit
+</code></pre><p>You should get the CPU usage and memory consumption by process (and cluster).</p>
+<p><img src="http://apps.hemca.com/pm2/pres/pm2-monit.png" alt="pm2 monit"></p>
+<p><strong>Disclaimer</strong>: <a href="https://github.com/arunoda/node-usage">node-usage</a> doesn&#39;t support MacOS for now (feel free to PR). It works just fine on Linux though.</p>
+<p>Now, what about checking on our clusters and GC cleaning of the memory stack? Let&#39;s consider you already have an HTTP benchmark tool (if not, you should definitely check <a href="https://github.com/wg/wrk">WRK</a>):</p>
+<pre><code>$ express bufallo     // Create an express app
+$ cd bufallo
+$ npm install
+$ pm2 start app.js -i max
+$ wrk -c 100 -d 100 http://localhost:3000/
+</code></pre><p>In another terminal, launch the monitoring option:</p>
+<pre><code>$ pm2 monit
+</code></pre><p>W00t!</p>
+<h3 id="realtime-log-aggregation">Realtime log aggregation</h3>
+<p>Now you have to manage multiple clustered processes: one who&#39;s crawling data, another who is processing stuff, and so on so forth. That means logs, lots of it. You can still handle it the old fashioned way:</p>
+<pre><code>$ tail -f /path/to/log1 /path/to/log2 ...
+</code></pre><p>But we&#39;re nice, so we wrote the <code>logs</code> feature:</p>
+<pre><code>$ pm2 logs
+</code></pre><p><img src="http://apps.hemca.com/pm2/pres/pm2-logs.png" alt="pm2 monit"></p>
+<h3 id="resurrection">Resurrection</h3>
+<p>So things are nice and dandy, your processes are humming and you need to do a hard restart. What now? Well, first, dump things:</p>
+<pre><code>$ pm2 dump
+</code></pre><p>From there, you should be able to resurrect things from file:</p>
+<pre><code>$ pm2 kill     // let&#39;s simulate a pm2 stop
+$ pm2 resurect // All my processes are now up and running 
+</code></pre><h3 id="api-health-point">API Health point</h3>
+<p>Let&#39;s say you want to monitor all the processes managed by PM2, as well as the status of the machine they run on (and maybe even build a nice Angular app to consume this API...):</p>
+<pre><code>$ pm2 web
+</code></pre><p>Point your browser at <code>http://localhost:9615</code>, aaaaand... done!</p>
+<h3 id="and-there-s-more-">And there&#39;s more...</h3>
+<ul>
+<li>Full tests,</li>
+<li>Generation of <code>update-rc.d</code> (<code>pm2 startup</code>), though still very alpha,</li>
+<li>Development mode with auto restart on file change (<code>pm2 dev</code>), still very drafty too,</li>
+<li>Log flushing,</li>
+<li>Management of your applications fleet via JSON file,</li>
+<li>Log uncaught exceptions in error logs,</li>
+<li>Log of restart count and time,</li>
+<li>Automated killing of processes exiting too fast.</li>
+</ul>
+<h3 id="what-s-next-">What&#39;s next?</h3>
+<p>Well first, you could show your love on Github (we love stars): <a href="https://github.com/Unitech/pm2">https://github.com/Unitech/pm2</a>.</p>
+<p>We developed PM2 to offer an advanced and complete solution for Node process management. We&#39;re looking forward to getting more people helping us getting there: pull requests are more than welcome. A few things already on the roadmap that we&#39;ll get right at once we have a stable core:</p>
+<ul>
+<li>Remote administration/status checking,</li>
+<li>Built-in inter-processes communication channel (message bus),</li>
+<li>V8 GC memory leak detection,</li>
+<li>Web interface,</li>
+<li>Persistent storage for monitoring data,</li>
+<li>Email notifications.</li>
+</ul>
+<p>Special thanks to <a href="https://github.com/makara">Makara Wang</a> for concepts/tools and <a href="https://github.com/rlidwka">Alex Kocharin</a> for advices and pull requests.</p>
+
+    
+  </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/06/26/goodbye-node-forever-hello-pm2' target='_blank'>Let us know on Twitter</a>.</li>
+    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=5945420' target='_blank'>Hacker News</a>.</li>
+  </ul>
+</article>
+
+</article>
+
+</div>
+
+  </section>
+  <footer id='footer'>
+    <div class='content'>
+      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+  </div>
+</form></div>
+      <ul class='links'>
+  <li><a href='/about'>About</a></li>
+  <li><a href='/blog'>Blog</a></li>
+</ul>
+
+      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
+    </section>
+  </footer>
+  
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html></content>
+   </entry>
+ 
+ 
+ 
+   <entry>
+     <title>Automation And Friction</title>
+     <link href="/2013/06/20/automation-and-friction"/>
+     <updated>2013-06-20T00:00:00.000Z</updated>
+     <id>http://devo.ps/2013/06/20/automation-and-friction</id>
+     <content type="html"><!DOCTYPE html>
+<html>
+<head>
+  <title>devo.ps</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+</head>
+<body>
+  <header id='header'>
+    <div class='content'>
+      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
+      <nav>
+        <ul>
+          <li><a href='/blog'>Blog</a></li>
+          <li><a href='http://app.devo.ps'>login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id='content'>
+    
+<div class='content'>
+  
+<aside class='sidebar'>
+    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  
+<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+
+<article class='post'>
+  <aside class='meta'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </aside>
+  
+  <h2>Automation And Friction</h2>
+  
+  <section>
+    
+    <p>I&#39;ll admit that the devo.ps team is a lazy bunch; we like to forget about things, especially the hard stuff. Dealing with a complex process invariably leads one of us to vent about how &quot;we should automate that stuff&quot;. That&#39;s what our team does day and night:</p>
+<ol>
+<li>Dumb things down, lower barriers of entry, and then...</li>
+<li><strong>Automate all the things!</strong></li>
+</ol>
+<p>This has transpired through every layer of our company, from engineering to operations. Recently we&#39;ve started pushing on a third point, but first let me rant a bit...</p>
+<h3 id="the-ever-increasing-surface-of-friction">The ever increasing surface of friction</h3>
+<p>The past few years have seen a healthy push on UI and UX. Even developer tools and enterprise software, historically less user-friendly, have started adopting that trend. We now have things like Github. Great.</p>
+<p>This trend grew in parallel with the adoption of SaaS. SaaS are the results of teams focused on specific problems, with the user experience often being a key component (not to undervalue good engineering). It&#39;s pretty standard for these services to offer an API for integration&#39;s sake. <a href="https://getbase.com">Our CRM</a> plays nicely with Dropbox, GMail and a gazillion other services. Again, great.</p>
+<p><strong>However, the success of SaaS means the surface of interfaces we&#39;re dealing with is constantly stretching. This is far more difficult to overcome than poor UI or UX.</strong> Many of us have witnessed teams struggling to get adoption on a great tool that happen to be one too many. There&#39;s not much you can do about it.</p>
+<h3 id="a-bot-to-rule-them-all-">A bot to rule them all...</h3>
+<p><img src="http://devo.ps/images/posts/borat.png" alt="Borat is omnipotent"></p>
+<p>Our team has tried a lot of different approaches over the years. We kicked the tires on a lot of products and ended up doing as usual:</p>
+<ol>
+<li><p><strong>Simplify</strong>. For example, we use Github to manage most tasks and discussions, including operations (HR, admin, ...), and marketing. We used <a href="http://trello.com/">Trello</a> alongside Github for a while and we loved it. But it silo-ed the discussions. Everything from our employee handbook to tasks for buying snacks for the office are now on Github. It also had an interesting side effect on transparency, but I&#39;ll talk about this another time.</p>
+</li>
+<li><p><strong>Automate</strong>. We automate pretty much everything we can. When you apply to one of our job by email for example, we push the attachments in Dropbox (likely your resume) and create a ticket with the relevant information on Github. <a href="http://zapier.com">Zapier</a> is great for this kind of stuff by the way.</p>
+</li>
+<li><p><strong>Make it accessible</strong>. That&#39;s the most important point for us at this stage. Borat, our <a href="http://hubot.github.com">Hubot</a> chat bot, is hooked up with most of our infrastructure and is able to pass on requests to the services we use as well as some of our automation. If one of us is awake, chances are you can find us on the chat, making it the most ubiquitous interface for our team:</p>
+<ul>
+<li>Need to deploy some code on production or modify some configuration on a server? Ask Borat, he&#39;ll relay your demands to the <a href="http://devo.ps">devo.ps</a> API.</li>
+<li>Your latest commit broke the build? A new mail came from support? Expect to hear about it from Borat.</li>
+<li>Need to use our time tracker? Just drop a message to the bot when you&#39;re starting your task and let him know when you&#39;re done.</li>
+<li>Need to call for a SCRUM? Just mention the Github team you want to chat with and Borat will create a separate channel and invite the right people to join.</li>
+<li>Somebody is at the door? Ask the bot to open it for you (you gotta love hacking on Raspberry PI).</li>
+</ul>
+</li>
+</ol>
+<p>Anybody with access to our bot&#39;s repository can add a script to hook him up to a new service. Git push, kill the bot and wait for him to come back to life with new skills. The tedious stuff ends up sooner or later scripted and one sentence away.</p>
+<p>Really, try it. It&#39;s worth the investment.</p>
+
+    
+  </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/06/20/automation-and-friction' target='_blank'>Let us know on Twitter</a>.</li>
+    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=5911507' target='_blank'>Hacker News</a>.</li>
+  </ul>
+</article>
+
+</article>
+
+</div>
+
+  </section>
+  <footer id='footer'>
+    <div class='content'>
+      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+  </div>
+</form></div>
+      <ul class='links'>
+  <li><a href='/about'>About</a></li>
+  <li><a href='/blog'>Blog</a></li>
+</ul>
+
+      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
+    </section>
+  </footer>
+  
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html></content>
+   </entry>
+ 
+ 
+ 
+   <entry>
+     <title>I Can Haz Init Script</title>
+     <link href="/2013/06/19/i-can-haz-init-script"/>
+     <updated>2013-06-19T00:00:00.000Z</updated>
+     <id>http://devo.ps/2013/06/19/i-can-haz-init-script</id>
+     <content type="html"><!DOCTYPE html>
+<html>
+<head>
+  <title>devo.ps</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+</head>
+<body>
+  <header id='header'>
+    <div class='content'>
+      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
+      <nav>
+        <ul>
+          <li><a href='/blog'>Blog</a></li>
+          <li><a href='http://app.devo.ps'>login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id='content'>
+    
+<div class='content'>
+  
+<aside class='sidebar'>
+    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  
+<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+
+<article class='post'>
+  <aside class='meta'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </aside>
+  
+  <h2>I Can Haz Init Script</h2>
+  
+  <section>
+    
+    <p>Something went awfully wrong, and a rogue process is eating up all of the resources on one of your servers. You have no other choice but to restart it. No big deal, really; this is the age of disposable infrastructure after all. Except when it comes back up, everything starts going awry. Half the stuff supposed to be running is down and it&#39;s screwing with the rest of your setup.</p>
+<p><img src="/images/posts/y-u-no-guy.png" alt="INIT SCRIPTS, Y U NO LIKE?"></p>
+<p>You don&#39;t get to think about them very often, but init scripts are a key piece of a sound, scalable strategy for your infrastructure. It&#39;s a <a href="">mandatory best practice</a>. Period. And there are quite a few things in the way of getting them to work properly at scale in production environments. It&#39;s a tough world out there.</p>
+<h3 id="what-we-re-dealing-with-">What we&#39;re dealing with...</h3>
+<h4 id="packages">Packages</h4>
+<p>Often enough, you&#39;re gonna end up installing a service using the package manager of your distro: <code>yum</code>, <code>apt-get</code>, you name it. These packages usually come with an init script that should get you started.</p>
+<p>Sadly, as your architecture grows in complexity, you&#39;ll probably run into some walls. Wanna have multiple memcache buckets, or several instances of redis running on the same box? You&#39;re out of luck buddy. Time to hack your way through:</p>
+<ul>
+<li>Redefine your start logic, </li>
+<li>Load one or multiple config files from <code>/etc/defaults</code> or <code>/etc/sysconfig</code>,</li>
+<li>Deal with the PIDs, log and lock files,</li>
+<li>Implement conditional logic to start/stop/restart one or more of the services,</li>
+<li>Realize you&#39;ve messed something up,</li>
+<li>Same player shoot again.</li>
+</ul>
+<p>Honestly: PITA.</p>
+<h4 id="built-from-source">Built from source</h4>
+<p>First things first: <strong>you shouldn&#39;t be building from source</strong> (unless you really, really need to).</p>
+<p>Now if you do, you&#39;ll have to be thorough: there may be samples of init scripts in there, but you&#39;ll have to dig them out. <code>/contrib</code>, <code>/addons</code>, ... it&#39;s never in the same place.</p>
+<p>And that makes things &quot;fun&quot; when you&#39;re <a href="http://devo.ps/blog/2013/03/06/troubleshooting-5minutes-on-a-yet-unknown-box.html">trying to unscrew things on a box</a>:</p>
+<ul>
+<li>You figured out that MySQL is running from <code>/home/user/src/mysql</code>,</li>
+<li>You check if there&#39;s an init script: no luck this time...</li>
+<li>You try to understand what exactly launched <code>mysqld_safe</code>,</li>
+<li>You spend a while digging into the bash history smiling at typos,</li>
+<li>You stumble on a <code>run.sh</code> script (uncommented, of course) in the home directory. Funny enough, it seems to be starting everything from MySQL, NGINX and php-fpm to the coffee maker.</li>
+<li>You make a mental note to try and track down the &quot;genius&quot; who did that mess of a job, and get busy with converting everything to a proper init script.</li>
+</ul>
+<p>Great.</p>
+<h3 id="why-existing-solutions-suck">Why existing solutions suck</h3>
+<p>Well, based on what we&#39;ve just seen, you really only have two options:</p>
+<ol>
+<li><strong>DIY</strong>; but if you&#39;re good at what you do, you&#39;re probably also lazy. You may do it the first couple times, but that&#39;s not gonna scale, especially when dealing with the various flavors of init daemons (upstart, systemd...),</li>
+<li><strong>Use that thing called &quot;the Internet&quot;</strong>; you read through forum pages, issue queues, gists and if you&#39;re lucky you&#39;ll find a perfect one (or more likely 10 sucky ones). Kudos to all those of whom shared their work, but you&#39;ll probably be back to option 1.</li>
+</ol>
+<h3 id="we-can-do-better-than-this">We can do better than this</h3>
+<p>You&#39;ll find a gazillion websites for pictures of kittens, but as far as I know, there is no authoritative source for  init scripts. That&#39;s just not right: we have to fix it. A few things I&#39;m aiming for:</p>
+<ul>
+<li><strong>Scalable</strong>; allow for multiple instances of a service to be started at once from different config files (see the memcache/redis example),</li>
+<li><strong>Secure</strong>; ensure <code>configtest</code> is run before a restart/reload (because, you know, a faulty config file preventing the service to restart is kind of a bummer),</li>
+<li><strong>Smart</strong>; ensuring for example that the cache is aggressively flushed before restarting your database (so that you don&#39;t end-up waiting 50 min for the DB to cleanly shutdown).</li>
+</ul>
+<p><a href="https://github.com/devo-ps/init-scripts">I&#39;ve just created a repo</a> where I&#39;ll be dumping various init scripts that will hopefully be helpful to others. I&#39;d love to get suggestions or help.</p>
+<p>And by the way, things are not much better with applications, though we&#39;re trying our best to improve things there too with things like <a href="https://github.com/Unitech/pm2">pm2</a> (fresh and shinny, more about it in a later post).</p>
+
+    
+  </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/06/19/i-can-haz-init-script' target='_blank'>Let us know on Twitter</a>.</li>
+    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=5905051' target='_blank'>Hacker News</a>.</li>
+  </ul>
+</article>
+
+</article>
+
+</div>
+
+  </section>
+  <footer id='footer'>
+    <div class='content'>
+      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+  </div>
+</form></div>
+      <ul class='links'>
+  <li><a href='/about'>About</a></li>
+  <li><a href='/blog'>Blog</a></li>
+</ul>
+
+      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
+    </section>
+  </footer>
+  
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html></content>
+   </entry>
+ 
+ 
+ 
+   <entry>
+     <title>Shanghai Hacker News Meetup Reboot</title>
+     <link href="/2013/06/06/shanghai-hacker-news-meetup-reboot"/>
+     <updated>2013-06-06T00:00:00.000Z</updated>
+     <id>http://devo.ps/2013/06/06/shanghai-hacker-news-meetup-reboot</id>
+     <content type="html"><!DOCTYPE html>
+<html>
+<head>
+  <title>devo.ps</title>
+  <meta charset='utf-8'/>
+  <meta name='description' content='Documentation website'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+</head>
+<body>
+  <header id='header'>
+    <div class='content'>
+      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
+      <nav>
+        <ul>
+          <li><a href='/blog'>Blog</a></li>
+          <li><a href='http://app.devo.ps'>login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id='content'>
+    
+<div class='content'>
+  
+<aside class='sidebar'>
+    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
+    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
+</aside>
+
+<article class='main'>
+  
+<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+
+<article class='post'>
+  <aside class='meta'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </aside>
+  
+  <h2>Shanghai Hacker News Meetup Reboot</h2>
+  
+  <section>
+    
+    <p>We&#39;ll be having our usual Hacker News meetup at <strong><a href="http://goo.gl/maps/Ona2p">Abbey Road</a> (45 Yueyang road, near Hengshan Lu) tonight starting 7:00 PM</strong>: come and meet entrepreneurs, technologists and likeminded individuals while sharing a couple drinks. The first round of drinks is on <a href="http://wiredcraft.com">Wiredcraft</a>.</p>
+<p>Starting next week, we&#39;ll be changing a bit the format of this event:</p>
+<ul>
+<li><strong>Hacker News dinner, every Tuesday from 7:00 to 8:00 PM</strong>; we&#39;re still confirming the venue. We&#39;ll be kicking off each dinner with a video of a tech or entrepreneurial talk (that you&#39;re free to ignore if you&#39;d rather chat with other attendees).</li>
+<li><strong>Hacker News meetup, every first Tuesday of the month from 6:30 to 10:00 PM</strong> (instead of the regular dinner); a longer event with an actual speaker on stage. We&#39;re still working out the details, but we hope to sponsor some food and drinks with the help of Wiredcraft and hopefully other local startups.</li>
+</ul>
+<p>We&#39;ll be posting more information soon on the <a href="http://shanghaihn.org/">Shanghai Hacker News meetup website</a>. Don&#39;t hesitate to <a href="mailto:info@devo.ps">shoot us an email</a> if you want to help out or sponsor.</p>
+
+    
+  </section>
+    
+  <ul class='sticky'>
+    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/06/06/shanghai-hacker-news-meetup-reboot' target='_blank'>Let us know on Twitter</a>.</li>
+    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=5831587' target='_blank'>Hacker News</a>.</li>
+  </ul>
+</article>
+
+</article>
+
+</div>
+
+  </section>
+  <footer id='footer'>
+    <div class='content'>
+      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+  </div>
+</form></div>
+      <ul class='links'>
+  <li><a href='/about'>About</a></li>
+  <li><a href='/blog'>Blog</a></li>
+</ul>
+
+      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
+    </section>
+  </footer>
+  
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html></content>
+   </entry>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</feed>
