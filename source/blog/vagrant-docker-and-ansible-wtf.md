@@ -1,12 +1,10 @@
 ---
-published: true
-collection: blog
 title: Vagrant, Docker and Ansible. WTF?
-
 author: vincent
-hn: 6444084
 date: 2013-09-25
+hn: 6444084
 
+collection: blog
 template: post.html
 ---
 

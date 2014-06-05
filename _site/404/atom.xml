@@ -3,7 +3,7 @@
  <title>devo.ps</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2014-05-22T02:52:44.892Z</updated>
+ <updated>2014-06-05T07:24:28.356Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
@@ -13,50 +13,65 @@
  
    <entry>
      <title>Vagrant, Docker and Ansible. WTF?</title>
-     <link href="/2013/09/25/vagrant-docker-and-ansible-wtf"/>
+     <link href="/blog/vagrant-docker-and-ansible-wtf"/>
      <updated>2013-09-25T00:00:00.000Z</updated>
-     <id>http://devo.ps/2013/09/25/vagrant-docker-and-ansible-wtf</id>
-     <content type="html"><!DOCTYPE html>
+     <id>http://devo.ps/blog/vagrant-docker-and-ansible-wtf</id>
+     <content type="html"><!doctype html>
 <html>
 <head>
-  <title>devo.ps</title>
   <meta charset='utf-8'/>
-  <meta name='description' content='Documentation website'/>
+  <title>Vagrant, Docker and Ansible. WTF? | devo.ps</title>
+  
+  
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
-  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
-typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
-b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
-mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+  
+  <!-- Favicons -->
+  <link rel='shortcut icon' href='/assets/favicon.ico'>
+  <link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
+  <link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
+  <link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
+  <link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
+  <link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
+  <link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
+  <link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
+  <link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
+  <meta name='msapplication-TileColor' content='#da532c'>
+  <meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
+  <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+
+  <!-- CSS -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/> -->
+  <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
   <header id='header'>
-    <div class='content'>
-      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
-      <nav>
-        <ul>
-          <li><a href='/blog'>Blog</a></li>
-          <li><a href='http://app.devo.ps'>login</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav class='links'>
+      <a href='/blog'>Blog</a>
+      <a href='/about'>About</a>
+    </nav>
+
+    <a href='/' class='logo'>devo.ps</a>
   </header>
-  <section id='content'>
-    
-<div class='content'>
-  
-<aside class='sidebar'>
-    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
-    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
-</aside>
 
-<article class='main'>
-  
-<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+  <section id='main'>
+    
+<header class='header'>
+  <nav class='links'>
+    <div class='controls'>
+      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+    </div>
+    <a href='/blog' class='back'>← Back to the blog</a>
+  </nav>
 
-<article class='post'>
-  <aside class='meta'>
+  <h1>Vagrant, Docker and Ansible. WTF?</h1>
+
+  <span class='meta'>
     
     
     
@@ -67,16 +82,18 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
     
     
     
+      <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
+      Vincent Viallet
     
     
     
-  </aside>
-  
-  <h2>Vagrant, Docker and Ansible. WTF?</h2>
-  
-  <section>
     
-    <p>Given that we&#39;re building a SaaS that helps our client managing their infrastructure, our team is pretty familiar with leveraging VMs and configuration management tools. We&#39;ve actually been heavy users of Vagrant and <a href="http://devo.ps/blog/2013/07/03/ansible-simply-kicks-ass.html">Ansible</a> for the past year, and it&#39;s helped us tremendously normalize our development process.</p>
+    on <time datetime=''>September 25, 2013</time>
+  </span>
+</header>
+
+<article class='content post'>
+  <p>Given that we&#39;re building a SaaS that helps our client managing their infrastructure, our team is pretty familiar with leveraging VMs and configuration management tools. We&#39;ve actually been heavy users of Vagrant and <a href="http://devo.ps/blog/2013/07/03/ansible-simply-kicks-ass.html">Ansible</a> for the past year, and it&#39;s helped us tremendously normalize our development process.</p>
 <p>As our platform grew in complexity, some additional needs emerged:</p>
 <ul>
 <li><strong>Containerization</strong>; we needed to be able to safely execute custom, and potentially harmful, code.</li>
@@ -262,118 +279,109 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
 </ol>
 <p>It takes a bit of reading to get more familiar with these tools, and we&#39;ll likely follow up on this post in the next few weeks. However, especially as a small team, this kind of technology allows you to automate and commoditize huge parts of your development and ops workflows. We strongly encourage you to make that investment. It has helped us tremendously increase the pace and quality of our throughput.</p>
 
-    
-  </section>
-    
-  <ul class='sticky'>
-    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/09/25/vagrant-docker-and-ansible-wtf' target='_blank'>Let us know on Twitter</a>.</li>
-    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=6444084' target='_blank'>Hacker News</a>.</li>
-  </ul>
-</article>
-
-</article>
-
-</div>
-
-  </section>
-  <footer id='footer'>
-    <div class='content'>
-      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  
+  <ul class='card'>
+    <li class='newsletter'>
+      <h2>Stay tuned by email</h2>
+      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
   <div class='field'>
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
   </div>
-</form></div>
-      <ul class='links'>
-  <li><a href='/about'>About</a></li>
-  <li><a href='/blog'>Blog</a></li>
-</ul>
+</form>
+    </li>
+    <li class='feedback'>
+      <h2>Have some feedback?</h2>
+      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/vagrant-docker-and-ansible-wtf' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=6444084' target='_blank'>Hacker News</a>.</p>
+    </li>
+  </ul>
+</section>
 
-      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
-    </section>
-  </footer>
-  
+  </section>
+
+  <footer id='footer'>Copyright © devo.ps. All rights reserved.</footer>
+
   <!-- JS -->
-  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!-- <script src='/assets/scripts.js' type='text/javascript'></script> -->
   <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
-  <script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-	<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-34006371-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+  <!--  -->
+	<!--  -->
 </body>
-</html></content>
+</html>
+</content>
    </entry>
  
  
  
    <entry>
      <title>ZooKeeper vs. Doozer vs. Etcd</title>
-     <link href="/2013/09/11/zookeeper-vs-doozer-vs-etcd"/>
+     <link href="/blog/zookeeper-vs-doozer-vs-etcd"/>
      <updated>2013-09-11T00:00:00.000Z</updated>
-     <id>http://devo.ps/2013/09/11/zookeeper-vs-doozer-vs-etcd</id>
-     <content type="html"><!DOCTYPE html>
+     <id>http://devo.ps/blog/zookeeper-vs-doozer-vs-etcd</id>
+     <content type="html"><!doctype html>
 <html>
 <head>
-  <title>devo.ps</title>
   <meta charset='utf-8'/>
-  <meta name='description' content='Documentation website'/>
+  <title>ZooKeeper vs. Doozer vs. Etcd | devo.ps</title>
+  
+  
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
-  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
-typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
-b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
-mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+  
+  <!-- Favicons -->
+  <link rel='shortcut icon' href='/assets/favicon.ico'>
+  <link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
+  <link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
+  <link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
+  <link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
+  <link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
+  <link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
+  <link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
+  <link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
+  <meta name='msapplication-TileColor' content='#da532c'>
+  <meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
+  <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+
+  <!-- CSS -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/> -->
+  <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
   <header id='header'>
-    <div class='content'>
-      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
-      <nav>
-        <ul>
-          <li><a href='/blog'>Blog</a></li>
-          <li><a href='http://app.devo.ps'>login</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav class='links'>
+      <a href='/blog'>Blog</a>
+      <a href='/about'>About</a>
+    </nav>
+
+    <a href='/' class='logo'>devo.ps</a>
   </header>
-  <section id='content'>
-    
-<div class='content'>
-  
-<aside class='sidebar'>
-    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
-    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
-</aside>
 
-<article class='main'>
-  
-<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+  <section id='main'>
+    
+<header class='header'>
+  <nav class='links'>
+    <div class='controls'>
+      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+    </div>
+    <a href='/blog' class='back'>← Back to the blog</a>
+  </nav>
 
-<article class='post'>
-  <aside class='meta'>
+  <h1>ZooKeeper vs. Doozer vs. Etcd</h1>
+
+  <span class='meta'>
+    
+    
+    
+    
+      <img class='avatar' alt='Juha Suomalainen' src='/images/team/juha-small.png'/> 
+      Juha Suomalainen
     
     
     
@@ -384,16 +392,12 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
     
     
     
-    
-    
-    
-  </aside>
-  
-  <h2>ZooKeeper vs. Doozer vs. Etcd</h2>
-  
-  <section>
-    
-    <p>While <a href="http://devo.ps">devo.ps</a> is fast approaching a public release, the team has been dealing with an increasingly complex infrastructure. We more recently faced an interesting issue; how do you share configuration across a cluster of servers? More importantly, how do you do so in a resilient, secure, easily deployable and speedy fashion?</p>
+    on <time datetime=''>September 11, 2013</time>
+  </span>
+</header>
+
+<article class='content post'>
+  <p>While <a href="http://devo.ps">devo.ps</a> is fast approaching a public release, the team has been dealing with an increasingly complex infrastructure. We more recently faced an interesting issue; how do you share configuration across a cluster of servers? More importantly, how do you do so in a resilient, secure, easily deployable and speedy fashion?</p>
 <p>That&#39;s what got us to evaluate some of the options available out there; ZooKeeper, Doozer and etcd. These tools all solve similar sets of problems but their approach differ quite significantly. Since we spent some time evaluating them, we thought we&#39;d share our findings.</p>
 <h3 id="zookeeper-the-old-dog">ZooKeeper, the old dog</h3>
 <p><a href="http://zookeeper.apache.org/">ZooKeeper</a> is the most well known (and oldest) project we&#39;ve looked into. It&#39;s used by a few big players (Rackspace, Yahoo, eBay, <a href="https://news.ycombinator.com/item?id=6367979">Youtube</a>) and is pretty mature.</p>
@@ -457,118 +461,111 @@ It was first released by the <a href="http://coreos.com">CoreOS</a> team a month
 <h3 id="conclusion">Conclusion</h3>
 <p>In the end, we decided to give etcd a try. So far it seems to work well for our needs and the very active development pace seems to validate our choice. It has proven resilient and will likely hold well until we have the resources to either customize its data propagation approach, or build our own solution that will answer some needs it is not likely to answer (we&#39;ve already looked into doing so with ZeroMQ and Go).</p>
 
-    
-  </section>
-    
-  <ul class='sticky'>
-    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/09/11/zookeeper-vs-doozer-vs-etcd' target='_blank'>Let us know on Twitter</a>.</li>
-    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=6366665' target='_blank'>Hacker News</a>.</li>
-  </ul>
-</article>
-
-</article>
-
-</div>
-
-  </section>
-  <footer id='footer'>
-    <div class='content'>
-      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  
+  <ul class='card'>
+    <li class='newsletter'>
+      <h2>Stay tuned by email</h2>
+      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
   <div class='field'>
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
   </div>
-</form></div>
-      <ul class='links'>
-  <li><a href='/about'>About</a></li>
-  <li><a href='/blog'>Blog</a></li>
-</ul>
+</form>
+    </li>
+    <li class='feedback'>
+      <h2>Have some feedback?</h2>
+      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/zookeeper-vs-doozer-vs-etcd' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=6366665' target='_blank'>Hacker News</a>.</p>
+    </li>
+  </ul>
+</section>
 
-      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
-    </section>
-  </footer>
-  
+  </section>
+
+  <footer id='footer'>Copyright © devo.ps. All rights reserved.</footer>
+
   <!-- JS -->
-  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!-- <script src='/assets/scripts.js' type='text/javascript'></script> -->
   <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
-  <script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-	<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-34006371-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+  <!--  -->
+	<!--  -->
 </body>
-</html></content>
+</html>
+</content>
    </entry>
  
  
  
    <entry>
      <title>Code Reuse With Node.js</title>
-     <link href="/2013/07/11/code-reuse-with-node-js"/>
+     <link href="/blog/code-reuse-with-nodejs"/>
      <updated>2013-07-11T00:00:00.000Z</updated>
-     <id>http://devo.ps/2013/07/11/code-reuse-with-node-js</id>
-     <content type="html"><!DOCTYPE html>
+     <id>http://devo.ps/blog/code-reuse-with-nodejs</id>
+     <content type="html"><!doctype html>
 <html>
 <head>
-  <title>devo.ps</title>
   <meta charset='utf-8'/>
-  <meta name='description' content='Documentation website'/>
+  <title>Code Reuse With Node.js | devo.ps</title>
+  
+  
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
-  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
-typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
-b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
-mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+  
+  <!-- Favicons -->
+  <link rel='shortcut icon' href='/assets/favicon.ico'>
+  <link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
+  <link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
+  <link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
+  <link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
+  <link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
+  <link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
+  <link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
+  <link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
+  <meta name='msapplication-TileColor' content='#da532c'>
+  <meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
+  <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+
+  <!-- CSS -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/> -->
+  <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
   <header id='header'>
-    <div class='content'>
-      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
-      <nav>
-        <ul>
-          <li><a href='/blog'>Blog</a></li>
-          <li><a href='http://app.devo.ps'>login</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav class='links'>
+      <a href='/blog'>Blog</a>
+      <a href='/about'>About</a>
+    </nav>
+
+    <a href='/' class='logo'>devo.ps</a>
   </header>
-  <section id='content'>
-    
-<div class='content'>
-  
-<aside class='sidebar'>
-    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
-    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
-</aside>
 
-<article class='main'>
-  
-<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+  <section id='main'>
+    
+<header class='header'>
+  <nav class='links'>
+    <div class='controls'>
+      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+    </div>
+    <a href='/blog' class='back'>← Back to the blog</a>
+  </nav>
 
-<article class='post'>
-  <aside class='meta'>
+  <h1>Code Reuse With Node.js</h1>
+
+  <span class='meta'>
+    
+    
+    
+    
+    
+    
+      <img class='avatar' alt='Makara Wang' src='/images/team/makara-small.png'/> 
+      Makara Wang
     
     
     
@@ -577,18 +574,12 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
     
     
     
-    
-    
-    
-    
-    
-  </aside>
-  
-  <h2>Code Reuse With Node.js</h2>
-  
-  <section>
-    
-    <p><img src="http://devo.ps/images/posts/recycle.png" alt="Code recycling"></p>
+    on <time datetime=''>July 11, 2013</time>
+  </span>
+</header>
+
+<article class='content post'>
+  <p><img src="http://devo.ps/images/posts/recycle.png" alt="Code recycling"></p>
 <p>Any project that grows to a decent size will need to re-use parts of its code extensively. That often means, through the development cycle, a fair amount of rewrites and refactoring exercises. Elegant code re-use is hard to pull off.</p>
 <p>With node.js, which we use quite a bit at <a href="http://devo.ps">devo.ps</a>, the most common ways to do this often rely on prototype or class inheritance. The problem is, as the inheritance chain grows, managing attributes and functions can become quite complex.</p>
 <p>The truth is, people usually just need the objects. This led us to adopt a certain form of object-based prototyping. We believe it to be leaner and more straightforward in most cases. But before we get there, let&#39;s have a look at how people usually approach this issue.</p>
@@ -758,118 +749,103 @@ module.exports = function(obj){
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">MDN Object reference</a></li>
 </ul>
 
-    
-  </section>
-    
-  <ul class='sticky'>
-    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/07/11/code-reuse-with-node-js' target='_blank'>Let us know on Twitter</a>.</li>
-    
-  </ul>
-</article>
-
-</article>
-
-</div>
-
-  </section>
-  <footer id='footer'>
-    <div class='content'>
-      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  
+  <ul class='card'>
+    <li class='newsletter'>
+      <h2>Stay tuned by email</h2>
+      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
   <div class='field'>
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
   </div>
-</form></div>
-      <ul class='links'>
-  <li><a href='/about'>About</a></li>
-  <li><a href='/blog'>Blog</a></li>
-</ul>
+</form>
+    </li>
+    <li class='feedback'>
+      <h2>Have some feedback?</h2>
+      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/code-reuse-with-nodejs' target='_blank'>Twitter</a>.</p>
+    </li>
+  </ul>
+</section>
 
-      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
-    </section>
-  </footer>
-  
+  </section>
+
+  <footer id='footer'>Copyright © devo.ps. All rights reserved.</footer>
+
   <!-- JS -->
-  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!-- <script src='/assets/scripts.js' type='text/javascript'></script> -->
   <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
-  <script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-	<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-34006371-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+  <!--  -->
+	<!--  -->
 </body>
-</html></content>
+</html>
+</content>
    </entry>
  
  
  
    <entry>
      <title>Meat And Beer With Hackers + Founders</title>
-     <link href="/2013/07/11/meat-and-beer-with-hackers-founders"/>
+     <link href="/blog/meat-and-beer-with-hackers-founders"/>
      <updated>2013-07-11T00:00:00.000Z</updated>
-     <id>http://devo.ps/2013/07/11/meat-and-beer-with-hackers-founders</id>
-     <content type="html"><!DOCTYPE html>
+     <id>http://devo.ps/blog/meat-and-beer-with-hackers-founders</id>
+     <content type="html"><!doctype html>
 <html>
 <head>
-  <title>devo.ps</title>
   <meta charset='utf-8'/>
-  <meta name='description' content='Documentation website'/>
+  <title>Meat And Beer With Hackers + Founders | devo.ps</title>
+  
+  
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
-  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
-typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
-b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
-mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+  
+  <!-- Favicons -->
+  <link rel='shortcut icon' href='/assets/favicon.ico'>
+  <link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
+  <link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
+  <link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
+  <link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
+  <link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
+  <link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
+  <link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
+  <link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
+  <meta name='msapplication-TileColor' content='#da532c'>
+  <meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
+  <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+
+  <!-- CSS -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/> -->
+  <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
   <header id='header'>
-    <div class='content'>
-      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
-      <nav>
-        <ul>
-          <li><a href='/blog'>Blog</a></li>
-          <li><a href='http://app.devo.ps'>login</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav class='links'>
+      <a href='/blog'>Blog</a>
+      <a href='/about'>About</a>
+    </nav>
+
+    <a href='/' class='logo'>devo.ps</a>
   </header>
-  <section id='content'>
-    
-<div class='content'>
-  
-<aside class='sidebar'>
-    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
-    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
-</aside>
 
-<article class='main'>
-  
-<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+  <section id='main'>
+    
+<header class='header'>
+  <nav class='links'>
+    <div class='controls'>
+      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+    </div>
+    <a href='/blog' class='back'>← Back to the blog</a>
+  </nav>
 
-<article class='post'>
-  <aside class='meta'>
+  <h1>Meat And Beer With Hackers + Founders</h1>
+
+  <span class='meta'>
     
     
     
@@ -878,133 +854,120 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
     
     
     
+      <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
+      Ronan Berder
     
     
     
     
     
-  </aside>
-  
-  <h2>Meat And Beer With Hackers + Founders</h2>
-  
-  <section>
     
-    <p><img src="http://devo.ps/images/posts/HF-BBQ.png" alt="H+F BBQ"></p>
+    on <time datetime=''>July 11, 2013</time>
+  </span>
+</header>
+
+<article class='content post'>
+  <p><img src="http://devo.ps/images/posts/HF-BBQ.png" alt="H+F BBQ"></p>
 <p>We&#39;ll be <a href="http://us2.campaign-archive1.com/?u=18eb8d6c34ad5d4e781541da9&amp;id=c76a2f828c&amp;e=">meeting at a yet to be confirmed venue</a> (maybe our rooftop, who knows) next Friday for meat, beers and good company with the <a href="http://wiredcraft.com">Wiredcraft</a> folks and the usual crowd from the <strong>Hackers + Founders</strong> event.</p>
 <p><a href="http://eepurl.com/CbCx5">Register to the Wiredcraft mailing list</a> and we&#39;ll send you the details next week once we&#39;ve sorted out the details.</p>
 
-    
-  </section>
-    
-  <ul class='sticky'>
-    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/07/11/meat-and-beer-with-hackers-founders' target='_blank'>Let us know on Twitter</a>.</li>
-    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=6025135' target='_blank'>Hacker News</a>.</li>
-  </ul>
-</article>
-
-</article>
-
-</div>
-
-  </section>
-  <footer id='footer'>
-    <div class='content'>
-      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  
+  <ul class='card'>
+    <li class='newsletter'>
+      <h2>Stay tuned by email</h2>
+      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
   <div class='field'>
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
   </div>
-</form></div>
-      <ul class='links'>
-  <li><a href='/about'>About</a></li>
-  <li><a href='/blog'>Blog</a></li>
-</ul>
+</form>
+    </li>
+    <li class='feedback'>
+      <h2>Have some feedback?</h2>
+      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/meat-and-beer-with-hackers-founders' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=6025135' target='_blank'>Hacker News</a>.</p>
+    </li>
+  </ul>
+</section>
 
-      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
-    </section>
-  </footer>
-  
+  </section>
+
+  <footer id='footer'>Copyright © devo.ps. All rights reserved.</footer>
+
   <!-- JS -->
-  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!-- <script src='/assets/scripts.js' type='text/javascript'></script> -->
   <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
-  <script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-	<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-34006371-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+  <!--  -->
+	<!--  -->
 </body>
-</html></content>
+</html>
+</content>
    </entry>
  
  
  
    <entry>
      <title>The Problem With PaaS</title>
-     <link href="/2013/07/05/the-problem-with-paas"/>
+     <link href="/blog/the-problem-with-paas"/>
      <updated>2013-07-05T00:00:00.000Z</updated>
-     <id>http://devo.ps/2013/07/05/the-problem-with-paas</id>
-     <content type="html"><!DOCTYPE html>
+     <id>http://devo.ps/blog/the-problem-with-paas</id>
+     <content type="html"><!doctype html>
 <html>
 <head>
-  <title>devo.ps</title>
   <meta charset='utf-8'/>
-  <meta name='description' content='Documentation website'/>
+  <title>The Problem With PaaS | devo.ps</title>
+  
+  
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
-  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
-typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
-b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
-mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+  
+  <!-- Favicons -->
+  <link rel='shortcut icon' href='/assets/favicon.ico'>
+  <link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
+  <link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
+  <link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
+  <link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
+  <link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
+  <link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
+  <link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
+  <link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
+  <meta name='msapplication-TileColor' content='#da532c'>
+  <meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
+  <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+
+  <!-- CSS -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/> -->
+  <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
   <header id='header'>
-    <div class='content'>
-      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
-      <nav>
-        <ul>
-          <li><a href='/blog'>Blog</a></li>
-          <li><a href='http://app.devo.ps'>login</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav class='links'>
+      <a href='/blog'>Blog</a>
+      <a href='/about'>About</a>
+    </nav>
+
+    <a href='/' class='logo'>devo.ps</a>
   </header>
-  <section id='content'>
-    
-<div class='content'>
-  
-<aside class='sidebar'>
-    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
-    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
-</aside>
 
-<article class='main'>
-  
-<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+  <section id='main'>
+    
+<header class='header'>
+  <nav class='links'>
+    <div class='controls'>
+      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+    </div>
+    <a href='/blog' class='back'>← Back to the blog</a>
+  </nav>
 
-<article class='post'>
-  <aside class='meta'>
+  <h1>The Problem With PaaS</h1>
+
+  <span class='meta'>
     
     
     
@@ -1013,18 +976,20 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
     
     
     
+      <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
+      Ronan Berder
     
     
     
     
     
-  </aside>
-  
-  <h2>The Problem With PaaS</h2>
-  
-  <section>
     
-    <p>Obviously biased point, but one of the reasons we&#39;ve built devo.ps is because.</p>
+    on <time datetime=''>July 05, 2013</time>
+  </span>
+</header>
+
+<article class='content post'>
+  <p>Obviously biased point, but one of the reasons we&#39;ve built devo.ps is because.</p>
 <p>Black box
 Cost</p>
 <p>There are currently two options to solve your DevOps issues:</p>
@@ -1041,118 +1006,103 @@ Cost</p>
 <p>Companies need a better platform they can invest in freely: no lock-in, no technology limitations (or at least none they can&#39;t contribute to remove, that&#39;s why we propose an Open Source version), access to their infrastructure.</p>
 <p>Development and Operations teams need tools with a better shared visibility for them to collaborate.</p>
 
-    
-  </section>
-    
-  <ul class='sticky'>
-    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/07/05/the-problem-with-paas' target='_blank'>Let us know on Twitter</a>.</li>
-    
-  </ul>
-</article>
-
-</article>
-
-</div>
-
-  </section>
-  <footer id='footer'>
-    <div class='content'>
-      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  
+  <ul class='card'>
+    <li class='newsletter'>
+      <h2>Stay tuned by email</h2>
+      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
   <div class='field'>
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
   </div>
-</form></div>
-      <ul class='links'>
-  <li><a href='/about'>About</a></li>
-  <li><a href='/blog'>Blog</a></li>
-</ul>
+</form>
+    </li>
+    <li class='feedback'>
+      <h2>Have some feedback?</h2>
+      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/the-problem-with-paas' target='_blank'>Twitter</a>.</p>
+    </li>
+  </ul>
+</section>
 
-      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
-    </section>
-  </footer>
-  
+  </section>
+
+  <footer id='footer'>Copyright © devo.ps. All rights reserved.</footer>
+
   <!-- JS -->
-  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!-- <script src='/assets/scripts.js' type='text/javascript'></script> -->
   <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
-  <script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-	<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-34006371-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+  <!--  -->
+	<!--  -->
 </body>
-</html></content>
+</html>
+</content>
    </entry>
  
  
  
    <entry>
      <title>Ansible Simply Kicks Ass</title>
-     <link href="/2013/07/03/ansible-simply-kicks-ass"/>
+     <link href="/blog/ansible-simply-kicks-ass"/>
      <updated>2013-07-03T00:00:00.000Z</updated>
-     <id>http://devo.ps/2013/07/03/ansible-simply-kicks-ass</id>
-     <content type="html"><!DOCTYPE html>
+     <id>http://devo.ps/blog/ansible-simply-kicks-ass</id>
+     <content type="html"><!doctype html>
 <html>
 <head>
-  <title>devo.ps</title>
   <meta charset='utf-8'/>
-  <meta name='description' content='Documentation website'/>
+  <title>Ansible Simply Kicks Ass | devo.ps</title>
+  
+  
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
-  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
-typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
-b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
-mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+  
+  <!-- Favicons -->
+  <link rel='shortcut icon' href='/assets/favicon.ico'>
+  <link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
+  <link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
+  <link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
+  <link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
+  <link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
+  <link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
+  <link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
+  <link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
+  <meta name='msapplication-TileColor' content='#da532c'>
+  <meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
+  <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+
+  <!-- CSS -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/> -->
+  <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
   <header id='header'>
-    <div class='content'>
-      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
-      <nav>
-        <ul>
-          <li><a href='/blog'>Blog</a></li>
-          <li><a href='http://app.devo.ps'>login</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav class='links'>
+      <a href='/blog'>Blog</a>
+      <a href='/about'>About</a>
+    </nav>
+
+    <a href='/' class='logo'>devo.ps</a>
   </header>
-  <section id='content'>
-    
-<div class='content'>
-  
-<aside class='sidebar'>
-    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
-    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
-</aside>
 
-<article class='main'>
-  
-<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+  <section id='main'>
+    
+<header class='header'>
+  <nav class='links'>
+    <div class='controls'>
+      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+    </div>
+    <a href='/blog' class='back'>← Back to the blog</a>
+  </nav>
 
-<article class='post'>
-  <aside class='meta'>
+  <h1>Ansible Simply Kicks Ass</h1>
+
+  <span class='meta'>
     
     
     
@@ -1163,16 +1113,18 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
     
     
     
+      <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
+      Vincent Viallet
     
     
     
-  </aside>
-  
-  <h2>Ansible Simply Kicks Ass</h2>
-  
-  <section>
     
-    <p>The devo.ps team has been putting quite a few tools to the test over the years when it comes to managing infrastructures. We&#39;ve developed some ourselves and have adopted others. While the choice to use one over another is not always as clear-cut as we&#39;d like (I&#39;d love to rant about monitoring but will leave that for a later post), we&#39;ve definitely developed kind of a crush for <a href="https://github.com/ansible/ansible">Ansible</a> in the past 6 months. We went through years of using Puppet, then Chef and more recently Salt Stack, before Ansible gained unanimous adoption among our team.</p>
+    on <time datetime=''>July 03, 2013</time>
+  </span>
+</header>
+
+<article class='content post'>
+  <p>The devo.ps team has been putting quite a few tools to the test over the years when it comes to managing infrastructures. We&#39;ve developed some ourselves and have adopted others. While the choice to use one over another is not always as clear-cut as we&#39;d like (I&#39;d love to rant about monitoring but will leave that for a later post), we&#39;ve definitely developed kind of a crush for <a href="https://github.com/ansible/ansible">Ansible</a> in the past 6 months. We went through years of using Puppet, then Chef and more recently Salt Stack, before Ansible gained unanimous adoption among our team.</p>
 <p>What makes it awesome? Well, on top of my head:</p>
 <ul>
 <li>It&#39;s <strong>agent-less</strong> and works by default in <strong>push mode</strong> (that last point is subjective, I know).</li>
@@ -1188,118 +1140,107 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
 <pre><code>pip install ansible
 </code></pre><p>Et voila! You gotta appreciate the simple things in life. Especially the life of a sysadmin.</p>
 
-    
-  </section>
-    
-  <ul class='sticky'>
-    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/07/03/ansible-simply-kicks-ass' target='_blank'>Let us know on Twitter</a>.</li>
-    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=5983918' target='_blank'>Hacker News</a>.</li>
-  </ul>
-</article>
-
-</article>
-
-</div>
-
-  </section>
-  <footer id='footer'>
-    <div class='content'>
-      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  
+  <ul class='card'>
+    <li class='newsletter'>
+      <h2>Stay tuned by email</h2>
+      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
   <div class='field'>
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
   </div>
-</form></div>
-      <ul class='links'>
-  <li><a href='/about'>About</a></li>
-  <li><a href='/blog'>Blog</a></li>
-</ul>
+</form>
+    </li>
+    <li class='feedback'>
+      <h2>Have some feedback?</h2>
+      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/ansible-simply-kicks-ass' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5983918' target='_blank'>Hacker News</a>.</p>
+    </li>
+  </ul>
+</section>
 
-      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
-    </section>
-  </footer>
-  
+  </section>
+
+  <footer id='footer'>Copyright © devo.ps. All rights reserved.</footer>
+
   <!-- JS -->
-  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!-- <script src='/assets/scripts.js' type='text/javascript'></script> -->
   <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
-  <script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-	<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-34006371-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+  <!--  -->
+	<!--  -->
 </body>
-</html></content>
+</html>
+</content>
    </entry>
  
  
  
    <entry>
      <title>Goodbye node-forever, hello PM2</title>
-     <link href="/2013/06/26/goodbye-node-forever-hello-pm2"/>
+     <link href="/blog/goodbye-node-forever-hello-pm2"/>
      <updated>2013-06-26T00:00:00.000Z</updated>
-     <id>http://devo.ps/2013/06/26/goodbye-node-forever-hello-pm2</id>
-     <content type="html"><!DOCTYPE html>
+     <id>http://devo.ps/blog/goodbye-node-forever-hello-pm2</id>
+     <content type="html"><!doctype html>
 <html>
 <head>
-  <title>devo.ps</title>
   <meta charset='utf-8'/>
-  <meta name='description' content='Documentation website'/>
+  <title>Goodbye node-forever, hello PM2 | devo.ps</title>
+  
+  
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
-  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
-typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
-b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
-mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+  
+  <!-- Favicons -->
+  <link rel='shortcut icon' href='/assets/favicon.ico'>
+  <link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
+  <link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
+  <link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
+  <link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
+  <link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
+  <link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
+  <link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
+  <link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
+  <meta name='msapplication-TileColor' content='#da532c'>
+  <meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
+  <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+
+  <!-- CSS -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/> -->
+  <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
   <header id='header'>
-    <div class='content'>
-      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
-      <nav>
-        <ul>
-          <li><a href='/blog'>Blog</a></li>
-          <li><a href='http://app.devo.ps'>login</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav class='links'>
+      <a href='/blog'>Blog</a>
+      <a href='/about'>About</a>
+    </nav>
+
+    <a href='/' class='logo'>devo.ps</a>
   </header>
-  <section id='content'>
-    
-<div class='content'>
-  
-<aside class='sidebar'>
-    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
-    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
-</aside>
 
-<article class='main'>
-  
-<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+  <section id='main'>
+    
+<header class='header'>
+  <nav class='links'>
+    <div class='controls'>
+      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+    </div>
+    <a href='/blog' class='back'>← Back to the blog</a>
+  </nav>
 
-<article class='post'>
-  <aside class='meta'>
+  <h1>Goodbye node-forever, hello PM2</h1>
+
+  <span class='meta'>
+    
+    
+      <img class='avatar' alt='Alexandre Strzelewicz' src='/images/team/alex-small.png'/> 
+      Alexandre Strzelewicz
     
     
     
@@ -1312,14 +1253,12 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
     
     
     
-    
-  </aside>
-  
-  <h2>Goodbye node-forever, hello PM2</h2>
-  
-  <section>
-    
-    <p><img src="http://apps.hemca.com/pm2/pres/pm22.png" alt="pm2 logo"></p>
+    on <time datetime=''>June 26, 2013</time>
+  </span>
+</header>
+
+<article class='content post'>
+  <p><img src="http://apps.hemca.com/pm2/pres/pm22.png" alt="pm2 logo"></p>
 <p>It&#39;s no secret that the devo.ps team has a crush on Javascript; node.js in the backend, AngularJS for our clients, there isn&#39;t much of our stack that isn&#39;t at least in part built with it. Our approach of building <a href="http://devo.ps/blog/2013/01/31/farewell-to-regular-web-development-approaches.html">static clients and RESTful JSON APIs</a> means that we run a lot of node.js and I must admit that, despite all of it awesomeness, node.js still is a bit of a headache when it comes to running in production. Tooling and best practices (think monitoring, logging, error traces...) are still lacking when compared to some of the more established languages.</p>
 <p>So far, we had been relying on the pretty nifty <a href="https://github.com/nodejitsu/forever">node-forever</a>. Great tool, but a few things were missing:</p>
 <ul>
@@ -1452,118 +1391,103 @@ $ pm2 resurect // All my processes are now up and running
 </ul>
 <p>Special thanks to <a href="https://github.com/makara">Makara Wang</a> for concepts/tools and <a href="https://github.com/rlidwka">Alex Kocharin</a> for advices and pull requests.</p>
 
-    
-  </section>
-    
-  <ul class='sticky'>
-    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/06/26/goodbye-node-forever-hello-pm2' target='_blank'>Let us know on Twitter</a>.</li>
-    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=5945420' target='_blank'>Hacker News</a>.</li>
-  </ul>
-</article>
-
-</article>
-
-</div>
-
-  </section>
-  <footer id='footer'>
-    <div class='content'>
-      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  
+  <ul class='card'>
+    <li class='newsletter'>
+      <h2>Stay tuned by email</h2>
+      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
   <div class='field'>
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
   </div>
-</form></div>
-      <ul class='links'>
-  <li><a href='/about'>About</a></li>
-  <li><a href='/blog'>Blog</a></li>
-</ul>
+</form>
+    </li>
+    <li class='feedback'>
+      <h2>Have some feedback?</h2>
+      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/goodbye-node-forever-hello-pm2' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5945420' target='_blank'>Hacker News</a>.</p>
+    </li>
+  </ul>
+</section>
 
-      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
-    </section>
-  </footer>
-  
+  </section>
+
+  <footer id='footer'>Copyright © devo.ps. All rights reserved.</footer>
+
   <!-- JS -->
-  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!-- <script src='/assets/scripts.js' type='text/javascript'></script> -->
   <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
-  <script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-	<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-34006371-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+  <!--  -->
+	<!--  -->
 </body>
-</html></content>
+</html>
+</content>
    </entry>
  
  
  
    <entry>
      <title>Automation And Friction</title>
-     <link href="/2013/06/20/automation-and-friction"/>
+     <link href="/blog/automation-and-friction"/>
      <updated>2013-06-20T00:00:00.000Z</updated>
-     <id>http://devo.ps/2013/06/20/automation-and-friction</id>
-     <content type="html"><!DOCTYPE html>
+     <id>http://devo.ps/blog/automation-and-friction</id>
+     <content type="html"><!doctype html>
 <html>
 <head>
-  <title>devo.ps</title>
   <meta charset='utf-8'/>
-  <meta name='description' content='Documentation website'/>
+  <title>Automation And Friction | devo.ps</title>
+  
+  
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
-  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
-typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
-b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
-mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+  
+  <!-- Favicons -->
+  <link rel='shortcut icon' href='/assets/favicon.ico'>
+  <link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
+  <link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
+  <link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
+  <link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
+  <link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
+  <link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
+  <link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
+  <link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
+  <meta name='msapplication-TileColor' content='#da532c'>
+  <meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
+  <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+
+  <!-- CSS -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/> -->
+  <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
   <header id='header'>
-    <div class='content'>
-      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
-      <nav>
-        <ul>
-          <li><a href='/blog'>Blog</a></li>
-          <li><a href='http://app.devo.ps'>login</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav class='links'>
+      <a href='/blog'>Blog</a>
+      <a href='/about'>About</a>
+    </nav>
+
+    <a href='/' class='logo'>devo.ps</a>
   </header>
-  <section id='content'>
-    
-<div class='content'>
-  
-<aside class='sidebar'>
-    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
-    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
-</aside>
 
-<article class='main'>
-  
-<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+  <section id='main'>
+    
+<header class='header'>
+  <nav class='links'>
+    <div class='controls'>
+      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+    </div>
+    <a href='/blog' class='back'>← Back to the blog</a>
+  </nav>
 
-<article class='post'>
-  <aside class='meta'>
+  <h1>Automation And Friction</h1>
+
+  <span class='meta'>
     
     
     
@@ -1572,18 +1496,20 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
     
     
     
+      <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
+      Ronan Berder
     
     
     
     
     
-  </aside>
-  
-  <h2>Automation And Friction</h2>
-  
-  <section>
     
-    <p>I&#39;ll admit that the devo.ps team is a lazy bunch; we like to forget about things, especially the hard stuff. Dealing with a complex process invariably leads one of us to vent about how &quot;we should automate that stuff&quot;. That&#39;s what our team does day and night:</p>
+    on <time datetime=''>June 20, 2013</time>
+  </span>
+</header>
+
+<article class='content post'>
+  <p>I&#39;ll admit that the devo.ps team is a lazy bunch; we like to forget about things, especially the hard stuff. Dealing with a complex process invariably leads one of us to vent about how &quot;we should automate that stuff&quot;. That&#39;s what our team does day and night:</p>
 <ol>
 <li>Dumb things down, lower barriers of entry, and then...</li>
 <li><strong>Automate all the things!</strong></li>
@@ -1614,118 +1540,103 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
 <p>Anybody with access to our bot&#39;s repository can add a script to hook him up to a new service. Git push, kill the bot and wait for him to come back to life with new skills. The tedious stuff ends up sooner or later scripted and one sentence away.</p>
 <p>Really, try it. It&#39;s worth the investment.</p>
 
-    
-  </section>
-    
-  <ul class='sticky'>
-    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/06/20/automation-and-friction' target='_blank'>Let us know on Twitter</a>.</li>
-    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=5911507' target='_blank'>Hacker News</a>.</li>
-  </ul>
-</article>
-
-</article>
-
-</div>
-
-  </section>
-  <footer id='footer'>
-    <div class='content'>
-      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  
+  <ul class='card'>
+    <li class='newsletter'>
+      <h2>Stay tuned by email</h2>
+      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
   <div class='field'>
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
   </div>
-</form></div>
-      <ul class='links'>
-  <li><a href='/about'>About</a></li>
-  <li><a href='/blog'>Blog</a></li>
-</ul>
+</form>
+    </li>
+    <li class='feedback'>
+      <h2>Have some feedback?</h2>
+      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/automation-and-friction' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5911507' target='_blank'>Hacker News</a>.</p>
+    </li>
+  </ul>
+</section>
 
-      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
-    </section>
-  </footer>
-  
+  </section>
+
+  <footer id='footer'>Copyright © devo.ps. All rights reserved.</footer>
+
   <!-- JS -->
-  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!-- <script src='/assets/scripts.js' type='text/javascript'></script> -->
   <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
-  <script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-	<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-34006371-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+  <!--  -->
+	<!--  -->
 </body>
-</html></content>
+</html>
+</content>
    </entry>
  
  
  
    <entry>
      <title>I Can Haz Init Script</title>
-     <link href="/2013/06/19/i-can-haz-init-script"/>
+     <link href="/blog/I-can-haz-init-script"/>
      <updated>2013-06-19T00:00:00.000Z</updated>
-     <id>http://devo.ps/2013/06/19/i-can-haz-init-script</id>
-     <content type="html"><!DOCTYPE html>
+     <id>http://devo.ps/blog/I-can-haz-init-script</id>
+     <content type="html"><!doctype html>
 <html>
 <head>
-  <title>devo.ps</title>
   <meta charset='utf-8'/>
-  <meta name='description' content='Documentation website'/>
+  <title>I Can Haz Init Script | devo.ps</title>
+  
+  
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
-  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
-typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
-b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
-mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+  
+  <!-- Favicons -->
+  <link rel='shortcut icon' href='/assets/favicon.ico'>
+  <link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
+  <link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
+  <link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
+  <link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
+  <link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
+  <link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
+  <link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
+  <link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
+  <meta name='msapplication-TileColor' content='#da532c'>
+  <meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
+  <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+
+  <!-- CSS -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/> -->
+  <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
   <header id='header'>
-    <div class='content'>
-      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
-      <nav>
-        <ul>
-          <li><a href='/blog'>Blog</a></li>
-          <li><a href='http://app.devo.ps'>login</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav class='links'>
+      <a href='/blog'>Blog</a>
+      <a href='/about'>About</a>
+    </nav>
+
+    <a href='/' class='logo'>devo.ps</a>
   </header>
-  <section id='content'>
-    
-<div class='content'>
-  
-<aside class='sidebar'>
-    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
-    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
-</aside>
 
-<article class='main'>
-  
-<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+  <section id='main'>
+    
+<header class='header'>
+  <nav class='links'>
+    <div class='controls'>
+      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+    </div>
+    <a href='/blog' class='back'>← Back to the blog</a>
+  </nav>
 
-<article class='post'>
-  <aside class='meta'>
+  <h1>I Can Haz Init Script</h1>
+
+  <span class='meta'>
     
     
     
@@ -1736,16 +1647,18 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
     
     
     
+      <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
+      Vincent Viallet
     
     
     
-  </aside>
-  
-  <h2>I Can Haz Init Script</h2>
-  
-  <section>
     
-    <p>Something went awfully wrong, and a rogue process is eating up all of the resources on one of your servers. You have no other choice but to restart it. No big deal, really; this is the age of disposable infrastructure after all. Except when it comes back up, everything starts going awry. Half the stuff supposed to be running is down and it&#39;s screwing with the rest of your setup.</p>
+    on <time datetime=''>June 19, 2013</time>
+  </span>
+</header>
+
+<article class='content post'>
+  <p>Something went awfully wrong, and a rogue process is eating up all of the resources on one of your servers. You have no other choice but to restart it. No big deal, really; this is the age of disposable infrastructure after all. Except when it comes back up, everything starts going awry. Half the stuff supposed to be running is down and it&#39;s screwing with the rest of your setup.</p>
 <p><img src="/images/posts/y-u-no-guy.png" alt="INIT SCRIPTS, Y U NO LIKE?"></p>
 <p>You don&#39;t get to think about them very often, but init scripts are a key piece of a sound, scalable strategy for your infrastructure. It&#39;s a <a href="">mandatory best practice</a>. Period. And there are quite a few things in the way of getting them to work properly at scale in production environments. It&#39;s a tough world out there.</p>
 <h3 id="what-we-re-dealing-with-">What we&#39;re dealing with...</h3>
@@ -1790,118 +1703,103 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
 <p><a href="https://github.com/devo-ps/init-scripts">I&#39;ve just created a repo</a> where I&#39;ll be dumping various init scripts that will hopefully be helpful to others. I&#39;d love to get suggestions or help.</p>
 <p>And by the way, things are not much better with applications, though we&#39;re trying our best to improve things there too with things like <a href="https://github.com/Unitech/pm2">pm2</a> (fresh and shinny, more about it in a later post).</p>
 
-    
-  </section>
-    
-  <ul class='sticky'>
-    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/06/19/i-can-haz-init-script' target='_blank'>Let us know on Twitter</a>.</li>
-    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=5905051' target='_blank'>Hacker News</a>.</li>
-  </ul>
-</article>
-
-</article>
-
-</div>
-
-  </section>
-  <footer id='footer'>
-    <div class='content'>
-      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  
+  <ul class='card'>
+    <li class='newsletter'>
+      <h2>Stay tuned by email</h2>
+      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
   <div class='field'>
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
   </div>
-</form></div>
-      <ul class='links'>
-  <li><a href='/about'>About</a></li>
-  <li><a href='/blog'>Blog</a></li>
-</ul>
+</form>
+    </li>
+    <li class='feedback'>
+      <h2>Have some feedback?</h2>
+      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/I-can-haz-init-script' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5905051' target='_blank'>Hacker News</a>.</p>
+    </li>
+  </ul>
+</section>
 
-      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
-    </section>
-  </footer>
-  
+  </section>
+
+  <footer id='footer'>Copyright © devo.ps. All rights reserved.</footer>
+
   <!-- JS -->
-  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!-- <script src='/assets/scripts.js' type='text/javascript'></script> -->
   <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
-  <script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-	<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-34006371-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+  <!--  -->
+	<!--  -->
 </body>
-</html></content>
+</html>
+</content>
    </entry>
  
  
  
    <entry>
      <title>Shanghai Hacker News Meetup Reboot</title>
-     <link href="/2013/06/06/shanghai-hacker-news-meetup-reboot"/>
+     <link href="/blog/hacker-news-meetup"/>
      <updated>2013-06-06T00:00:00.000Z</updated>
-     <id>http://devo.ps/2013/06/06/shanghai-hacker-news-meetup-reboot</id>
-     <content type="html"><!DOCTYPE html>
+     <id>http://devo.ps/blog/hacker-news-meetup</id>
+     <content type="html"><!doctype html>
 <html>
 <head>
-  <title>devo.ps</title>
   <meta charset='utf-8'/>
-  <meta name='description' content='Documentation website'/>
+  <title>Shanghai Hacker News Meetup Reboot | devo.ps</title>
+  
+  
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-  <link href='/assets/styles.css?v=1' rel='stylesheet' type='text/css'/>
-  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
-typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
-b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
-mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
+  
+  <!-- Favicons -->
+  <link rel='shortcut icon' href='/assets/favicon.ico'>
+  <link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
+  <link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
+  <link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
+  <link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
+  <link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
+  <link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
+  <link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
+  <link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
+  <link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
+  <meta name='msapplication-TileColor' content='#da532c'>
+  <meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
+  <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+
+  <!-- CSS -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/> -->
+  <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
   <header id='header'>
-    <div class='content'>
-      <a href='/' id='home'><img src='/images/logo.png' alt='devo.ps'/></a>
-      <nav>
-        <ul>
-          <li><a href='/blog'>Blog</a></li>
-          <li><a href='http://app.devo.ps'>login</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav class='links'>
+      <a href='/blog'>Blog</a>
+      <a href='/about'>About</a>
+    </nav>
+
+    <a href='/' class='logo'>devo.ps</a>
   </header>
-  <section id='content'>
-    
-<div class='content'>
-  
-<aside class='sidebar'>
-    <p class='about sticky'>With devo.ps you can easily manage your own infrastructure: deploy servers in the cloud (AWS, Rackspace, Linode), add and configure services and automation. <a href='/''>Learn more</a></p>
-    <p><a href='/atom.xml'>Subscribe to the RSS feed</a></p>
-</aside>
 
-<article class='main'>
-  
-<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+  <section id='main'>
+    
+<header class='header'>
+  <nav class='links'>
+    <div class='controls'>
+      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+    </div>
+    <a href='/blog' class='back'>← Back to the blog</a>
+  </nav>
 
-<article class='post'>
-  <aside class='meta'>
+  <h1>Shanghai Hacker News Meetup Reboot</h1>
+
+  <span class='meta'>
     
     
     
@@ -1910,18 +1808,20 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
     
     
     
+      <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
+      Ronan Berder
     
     
     
     
     
-  </aside>
-  
-  <h2>Shanghai Hacker News Meetup Reboot</h2>
-  
-  <section>
     
-    <p>We&#39;ll be having our usual Hacker News meetup at <strong><a href="http://goo.gl/maps/Ona2p">Abbey Road</a> (45 Yueyang road, near Hengshan Lu) tonight starting 7:00 PM</strong>: come and meet entrepreneurs, technologists and likeminded individuals while sharing a couple drinks. The first round of drinks is on <a href="http://wiredcraft.com">Wiredcraft</a>.</p>
+    on <time datetime=''>June 06, 2013</time>
+  </span>
+</header>
+
+<article class='content post'>
+  <p>We&#39;ll be having our usual Hacker News meetup at <strong><a href="http://goo.gl/maps/Ona2p">Abbey Road</a> (45 Yueyang road, near Hengshan Lu) tonight starting 7:00 PM</strong>: come and meet entrepreneurs, technologists and likeminded individuals while sharing a couple drinks. The first round of drinks is on <a href="http://wiredcraft.com">Wiredcraft</a>.</p>
 <p>Starting next week, we&#39;ll be changing a bit the format of this event:</p>
 <ul>
 <li><strong>Hacker News dinner, every Tuesday from 7:00 to 8:00 PM</strong>; we&#39;re still confirming the venue. We&#39;ll be kicking off each dinner with a video of a tech or entrepreneurial talk (that you&#39;re free to ignore if you&#39;d rather chat with other attendees).</li>
@@ -1929,69 +1829,41 @@ mixpanel.init("7b7a659fc843818d4c523cde96863ef5");</script><!-- end Mixpanel -->
 </ul>
 <p>We&#39;ll be posting more information soon on the <a href="http://shanghaihn.org/">Shanghai Hacker News meetup website</a>. Don&#39;t hesitate to <a href="mailto:info@devo.ps">shoot us an email</a> if you want to help out or sponsor.</p>
 
-    
-  </section>
-    
-  <ul class='sticky'>
-    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/2013/06/06/shanghai-hacker-news-meetup-reboot' target='_blank'>Let us know on Twitter</a>.</li>
-    <li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id=5831587' target='_blank'>Hacker News</a>.</li>
-  </ul>
-</article>
-
-</article>
-
-</div>
-
-  </section>
-  <footer id='footer'>
-    <div class='content'>
-      <div class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  
+  <ul class='card'>
+    <li class='newsletter'>
+      <h2>Stay tuned by email</h2>
+      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
   <div class='field'>
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Sign up for an invite' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
   </div>
-</form></div>
-      <ul class='links'>
-  <li><a href='/about'>About</a></li>
-  <li><a href='/blog'>Blog</a></li>
-</ul>
+</form>
+    </li>
+    <li class='feedback'>
+      <h2>Have some feedback?</h2>
+      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/hacker-news-meetup' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5831587' target='_blank'>Hacker News</a>.</p>
+    </li>
+  </ul>
+</section>
 
-      <div class='copyright'>Copyright © devo.ps. All rights reserved.</div>
-    </section>
-  </footer>
-  
+  </section>
+
+  <footer id='footer'>Copyright © devo.ps. All rights reserved.</footer>
+
   <!-- JS -->
-  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <!-- <script src='/assets/scripts.js' type='text/javascript'></script> -->
   <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
-  <script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-	<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-34006371-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+  <!--  -->
+	<!--  -->
 </body>
-</html></content>
+</html>
+</content>
    </entry>
+ 
+ 
  
  
  

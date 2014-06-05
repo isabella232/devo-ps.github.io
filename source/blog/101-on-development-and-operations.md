@@ -1,14 +1,12 @@
 ---
-draft: true
-collection: blog
 title: 101 On DevOps And How We Plan On Helping
-
 author: vincent
 hn: 5181253
 date: 2012-10-23
 
+collection: blog
 template: post.html
---- 
+---
 
 Here's what usually happens: on one side the development team wants to push new features as fast as possible to production, while on the other side, operations are trying to keep things stable. Both teams are evaluated on criteria that are often directly conflicting. The stronger team win one argument... Until the next crisis. And we're not even talking about other teams, they too have conflicting agendas to throw in the mix.
 

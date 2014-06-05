@@ -1,5 +1,4 @@
 ---
-published: true
 collection: blog
 title: I Can Haz Init Script
 

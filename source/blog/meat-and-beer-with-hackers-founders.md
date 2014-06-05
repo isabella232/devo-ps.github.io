@@ -1,5 +1,4 @@
 ---
-published: true
 collection: blog
 title: Meat And Beer With Hackers + Founders
 

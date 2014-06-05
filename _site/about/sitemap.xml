@@ -2,115 +2,120 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://devo.ps/2013/09/25/vagrant-docker-and-ansible-wtf</loc>
+    <loc>http://devo.ps/blog/vagrant-docker-and-ansible-wtf</loc>
     <lastmod>2013-09-25</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/09/11/zookeeper-vs-doozer-vs-etcd</loc>
+    <loc>http://devo.ps/blog/zookeeper-vs-doozer-vs-etcd</loc>
     <lastmod>2013-09-11</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/07/11/code-reuse-with-node-js</loc>
+    <loc>http://devo.ps/blog/code-reuse-with-nodejs</loc>
     <lastmod>2013-07-11</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/07/11/meat-and-beer-with-hackers-founders</loc>
+    <loc>http://devo.ps/blog/meat-and-beer-with-hackers-founders</loc>
     <lastmod>2013-07-11</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/07/05/the-problem-with-paas</loc>
+    <loc>http://devo.ps/blog/the-problem-with-paas</loc>
     <lastmod>2013-07-05</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/07/03/ansible-simply-kicks-ass</loc>
+    <loc>http://devo.ps/blog/ansible-simply-kicks-ass</loc>
     <lastmod>2013-07-03</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/06/26/goodbye-node-forever-hello-pm2</loc>
+    <loc>http://devo.ps/blog/goodbye-node-forever-hello-pm2</loc>
     <lastmod>2013-06-26</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/06/20/automation-and-friction</loc>
+    <loc>http://devo.ps/blog/automation-and-friction</loc>
     <lastmod>2013-06-20</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/06/19/i-can-haz-init-script</loc>
+    <loc>http://devo.ps/blog/I-can-haz-init-script</loc>
     <lastmod>2013-06-19</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/06/06/shanghai-hacker-news-meetup-reboot</loc>
+    <loc>http://devo.ps/blog/hacker-news-meetup</loc>
     <lastmod>2013-06-06</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/03/22/designing-a-restful-api-that-doesn-t-suck</loc>
+    <loc>http://devo.ps/blog/designing-a-restful-api-that-doesn-t-suck</loc>
     <lastmod>2013-03-22</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/03/19/component-rocks-my-socks-off</loc>
+    <loc>http://devo.ps/blog/component-rocks-my-socks-off</loc>
     <lastmod>2013-03-19</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/03/13/shanghai-open-source-meetup</loc>
+    <loc>http://devo.ps/blog/shanghai-open-source-meetup</loc>
     <lastmod>2013-03-13</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/03/06/first-5-minutes-troubleshooting-a-server</loc>
+    <loc>http://devo.ps/blog/troubleshooting-5minutes-on-a-yet-unknown-box</loc>
     <lastmod>2013-03-06</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/02/22/shanghai-js-meetup</loc>
+    <loc>http://devo.ps/blog/shanghai-js-meetup</loc>
     <lastmod>2013-02-22</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/02/20/shanghai-hacker-news-meetup</loc>
+    <loc>http://devo.ps/blog/shanghai-hacker-news-meetup</loc>
     <lastmod>2013-02-20</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/02/11/best-practices-it-s-always-or-never-and-preferably-always</loc>
+    <loc>http://devo.ps/blog/best-practices-it-s-always-or-never</loc>
     <lastmod>2013-02-11</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/02/07/why-we-dropped-swagger-and-i-o-docs</loc>
+    <loc>http://devo.ps/blog/why-we-dropped-iodocs-and-swagger</loc>
     <lastmod>2013-02-07</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2013/01/31/farewell-to-regular-web-development-approaches</loc>
+    <loc>http://devo.ps/blog/farewell-to-regular-web-development-approaches</loc>
     <lastmod>2013-01-31</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/2012/10/25/san-francisco-here-we-come</loc>
+    <loc>http://devo.ps/blog/San-Francisco-Here-We-Come</loc>
     <lastmod>2012-10-25</lastmod>
   </url>
   
   <url>
+    <loc>http://devo.ps/blog/101-on-development-and-operations</loc>
+    <lastmod>2012-10-23</lastmod>
+  </url>
+  
+  <url>
     <loc>http://devo.ps/</loc>
-    <lastmod>2014-05-22</lastmod>
+    <lastmod>2014-06-05</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/blog</loc>
-    <lastmod>2014-05-22</lastmod>
+    <lastmod>2014-06-05</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/about</loc>
-    <lastmod>2014-05-22</lastmod>
+    <lastmod>2014-06-05</lastmod>
   </url>
 </urlset>

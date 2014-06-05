@@ -1,14 +1,12 @@
 ---
+draft: true
+
+title: Class Of The Clouds
 
 collection: blog
-title: Class Of The Clouds
 author: vincent
-hn: 
-
-draft: true
 date: 2013-07-11
-
-template: post.html
+hn: 
 ---
 
 # Overview

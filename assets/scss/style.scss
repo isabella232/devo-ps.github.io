@@ -1,0 +1,150 @@
+/* Eggshell */
+
+@import 'eggshell';
+
+/* Variables */
+
+$avatar: 22px;
+$sidebar: 300px;
+$blog: 700px;
+$width: 900px;
+
+/* General */
+
+body {
+	text-align: center;
+}
+
+img.avatar {
+  border-radius: $radius;
+  height: $avatar;
+  width: $avatar;
+  vertical-align: middle;
+}
+
+#header,
+#main {
+	margin: 0 auto;
+  max-width: $width;
+  text-align: left;
+  width: 90%;
+}
+
+/* Header */
+
+#header {
+	border-bottom: 1px solid $line;
+	padding: $gutter 0;
+	.logo {
+		&:before {
+			@include font-size($large);
+			@include icon();
+			content: '3';
+			float: left;
+			margin-right: $gutter/4;
+	  }
+	}
+	.links {
+		float: right;
+		@include font-size($small);
+		a {
+			margin-left: $gutter;
+		}
+	}
+}
+
+/* Main */
+
+#main {
+	.sidebar + .content {
+		@include box-sizing(border-box);
+		margin-right: $sidebar;
+		padding-right: $gutter;
+	}
+  .sidebar {
+  	float: right;
+  	padding: $gutter/2 $gutter;
+  	width: $sidebar;
+  }
+	> .header {
+		padding: 2*$gutter 0;
+		text-align: center;
+		.links {
+			margin-bottom: 2*$gutter;
+			margin-top: -2*$gutter;
+			padding: $gutter/2 0;
+			text-align: left;
+			.controls {
+				float: right;
+			}
+		}
+		h1 {
+			margin: 0;
+		}
+	}
+	.meta {
+		color: $grey;
+		display: block;
+		margin-top: $gutter/2;
+		.avatar {
+			border-radius: 50%;
+			display: inline-block;
+			margin-right: $gutter/4;
+			vertical-align: top;
+		}
+	}
+	.card {
+		background: $light;
+		border: 1px solid $line;
+		border-radius: $radius;
+		@include box-sizing(border-box);
+		input[type=email] {
+			background: #FFF;
+		}
+		input,
+		.button {
+			@include box-sizing(border-box);
+			width: 100%;
+		}
+	}
+	.posts {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		li {
+			border-bottom: 1px solid $light;
+			margin-bottom: $gutter;
+			padding-bottom: $gutter;
+		}
+		h2 {
+			margin: 0;
+		}
+	}
+  .post {
+  	margin: 0 auto;
+  	max-width: $blog;
+  	img {
+  		max-width: 100%;
+  	}
+  	.card {
+  		@include clearfix();
+  		list-style: none;
+  		margin: 2*$gutter 0 0;
+  		padding: 0;
+  		li {
+  			@include box-sizing(border-box);
+  			float: left;
+  			padding: $gutter/2 $gutter;
+  			width: 50%;
+  		}
+  	}
+  }
+}
+
+/* Footer */
+
+#footer {
+	color: $grey;
+	@include font-size($small);
+	padding: 2*$gutter 0;
+}

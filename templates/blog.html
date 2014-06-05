@@ -1,29 +1,32 @@
-{% extends "static.html" %}
+{% extends 'default.html' %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block content %}
+{% parent %}
+<header class='header'>
+  <h1>{{ title }}</h1>
+</header>
 
-{% block static_content %}
-<h1>The devo.ps blog</h1>
+<aside class='sidebar card'>
+	<h2>Stay tuned by email</h2>
+  {% include "partials/subscribe.html" %}
+</aside>
 
-{% for post in blog %}
-<article class='post'>
-  <aside class='meta'>
-    {% for member in team %}
-    {% if member.user == post.author %}
-    <span class='vcard'>
-      <img class='photo' alt='Picture of {{ member.title }}' src='/images/team/{{ member.user }}-small.png'/> 
-      <span class='fn'>{{ member.title }}</span>
-    </span>
-    {% endif %}
-    {% endfor %}
-    <span class='time'>on <time datetime='{{ post.date | date(c) }}'>{{ post.date | date('F d, Y') }}</time></span>
-  </aside>
-  
-  <h2><a href='/{{ post.path }}'>{{ post.title }}</a></h2>
-  
-  <section>
-    {{ post.contents | safe }}
-  </section>
-</article>
-{% endfor %}
+<section class='content'>
+	<ul class='posts'>
+	  {% for post in blog %}
+		<li>
+			<h2><a href='/{{ post.path }}'>{{ post.title }}</a></h2>
+	    <span class='meta'>
+		    {% for member in team %}
+		    {% if member.user == post.author %}
+		      <img class='avatar' alt='{{ member.title }}' src='/images/team/{{ member.user }}-small.png'/> 
+		      {{ member.title }}
+		    {% endif %}
+		    {% endfor %}
+		    on <time datetime='{{ post.date | date(c) }}'>{{ post.date | date('F d, Y') }}</time>
+		  </span>
+		</li>
+	  {% endfor %}
+  </ul>
+</section>
 {% endblock %}

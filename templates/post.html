@@ -1,31 +1,40 @@
-{% extends "static.html" %}
+{% extends 'default.html' %}
 
-{% block static_content %}
-<header class='back'><a href='/blog'>‹ Read other posts from the blog</a></header>
+{% block content %}
+<header class='header'>
+  <nav class='links'>
+    <div class='controls'>
+      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+    </div>
+    <a href='/blog' class='back'>← Back to the blog</a>
+  </nav>
 
-<article class='post'>
-  <aside class='meta'>
+  <h1>{{ title }}</h1>
+
+  <span class='meta'>
     {% for member in team %}
-    {% if member.user == page.author %}
-    <span class='vcard'>
-      <img class='photo' alt='Picture of {{ member.title }}' src='/images/team/{{ member.user }}-small.png'/> 
-      <span class='fn'>{{ member.title }}</span>
-    </span>
+    {% if member.user == author %}
+      <img class='avatar' alt='{{ member.title }}' src='/images/team/{{ member.user }}-small.png'/> 
+      {{ member.title }}
     {% endif %}
     {% endfor %}
-  </aside>
+    on <time datetime='{{ post.date | date(c) }}'>{{ date | date('F d, Y') }}</time>
+  </span>
+</header>
+
+<article class='content post'>
+  {{ contents | safe }}
   
-  <h2>{{ title }}</h2>
-  
-  <section>
-    {% block post_content %}
-    {{ contents | safe }}
-    {% endblock %}
-  </section>
-    
-  <ul class='sticky'>
-    <li>Have some feedback? <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url={{ site.url }}/{{ path }}' target='_blank'>Let us know on Twitter</a>.</li>
-    {% if hn %}<li>Keep the discussion going on <a href='http://news.ycombinator.com/item?id={{ hn }}' target='_blank'>Hacker News</a>.</li>{% endif %}
+  <ul class='card'>
+    <li class='newsletter'>
+      <h2>Stay tuned by email</h2>
+      {% include "partials/subscribe.html" %}
+    </li>
+    <li class='feedback'>
+      <h2>Have some feedback?</h2>
+      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url={{ site.url }}/{{ path }}' target='_blank'>Twitter</a>{% if hn %} or keep the discussion going on <a href='http://news.ycombinator.com/item?id={{ hn }}' target='_blank'>Hacker News</a>{% endif %}.</p>
+    </li>
   </ul>
-</article>
+</section>
 {% endblock %}

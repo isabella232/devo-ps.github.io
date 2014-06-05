@@ -1,12 +1,9 @@
 ---
-published: true
-collection: blog
 title: Code Reuse With Node.js
-
 author: makara
-hn: 
 date: 2013-07-11
 
+collection: blog
 template: post.html
 ---
 

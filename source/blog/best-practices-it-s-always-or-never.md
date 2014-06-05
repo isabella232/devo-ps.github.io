@@ -1,12 +1,10 @@
 ---
-published: true
-collection: blog
 title: "Best Practices: It's Always Or Never ( And Preferably Always)"
-
 author: vincent
 hn: 5200847
 date: 2013-02-11
 
+collection: blog
 template: post.html
 ---
 

@@ -1,8 +1,9 @@
 ---
-published: true
-collection: blog
+
+
 title: Shanghai Hacker News Meetup
 
+collection: blog
 author: ronan
 hn: 5250249
 date: 2013-02-20

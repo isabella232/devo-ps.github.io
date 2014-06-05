@@ -1,7 +1,5 @@
 ---
 title: 'Manage your infrastructure: easily create, setup and maintain your servers on any cloud.'
-
-template: static.html
 ---
 
 # About
