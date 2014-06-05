@@ -3,7 +3,7 @@
  <title>devo.ps</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2014-06-05T07:24:28.356Z</updated>
+ <updated>2014-06-05T09:18:26.253Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
@@ -63,8 +63,8 @@
 <header class='header'>
   <nav class='links'>
     <div class='controls'>
-      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
-      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+      <a href='/blog' class='newsletter'><span>Newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>RSS</span></a>
     </div>
     <a href='/blog' class='back'>← Back to the blog</a>
   </nav>
@@ -288,7 +288,7 @@
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
   </div>
 </form>
     </li>
@@ -367,8 +367,8 @@
 <header class='header'>
   <nav class='links'>
     <div class='controls'>
-      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
-      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+      <a href='/blog' class='newsletter'><span>Newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>RSS</span></a>
     </div>
     <a href='/blog' class='back'>← Back to the blog</a>
   </nav>
@@ -470,7 +470,7 @@ It was first released by the <a href="http://coreos.com">CoreOS</a> team a month
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
   </div>
 </form>
     </li>
@@ -549,8 +549,8 @@ It was first released by the <a href="http://coreos.com">CoreOS</a> team a month
 <header class='header'>
   <nav class='links'>
     <div class='controls'>
-      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
-      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+      <a href='/blog' class='newsletter'><span>Newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>RSS</span></a>
     </div>
     <a href='/blog' class='back'>← Back to the blog</a>
   </nav>
@@ -758,7 +758,7 @@ module.exports = function(obj){
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
   </div>
 </form>
     </li>
@@ -837,8 +837,8 @@ module.exports = function(obj){
 <header class='header'>
   <nav class='links'>
     <div class='controls'>
-      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
-      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+      <a href='/blog' class='newsletter'><span>Newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>RSS</span></a>
     </div>
     <a href='/blog' class='back'>← Back to the blog</a>
   </nav>
@@ -880,7 +880,7 @@ module.exports = function(obj){
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
   </div>
 </form>
     </li>
@@ -959,8 +959,8 @@ module.exports = function(obj){
 <header class='header'>
   <nav class='links'>
     <div class='controls'>
-      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
-      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+      <a href='/blog' class='newsletter'><span>Newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>RSS</span></a>
     </div>
     <a href='/blog' class='back'>← Back to the blog</a>
   </nav>
@@ -1015,7 +1015,7 @@ Cost</p>
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
   </div>
 </form>
     </li>
@@ -1094,8 +1094,8 @@ Cost</p>
 <header class='header'>
   <nav class='links'>
     <div class='controls'>
-      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
-      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+      <a href='/blog' class='newsletter'><span>Newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>RSS</span></a>
     </div>
     <a href='/blog' class='back'>← Back to the blog</a>
   </nav>
@@ -1149,7 +1149,7 @@ Cost</p>
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
   </div>
 </form>
     </li>
@@ -1228,8 +1228,8 @@ Cost</p>
 <header class='header'>
   <nav class='links'>
     <div class='controls'>
-      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
-      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+      <a href='/blog' class='newsletter'><span>Newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>RSS</span></a>
     </div>
     <a href='/blog' class='back'>← Back to the blog</a>
   </nav>
@@ -1400,7 +1400,7 @@ $ pm2 resurect // All my processes are now up and running
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
   </div>
 </form>
     </li>
@@ -1479,8 +1479,8 @@ $ pm2 resurect // All my processes are now up and running
 <header class='header'>
   <nav class='links'>
     <div class='controls'>
-      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
-      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+      <a href='/blog' class='newsletter'><span>Newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>RSS</span></a>
     </div>
     <a href='/blog' class='back'>← Back to the blog</a>
   </nav>
@@ -1549,7 +1549,7 @@ $ pm2 resurect // All my processes are now up and running
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
   </div>
 </form>
     </li>
@@ -1628,8 +1628,8 @@ $ pm2 resurect // All my processes are now up and running
 <header class='header'>
   <nav class='links'>
     <div class='controls'>
-      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
-      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+      <a href='/blog' class='newsletter'><span>Newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>RSS</span></a>
     </div>
     <a href='/blog' class='back'>← Back to the blog</a>
   </nav>
@@ -1712,7 +1712,7 @@ $ pm2 resurect // All my processes are now up and running
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
   </div>
 </form>
     </li>
@@ -1791,8 +1791,8 @@ $ pm2 resurect // All my processes are now up and running
 <header class='header'>
   <nav class='links'>
     <div class='controls'>
-      <a href='/blog' class='newsletter'><span>Subscribe to the newsletter</span></a>
-      <a href='/newsletter' class='rss'><span>Subscribe to the RSS feed</span></a>
+      <a href='/blog' class='newsletter'><span>Newsletter</span></a>
+      <a href='/newsletter' class='rss'><span>RSS</span></a>
     </div>
     <a href='/blog' class='back'>← Back to the blog</a>
   </nav>
@@ -1838,7 +1838,7 @@ $ pm2 resurect // All my processes are now up and running
     <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
   </div>
   <div class='field'>
-    <input type='submit' value='Subscribe to our newsletter' name='subscribe' class='button'/>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
   </div>
 </form>
     </li>

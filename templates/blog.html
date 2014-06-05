@@ -6,9 +6,12 @@
   <h1>{{ title }}</h1>
 </header>
 
-<aside class='sidebar card'>
-	<h2>Stay tuned by email</h2>
-  {% include "partials/subscribe.html" %}
+<aside class='sidebar'>
+	<section class='newsletter card'>
+		<h2>Stay tuned</h2>
+		<p>You can follow us on <a href='http://twitter.com/devo.ps'>Twitter</a>, subscribe to our <a href=''>RSS feed</a> or register to our newsletter:</p>
+	  {% include "partials/subscribe.html" %}
+	</section>
 </aside>
 
 <section class='content'>

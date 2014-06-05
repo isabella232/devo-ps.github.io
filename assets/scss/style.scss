@@ -5,7 +5,7 @@
 /* Variables */
 
 $avatar: 22px;
-$sidebar: 300px;
+$sidebar: 33%;
 $blog: 700px;
 $width: 900px;
 
@@ -63,8 +63,10 @@ img.avatar {
 	}
   .sidebar {
   	float: right;
-  	padding: $gutter/2 $gutter;
   	width: $sidebar;
+  	.card {
+  		padding: $gutter/2 $gutter;
+  	}
   }
 	> .header {
 		padding: 2*$gutter 0;
@@ -74,6 +76,16 @@ img.avatar {
 			margin-top: -2*$gutter;
 			padding: $gutter/2 0;
 			text-align: left;
+			.newsletter,
+			.rss {
+				margin-left: $gutter;
+				@include tooltip();
+				&:before {
+					@include icon();
+				}
+			}
+			.newsletter:before { content: '7'; }
+			.rss:before { content: '6'; }
 			.controls {
 				float: right;
 			}
@@ -104,6 +116,7 @@ img.avatar {
 		input,
 		.button {
 			@include box-sizing(border-box);
+			padding: $gutter/2;
 			width: 100%;
 		}
 	}
