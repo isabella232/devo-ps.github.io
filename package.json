@@ -37,6 +37,7 @@
     "metalsmith-metadata": "*",
     "metalsmith-collections": "*",
     "metalsmith-paginate": "*",
+    "metalsmith-permalinks": "*",
     "metalsmith-build-date": "*",
     "open": "*",
     "ncp": "*",
