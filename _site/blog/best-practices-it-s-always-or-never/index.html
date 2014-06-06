@@ -27,7 +27,7 @@
   <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/> -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
@@ -45,8 +45,8 @@
 <header class='header'>
   <nav class='links'>
     <div class='controls'>
-      <a href='/blog' class='newsletter'><span>Newsletter</span></a>
-      <a href='/newsletter' class='rss'><span>RSS</span></a>
+      <a href='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&id=db875395f9' class='newsletter'><span>Newsletter</span></a>
+      <a href='/atom.xml' class='rss'><span>RSS</span></a>
     </div>
     <a href='/blog' class='back'>← Back to the blog</a>
   </nav>
@@ -75,7 +75,7 @@
 </header>
 
 <article class='content post'>
-  <p><img src="http://farm3.staticflickr.com/2584/4103140420_b98ee1ac62_z.jpg" alt="Messy cables"></p>
+  <p><img src="http://farm3.staticflickr.com/2584/4103140420_b98ee1ac62_z.jpg" alt="Messy cables"/></p>
 <p>It&#39;s Monday morning. The development team needs a box and you&#39;re already contemplating the gazillion other urgent tasks that need to be done on the existing infrastructure. <em>Just that one time</em><sup>TM</sup>, you&#39;re going to forget about your own rules. You&#39;re just gonna spawn an instance, set up the few services needed and be done with it. You&#39;ll drop some of the usual time suckers: backup strategy, access rules, init scripts, documentation... You can&#39;t just do the whole of it AND handle the rest of your day-to-day responsibilities. After all, it&#39;s just a development server and you&#39;ll probably fold it in a couple weeks, or you&#39;ll clean it up once your plate is a tad less full.</p>
 <p>A few weeks later, the box is still there and your backlog is far from looking less crowded. The development team just rolled out their production application on the same box. <strong>And things start crashing... badly.</strong></p>
 <p>After a couple of not so courteous emails from the dev team mentioning repetitive crashes, you log in the box and the fun starts. You can&#39;t figure out what services have been deployed, or how exactly they were installed. You can&#39;t restore the database because you don&#39;t know where the bloody backups are. You waste time to find out that CouchDB wasn&#39;t started at boot. All of this while receiving emails of &quot;encouragement&quot; from your colleagues.</p>

@@ -27,7 +27,7 @@
   <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/> -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
@@ -45,8 +45,8 @@
 <header class='header'>
   <nav class='links'>
     <div class='controls'>
-      <a href='/blog' class='newsletter'><span>Newsletter</span></a>
-      <a href='/newsletter' class='rss'><span>RSS</span></a>
+      <a href='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&id=db875395f9' class='newsletter'><span>Newsletter</span></a>
+      <a href='/atom.xml' class='rss'><span>RSS</span></a>
     </div>
     <a href='/blog' class='back'>← Back to the blog</a>
   </nav>
@@ -75,7 +75,7 @@
 </header>
 
 <article class='content post'>
-  <p><img src="http://devo.ps/images/posts/recycle.png" alt="Code recycling"></p>
+  <p><img src="http://devo.ps/images/posts/recycle.png" alt="Code recycling"/></p>
 <p>Any project that grows to a decent size will need to re-use parts of its code extensively. That often means, through the development cycle, a fair amount of rewrites and refactoring exercises. Elegant code re-use is hard to pull off.</p>
 <p>With node.js, which we use quite a bit at <a href="http://devo.ps">devo.ps</a>, the most common ways to do this often rely on prototype or class inheritance. The problem is, as the inheritance chain grows, managing attributes and functions can become quite complex.</p>
 <p>The truth is, people usually just need the objects. This led us to adopt a certain form of object-based prototyping. We believe it to be leaner and more straightforward in most cases. But before we get there, let&#39;s have a look at how people usually approach this issue.</p>

@@ -27,7 +27,7 @@
   <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/> -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
@@ -45,8 +45,8 @@
 <header class='header'>
   <nav class='links'>
     <div class='controls'>
-      <a href='/blog' class='newsletter'><span>Newsletter</span></a>
-      <a href='/newsletter' class='rss'><span>RSS</span></a>
+      <a href='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&id=db875395f9' class='newsletter'><span>Newsletter</span></a>
+      <a href='/atom.xml' class='rss'><span>RSS</span></a>
     </div>
     <a href='/blog' class='back'>← Back to the blog</a>
   </nav>
@@ -75,7 +75,7 @@
 </header>
 
 <article class='content post'>
-  <p><img src="http://apps.hemca.com/pm2/pres/pm22.png" alt="pm2 logo"></p>
+  <p><img src="http://apps.hemca.com/pm2/pres/pm22.png" alt="pm2 logo"/></p>
 <p>It&#39;s no secret that the devo.ps team has a crush on Javascript; node.js in the backend, AngularJS for our clients, there isn&#39;t much of our stack that isn&#39;t at least in part built with it. Our approach of building <a href="http://devo.ps/blog/2013/01/31/farewell-to-regular-web-development-approaches.html">static clients and RESTful JSON APIs</a> means that we run a lot of node.js and I must admit that, despite all of it awesomeness, node.js still is a bit of a headache when it comes to running in production. Tooling and best practices (think monitoring, logging, error traces...) are still lacking when compared to some of the more established languages.</p>
 <p>So far, we had been relying on the pretty nifty <a href="https://github.com/nodejitsu/forever">node-forever</a>. Great tool, but a few things were missing:</p>
 <ul>
@@ -151,13 +151,13 @@
 </code></pre><p>Then;</p>
 <pre><code>$ pm2 list
 </code></pre><p>Which should display something like (ASCII UI FTW);</p>
-<p><img src="http://apps.hemca.com/pm2/pres/pm2-list.png" alt="pm2 list"></p>
+<p><img src="http://apps.hemca.com/pm2/pres/pm2-list.png" alt="pm2 list"/></p>
 <p>As you can see, your app is now forked into multiple processes depending on the number of CPUs available.</p>
 <h3 id="monitoring-a-la-termcaps-htop">Monitoring <em>a la</em> termcaps-HTOP</h3>
 <p>It&#39;s nice enough to have an overview of the running processes and their status with the <code>pm2 list</code> command. But what about tracking their resources consumption? Fear not:</p>
 <pre><code>$ pm2 monit
 </code></pre><p>You should get the CPU usage and memory consumption by process (and cluster).</p>
-<p><img src="http://apps.hemca.com/pm2/pres/pm2-monit.png" alt="pm2 monit"></p>
+<p><img src="http://apps.hemca.com/pm2/pres/pm2-monit.png" alt="pm2 monit"/></p>
 <p><strong>Disclaimer</strong>: <a href="https://github.com/arunoda/node-usage">node-usage</a> doesn&#39;t support MacOS for now (feel free to PR). It works just fine on Linux though.</p>
 <p>Now, what about checking on our clusters and GC cleaning of the memory stack? Let&#39;s consider you already have an HTTP benchmark tool (if not, you should definitely check <a href="https://github.com/wg/wrk">WRK</a>):</p>
 <pre><code>$ express bufallo     // Create an express app
@@ -173,7 +173,7 @@ $ wrk -c 100 -d 100 http://localhost:3000/
 <pre><code>$ tail -f /path/to/log1 /path/to/log2 ...
 </code></pre><p>But we&#39;re nice, so we wrote the <code>logs</code> feature:</p>
 <pre><code>$ pm2 logs
-</code></pre><p><img src="http://apps.hemca.com/pm2/pres/pm2-logs.png" alt="pm2 monit"></p>
+</code></pre><p><img src="http://apps.hemca.com/pm2/pres/pm2-logs.png" alt="pm2 monit"/></p>
 <h3 id="resurrection">Resurrection</h3>
 <p>So things are nice and dandy, your processes are humming and you need to do a hard restart. What now? Well, first, dump things:</p>
 <pre><code>$ pm2 dump

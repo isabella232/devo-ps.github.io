@@ -13,7 +13,9 @@
         "template": "yo.html"
     },
     "metalsmith": {
-        "metalsmith-markdown": {},
+        "metalsmith-markdown": {
+            "xhtml": true
+        },
         "metalsmith-include": {},
         "metalsmith-drafts": {},
         "metalsmith-build-date": true,
@@ -24,6 +26,7 @@
             },
             "team": {}
         },
+        "metalsmith-more": true,
         "metalsmith-permalinks": {},
         "metalsmith-templates": {
             "engine": "swig",
