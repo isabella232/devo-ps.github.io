@@ -8,7 +8,9 @@
             "description": "devo.ps",
             "url": "http://devo.ps",
             "author": "devo.ps",
-            "email": "info@devo.ps"
+            "email": "info@devo.ps",
+            "ga": "UA-34006371-1",
+            "gauges": "510b396a613f5d2666000007"
         },
         "template": "yo.html"
     },
