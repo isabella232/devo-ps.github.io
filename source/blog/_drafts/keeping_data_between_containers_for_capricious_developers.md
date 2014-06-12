@@ -38,4 +38,8 @@ docker rm $NAME
 
 # Start the new container with the same old name
 docker run -d -name $NAME -volumes-from temp_box $IMAGE $CMD
+
+# Do some cleanup and remove the temp box as well
+docker stop temp_box
+docker rm temp_box
 ```
