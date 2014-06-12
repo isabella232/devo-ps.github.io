@@ -14,6 +14,7 @@ Docker has evolved quite a lot in the past few months, from nameless containers 
 So what if you have a new version of your redis container? And you want to keep your data and still name it ... say ... redis ?
 
 Docker comes with a few features and limitation that make the above a bit laborious:
+
     - **named containers**: containers can be named anything, or get a default name provided (amazing-einstein?). It is very convenient when you try to address them without going for a long ID. But you can't use the same name twice... And you can't rename the container either...
     - **Volumes migration**: containers can be built using the volumes of another container, neat for data migration! But the "source" container need to exist (stopped is ok - destroyed containers is ... not ok because it doesn't exist anymore)
 
