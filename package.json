@@ -33,7 +33,7 @@
     "metalsmith-ignore": "*",
     "metalsmith-static": "*",
     "metalsmith-assets": "*",
-    "metalsmith-more": "*",
+    "metalsmith-excerpts": "*",
     "metalsmith-include": "*",
     "metalsmith-metadata": "*",
     "metalsmith-collections": "*",

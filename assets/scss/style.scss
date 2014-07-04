@@ -22,6 +22,18 @@ img.avatar {
   vertical-align: middle;
 }
 
+@mixin halves() {
+  @include box-sizing(border-box);
+  float: left;
+  width: 50%;
+  &:nth-child(odd) {
+    padding-right: $gutter;
+  }
+  &:nth-child(even) {
+    padding-left: $gutter;
+  }
+}
+
 #header,
 #main {
 	margin: 0 auto;
@@ -50,10 +62,17 @@ img.avatar {
 		a {
 			margin-left: $gutter;
 		}
+    .button {
+      @include font-size($pico);
+      padding: 1px $gutter/2;
+    }
 	}
 }
 
 /* Main */
+
+@import 'partials/_landing.scss';
+@import 'partials/_blog.scss';
 
 #main {
 	.sidebar + .content {
@@ -94,17 +113,6 @@ img.avatar {
 			margin: 0;
 		}
 	}
-	.meta {
-		color: $grey;
-		display: block;
-		margin-top: $gutter/2;
-		.avatar {
-			border-radius: 50%;
-			display: inline-block;
-			margin-right: $gutter/4;
-			vertical-align: top;
-		}
-	}
 	.card {
 		background: $light;
 		border: 1px solid $line;
@@ -120,38 +128,6 @@ img.avatar {
 			width: 100%;
 		}
 	}
-	.posts {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		li {
-			border-bottom: 1px solid $light;
-			margin-bottom: $gutter;
-			padding-bottom: $gutter;
-		}
-		h2 {
-			margin: 0;
-		}
-	}
-  .post {
-  	margin: 0 auto;
-  	max-width: $blog;
-  	img {
-  		max-width: 100%;
-  	}
-  	.card {
-  		@include clearfix();
-  		list-style: none;
-  		margin: 2*$gutter 0 0;
-  		padding: 0;
-  		li {
-  			@include box-sizing(border-box);
-  			float: left;
-  			padding: $gutter/2 $gutter;
-  			width: 50%;
-  		}
-  	}
-  }
 }
 
 /* Footer */

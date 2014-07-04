@@ -7,29 +7,30 @@
 </header>
 
 <aside class='sidebar'>
-	<section class='newsletter card'>
-		<h2>Stay tuned</h2>
-		<p>You can follow us on <a href='http://twitter.com/devo_ps'>Twitter</a>, subscribe to our <a href='/atom.xml'>RSS feed</a> or register to our newsletter:</p>
-	  {% include "partials/subscribe.html" %}
-	</section>
+  <div class='card'>
+    <h2>Stay tuned by email</h2>
+    {% include 'partials/subscribe.html' %}
+    <p>or <a href='http://twitter.com/devo_ps'>follow us on twitter</a></p>
+    <h2>About devo.ps</h2>
+    {% include 'partials/about.html' %}
+  </div>
 </aside>
 
-<section class='content'>
-	<ul class='posts'>
-	  {% for post in blog %}
-		<li>
-			<h2><a href='/{{ post.path }}'>{{ post.title }}</a></h2>
-	    <span class='meta'>
-		    {% for member in team %}
-		    {% if member.user == post.author %}
-		      <img class='avatar' alt='{{ member.title }}' src='/images/team/{{ member.user }}-small.png'/> 
-		      {{ member.title }}
-		    {% endif %}
-		    {% endfor %}
-		    on <time datetime='{{ post.date | date(c) }}'>{{ post.date | date('F d, Y') }}</time>
-		  </span>
-		</li>
-	  {% endfor %}
-  </ul>
+<section class='content posts'>  
+  {% for post in blog %}
+	<article class='post'>
+		<h2><a href='/{{ post.path }}'>{{ post.title }}</a></h2>
+    <span class='meta'>
+	    {% for member in team %}
+	    {% if member.user == post.author %}
+	      <img class='avatar' alt='{{ member.title }}' src='/images/team/{{ member.user }}-small.png'/> 
+	      {{ member.title }}
+	    {% endif %}
+	    {% endfor %}
+	    on <time datetime='{{ post.date | date(c) }}'>{{ post.date | date('F d, Y') }}</time>
+	  </span>
+	  {{ post.excerpt | safe }}
+	</article>
+  {% endfor %}
 </section>
 {% endblock %}

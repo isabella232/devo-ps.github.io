@@ -8,8 +8,6 @@ collection: blog
 template: post.html
 ---
 
-![Messy cables](http://farm3.staticflickr.com/2584/4103140420_b98ee1ac62_z.jpg)
-
 It's Monday morning. The development team needs a box and you're already contemplating the gazillion other urgent tasks that need to be done on the existing infrastructure. *Just that one time*<sup>TM</sup>, you're going to forget about your own rules. You're just gonna spawn an instance, set up the few services needed and be done with it. You'll drop some of the usual time suckers: backup strategy, access rules, init scripts, documentation... You can't just do the whole of it AND handle the rest of your day-to-day responsibilities. After all, it's just a development server and you'll probably fold it in a couple weeks, or you'll clean it up once your plate is a tad less full.
 
 A few weeks later, the box is still there and your backlog is far from looking less crowded. The development team just rolled out their production application on the same box. **And things start crashing... badly.**

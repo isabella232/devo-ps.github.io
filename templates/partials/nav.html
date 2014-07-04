@@ -1,4 +1,5 @@
 <ul class='links'>
-  <li><a href='/about'>About</a></li>
-  <li><a href='/blog'>Blog</a></li>
+  <li{% if path == 'faq' %} class='active'{% endif %}><a href='/faq'>FAQ</a></li>
+  <li{% if path == 'blog' %} class='active'{% endif %}><a href='/blog'>Blog</a></li>
+  <li><a href='https://app.devo.ps'>Sign in</a></li>
 </ul>

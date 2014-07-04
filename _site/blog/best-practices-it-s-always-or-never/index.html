@@ -3,31 +3,32 @@
 <head>
   <meta charset='utf-8'/>
   <title>Best Practices: It&#39;s Always Or Never ( And Preferably Always) | devo.ps</title>
+
   
   
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
   
   <!-- Favicons -->
   <link rel='shortcut icon' href='/assets/favicon.ico'>
-  <link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
-  <link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
-  <link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
-  <link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
-  <link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
-  <link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
-  <link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
-  <link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
-  <link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
-  <link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
-  <link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
-  <link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
-  <link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
-  <meta name='msapplication-TileColor' content='#da532c'>
-  <meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
-  <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+<link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
+<link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
+<link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
+<link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
+<link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
+<link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
+<link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
+<link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
+<meta name='msapplication-TileColor' content='#da532c'>
+<meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
+<meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
@@ -35,6 +36,7 @@
     <nav class='links'>
       <a href='/blog'>Blog</a>
       <a href='/about'>About</a>
+      <a href='http://app.devo.ps' class='button add'>Sign in</a>
     </nav>
 
     <a href='/' class='logo'>devo.ps</a>
@@ -75,8 +77,7 @@
 </header>
 
 <article class='content post'>
-  <p><img src="http://farm3.staticflickr.com/2584/4103140420_b98ee1ac62_z.jpg" alt="Messy cables"/></p>
-<p>It&#39;s Monday morning. The development team needs a box and you&#39;re already contemplating the gazillion other urgent tasks that need to be done on the existing infrastructure. <em>Just that one time</em><sup>TM</sup>, you&#39;re going to forget about your own rules. You&#39;re just gonna spawn an instance, set up the few services needed and be done with it. You&#39;ll drop some of the usual time suckers: backup strategy, access rules, init scripts, documentation... You can&#39;t just do the whole of it AND handle the rest of your day-to-day responsibilities. After all, it&#39;s just a development server and you&#39;ll probably fold it in a couple weeks, or you&#39;ll clean it up once your plate is a tad less full.</p>
+  <p>It&#39;s Monday morning. The development team needs a box and you&#39;re already contemplating the gazillion other urgent tasks that need to be done on the existing infrastructure. <em>Just that one time</em><sup>TM</sup>, you&#39;re going to forget about your own rules. You&#39;re just gonna spawn an instance, set up the few services needed and be done with it. You&#39;ll drop some of the usual time suckers: backup strategy, access rules, init scripts, documentation... You can&#39;t just do the whole of it AND handle the rest of your day-to-day responsibilities. After all, it&#39;s just a development server and you&#39;ll probably fold it in a couple weeks, or you&#39;ll clean it up once your plate is a tad less full.</p>
 <p>A few weeks later, the box is still there and your backlog is far from looking less crowded. The development team just rolled out their production application on the same box. <strong>And things start crashing... badly.</strong></p>
 <p>After a couple of not so courteous emails from the dev team mentioning repetitive crashes, you log in the box and the fun starts. You can&#39;t figure out what services have been deployed, or how exactly they were installed. You can&#39;t restore the database because you don&#39;t know where the bloody backups are. You waste time to find out that CouchDB wasn&#39;t started at boot. All of this while receiving emails of &quot;encouragement&quot; from your colleagues.</p>
 <p>Just because of that &quot;one time&quot;. Except that it&#39;s never just that one time. </p>
@@ -124,7 +125,29 @@
   <!-- JS -->
   <!-- <script src='/assets/scripts.js' type='text/javascript'></script> -->
   <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
-  <!--  -->
-	<!--  -->
+  <script type='text/javascript'>
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type='text/javascript'>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 </body>
 </html>

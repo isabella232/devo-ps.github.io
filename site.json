@@ -11,8 +11,7 @@
             "email": "info@devo.ps",
             "ga": "UA-34006371-1",
             "gauges": "510b396a613f5d2666000007"
-        },
-        "template": "yo.html"
+        }
     },
     "metalsmith": {
         "metalsmith-markdown": {
@@ -28,12 +27,12 @@
             },
             "team": {}
         },
-        "metalsmith-more": true,
+        "metalsmith-excerpts": true,
         "metalsmith-permalinks": {},
         "metalsmith-templates": {
             "engine": "swig",
             "cache": false,
-            "default": "default.html",
+            "default": "page.html",
             "directory": "./templates"
         },
         "metalsmith-assets": null,
