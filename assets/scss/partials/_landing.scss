@@ -1,0 +1,119 @@
+body.landing {
+  #main {
+    .section {
+      padding: 2*$gutter 0;
+      h2 {
+        margin-bottom: 2*$gutter;
+        text-align: center;
+      }
+      &.hero,
+      &.signup {
+        .button {
+          @include button($green);
+          padding: $gutter/2 1.5*$gutter;
+          &:before {
+            @include icon();
+            content: 'h';
+            @include font-size($normal);
+            margin-right: $gutter/2;
+          }
+        }
+      }
+      &.hero {
+        @include clearfix;
+        padding-bottom: 0;
+        text-align: center;
+        > * {
+          @include halves;
+        }
+        h2 {
+          color: inherit;
+          @include font-size();
+          margin-bottom: $gutter;
+        }
+        .preview {
+          text-align: center;
+          img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+          }
+        }
+      }
+      &.features {
+        border-top: 1px solid $line;
+        padding: 2*$gutter 10%;
+        .feature {
+          margin-bottom: $gutter;
+          padding: $gutter 0;
+          img {
+            float: left;
+            margin: 0 auto $gutter;
+            max-width: 140px;
+            width: 80%;
+          }
+          h2,
+          p {
+            margin-left: 140px + 2*$gutter;
+          }
+          h2 {
+            margin-bottom: $gutter/2;
+            text-align: left;
+          }
+        }
+      }
+      &.signup {
+        border: 1px solid $line;
+        border-width: 1px 0;
+        text-align: center;
+      }
+      &.more {
+        @include clearfix;
+        > section {
+          @include halves;
+        }
+        .testimonies {
+          ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+              $avatar: 1.5*$gutter;
+              img.avatar {
+                float: left;
+                height: $avatar;
+                width: $avatar;
+              }
+              .testimony {
+                border: 1px solid $line;
+                border-radius: $radius;
+                display: block;
+                margin-left: $avatar + $gutter/2;
+                padding: $gutter/2 1.5*$gutter/2;
+                position: relative;
+                &:after {
+                  @include arrow(left, #FFF, (1.5*$gutter/4 - 1));
+                }
+                &:before {
+                  @include arrow(left, shade($line, 5%), 1.5*$gutter/4);
+                }
+                &:after,
+                &:before {
+                  top: $avatar/2;
+                }
+              }
+              small,
+              blockquote {
+                margin: 0;
+                padding: 0;
+              }
+              blockquote {
+                margin-bottom: $gutter/2;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
