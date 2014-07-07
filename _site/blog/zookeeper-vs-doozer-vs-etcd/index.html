@@ -33,51 +33,72 @@
 </head>
 <body>
   <header id='header'>
-    <nav class='links'>
+    <nav class='menu'>
+      <a href='/features'>Features</a>
+      <a href='http://docs.devo.ps'>Documentation</a>
+      <a href='#'>Help & Support</a>
       <a href='/blog'>Blog</a>
-      <a href='/about'>About</a>
-      <a href='http://app.devo.ps' class='button add'>Sign in</a>
+      <a href='http://app.devo.ps' class='button'>Sign in</a>
     </nav>
 
     <a href='/' class='logo'>devo.ps</a>
   </header>
 
-  <section id='main'>
-    
-<header class='header'>
-  <nav class='links'>
+  
+<section id='main' class='blog'>
+  <header class='header'>
     <div class='controls'>
-      <a href='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&id=db875395f9' class='newsletter'><span>Newsletter</span></a>
-      <a href='/atom.xml' class='rss'><span>RSS</span></a>
+      <a href='/blog' class='back'>Back to the blog</a>
     </div>
-    <a href='/blog' class='back'>← Back to the blog</a>
-  </nav>
 
-  <h1>ZooKeeper vs. Doozer vs. Etcd</h1>
+    <h1>ZooKeeper vs. Doozer vs. Etcd</h1>
 
-  <span class='meta'>
-    
-    
-    
-    
-      <img class='avatar' alt='Juha Suomalainen' src='/images/team/juha-small.png'/> 
-      Juha Suomalainen
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    on <time datetime=''>September 11, 2013</time>
-  </span>
-</header>
+    <span class='meta'>
+      
+      
+      
+      
+        <img class='avatar' alt='Juha Suomalainen' src='/images/team/juha-small.png'/> 
+        Juha Suomalainen
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      on <time datetime=''>September 11, 2013</time>
+    </span>
+  </header>
 
-<article class='content post'>
-  <p>While <a href="http://devo.ps">devo.ps</a> is fast approaching a public release, the team has been dealing with an increasingly complex infrastructure. We more recently faced an interesting issue; how do you share configuration across a cluster of servers? More importantly, how do you do so in a resilient, secure, easily deployable and speedy fashion?</p>
+  <aside class='sidebar'>
+    <section class='pitch'>
+  <h3>Cloud management for developers</h3>
+  <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
+<a class='button add' href='http://app.devo.ps'>Sign up for <u>free</u></a>
+<small>Already have an account? <a href='https://app.devo.ps'>Sign in</a>.</small>
+</section>
+
+<div class='controls'>
+  <a class='twitter' href='http://twitter.com/devo_ps'><span>Follow us on twitter</span></a>
+  <a class='rss' href='/atom.xml'><span>RSS feed</span></a>
+</div>
+<h3>Stay tuned</h3>
+<form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
+  </div>
+</form>
+  </aside>
+
+  <article class='content'>
+    <p>While <a href="http://devo.ps">devo.ps</a> is fast approaching a public release, the team has been dealing with an increasingly complex infrastructure. We more recently faced an interesting issue; how do you share configuration across a cluster of servers? More importantly, how do you do so in a resilient, secure, easily deployable and speedy fashion?</p>
 <p>That&#39;s what got us to evaluate some of the options available out there; ZooKeeper, Doozer and etcd. These tools all solve similar sets of problems but their approach differ quite significantly. Since we spent some time evaluating them, we thought we&#39;d share our findings.</p>
 <h3 id="zookeeper-the-old-dog">ZooKeeper, the old dog</h3>
 <p><a href="http://zookeeper.apache.org/">ZooKeeper</a> is the most well known (and oldest) project we&#39;ve looked into. It&#39;s used by a few big players (Rackspace, Yahoo, eBay, <a href="https://news.ycombinator.com/item?id=6367979">Youtube</a>) and is pretty mature.</p>
@@ -141,32 +162,19 @@ It was first released by the <a href="http://coreos.com">CoreOS</a> team a month
 <h3 id="conclusion">Conclusion</h3>
 <p>In the end, we decided to give etcd a try. So far it seems to work well for our needs and the very active development pace seems to validate our choice. It has proven resilient and will likely hold well until we have the resources to either customize its data propagation approach, or build our own solution that will answer some needs it is not likely to answer (we&#39;ve already looked into doing so with ZeroMQ and Go).</p>
 
-  
-  <ul class='card'>
-    <li class='newsletter'>
-      <h2>Stay tuned by email</h2>
-      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
-  <div class='field'>
-    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
-  </div>
-  <div class='field'>
-    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
-  </div>
-</form>
-    </li>
-    <li class='feedback'>
+    
+    <footer class='feedback'>
       <h2>Have some feedback?</h2>
       <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/zookeeper-vs-doozer-vs-etcd' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=6366665' target='_blank'>Hacker News</a>.</p>
-    </li>
-  </ul>
+    </footer>
+  </section>
 </section>
 
-  </section>
 
   <footer id='footer'>Copyright © devo.ps. All rights reserved.</footer>
 
   <!-- JS -->
-  <!-- <script src='/assets/scripts.js' type='text/javascript'></script> -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
   <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
   <script type='text/javascript'>
   var _gauges = _gauges || [];

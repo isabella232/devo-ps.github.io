@@ -1,40 +1,36 @@
 {% extends 'default.html' %}
 
 {% block content %}
-<header class='header'>
-  <nav class='links'>
+<section id='main' class='blog'>
+  <header class='header'>
     <div class='controls'>
-      <a href='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&id=db875395f9' class='newsletter'><span>Newsletter</span></a>
-      <a href='/atom.xml' class='rss'><span>RSS</span></a>
+      <a href='/blog' class='back'>Back to the blog</a>
     </div>
-    <a href='/blog' class='back'>← Back to the blog</a>
-  </nav>
 
-  <h1>{{ title }}</h1>
+    <h1>{{ title }}</h1>
 
-  <span class='meta'>
-    {% for member in team %}
-    {% if member.user == author %}
-      <img class='avatar' alt='{{ member.title }}' src='/images/team/{{ member.user }}-small.png'/> 
-      {{ member.title }}
-    {% endif %}
-    {% endfor %}
-    on <time datetime='{{ post.date | date(c) }}'>{{ date | date('F d, Y') }}</time>
-  </span>
-</header>
+    <span class='meta'>
+      {% for member in team %}
+      {% if member.user == author %}
+        <img class='avatar' alt='{{ member.title }}' src='/images/team/{{ member.user }}-small.png'/> 
+        {{ member.title }}
+      {% endif %}
+      {% endfor %}
+      on <time datetime='{{ post.date | date(c) }}'>{{ date | date('F d, Y') }}</time>
+    </span>
+  </header>
 
-<article class='content post'>
-  {{ contents | safe }}
-  
-  <ul class='card'>
-    <li class='newsletter'>
-      <h2>Stay tuned by email</h2>
-      {% include "partials/subscribe.html" %}
-    </li>
-    <li class='feedback'>
+  <aside class='sidebar'>
+    {% include 'partials/sidebar.html' %}
+  </aside>
+
+  <article class='content'>
+    {{ contents | safe }}
+    
+    <footer class='feedback'>
       <h2>Have some feedback?</h2>
       <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url={{ site.url }}/{{ path }}' target='_blank'>Twitter</a>{% if hn %} or keep the discussion going on <a href='http://news.ycombinator.com/item?id={{ hn }}' target='_blank'>Hacker News</a>{% endif %}.</p>
-    </li>
-  </ul>
+    </footer>
+  </section>
 </section>
 {% endblock %}

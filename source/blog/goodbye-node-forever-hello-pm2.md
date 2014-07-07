@@ -10,8 +10,6 @@ date: 2013-06-26
 template: post.html
 ---
 
-![pm2 logo](http://apps.hemca.com/pm2/pres/pm22.png)
-
 It's no secret that the devo.ps team has a crush on Javascript; node.js in the backend, AngularJS for our clients, there isn't much of our stack that isn't at least in part built with it. Our approach of building [static clients and RESTful JSON APIs](http://devo.ps/blog/2013/01/31/farewell-to-regular-web-development-approaches.html) means that we run a lot of node.js and I must admit that, despite all of it awesomeness, node.js still is a bit of a headache when it comes to running in production. Tooling and best practices (think monitoring, logging, error traces...) are still lacking when compared to some of the more established languages.
 
 So far, we had been relying on the pretty nifty [node-forever](https://github.com/nodejitsu/forever). Great tool, but a few things were missing:
@@ -22,6 +20,10 @@ So far, we had been relying on the pretty nifty [node-forever](https://github.co
 - Aging codebase (which meant frequent failures when upgrading Node).
 
 This is what led us to write [PM2](https://github.com/Unitech/pm2) in the past couple months. We thought we'd give you a quick look at it while we're nearing a production ready release.
+
+<p align='center'>
+![pm2 logo](http://apps.hemca.com/pm2/pres/pm22.png)
+</p>
 
 ### So what's in the box?
 

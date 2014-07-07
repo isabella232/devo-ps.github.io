@@ -5,9 +5,9 @@
 /* Variables */
 
 $avatar: 22px;
-$sidebar: 33%;
+$sidebar: 240px;
 $blog: 700px;
-$width: 900px;
+$width: 960px;
 
 /* General */
 
@@ -56,11 +56,14 @@ img.avatar {
 			margin-right: $gutter/4;
 	  }
 	}
-	.links {
+	.menu {
 		float: right;
 		@include font-size($small);
 		a {
 			margin-left: $gutter;
+      &.active {
+        color: inherit;
+      }
 		}
     .button {
       @include font-size($pico);
@@ -71,63 +74,98 @@ img.avatar {
 
 /* Main */
 
-@import 'partials/_landing.scss';
-@import 'partials/_blog.scss';
-
 #main {
+  position: relative;
 	.sidebar + .content {
-		@include box-sizing(border-box);
-		margin-right: $sidebar;
-		padding-right: $gutter;
-	}
+    @include box-sizing(border-box);
+    margin-right: $sidebar;
+    padding-right: $gutter;
+  }
   .sidebar {
-  	float: right;
-  	width: $sidebar;
-  	.card {
-  		padding: $gutter/2 $gutter;
-  	}
+    border-left: 1px solid $light;
+    @include box-sizing(border-box);
+    @include font-size($smaller);
+    float: right;
+    padding-left: $gutter;
+    width: $sidebar;
+    input,
+    .button {
+      @include box-sizing(border-box);
+      width: 100%;
+    }
+    .pitch {
+      margin-bottom: $gutter;
+      .button + small {
+        display: block;
+        padding-top: $gutter/4;
+        text-align: center;
+      }
+    }
+    .menu {
+      @include font-size();
+      margin-bottom: $gutter;
+      a {
+        border-bottom: 1px solid $light;
+        color: inherit;
+        display: block;
+        padding: $gutter/2 $gutter;
+        @include transition-property(background);
+        @include transition-duration(0.2s);
+        &.active {
+          font-weight: bold;
+        }
+        &.active,
+        &:hover {
+          background: $light;
+        }
+      }
+    }
+    .controls {
+      float: right;
+      line-height: 1;
+      a {
+        @include font-size();
+        margin-left: $gutter/2;
+        @include tooltip;
+        &:before {
+          @include icon();
+        }
+        &.twitter:before { content: '5'; }
+        &.rss:before { content: '6'; }
+      }
+    }
   }
 	> .header {
-		padding: 2*$gutter 0;
+		padding: 3*$gutter 0;
+    position: relative;
 		text-align: center;
-		.links {
-			margin-bottom: 2*$gutter;
-			margin-top: -2*$gutter;
-			padding: $gutter/2 0;
-			text-align: left;
-			.newsletter,
-			.rss {
-				margin-left: $gutter;
-				@include tooltip();
-				&:before {
-					@include icon();
-				}
-			}
-			.newsletter:before { content: '7'; }
-			.rss:before { content: '6'; }
-			.controls {
-				float: right;
-			}
-		}
+		.controls {
+      position: absolute;
+      top: $gutter/2;
+      .back {
+        color: $grey;
+        margin: 0;
+        &:before {
+          @include icon();
+          content: ',';
+          margin-right: $gutter/4;
+        }
+        &:hover {
+          color: shade($blue, 10%);
+        }
+      }
+    }
 		h1 {
 			margin: 0;
 		}
 	}
-	.card {
-		background: $light;
-		border: 1px solid $line;
-		border-radius: $radius;
-		@include box-sizing(border-box);
-		input[type=email] {
-			background: #FFF;
-		}
-		input,
-		.button {
-			@include box-sizing(border-box);
-			padding: $gutter/2;
-			width: 100%;
-		}
-	}
+  &.landing {
+    @import 'partials/_landing.scss';
+  }
+  &.blog {
+    position: relative;
+    @import 'partials/_blog.scss';
+  }
 }
 
 /* Footer */

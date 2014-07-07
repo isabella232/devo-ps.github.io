@@ -1,5 +1,5 @@
 ---
-published: false
+draft: true
 collection: blog
 title: The Problem With PaaS
 

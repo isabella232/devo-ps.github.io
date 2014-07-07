@@ -9,28 +9,7 @@
     vertical-align: top;
   }
 }
-.posts,
-.post {
-  .card {
-    @include clearfix();
-    list-style: none;
-    margin: 2*$gutter 0 0;
-    padding: 0;
-    li {
-      @include box-sizing(border-box);
-      float: left;
-      padding: $gutter/2 $gutter;
-      width: 50%;
-    }
-  }
-}
 .posts {
-  list-style: none;
-  padding: 0;
-  .card {
-    margin: 0 auto $gutter;
-    max-width: $blog;
-  }
   .post {
     border-bottom: 1px solid $light;
     margin-bottom: $gutter;
@@ -44,9 +23,12 @@
   }
 }
 .post {
-  margin: 0 auto;
-  max-width: $blog;
   img {
     max-width: 100%;
   }
+}
+.feedback {
+  border-top: 1px solid $light;
+  margin-top: $gutter;
+  padding-top: $gutter;
 }
