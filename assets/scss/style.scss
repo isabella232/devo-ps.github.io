@@ -76,17 +76,34 @@ img.avatar {
 
 #main {
   position: relative;
+  &.page {
+    .sidebar + .content {
+      margin-left: $sidebar;
+      padding-left: $gutter;
+    }
+    .sidebar {
+      border-right: 1px solid $light;
+      float: left;
+      padding-right: $gutter;
+    }
+  }
+  &.blog {
+    .sidebar + .content {
+      margin-right: $sidebar;
+      padding-right: $gutter;
+    }
+    .sidebar {
+      border-left: 1px solid $light;
+      float: right;
+      padding-left: $gutter;
+    }
+  }
 	.sidebar + .content {
     @include box-sizing(border-box);
-    margin-right: $sidebar;
-    padding-right: $gutter;
   }
   .sidebar {
-    border-left: 1px solid $light;
     @include box-sizing(border-box);
     @include font-size($smaller);
-    float: right;
-    padding-left: $gutter;
     width: $sidebar;
     input,
     .button {
@@ -171,7 +188,13 @@ img.avatar {
 /* Footer */
 
 #footer {
-	color: $grey;
-	@include font-size($small);
-	padding: 2*$gutter 0;
+  padding: 2*$gutter 0;
+	a {
+    color: $grey;
+  	@include font-size($small);
+  	padding: 0 $gutter/2;
+    &:hover {
+      color: $black;
+    }
+  }
 }
