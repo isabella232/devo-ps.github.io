@@ -50,16 +50,50 @@
   &.features {
     border-top: 1px solid $line;
     padding: 2*$gutter 0;
+    .header {
+      border-bottom: 1px solid $light;
+      margin-bottom: 2*$gutter;
+      padding-bottom: 2*$gutter;
+      text-align: center;
+      h1 {
+        margin: 0;
+      }
+    }
     .feature {
+      border-bottom: 1px solid $light;
       @include clearfix;
       margin-bottom: 2*$gutter;
       padding-bottom: 2*$gutter;
+      &:hover {
+        .preview {
+          img {
+            &:first-child {
+              display: inline-block;
+            }
+            &:last-child {
+              display: none;
+            }
+          }
+        }
+      }
       > * {
         @include halves;
+      }
+      .preview {
+        text-align: center;
+        img {
+          width: 300px;
+          &:first-child {
+            display: none;
+          }
+        }
       }
       h2 {
         margin-bottom: $gutter/2;
         text-align: left;
+        + p {
+          color: $grey;
+        }
       }
       img {
         max-width: 100%;
