@@ -1405,29 +1405,28 @@ img.avatar {
         #main.landing .section.features .feature.beta {
           overflow: hidden; }
           #main.landing .section.features .feature.beta:before {
-            background: #e7e0f4;
-            border-radius: 50%;
+            background: #d0c1ea;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
-            color: #8B66CB;
+            color: #FFF;
             content: 'Beta';
             display: block;
-            font-size: 12px;
-            font-size: 1.2rem;
-            height: 50px;
-            padding: 15px 0;
+            font-size: 11px;
+            font-size: 1.1rem;
+            padding: 30px 0 0;
             position: absolute;
-            right: 0;
-            top: 20px;
+            right: -30px;
+            top: -20px;
             text-align: center;
             text-transform: uppercase;
-            -webkit-transform: rotate(15deg);
-            -moz-transform: rotate(15deg);
-            -ms-transform: rotate(15deg);
-            -o-transform: rotate(15deg);
-            transform: rotate(15deg);
-            width: 50px; }
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+            width: 70px;
+            z-index: -1; }
         #main.landing .section.features .feature > * {
           -webkit-box-sizing: border-box;
           -moz-box-sizing: border-box;

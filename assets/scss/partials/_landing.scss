@@ -76,22 +76,21 @@ $thin: 720px;
       &.beta {
         overflow: hidden;
         &:before {
-          background: tint($purple, 80%);
-          border-radius: 50%;
+          background: tint($purple, 60%);
           @include box-sizing(border-box);
-          color: $purple;
+          color: #FFF;
           content: 'Beta';
           display: block;
-          @include font-size($small);
-          height: 2.5*$gutter;
-          padding: 1.5*$gutter/2 0;
+          @include font-size($micro);
+          padding: 1.5*$gutter 0 0;
           position: absolute;
-          right: 0;
-          top: $gutter;
+          right: -1.5*$gutter;
+          top: -$gutter;
           text-align: center;
           text-transform: uppercase;
-          @include transform(rotate(15deg));
-          width: 2.5*$gutter;
+          @include transform(rotate(45deg));
+          width: 3.5*$gutter;
+          z-index: -1;
         }
       }
       > * {
