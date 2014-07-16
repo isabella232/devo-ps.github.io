@@ -1405,12 +1405,12 @@ img.avatar {
         #main.landing .section.features .feature.beta {
           overflow: hidden; }
           #main.landing .section.features .feature.beta:before {
-            background: #ffe8be;
+            background: #e7e0f4;
             border-radius: 50%;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
-            color: #cc9e4b;
+            color: #8B66CB;
             content: 'Beta';
             display: block;
             font-size: 12px;
@@ -1418,15 +1418,15 @@ img.avatar {
             height: 50px;
             padding: 15px 0;
             position: absolute;
-            right: 10px;
-            top: 10px;
+            right: 0;
+            top: 20px;
             text-align: center;
             text-transform: uppercase;
-            -webkit-transform: rotate(45deg);
-            -moz-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-            -o-transform: rotate(45deg);
-            transform: rotate(45deg);
+            -webkit-transform: rotate(15deg);
+            -moz-transform: rotate(15deg);
+            -ms-transform: rotate(15deg);
+            -o-transform: rotate(15deg);
+            transform: rotate(15deg);
             width: 50px; }
         #main.landing .section.features .feature > * {
           -webkit-box-sizing: border-box;
