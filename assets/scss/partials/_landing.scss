@@ -50,7 +50,6 @@ $thin: 720px;
   &.features {
     padding: 2*$gutter 0;
     .header {
-      padding-top: 2*$gutter;
       text-align: center;
       h1 {
         margin: 0;
@@ -61,6 +60,7 @@ $thin: 720px;
       @include clearfix;
       margin-top: 2*$gutter;
       padding-top: 2*$gutter;
+      position: relative;
       &:hover {
         .preview {
           img {
@@ -71,6 +71,27 @@ $thin: 720px;
               display: none;
             }
           }
+        }
+      }
+      &.beta {
+        overflow: hidden;
+        &:before {
+          background: tint($yellow, 60%);
+          border-radius: 50%;
+          @include box-sizing(border-box);
+          color: shade($yellow, 20%);
+          content: 'Beta';
+          display: block;
+          @include font-size($small);
+          height: 2.5*$gutter;
+          padding: 1.5*$gutter/2 0;
+          position: absolute;
+          right: $gutter/2;
+          top: $gutter/2;
+          text-align: center;
+          text-transform: uppercase;
+          @include transform(rotate(45deg));
+          width: 2.5*$gutter;
         }
       }
       > * {

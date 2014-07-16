@@ -1386,14 +1386,14 @@ img.avatar {
     #main.landing .section.features {
       padding: 40px 0; }
       #main.landing .section.features .header {
-        padding-top: 40px;
         text-align: center; }
         #main.landing .section.features .header h1 {
           margin: 0; }
       #main.landing .section.features .feature {
         border-top: 1px solid #eaeced;
         margin-top: 40px;
-        padding-top: 40px; }
+        padding-top: 40px;
+        position: relative; }
         #main.landing .section.features .feature:after {
           content: "";
           display: table;
@@ -1402,6 +1402,32 @@ img.avatar {
           display: inline-block; }
         #main.landing .section.features .feature:hover .preview img:last-child {
           display: none; }
+        #main.landing .section.features .feature.beta {
+          overflow: hidden; }
+          #main.landing .section.features .feature.beta:before {
+            background: #ffe8be;
+            border-radius: 50%;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            color: #cc9e4b;
+            content: 'Beta';
+            display: block;
+            font-size: 12px;
+            font-size: 1.2rem;
+            height: 50px;
+            padding: 15px 0;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+            width: 50px; }
         #main.landing .section.features .feature > * {
           -webkit-box-sizing: border-box;
           -moz-box-sizing: border-box;
