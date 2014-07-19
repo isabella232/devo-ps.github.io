@@ -1,0 +1,157 @@
+body {
+  position: relative;
+  &:after {
+    color: #FFF;
+    display: block;
+    left: 50%;
+    opacity: 0.6;
+    padding: $gutter;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    width: 120px;
+    z-index: 999;
+  }
+}
+
+/* Smartphones, iPhone, portrait 480x320 phones */
+
+@media (max-width: 481px) {
+  html {
+    font-size: 57%;
+  }
+
+  #main {
+    .sidebar {
+      @include clearfix;
+      border-bottom: 1px solid $light;
+      margin-bottom: $gutter;
+      padding-bottom: $gutter;
+    }
+  }
+}
+
+/* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+
+@media (min-width: 481px) and (max-width: 641px) {
+  html {
+    font-size: 59%;
+  }
+
+  #main {
+    .sidebar {
+      @include clearfix;
+      border-bottom: 1px solid $light;
+      margin-bottom: $gutter;
+      padding-bottom: $gutter;
+      > * {
+        @include halves();
+      }
+      .pitch {
+        p {
+          /*display: none;*/
+        }
+      }
+      .subscribe {
+        border-left: 1px solid $light;
+      }
+    }
+  }
+}
+
+/* Portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+
+@media (min-width: 641px) {
+  html {
+    font-size: 60%;
+  }
+
+  $sidebar: 220px;
+  #main {
+    .sidebar {
+      width: $sidebar;
+      &.sticky {
+        position: absolute;
+      }
+    }
+    &.page {
+      .sidebar + .content {
+        margin-left: $sidebar;
+        padding-left: $gutter;
+      }
+      .sidebar {
+        border-right: 1px solid $light;
+        float: left;
+        padding-right: $gutter;
+      }
+    }
+    &.blog {
+      .sidebar + .content {
+        margin-right: $sidebar;
+        padding-right: $gutter;
+      }
+      .sidebar {
+        border-left: 1px solid $light;
+        float: right;
+        padding-left: $gutter;
+      }
+    }
+    &.landing {
+      .section {
+        &.features {
+          .feature {
+            &:nth-child(odd) {
+              > * {
+                @include halves;
+              }
+            }
+            &:nth-child(even) {
+              > * {
+                @include halves(true);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Tablet, landscape iPad, lo-res laptops ands desktops */
+
+@media (min-width: 961px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  $sidebar: 240px;
+  #main {
+    .sidebar {
+      width: $sidebar;
+    }
+    &.blog .sidebar + .content {
+      margin-right: $sidebar;
+    }
+    &.page .sidebar + .content {
+      margin-left: $sidebar;
+    }
+  }
+}
+
+/* Big landscape tablets, laptops, and desktops */
+
+@media (min-width: 1025px) {
+  body:after {
+    content: '1025px +';
+    background: green;
+  }
+}
+
+/* Hi-res laptops and desktops */
+
+@media (min-width: 1281px) {
+  body:after {
+    content: '1281px +';
+    background: red;
+  }
+}

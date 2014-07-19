@@ -5,8 +5,6 @@
 /* Variables */
 
 $avatar: 22px;
-$sidebar: 240px;
-$blog: 700px;
 $width: 960px;
 
 /* General */
@@ -22,15 +20,28 @@ img.avatar {
   vertical-align: middle;
 }
 
-@mixin halves() {
+@mixin halves($reverse: false) {
   @include box-sizing(border-box);
-  float: left;
   width: 50%;
-  &:nth-child(odd) {
-    padding-right: $gutter;
+  @if $reverse == true {
+    &:nth-child(odd) {
+      float: right;
+      padding-left: $gutter;
+    }
+    &:nth-child(even) {
+      float: left;
+      padding-right: $gutter;
+    }
   }
-  &:nth-child(even) {
-    padding-left: $gutter;
+  @else {
+    &:nth-child(odd) {
+      float: left;
+      padding-right: $gutter;
+    }
+    &:nth-child(even) {
+      float: right;
+      padding-left: $gutter;
+    }
   }
 }
 
@@ -82,35 +93,15 @@ img.avatar {
 
 #main {
   position: relative;
-  &.page {
-    .sidebar + .content {
-      margin-left: $sidebar;
-      padding-left: $gutter;
-    }
-    .sidebar {
-      border-right: 1px solid $light;
-      float: left;
-      padding-right: $gutter;
-    }
-  }
-  &.blog {
-    .sidebar + .content {
-      margin-right: $sidebar;
-      padding-right: $gutter;
-    }
-    .sidebar {
-      border-left: 1px solid $light;
-      float: right;
-      padding-left: $gutter;
-    }
-  }
 	.sidebar + .content {
     @include box-sizing(border-box);
+    img {
+      max-width: 100%;
+    }
   }
   .sidebar {
     @include box-sizing(border-box);
     @include font-size($smaller);
-    width: $sidebar;
     input,
     .button {
       @include box-sizing(border-box);
@@ -204,3 +195,7 @@ img.avatar {
     }
   }
 }
+
+/* Responsive */
+
+@import 'partials/_responsive.scss';

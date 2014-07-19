@@ -10,7 +10,22 @@
             "author": "devo.ps",
             "email": "info@devo.ps",
             "ga": "UA-34006371-1",
-            "gauges": "510b396a613f5d2666000007"
+            "gauges": "510b396a613f5d2666000007",
+            "keywords": [
+                "devo.ps",
+                "DevOps",
+                "Cloud",
+                "servers",
+                "infrastructure",
+                "automation",
+                "Continuous Integration",
+                "Continuous Deployment",
+                "Configuration Management",
+                "Orchestration",
+                "System Administration",
+                "PaaS",
+                "IaaS"
+            ]
         }
     },
     "metalsmith": {

@@ -12,16 +12,14 @@ $(function() {
         var left = 0;
         var right = 'auto';
       }
-      $('#main .sidebar').css({
-        'position': 'absolute',
+      $('#main .sidebar').addClass('sticky').css({
         'left': left,
         'right': right,
         'top': scroll + 20 - main
       });
     }
     else {
-      $('#main .sidebar').css({
-        'position': 'relative',
+      $('#main .sidebar').removeClass('sticky').css({
         'left': 'auto',
         'right': 'auto',
         'top': 'auto'

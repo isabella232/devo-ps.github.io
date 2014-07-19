@@ -93,9 +93,6 @@ $thin: 720px;
           z-index: -1;
         }
       }
-      > * {
-        @include halves;
-      }
       .preview {
         text-align: center;
         img {
