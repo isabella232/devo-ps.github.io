@@ -1473,20 +1473,6 @@ img.avatar {
       color: #203442; }
 
 /* Responsive */
-body {
-  position: relative; }
-  body:after {
-    color: #FFF;
-    display: block;
-    left: 50%;
-    opacity: 0.6;
-    padding: 20px;
-    position: fixed;
-    text-align: center;
-    top: 50%;
-    width: 120px;
-    z-index: 999; }
-
 /* Smartphones, iPhone, portrait 480x320 phones */
 @media (max-width: 481px) {
   html {
@@ -1583,13 +1569,7 @@ body {
     margin-left: 240px; } }
 
 /* Big landscape tablets, laptops, and desktops */
-@media (min-width: 1025px) {
-  body:after {
-    content: '1025px +';
-    background: green; } }
+@media (min-width: 1025px) { }
 
 /* Hi-res laptops and desktops */
-@media (min-width: 1281px) {
-  body:after {
-    content: '1281px +';
-    background: red; } }
+@media (min-width: 1281px) { }
