@@ -1,8 +1,11 @@
 ---
-
-
+collection: blog
 title: Shanghai Hacker News Meetup
-
+tags:
+  - Hacker News
+  - Shanghai
+  - meetup
+  
 collection: blog
 author: ronan
 hn: 5250249

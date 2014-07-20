@@ -3,7 +3,7 @@
  <title>devo.ps</title>
  <link href='/atom.xml' rel='self'/>
  <link href='/'/>
- <updated>2014-07-19T19:50:04.011Z</updated>
+ <updated>2014-07-20T07:36:35.760Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
@@ -108,8 +108,6 @@
      <id>http://devo.ps/blog/designing-a-restful-api-that-doesn-t-suck</id>
      <content type='html'></content>
    </entry>
- 
- 
  
  
  

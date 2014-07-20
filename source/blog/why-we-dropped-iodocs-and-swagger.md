@@ -1,7 +1,11 @@
 ---
-published: true
 collection: blog
 title: 'Why We Dropped Swagger And I/O Docs'
+tags:
+  - documentation
+  - Swagger
+  - I/O Docs
+  - GitHub pages
 
 author: ronan
 hn: 5181480

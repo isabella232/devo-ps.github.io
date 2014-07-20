@@ -1,7 +1,12 @@
 ---
-published: true
 collection: blog
 title: "ZooKeeper vs. Doozer vs. Etcd"
+tags:
+  - Zookeper
+  - Doozer
+  - etcd
+  - configuration
+  - cluster
 
 author: juha
 hn: 6366665

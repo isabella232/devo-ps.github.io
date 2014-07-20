@@ -2,6 +2,10 @@
 published: true
 collection: blog
 title: Designing A RESTful API That Doesn't Suck
+tags:
+  - RESTful
+  - API
+  - best practices
 
 author: ronan
 hn: 5422402

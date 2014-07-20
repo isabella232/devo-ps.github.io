@@ -1,10 +1,11 @@
 ---
+collection: blog
 title: 101 On DevOps And How We Plan On Helping
+
 author: vincent
 hn: 5181253
 date: 2012-10-23
 
-collection: blog
 template: post.html
 ---
 

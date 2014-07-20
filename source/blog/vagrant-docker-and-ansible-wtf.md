@@ -1,5 +1,14 @@
 ---
+collection: blog
 title: Vagrant, Docker and Ansible. WTF?
+tags:
+  - Vagrant
+  - Ansible
+  - Docker
+  - Configuration management
+  - Container
+  - Virtual machine
+
 author: vincent
 date: 2013-09-25
 hn: 6444084

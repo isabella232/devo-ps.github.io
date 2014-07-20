@@ -1,6 +1,8 @@
 ---
 collection: blog
 title: I Can Haz Init Script
+tags:
+  - init script
 
 author: vincent
 hn: 5905051

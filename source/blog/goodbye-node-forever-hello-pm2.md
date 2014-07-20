@@ -1,7 +1,10 @@
 ---
-published: true
 collection: blog
 title: Goodbye node-forever, hello PM2
+tags:
+  - Node.js
+  - production
+  - daemon
 
 author: alex
 hn: 5945420

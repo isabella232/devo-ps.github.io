@@ -1,4 +1,5 @@
 $(function() {
+  // Make menu sticky on scroll
   var top = $('#main .sidebar').offset().top;
   var main = $('#main').offset().top;
   var sticky = function(){

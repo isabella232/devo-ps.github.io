@@ -1,10 +1,13 @@
 ---
+collection: blog
 title: Automation And Friction
+tags:
+  - automation
+
 author: ronan
 hn: 5911507
 date: 2013-06-20
 
-collection: blog
 template: post.html
 ---
 

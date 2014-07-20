@@ -1,7 +1,10 @@
 ---
-published: true
 collection: blog
-title: 'Farewell to Regular Web Development Approaches'
+title: Farewell to Regular Web Development Approaches
+tags:
+  - Web
+  - API
+  - static client
 
 author: ronan
 hn: 5144188

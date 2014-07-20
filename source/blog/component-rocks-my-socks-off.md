@@ -1,11 +1,15 @@
 ---
+collection: blog
 title: 'Component Rocks My Socks Off'
+tags:
+  - component
+  - Javscript
+  - client
+
 author: ronan
-hn: 
 date: 2013-03-19
 draft: true
 
-collection: blog
 template: post.html
 ---
 

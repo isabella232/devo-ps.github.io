@@ -1,7 +1,9 @@
 ---
-published: true
 collection: blog
 title: First 5 Minutes Troubleshooting A Server
+tags:
+  - debugging
+  - troubleshooting
 
 author: vincent
 hn: 5361335

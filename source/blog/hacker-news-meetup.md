@@ -2,6 +2,10 @@
 published: true
 collection: blog
 title: Shanghai Hacker News Meetup Reboot
+tags:
+  - Hackers news
+  - Shanghai
+  - meetup
 
 author: ronan
 hn: 5831587

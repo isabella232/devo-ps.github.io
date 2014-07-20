@@ -1,7 +1,10 @@
 ---
-published: true
 collection: blog
 title: Shanghai Open Source Meetup
+tags:
+  - Open Source
+  - Shanghai
+  - meetup
 
 author: ronan
 hn: 5367878

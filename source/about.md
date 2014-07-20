@@ -2,6 +2,7 @@
 title: About
 template: page.html
 ---
+
 ## What is devo.ps?
 
 [devo.ps](http://devo.ps) is a service which facilitates the management of technical infrastructures and operations: provisioning new servers, managing services or automating your application deployment strategy can all be organized through very straightforward JSON files (not unlike [package.json](https://npmjs.org/doc/json.html)).

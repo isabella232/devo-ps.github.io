@@ -2,9 +2,12 @@
 draft: true
 collection: blog
 title: The Problem With PaaS
+tags:
+  - PaaS
+  - Heroku
+  - dotCloud
 
 author: ronan
-hn: 
 date: 2013-07-05
 
 template: post.html

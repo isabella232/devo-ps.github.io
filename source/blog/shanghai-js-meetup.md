@@ -1,7 +1,10 @@
 ---
-published: true
 collection: blog
 title: Shanghai JS Meetup
+tags:
+  - Javascript
+  - Shanghai
+  - meetup
 
 author: makara
 hn: 5263993

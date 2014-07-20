@@ -1,10 +1,14 @@
 ---
+collection: blog
 title: Ansible Simply Kicks Ass
+tags:
+  - Ansible
+  - configuration management
+
 author: vincent
 hn: 5983918
 date: 2013-07-03
 
-collection: blog
 template: post.html
 ---
 

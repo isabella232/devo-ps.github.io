@@ -1,6 +1,11 @@
 ---
 collection: blog
 title: Meat And Beer With Hackers + Founders
+tags:
+  - hackers
+  - founders
+  - Shanghai
+  - meetup
 
 author: ronan
 hn: 6025135
