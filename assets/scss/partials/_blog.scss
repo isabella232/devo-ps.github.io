@@ -12,7 +12,6 @@
     }
   }
 }
-
 .meta {
   color: $grey;
   display: block;
@@ -53,7 +52,7 @@ a.rss:before { content: '6'; }
     }
   }
 }
-.post {
+.content {
   img {
     max-width: 100%;
   }
