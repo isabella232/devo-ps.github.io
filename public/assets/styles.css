@@ -1362,12 +1362,17 @@ img.avatar {
   #main.blog {
     position: relative; }
     #main.blog .header .back {
+      background: #fafafb;
       position: relative;
+      border-radius: 0 0 2px 2px;
       color: #a5adb3;
       display: block;
-      left: 0;
+      font-size: 24px;
+      font-size: 2.4rem;
+      left: 50%;
       position: absolute;
-      top: 10px; }
+      top: 0;
+      width: 40px; }
       #main.blog .header .back span {
         background: #203442;
         border-radius: 2px;
@@ -1393,29 +1398,29 @@ img.avatar {
         transition-duration: 0.1s;
         visibility: visible; }
       #main.blog .header .back span {
-        left: 100%;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%); }
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%); }
         #main.blog .header .back span:after {
           content: '';
           position: absolute;
-          border-bottom: 5px solid transparent;
-          border-left-color: #203442;
-          border-right: 5px solid #203442;
-          border-top: 5px solid transparent;
-          left: -5px;
-          top: 50%;
-          -webkit-transform: translateY(-50%);
-          -moz-transform: translateY(-50%);
-          -ms-transform: translateY(-50%);
-          -o-transform: translateY(-50%);
-          transform: translateY(-50%); }
+          border-left: 5px solid transparent;
+          border-top-color: #203442;
+          border-bottom: 5px solid #203442;
+          border-right: 5px solid transparent;
+          left: 50%;
+          top: -5px;
+          -webkit-transform: translateX(-50%);
+          -moz-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          -o-transform: translateX(-50%);
+          transform: translateX(-50%); }
       #main.blog .header .back:hover span {
-        margin-left: 8px; }
+        margin-top: 8px; }
       #main.blog .header .back:before {
         font-family: 'icons';
         font-variant: normal;
@@ -1423,7 +1428,9 @@ img.avatar {
         speak: none;
         text-transform: none;
         -webkit-font-smoothing: antialiased;
-        content: 'j'; }
+        content: '"'; }
+      #main.blog .header .back:hover {
+        color: #203442; }
     #main.blog .meta {
       color: #a5adb3;
       display: block;

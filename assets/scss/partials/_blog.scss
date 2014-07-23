@@ -1,14 +1,21 @@
 .header {
   .back {
-    @include tooltip(right);
+    background: $light;
+    @include tooltip(bottom);
+    border-radius: 0 0 $radius $radius;
     color: $grey;
     display: block;
-    left: 0;
+    @include font-size($large);
+    left: 50%;
     position: absolute;
-    top: $gutter/2;
+    top: 0;
+    width: 2*$gutter;
     &:before {
       @include icon;
-      content: 'j';
+      content: '"';
+    }
+    &:hover {
+      color: $black;
     }
   }
 }
