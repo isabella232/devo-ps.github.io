@@ -1505,7 +1505,19 @@ img.avatar {
     #main .sidebar:after {
       content: "";
       display: table;
-      clear: both; } }
+      clear: both; }
+  #main.blog .content .more .field {
+    display: block; }
+  #main.blog .content .more input, #main.blog .content .more .button {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    width: 100%; }
+  #main.blog .content .more .twitter, #main.blog .content .more .rss {
+    display: block; }
+  #main.blog .content .more .twitter {
+    margin-bottom: 10px; } }
 
 /* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 @media (min-width: 481px) and (max-width: 641px) {

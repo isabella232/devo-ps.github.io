@@ -13,12 +13,25 @@
       margin-bottom: $gutter;
       padding-bottom: $gutter;
     }
-    .content {
-      .more {
-        input,
-        .button {
-          @include box-sizing(border-box);
-          width: 100%;
+    &.blog {
+      .content {
+        .more {
+          .field {
+            display: block;
+          }
+          input,
+          .button {
+            @include box-sizing(border-box);
+            display: block;
+            width: 100%;
+          }
+          .twitter,
+          .rss {
+            display: block;
+          }
+          .twitter {
+            margin-bottom: $gutter/2;
+          }
         }
       }
     }
