@@ -545,6 +545,7 @@ button {
   border-radius: 2px;
   color: #FFF;
   display: inline-block;
+  outline: none;
   padding: 4px 20px;
   -webkit-transition-property: background, border, color;
   -moz-transition-property: background, border, color;
@@ -558,12 +559,11 @@ button {
   text-align: center;
   text-transform: uppercase; }
   .button:hover, .button:focus, a.button:hover, a.button:focus, button.button:hover, button.button:focus {
-    background: #1b7ec0;
+    background: #3598da;
     color: #FFF;
-    outline: none;
     text-decoration: none; }
   .button:active, .button.active, a.button:active, a.button.active, button.button:active, button.button.active {
-    background: #3598da;
+    background: #1b7ec0;
     color: #FFF;
     text-decoration: none; }
   .button[disabled=disabled], .button[disabled=true], .button[disabled], a.button[disabled=disabled], a.button[disabled=true], a.button[disabled], button.button[disabled=disabled], button.button[disabled=true], button.button[disabled] {
@@ -575,6 +575,7 @@ button {
     border-radius: 2px;
     color: #FFF;
     display: inline-block;
+    outline: none;
     padding: 4px 20px;
     -webkit-transition-property: background, border, color;
     -moz-transition-property: background, border, color;
@@ -584,12 +585,11 @@ button {
     transition-duration: 0.1s;
     border: 1px solid #48b876; }
     .button.add:hover, .button.add:focus, a.button.add:hover, a.button.add:focus, button.button.add:hover, button.button.add:focus {
-      background: #48b876;
+      background: #61d290;
       color: #FFF;
-      outline: none;
       text-decoration: none; }
     .button.add:active, .button.add.active, a.button.add:active, a.button.add.active, button.button.add:active, button.button.add.active {
-      background: #61d290;
+      background: #48b876;
       color: #FFF;
       text-decoration: none; }
     .button.add[disabled=disabled], .button.add[disabled=true], .button.add[disabled], a.button.add[disabled=disabled], a.button.add[disabled=true], a.button.add[disabled], button.button.add[disabled=disabled], button.button.add[disabled=true], button.button.add[disabled] {
@@ -601,6 +601,7 @@ button {
     border-radius: 2px;
     color: #FFF;
     display: inline-block;
+    outline: none;
     padding: 4px 20px;
     -webkit-transition-property: background, border, color;
     -moz-transition-property: background, border, color;
@@ -610,12 +611,11 @@ button {
     transition-duration: 0.1s;
     border: 1px solid #e55555; }
     .button.delete:hover, .button.delete:focus, a.button.delete:hover, a.button.delete:focus, button.button.delete:hover, button.button.delete:focus {
-      background: #e55555;
+      background: #ff6f6f;
       color: #FFF;
-      outline: none;
       text-decoration: none; }
     .button.delete:active, .button.delete.active, a.button.delete:active, a.button.delete.active, button.button.delete:active, button.button.delete.active {
-      background: #ff6f6f;
+      background: #e55555;
       color: #FFF;
       text-decoration: none; }
     .button.delete[disabled=disabled], .button.delete[disabled=true], .button.delete[disabled], a.button.delete[disabled=disabled], a.button.delete[disabled=true], a.button.delete[disabled], button.button.delete[disabled=disabled], button.button.delete[disabled=true], button.button.delete[disabled] {
@@ -906,25 +906,26 @@ label, .label {
   .list .item, .list > .header, .list > .footer {
     border: 1px solid #dde0e2;
     border-bottom-width: 0;
-    padding: 0;
-    -webkit-transition-property: border;
-    -moz-transition-property: border;
-    transition-property: border;
-    -webkit-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    transition-duration: 0.2s; }
-    .list .item:hover, .list > .header:hover, .list > .footer:hover {
-      border-color: #bbbec0; }
-      .list .item:hover + .item, .list > .header:hover + .item, .list > .footer:hover + .item {
-        border-top-color: #bbbec0; }
-    .list .item.active .body, .list > .header.active .body, .list > .footer.active .body {
-      display: block; }
+    padding: 0; }
     .list .item.new, .list > .header.new, .list > .footer.new {
       -webkit-animation: new 4s linear;
       -moz-animation: new 4s linear;
       -ms-animation: new 4s linear;
       -o-animation: new 4s linear;
       animation: new 4s linear; }
+    .list .item.collapsible, .list > .header.collapsible, .list > .footer.collapsible {
+      -webkit-transition-property: border;
+      -moz-transition-property: border;
+      transition-property: border;
+      -webkit-transition-duration: 0.2s;
+      -moz-transition-duration: 0.2s;
+      transition-duration: 0.2s; }
+      .list .item.collapsible:hover, .list > .header.collapsible:hover, .list > .footer.collapsible:hover {
+        border-color: #bbbec0; }
+        .list .item.collapsible:hover + .item, .list > .header.collapsible:hover + .item, .list > .footer.collapsible:hover + .item {
+          border-top-color: #bbbec0; }
+      .list .item.collapsible.active .body, .list > .header.collapsible.active .body, .list > .footer.collapsible.active .body {
+        display: block; }
   .list > .item:first-child, .list > .header {
     border-radius: 2px 2px 0 0; }
   .list > .item:last-child, .list > .footer {
@@ -1129,7 +1130,14 @@ table {
 /* Variables */
 /* General */
 body {
-  text-align: center; }
+  line-height: 150%;
+  text-align: center;
+  -webkit-transition-property: font-size;
+  -moz-transition-property: font-size;
+  transition-property: font-size;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s; }
 
 img.avatar {
   border-radius: 2px;
@@ -1221,94 +1229,9 @@ img.avatar {
           font-weight: bold; }
         #main .sidebar .menu a.active, #main .sidebar .menu a:hover {
           background: #fafafb; }
-    #main .sidebar .controls {
-      float: right;
-      line-height: 1; }
-      #main .sidebar .controls a {
-        font-size: 16px;
-        font-size: 1.6rem;
-        margin-left: 10px;
-        position: relative; }
-        #main .sidebar .controls a span {
-          background: #203442;
-          border-radius: 2px;
-          color: #FFF;
-          font-size: 12px;
-          font-size: 1.2rem;
-          line-height: 140%;
-          opacity: 0;
-          padding: 7.5px 15px;
-          position: absolute;
-          text-align: center;
-          visibility: hidden;
-          white-space: nowrap;
-          width: auto;
-          z-index: 999; }
-        #main .sidebar .controls a:hover span {
-          opacity: 1;
-          -webkit-transition-property: opacity, margin;
-          -moz-transition-property: opacity, margin;
-          transition-property: opacity, margin;
-          -webkit-transition-duration: 0.1s;
-          -moz-transition-duration: 0.1s;
-          transition-duration: 0.1s;
-          visibility: visible; }
-        #main .sidebar .controls a span {
-          bottom: 100%;
-          left: 50%;
-          -webkit-transform: translateX(-50%);
-          -moz-transform: translateX(-50%);
-          -ms-transform: translateX(-50%);
-          -o-transform: translateX(-50%);
-          transform: translateX(-50%); }
-          #main .sidebar .controls a span:after {
-            content: '';
-            position: absolute;
-            border-right: 5px solid transparent;
-            border-bottom-color: #203442;
-            border-top: 5px solid #203442;
-            border-left: 5px solid transparent;
-            bottom: -5px;
-            left: 50%;
-            -webkit-transform: translateX(-50%);
-            -moz-transform: translateX(-50%);
-            -ms-transform: translateX(-50%);
-            -o-transform: translateX(-50%);
-            transform: translateX(-50%); }
-        #main .sidebar .controls a:hover span {
-          margin-bottom: 8px; }
-        #main .sidebar .controls a:before {
-          font-family: 'icons';
-          font-variant: normal;
-          font-weight: normal;
-          speak: none;
-          text-transform: none;
-          -webkit-font-smoothing: antialiased; }
-        #main .sidebar .controls a.twitter:before {
-          content: '5'; }
-        #main .sidebar .controls a.rss:before {
-          content: '6'; }
   #main > .header {
     padding: 60px 0;
-    position: relative;
     text-align: center; }
-    #main > .header .controls {
-      position: absolute;
-      top: 10px; }
-      #main > .header .controls .back {
-        color: #a5adb3;
-        margin: 0; }
-        #main > .header .controls .back:before {
-          font-family: 'icons';
-          font-variant: normal;
-          font-weight: normal;
-          speak: none;
-          text-transform: none;
-          -webkit-font-smoothing: antialiased;
-          content: ',';
-          margin-right: 5px; }
-        #main > .header .controls .back:hover {
-          color: #1b7ec0; }
     #main > .header h1 {
       margin: 0; }
   #main.landing .section {
@@ -1321,6 +1244,7 @@ img.avatar {
       border-radius: 2px;
       color: #FFF;
       display: inline-block;
+      outline: none;
       padding: 4px 20px;
       -webkit-transition-property: background, border, color;
       -moz-transition-property: background, border, color;
@@ -1331,12 +1255,11 @@ img.avatar {
       border: 1px solid #48b876;
       padding: 10px 40px; }
       #main.landing .section.hero .button:hover, #main.landing .section.hero .button:focus, #main.landing .section.signup .button:hover, #main.landing .section.signup .button:focus {
-        background: #48b876;
+        background: #61d290;
         color: #FFF;
-        outline: none;
         text-decoration: none; }
       #main.landing .section.hero .button:active, #main.landing .section.hero .button.active, #main.landing .section.signup .button:active, #main.landing .section.signup .button.active {
-        background: #61d290;
+        background: #48b876;
         color: #FFF;
         text-decoration: none; }
       #main.landing .section.hero .button[disabled=disabled], #main.landing .section.hero .button[disabled=true], #main.landing .section.hero .button[disabled], #main.landing .section.signup .button[disabled=disabled], #main.landing .section.signup .button[disabled=true], #main.landing .section.signup .button[disabled] {
@@ -1438,6 +1361,69 @@ img.avatar {
       text-align: center; }
   #main.blog {
     position: relative; }
+    #main.blog .header .back {
+      position: relative;
+      color: #a5adb3;
+      display: block;
+      left: 0;
+      position: absolute;
+      top: 10px; }
+      #main.blog .header .back span {
+        background: #203442;
+        border-radius: 2px;
+        color: #FFF;
+        font-size: 12px;
+        font-size: 1.2rem;
+        line-height: 140%;
+        opacity: 0;
+        padding: 7.5px 15px;
+        position: absolute;
+        text-align: center;
+        visibility: hidden;
+        white-space: nowrap;
+        width: auto;
+        z-index: 999; }
+      #main.blog .header .back:hover span {
+        opacity: 1;
+        -webkit-transition-property: opacity, margin;
+        -moz-transition-property: opacity, margin;
+        transition-property: opacity, margin;
+        -webkit-transition-duration: 0.1s;
+        -moz-transition-duration: 0.1s;
+        transition-duration: 0.1s;
+        visibility: visible; }
+      #main.blog .header .back span {
+        left: 100%;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%); }
+        #main.blog .header .back span:after {
+          content: '';
+          position: absolute;
+          border-bottom: 5px solid transparent;
+          border-left-color: #203442;
+          border-right: 5px solid #203442;
+          border-top: 5px solid transparent;
+          left: -5px;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%); }
+      #main.blog .header .back:hover span {
+        margin-left: 8px; }
+      #main.blog .header .back:before {
+        font-family: 'icons';
+        font-variant: normal;
+        font-weight: normal;
+        speak: none;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+        content: 'j'; }
     #main.blog .meta {
       color: #a5adb3;
       display: block;
@@ -1447,6 +1433,23 @@ img.avatar {
         display: inline-block;
         margin-right: 5px;
         vertical-align: top; }
+    #main.blog a.twitter, #main.blog a.rss {
+      font-size: 16px;
+      font-size: 1.6rem; }
+      #main.blog a.twitter:before, #main.blog a.rss:before {
+        font-family: 'icons';
+        font-variant: normal;
+        font-weight: normal;
+        speak: none;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+        margin-right: 10px; }
+    #main.blog a.twitter:before {
+      content: '5'; }
+    #main.blog a.rss:before {
+      content: '6'; }
+    #main.blog .sidebar a.twitter, #main.blog .sidebar a.rss {
+      display: block; }
     #main.blog .posts .post {
       border-bottom: 1px solid #fafafb;
       margin-bottom: 20px;
@@ -1457,10 +1460,27 @@ img.avatar {
         margin-bottom: 20px; }
     #main.blog .post img {
       max-width: 100%; }
-    #main.blog .feedback {
-      border-top: 1px solid #fafafb;
-      margin-top: 20px;
-      padding-top: 20px; }
+    #main.blog.post {
+      text-align: center; }
+      #main.blog.post .header {
+        margin: 0 auto;
+        max-width: 720px; }
+      #main.blog.post .content {
+        margin: 0 auto;
+        max-width: 720px;
+        text-align: left; }
+      #main.blog.post .more {
+        border-top: 1px solid #fafafb;
+        margin-top: 20px;
+        padding-top: 20px;
+        text-align: center; }
+        #main.blog.post .more .field {
+          display: inline-block;
+          vertical-align: middle; }
+        #main.blog.post .more input, #main.blog.post .more .button {
+          padding: 10px 20px; }
+        #main.blog.post .more .twitter {
+          margin-right: 20px; }
 
 /* Footer */
 #footer {

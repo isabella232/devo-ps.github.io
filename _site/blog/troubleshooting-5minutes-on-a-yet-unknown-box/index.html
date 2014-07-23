@@ -34,6 +34,7 @@
 <body>
   <header id='header'>
     <nav class='menu'>
+      <a href='/pricing'>Pricing</a>
       <a href='http://docs.devo.ps'>Documentation</a>
       <!-- <a href='#'>Help & Support</a> -->
       <a href='/blog'>Blog</a>
@@ -44,11 +45,9 @@
   </header>
 
   
-<section id='main' class='blog'>
+<section id='main' class='blog post'>
   <header class='header'>
-    <div class='controls'>
-      <a href='/blog' class='back'>Back to the blog</a>
-    </div>
+    <a href='/blog' class='back'><span>Back to the blog</span></a>
 
     <h1>First 5 Minutes Troubleshooting A Server</h1>
 
@@ -72,31 +71,6 @@
       on <time datetime=''>March 06, 2013</time>
     </span>
   </header>
-
-  <aside class='sidebar'>
-    <section class='pitch'>
-  <h3>A single API for your servers</h3>
-  <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
-<a class='button add' href='http://app.devo.ps'>Sign up for <strong>free</strong></a>
-<small>Already have an account? <a href='https://app.devo.ps'>Sign in</a>.</small>
-</section>
-
-<section class='subscribe'>
-  <div class='controls'>
-    <a class='twitter' href='http://twitter.com/devo_ps'><span>Follow us on twitter</span></a>
-    <a class='rss' href='/atom.xml'><span>RSS feed</span></a>
-  </div>
-  <h3>Stay tuned</h3>
-  <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
-  <div class='field'>
-    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
-  </div>
-  <div class='field'>
-    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
-  </div>
-</form>
-</section>
-  </aside>
 
   <article class='content'>
     <p>Back when our team was dealing with operations, optimization and scalability at <a href="http://wiredcraft.com">our previous company</a>, we had our fair share of troubleshooting poorly performing applications and infrastructures of various sizes, often large (think CNN or the World Bank). Tight deadlines, &quot;exotic&quot; technical stacks and lack of information usually made for memorable experiences.</p>
@@ -234,9 +208,20 @@ $ for user in $(cat /etc/passwd | cut -f1 -d:); do crontab -l -u $user; done
 <p>You may even have found the actual root cause. If not, you should be in a good place to start digging further, with the knowledge that you&#39;ve covered the obvious.</p>
 
     
-    <footer class='feedback'>
-      <h2>Have some feedback?</h2>
-      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/troubleshooting-5minutes-on-a-yet-unknown-box' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5361335' target='_blank'>Hacker News</a>.</p>
+    <footer class='more'>
+      <h2>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/troubleshooting-5minutes-on-a-yet-unknown-box' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5361335' target='_blank'>Hacker News</a>.</h2>
+
+      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
+  </div>
+</form>
+      <a class='twitter' href='http://twitter.com/devo_ps'><span>Follow us on twitter</span></a>
+      <a class='rss' href='/atom.xml'><span>RSS feed</span></a>
+
     </footer>
   </section>
 </section>

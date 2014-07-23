@@ -34,6 +34,7 @@
 <body>
   <header id='header'>
     <nav class='menu'>
+      <a href='/pricing'>Pricing</a>
       <a href='http://docs.devo.ps'>Documentation</a>
       <!-- <a href='#'>Help & Support</a> -->
       <a href='/blog'>Blog</a>
@@ -44,11 +45,9 @@
   </header>
 
   
-<section id='main' class='blog'>
+<section id='main' class='blog post'>
   <header class='header'>
-    <div class='controls'>
-      <a href='/blog' class='back'>Back to the blog</a>
-    </div>
+    <a href='/blog' class='back'><span>Back to the blog</span></a>
 
     <h1>Best Practices: It&#39;s Always Or Never (And Preferably Always)</h1>
 
@@ -73,31 +72,6 @@
     </span>
   </header>
 
-  <aside class='sidebar'>
-    <section class='pitch'>
-  <h3>A single API for your servers</h3>
-  <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
-<a class='button add' href='http://app.devo.ps'>Sign up for <strong>free</strong></a>
-<small>Already have an account? <a href='https://app.devo.ps'>Sign in</a>.</small>
-</section>
-
-<section class='subscribe'>
-  <div class='controls'>
-    <a class='twitter' href='http://twitter.com/devo_ps'><span>Follow us on twitter</span></a>
-    <a class='rss' href='/atom.xml'><span>RSS feed</span></a>
-  </div>
-  <h3>Stay tuned</h3>
-  <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
-  <div class='field'>
-    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
-  </div>
-  <div class='field'>
-    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
-  </div>
-</form>
-</section>
-  </aside>
-
   <article class='content'>
     <p>It&#39;s Monday morning. The development team needs a box and you&#39;re already contemplating the gazillion other urgent tasks that need to be done on the existing infrastructure. <em>Just that one time</em><sup>TM</sup>, you&#39;re going to forget about your own rules. You&#39;re just gonna spawn an instance, set up the few services needed and be done with it. You&#39;ll drop some of the usual time suckers: backup strategy, access rules, init scripts, documentation... You can&#39;t just do the whole of it AND handle the rest of your day-to-day responsibilities. After all, it&#39;s just a development server and you&#39;ll probably fold it in a couple weeks, or you&#39;ll clean it up once your plate is a tad less full.</p>
 <p>A few weeks later, the box is still there and your backlog is far from looking less crowded. The development team just rolled out their production application on the same box. <strong>And things start crashing... badly.</strong></p>
@@ -121,9 +95,20 @@
 <p><em><a href="http://www.flickr.com/photos/comedynose/4103140420/"><small>Picture from comedy_nose</small></a></em></p>
 
     
-    <footer class='feedback'>
-      <h2>Have some feedback?</h2>
-      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/best-practices-it-s-always-or-never' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5200847' target='_blank'>Hacker News</a>.</p>
+    <footer class='more'>
+      <h2>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/best-practices-it-s-always-or-never' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5200847' target='_blank'>Hacker News</a>.</h2>
+
+      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
+  </div>
+</form>
+      <a class='twitter' href='http://twitter.com/devo_ps'><span>Follow us on twitter</span></a>
+      <a class='rss' href='/atom.xml'><span>RSS feed</span></a>
+
     </footer>
   </section>
 </section>

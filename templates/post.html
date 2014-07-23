@@ -1,11 +1,9 @@
 {% extends 'default.html' %}
 
 {% block content %}
-<section id='main' class='blog'>
+<section id='main' class='blog post'>
   <header class='header'>
-    <div class='controls'>
-      <a href='/blog' class='back'>Back to the blog</a>
-    </div>
+    <a href='/blog' class='back'><span>Back to the blog</span></a>
 
     <h1>{{ title }}</h1>
 
@@ -20,16 +18,16 @@
     </span>
   </header>
 
-  <aside class='sidebar'>
-    {% include 'partials/sidebar.html' %}
-  </aside>
-
   <article class='content'>
     {{ contents | safe }}
     
-    <footer class='feedback'>
-      <h2>Have some feedback?</h2>
-      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url={{ site.url }}/{{ path }}' target='_blank'>Twitter</a>{% if hn %} or keep the discussion going on <a href='http://news.ycombinator.com/item?id={{ hn }}' target='_blank'>Hacker News</a>{% endif %}.</p>
+    <footer class='more'>
+      <h2>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url={{ site.url }}/{{ path }}' target='_blank'>Twitter</a>{% if hn %} or keep the discussion going on <a href='http://news.ycombinator.com/item?id={{ hn }}' target='_blank'>Hacker News</a>{% endif %}.</h2>
+
+      {% include 'partials/subscribe.html' %}
+      <a class='twitter' href='http://twitter.com/devo_ps'><span>Follow us on twitter</span></a>
+      <a class='rss' href='/atom.xml'><span>RSS feed</span></a>
+
     </footer>
   </section>
 </section>

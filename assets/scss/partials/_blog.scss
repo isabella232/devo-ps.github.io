@@ -1,3 +1,18 @@
+.header {
+  .back {
+    @include tooltip(right);
+    color: $grey;
+    display: block;
+    left: 0;
+    position: absolute;
+    top: $gutter/2;
+    &:before {
+      @include icon;
+      content: 'j';
+    }
+  }
+}
+
 .meta {
   color: $grey;
   display: block;
@@ -7,6 +22,22 @@
     display: inline-block;
     margin-right: $gutter/4;
     vertical-align: top;
+  }
+}
+a.twitter,
+a.rss {
+  @include font-size();
+  &:before {
+    @include icon();
+    margin-right: $gutter/2;
+  } 
+}
+a.twitter:before { content: '5'; }
+a.rss:before { content: '6'; }
+.sidebar {
+  a.twitter,
+  a.rss {
+    display: block;
   }
 }
 .posts {
@@ -27,8 +58,32 @@
     max-width: 100%;
   }
 }
-.feedback {
-  border-top: 1px solid $light;
-  margin-top: $gutter;
-  padding-top: $gutter;
+&.post {
+  text-align: center;
+  .header, {
+    margin: 0 auto;
+    max-width: $body;
+  }
+  .content {
+    margin: 0 auto;
+    max-width: $body;
+    text-align: left;
+  }
+  .more {
+    border-top: 1px solid $light;
+    margin-top: $gutter;
+    padding-top: $gutter;
+    text-align: center;
+    .field {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    input,
+    .button {
+      padding: $gutter/2 $gutter;
+    }
+    .twitter {
+      margin-right: $gutter;
+    }
+  }
 }

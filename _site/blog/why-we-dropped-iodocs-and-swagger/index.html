@@ -34,6 +34,7 @@
 <body>
   <header id='header'>
     <nav class='menu'>
+      <a href='/pricing'>Pricing</a>
       <a href='http://docs.devo.ps'>Documentation</a>
       <!-- <a href='#'>Help & Support</a> -->
       <a href='/blog'>Blog</a>
@@ -44,11 +45,9 @@
   </header>
 
   
-<section id='main' class='blog'>
+<section id='main' class='blog post'>
   <header class='header'>
-    <div class='controls'>
-      <a href='/blog' class='back'>Back to the blog</a>
-    </div>
+    <a href='/blog' class='back'><span>Back to the blog</span></a>
 
     <h1>Why We Dropped Swagger And I/O Docs</h1>
 
@@ -73,31 +72,6 @@
     </span>
   </header>
 
-  <aside class='sidebar'>
-    <section class='pitch'>
-  <h3>A single API for your servers</h3>
-  <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
-<a class='button add' href='http://app.devo.ps'>Sign up for <strong>free</strong></a>
-<small>Already have an account? <a href='https://app.devo.ps'>Sign in</a>.</small>
-</section>
-
-<section class='subscribe'>
-  <div class='controls'>
-    <a class='twitter' href='http://twitter.com/devo_ps'><span>Follow us on twitter</span></a>
-    <a class='rss' href='/atom.xml'><span>RSS feed</span></a>
-  </div>
-  <h3>Stay tuned</h3>
-  <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
-  <div class='field'>
-    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
-  </div>
-  <div class='field'>
-    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
-  </div>
-</form>
-</section>
-  </aside>
-
   <article class='content'>
     <p>As we started investing in <a href="/blog/2013/01/31/farewell-to-regular-web-development-approaches.html">our new strategy</a> at <a href="http://wiredcraft.com">my previous company</a>, we looked around for solutions to document APIs. It may not be the sexiest part of the project, but documentation is the first step to designing a good API. And I mean <strong>first</strong> as in &quot;before you even start writing tests&quot; (yes, you should be writing tests first too).</p>
 <p>We originally went with a simple Wiki page on Github, which served us just fine in the past. But it quickly became clear that it wasn&#39;t going to cut it. We started thinking about what good documentations is. We&#39;re fans of the single page approach that the <a href="http://backbonejs.com">Backbone.js documentation</a> illustrates well and clearly remembered <a href="http://developer.github.com/">Github</a> and <a href="https://stripe.com/docs">Stripe</a> as easy and well organized resources. Some Googling later, we were contemplating Wordnik&#39;s <a href="http://developers.helloreverb.com/swagger/">Swagger</a>
@@ -115,9 +89,20 @@
 <p>Carte is intentionally crude: <a href="https://github.com/devo-ps/carte">have a look at the README and hack at will</a>. Drop us a shout at <a href="https://twitter.com/devo_ps">@devo_ps</a> if you need help or want to suggest a feature.</p>
 
     
-    <footer class='feedback'>
-      <h2>Have some feedback?</h2>
-      <p>Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/why-we-dropped-iodocs-and-swagger' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5181480' target='_blank'>Hacker News</a>.</p>
+    <footer class='more'>
+      <h2>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/why-we-dropped-iodocs-and-swagger' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5181480' target='_blank'>Hacker News</a>.</h2>
+
+      <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
+  </div>
+</form>
+      <a class='twitter' href='http://twitter.com/devo_ps'><span>Follow us on twitter</span></a>
+      <a class='rss' href='/atom.xml'><span>RSS feed</span></a>
+
     </footer>
   </section>
 </section>
