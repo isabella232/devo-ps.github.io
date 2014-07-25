@@ -7,6 +7,7 @@
     display: block;
     @include font-size($large);
     left: 50%;
+    margin-left: -$gutter;
     position: absolute;
     top: 0;
     width: 2*$gutter;
