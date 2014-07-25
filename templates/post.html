@@ -24,10 +24,11 @@
     <footer class='more'>
       <h2>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url={{ site.url }}/{{ path }}' target='_blank'>Twitter</a>{% if hn %} or keep the discussion going on <a href='http://news.ycombinator.com/item?id={{ hn }}' target='_blank'>Hacker News</a>{% endif %}.</h2>
 
-      {% include 'partials/subscribe.html' %}
-      <a class='twitter' href='http://twitter.com/devo_ps'><span>Follow us on twitter</span></a>
-      <a class='rss' href='/atom.xml'><span>RSS feed</span></a>
-
+      <section class='subscribe'>
+        {% include 'partials/subscribe.html' %}
+        <a class='twitter' href='http://twitter.com/devo_ps'>Follow us on twitter</a>
+         <a class='rss' href='/atom.xml'>RSS feed</a>
+      </section>
     </footer>
   </section>
 </section>

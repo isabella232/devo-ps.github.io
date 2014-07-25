@@ -80,7 +80,6 @@ a.rss:before { content: '6'; }
     border-top: 1px solid $light;
     margin-top: $gutter;
     padding-top: $gutter;
-    text-align: center;
     .field {
       display: inline-block;
       vertical-align: middle;
@@ -89,8 +88,9 @@ a.rss:before { content: '6'; }
     .button {
       padding: $gutter/2 $gutter;
     }
-    .twitter {
-      margin-right: $gutter;
+    .twitter,
+    .rss {
+      display: block;
     }
   }
 }

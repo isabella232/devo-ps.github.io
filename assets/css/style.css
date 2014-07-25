@@ -1479,15 +1479,14 @@ img.avatar {
       #main.blog.post .more {
         border-top: 1px solid #fafafb;
         margin-top: 20px;
-        padding-top: 20px;
-        text-align: center; }
+        padding-top: 20px; }
         #main.blog.post .more .field {
           display: inline-block;
           vertical-align: middle; }
         #main.blog.post .more input, #main.blog.post .more .button {
           padding: 10px 20px; }
-        #main.blog.post .more .twitter {
-          margin-right: 20px; }
+        #main.blog.post .more .twitter, #main.blog.post .more .rss {
+          display: block; }
 
 /* Footer */
 #footer {
@@ -1520,11 +1519,7 @@ img.avatar {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     display: block;
-    width: 100%; }
-  #main.blog .content .more .twitter, #main.blog .content .more .rss {
-    display: block; }
-  #main.blog .content .more .twitter {
-    margin-bottom: 10px; } }
+    width: 100%; } }
 
 /* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 @media (min-width: 481px) and (max-width: 641px) {
