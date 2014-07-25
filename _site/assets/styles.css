@@ -1295,13 +1295,12 @@ img.avatar {
             -moz-box-sizing: border-box;
             box-sizing: border-box; }
     #main.landing .section.features {
-      padding: 40px 0; }
+      padding: 80px 0; }
       #main.landing .section.features .header {
         text-align: center; }
         #main.landing .section.features .header h1 {
           margin: 0; }
       #main.landing .section.features .feature {
-        border-top: 1px solid #eaeced;
         margin-top: 40px;
         padding-top: 40px;
         position: relative; }
@@ -1337,7 +1336,7 @@ img.avatar {
             -o-transform: rotate(45deg);
             transform: rotate(45deg);
             width: 70px;
-            z-index: -1; }
+            z-index: 999; }
         #main.landing .section.features .feature .preview {
           text-align: center; }
           #main.landing .section.features .feature .preview img {
