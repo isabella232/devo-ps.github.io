@@ -11,7 +11,7 @@ template: post.html
 
 Here's what usually happens: on one side the development team wants to push new features as fast as possible to production, while on the other side, operations are trying to keep things stable. Both teams are evaluated on criteria that are often directly conflicting. The stronger team win one argument... Until the next crisis. And we're not even talking about other teams, they too have conflicting agendas to throw in the mix.
 
-There's no silver bullet for getting evryone to play nicely. That being said, having Dev and Ops on the path of cooperation is not impossible. [DevOps](http://en.wikipedia.org/wiki/Devops) is exactly this; fostering a culture of best practices and collaboration between these teams.
+There's no silver bullet for getting everyone to play nicely. That being said, having Dev and Ops on the path of cooperation is not impossible. [DevOps](http://en.wikipedia.org/wiki/Devops) is exactly this; fostering a culture of best practices and collaboration between these teams.
 
 In a very similar fashion to what happened with the agile movement, a lot of tools and approaches emerged that can help: methodologies (SCRUMs, kanban...), tools for configuration management (Chef, Puppet), orchestration, automation, logging... But at the core lies the need for nurturing a specific culture.
 

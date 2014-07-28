@@ -13,21 +13,6 @@
       margin-bottom: $gutter;
       padding-bottom: $gutter;
     }
-    &.blog {
-      .content {
-        .more {
-          .field {
-            display: block;
-          }
-          input,
-          .button {
-            @include box-sizing(border-box);
-            display: block;
-            width: 100%;
-          }
-        }
-      }
-    }
   }
 }
 
@@ -63,7 +48,7 @@
 
 @media (min-width: 641px) {
   html {
-    font-size: 60%;
+    font-size: 62.5%;
   }
 
   $sidebar: 220px;
@@ -94,6 +79,12 @@
         border-left: 1px solid $light;
         float: right;
         padding-left: $gutter;
+      }
+      &.post {
+        .subscribe,
+        .pitch {
+          @include halves();
+        }
       }
     }
     &.landing {
@@ -129,12 +120,22 @@
     .sidebar {
       width: $sidebar;
     }
-    &.blog .sidebar + .content {
-      margin-right: $sidebar;
+    &.blog {
+      .sidebar + .content {
+        margin-right: $sidebar;
+      }
+      &.post {
+        .subscribe ul li.newsletter * {
+          display: inline-block;
+          vertical-align: middle;
+          width: auto;
+        }
+      }
     }
     &.page .sidebar + .content {
       margin-left: $sidebar;
     }
+
   }
 }
 

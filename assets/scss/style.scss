@@ -109,8 +109,13 @@ img.avatar {
     input,
     .button {
       @include box-sizing(border-box);
-      padding: $gutter/2;
       width: 100%;
+    }
+    input {
+      padding: $gutter/2;
+    }
+    .button {
+      padding: $gutter/2 $gutter;
     }
     .pitch {
       margin-bottom: $gutter;

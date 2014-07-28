@@ -31,20 +31,30 @@
     vertical-align: top;
   }
 }
-a.twitter,
-a.rss {
-  @include font-size();
-  &:before {
-    @include icon();
-    margin-right: $gutter/2;
-  } 
-}
-a.twitter:before { content: '5'; }
-a.rss:before { content: '6'; }
-.sidebar {
-  a.twitter,
-  a.rss {
-    display: block;
+.subscribe {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      margin: 0;
+      padding: 0;
+      &.newsletter * {
+        @include box-sizing(border-box);
+        width: 100%;
+      }
+      &.twitter,
+      &.rss {
+        a {
+          &:before {
+            @include icon();
+            margin-right: $gutter/2;
+          } 
+        }
+      }
+      &.rss a:before { content: '6'; }
+      &.twitter a:before { content: '5'; }
+    }
   }
 }
 .posts {
@@ -78,19 +88,29 @@ a.rss:before { content: '6'; }
   }
   .more {
     border-top: 1px solid $light;
+    @include clearfix;
     margin-top: $gutter;
     padding-top: $gutter;
-    .field {
-      display: inline-block;
-      vertical-align: middle;
+    input {
+      padding: $gutter/2;
     }
-    input,
     .button {
       padding: $gutter/2 $gutter;
     }
-    .twitter,
-    .rss {
-      display: block;
+    h3 {
+      @include font-size($larger);
+    }
+    .pitch {
+      input,
+      .button {
+        @include box-sizing(border-box);
+        width: 100%;
+      }
+      .button + small {
+        display: block;
+        padding-top: $gutter/4;
+        text-align: center;
+      }
     }
   }
 }

@@ -19,32 +19,24 @@ $thin: 720px;
     text-align: center;
     h1,
     h2 {
-      max-width: $thin;
+      max-width: $thin - 2*$gutter;
     }
     h1 {
+      @include font-size(40);
       margin: 0 auto $gutter/2;
     }
     h2 {
       color: $grey;
-      @include font-size($large);
+      @include font-size($larger);
       margin: 0 auto;
     }
     .button {
       margin: 2*$gutter auto;
     }
-    .preview {
+    img {
+      display: block;
       margin: 0 auto;
-      max-width: $thin;
-      width: 90%;
-      img {
-        display: block;
-        width: 100%;
-        &.demo {
-          border: 1px solid tint($line, 20%);
-          border-width: 0 1px;
-          @include box-sizing(border-box);
-        }
-      }
+      max-width: 100%;
     }
   }
   &.features {
