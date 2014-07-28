@@ -5,5 +5,4 @@
 
 _site/
 node_modules/
-vendor/
-components/
+bower_components/
