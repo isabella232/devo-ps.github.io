@@ -3,6 +3,7 @@
 !.gitmodules
 *~
 
+_site/
 node_modules/
 vendor/
 components/
