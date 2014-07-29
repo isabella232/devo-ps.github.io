@@ -6,6 +6,39 @@
     font-size: 57%;
   }
 
+  #header {
+    .toggle {
+      color: $grey;
+      float: right;
+      &:after {
+        @include icon;
+        content: '/';
+        margin-left: $gutter/4;
+        vertical-align: middle;
+      }
+      &.active {
+        &:after {
+          content: '\'';
+        }
+        + .menu {
+          display: block;
+        }
+      }
+    }
+    .menu {
+      display: none;
+      margin: $gutter 0 (-$gutter);
+      a {
+        border-top: 1px solid $line;
+        display: block;
+        padding: 1.5*$gutter/2 0;
+        &.active {
+          color: inherit;
+        }
+      }
+    }
+  }
+
   #main {
     .sidebar {
       @include clearfix;
@@ -21,6 +54,38 @@
 @media (min-width: 481px) and (max-width: 641px) {
   html {
     font-size: 59%;
+  }
+
+  #header {
+    .toggle {
+      color: $grey;
+      float: right;
+      &:after {
+        @include icon;
+        content: '/';
+        margin-left: $gutter/4;
+      }
+      &.active {
+        &:after {
+          content: '\'';
+        }
+        + .menu {
+          display: block;
+        }
+      }
+    }
+    .menu {
+      display: none;
+      margin: $gutter 0 (-$gutter);
+      a {
+        border-top: 1px solid $line;
+        display: block;
+        padding: 1.5*$gutter/2 0;
+        &.active {
+          color: inherit;
+        }
+      }
+    }
   }
 
   #main {
@@ -49,6 +114,32 @@
 @media (min-width: 641px) {
   html {
     font-size: 62.5%;
+  }
+
+  #header {
+    @include clearfix;
+    .logo {
+      float: left;
+    }
+    .toggle {
+      display: none;
+    }
+    .menu {
+      float: right;
+      @include font-size($small);
+      a {
+        margin-left: $gutter;
+        &.active {
+          color: inherit;
+        }
+      }
+      .sign-in {
+        @include button();
+        @include font-size($pico);
+        padding: 1px $gutter/2;
+        text-transform: uppercase;
+      }
+    }
   }
 
   $sidebar: 220px;

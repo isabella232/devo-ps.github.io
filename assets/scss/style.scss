@@ -77,20 +77,6 @@ img.avatar {
 			margin-right: $gutter/4;
 	  }
 	}
-	.menu {
-		float: right;
-		@include font-size($small);
-		a {
-			margin-left: $gutter;
-      &.active {
-        color: inherit;
-      }
-		}
-    .button {
-      @include font-size($pico);
-      padding: 1px $gutter/2;
-    }
-	}
 }
 
 /* Main */
