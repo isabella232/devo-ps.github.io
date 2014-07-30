@@ -3,9 +3,11 @@ title: About
 template: page.html
 ---
 
-## What is devo.ps?
+## What is devo.ps
 
-[devo.ps](http://devo.ps) is a service which facilitates the management of technical infrastructures and operations: provisioning new servers, managing services or automating your application deployment strategy can all be organized through very straightforward JSON files (not unlike [package.json](https://npmjs.org/doc/json.html)).
+We let developers manage and automate their servers using simple tools they are familiar with: Git and YAML.
+
+Add a simple YAML description of your server, git commit, git push and voila. Need to automate things up: adding database backups, continuous deployment, autoscaling or testing is just as easy.
 
 ## Why devo.ps?
 
