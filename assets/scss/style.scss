@@ -116,17 +116,13 @@ img.avatar {
       margin-bottom: $gutter;
       a {
         border-bottom: 1px solid $light;
-        color: inherit;
         display: block;
-        padding: $gutter/2 $gutter;
+        padding: 1.5*$gutter/2 0;
         @include transition-property(background);
         @include transition-duration(0.2s);
         &.active {
+          color: inherit;
           font-weight: bold;
-        }
-        &.active,
-        &:hover {
-          background: $light;
         }
       }
     }

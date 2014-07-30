@@ -1207,9 +1207,8 @@ img.avatar {
       margin-bottom: 20px; }
       #main .sidebar .menu a {
         border-bottom: 1px solid #f3f4f5;
-        color: inherit;
         display: block;
-        padding: 10px 20px;
+        padding: 15px 0;
         -webkit-transition-property: background;
         -moz-transition-property: background;
         transition-property: background;
@@ -1217,9 +1216,8 @@ img.avatar {
         -moz-transition-duration: 0.2s;
         transition-duration: 0.2s; }
         #main .sidebar .menu a.active {
+          color: inherit;
           font-weight: bold; }
-        #main .sidebar .menu a.active, #main .sidebar .menu a:hover {
-          background: #f3f4f5; }
   #main > .header {
     padding: 60px 0;
     text-align: center; }
@@ -1469,8 +1467,8 @@ img.avatar {
         text-align: left; }
       #main.blog.post .more {
         border-top: 1px solid #f3f4f5;
-        margin-top: 20px;
-        padding-top: 20px; }
+        margin-top: 30px;
+        padding-top: 30px; }
         #main.blog.post .more:after {
           content: "";
           display: table;
@@ -1648,29 +1646,22 @@ img.avatar {
     width: 220px; }
     #main .sidebar.sticky {
       position: absolute; }
-  #main.page .sidebar + .content {
-    margin-left: 220px;
-    padding-left: 20px; }
-  #main.page .sidebar {
-    border-right: 1px solid #f3f4f5;
-    float: left;
-    padding-right: 20px; }
-  #main.blog .sidebar + .content {
+  #main .sidebar + .content {
     margin-right: 220px;
     padding-right: 20px; }
-  #main.blog .sidebar {
+  #main .sidebar {
     border-left: 1px solid #f3f4f5;
     float: right;
     padding-left: 20px; }
-  #main.blog.post .subscribe, #main.blog.post .pitch {
+  #main.post .subscribe, #main.post .pitch {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 50%; }
-    #main.blog.post .subscribe:nth-child(odd), #main.blog.post .pitch:nth-child(odd) {
+    #main.post .subscribe:nth-child(odd), #main.post .pitch:nth-child(odd) {
       float: left;
       padding-right: 20px; }
-    #main.blog.post .subscribe:nth-child(even), #main.blog.post .pitch:nth-child(even) {
+    #main.post .subscribe:nth-child(even), #main.post .pitch:nth-child(even) {
       float: right;
       padding-left: 20px; }
   #main.landing .section.features .feature:nth-child(odd) > * {
@@ -1702,14 +1693,12 @@ img.avatar {
     font-size: 62.5%; }
   #main .sidebar {
     width: 240px; }
-  #main.blog .sidebar + .content {
+  #main .sidebar + .content {
     margin-right: 240px; }
-  #main.blog.post .subscribe ul li.newsletter * {
+  #main.post .subscribe ul li.newsletter * {
     display: inline-block;
     vertical-align: middle;
-    width: auto; }
-  #main.page .sidebar + .content {
-    margin-left: 240px; } }
+    width: auto; } }
 
 /* Big landscape tablets, laptops, and desktops */
 @media (min-width: 1025px) { }

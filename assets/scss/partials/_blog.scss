@@ -89,8 +89,8 @@
   .more {
     border-top: 1px solid $light;
     @include clearfix;
-    margin-top: $gutter;
-    padding-top: $gutter;
+    margin-top: 1.5*$gutter;
+    padding-top: 1.5*$gutter;
     input {
       padding: $gutter/2;
     }

@@ -11,11 +11,19 @@
     <lastmod>{{ date | date("Y-m-d") }}</lastmod>
   </url>
   <url>
+    <loc>{{ site.url }}/about</loc>
+    <lastmod>{{ date | date("Y-m-d") }}</lastmod>
+  </url>
+  <url>
     <loc>{{ site.url }}/blog</loc>
     <lastmod>{{ date | date("Y-m-d") }}</lastmod>
   </url>
   <url>
-    <loc>{{ site.url }}/about</loc>
+    <loc>{{ site.url }}/privacy</loc>
+    <lastmod>{{ date | date("Y-m-d") }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ site.url }}/tos</loc>
     <lastmod>{{ date | date("Y-m-d") }}</lastmod>
   </url>
 </urlset>

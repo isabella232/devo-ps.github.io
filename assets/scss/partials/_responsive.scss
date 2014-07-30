@@ -97,11 +97,6 @@
       > * {
         @include halves();
       }
-      .pitch {
-        p {
-          /*display: none;*/
-        }
-      }
       .subscribe {
         border-left: 1px solid $light;
       }
@@ -150,32 +145,19 @@
         position: absolute;
       }
     }
-    &.page {
-      .sidebar + .content {
-        margin-left: $sidebar;
-        padding-left: $gutter;
-      }
-      .sidebar {
-        border-right: 1px solid $light;
-        float: left;
-        padding-right: $gutter;
-      }
+    .sidebar + .content {
+      margin-right: $sidebar;
+      padding-right: $gutter;
     }
-    &.blog {
-      .sidebar + .content {
-        margin-right: $sidebar;
-        padding-right: $gutter;
-      }
-      .sidebar {
-        border-left: 1px solid $light;
-        float: right;
-        padding-left: $gutter;
-      }
-      &.post {
-        .subscribe,
-        .pitch {
-          @include halves();
-        }
+    .sidebar {
+      border-left: 1px solid $light;
+      float: right;
+      padding-left: $gutter;
+    }
+    &.post {
+      .subscribe,
+      .pitch {
+        @include halves();
       }
     }
     &.landing {
@@ -211,22 +193,16 @@
     .sidebar {
       width: $sidebar;
     }
-    &.blog {
-      .sidebar + .content {
-        margin-right: $sidebar;
-      }
-      &.post {
-        .subscribe ul li.newsletter * {
-          display: inline-block;
-          vertical-align: middle;
-          width: auto;
-        }
+    .sidebar + .content {
+      margin-right: $sidebar;
+    }
+    &.post {
+      .subscribe ul li.newsletter * {
+        display: inline-block;
+        vertical-align: middle;
+        width: auto;
       }
     }
-    &.page .sidebar + .content {
-      margin-left: $sidebar;
-    }
-
   }
 }
 
