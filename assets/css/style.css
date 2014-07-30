@@ -1202,6 +1202,7 @@ img.avatar {
         padding-top: 5px;
         text-align: center; }
     #main .sidebar .menu {
+      border-top: 1px solid #f3f4f5;
       font-size: 16px;
       font-size: 1.6rem;
       margin-bottom: 20px; }

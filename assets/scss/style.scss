@@ -112,6 +112,7 @@ img.avatar {
       }
     }
     .menu {
+      border-top: 1px solid $light;
       @include font-size();
       margin-bottom: $gutter;
       a {
