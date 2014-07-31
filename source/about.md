@@ -1,29 +1,34 @@
 ---
 title: About
+class: about
 template: page.html
 ---
 
-## What is devo.ps
+## What is devo.ps?
 
-We let developers manage and automate their servers using simple tools they are familiar with: Git and YAML.
+devo.ps is the only API you'll need to manage your infrastructure.
 
-Add a simple YAML description of your server, git commit, git push and voila. Need to automate things up: adding database backups, continuous deployment, autoscaling or testing is just as easy.
+We're on a mission to lower the barriers of entries to [DevOps](http://en.wikipedia.org/wiki/DevOps) by letting you deal with servers the same way you deal with code; you can deploy applications or provision servers with a a couple Git commands.
 
 ## Why devo.ps?
 
-Ops are hard. While the Devops movement is gaining momentum, there are still a few things slowing down its adoption:
+Managing infrastructure is still a painful experience for most teams out there.
 
-* **Tools have high barriers of entry**: configuration management tools such as Chef or Puppet are not trivial to install and maintain.
-* **Lack of best practices**: good tools don't guarantee the value of an ops strategy. Ultimately you rely on the quality of best practices and technical decisions taken by the people implementing it. Without skilled engineers able to take informed and opinionated decisions, these tools are worthless.
-* **Lack of visibility**: what ops teams end up implementing is too often left opaque to outsiders. Developer, product managers and other stakeholders are left locked out of it, leaving little room to collaboration and delegation.
+The options are mostly concentrated around either NoOps approaches (think PaaS for example) which leaves you with a fragmented nad opaque solution, or tools with high barriers of entries (think orchestration and configuration management software) that require the supervision of a professional.
 
-That is what devo.ps addresses:
+We take care of best pratices, letting you focus on declaratively defining what you want your infrastructure to be and how you want it to behave, while giving you the convenience of the workflows you've been acustomed with modern software developemnt; Pull Requests, branches, commits, forks, collaborators...
 
-* **Best practices**: we try and offer our users with a service that already take care of the boilerplate in terms of best practices. For example, stable versions of packages, clean and safe ways of installing services, proper backup strategies...
-* **Low barriers of entry**: partly because we take opinionated choices with regards to best practices, we can let you maintain your whole infrastructure in a simple, condensed way. Adding a new service to one of your servers is as easy as adding a line into a JSON file and committing it. Think ```package.json``` for ops.
-* **Collaborative**: we make it easy for teams to expose what they build, in particular managing access to the automation bits. Letting for example developers run a database snapshot or project managers trigger a code update on the staging server, letting ops focus on investing more into the infrastructure.
+## Who is behind devo.ps?
 
-## How does it work?
-
-1. Users maintain their infrastructure through our JSON Restful API or our Git API (manipulating simple JSON files describing servers, apps and automation bits).
-1. devo.ps act as a middle man to bring the infrastructure in the state described by the user, using Git, Chef and node.js.
+- ![Ronan Berder](/images/team/ronan.png)
+    ### Ronan Berder
+    #### Product, Business & Strategy
+    [GitHub](https://github.com/hunvreus) / [Twitter](https://twitter.com/hunvreus) / [LinkedIn](http://www.linkedin.com/in/ronanberder/)
+- ![Juha Suomalainen](/images/team/juha.png)
+    ### Juha Suomalainen
+    #### Development
+    [GitHub](https://github.com/JuhaFinn) / [Twitter](https://twitter.com/juhas)
+- ![Vincent Viallet](/images/team/vincent.png)
+    ### Vincent Viallet
+    #### Ops
+    [GitHub](https://github.com/zbal) / [Twitter](https://twitter.com/zbalsh)

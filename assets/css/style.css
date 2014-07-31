@@ -1491,6 +1491,28 @@ img.avatar {
           padding-top: 5px;
           text-align: center; }
 
+/* About page */
+body.page-about #main .content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  body.page-about #main .content ul li {
+    border-top: 1px solid #f3f4f5;
+    font-size: 14px;
+    font-size: 1.4rem;
+    margin: 0;
+    padding: 10px; }
+    body.page-about #main .content ul li h3 {
+      margin: 0; }
+    body.page-about #main .content ul li h4 {
+      font-size: inherit;
+      margin: 0; }
+    body.page-about #main .content ul li img {
+      border-radius: 50%;
+      float: left;
+      margin-right: 10px;
+      width: 60px; }
+
 /* Footer */
 #footer {
   padding: 40px 0; }

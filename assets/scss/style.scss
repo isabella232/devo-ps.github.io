@@ -144,6 +144,37 @@ img.avatar {
   }
 }
 
+/* About page */
+
+body.page-about {
+  #main .content {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        border-top: 1px solid $light;
+        @include font-size($smaller);
+        margin: 0;
+        padding: $gutter/2;
+        h3 {
+          margin: 0;
+        }
+        h4 {
+          font-size: inherit;
+          margin: 0;
+        }
+        img {
+          border-radius: 50%;
+          float: left;
+          margin-right: $gutter/2;
+          width: 3*$gutter;
+        }
+      }
+    }
+  }
+}
+
 /* Footer */
 
 #footer {
