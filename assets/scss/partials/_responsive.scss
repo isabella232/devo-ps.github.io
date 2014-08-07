@@ -26,10 +26,11 @@
       }
     }
     .menu {
+      border-bottom: 1px solid $light;
       display: none;
       margin: $gutter 0 (-$gutter);
       a {
-        border-top: 1px solid $line;
+        border-top: 1px solid $light;
         display: block;
         padding: 1.5*$gutter/2 0;
         &.active {
@@ -75,10 +76,11 @@
       }
     }
     .menu {
+      border-bottom: 1px solid $light;
       display: none;
       margin: $gutter 0 (-$gutter);
       a {
-        border-top: 1px solid $line;
+        border-top: 1px solid $light;
         display: block;
         padding: 1.5*$gutter/2 0;
         &.active {

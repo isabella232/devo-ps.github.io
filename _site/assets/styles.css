@@ -1552,10 +1552,11 @@ body.page-about #main .content ul {
     #header .toggle.active + .menu {
       display: block; }
   #header .menu {
+    border-bottom: 1px solid #f3f4f5;
     display: none;
     margin: 20px 0 -20px; }
     #header .menu a {
-      border-top: 1px solid #dde0e2;
+      border-top: 1px solid #f3f4f5;
       display: block;
       padding: 15px 0; }
       #header .menu a.active {
@@ -1590,10 +1591,11 @@ body.page-about #main .content ul {
     #header .toggle.active + .menu {
       display: block; }
   #header .menu {
+    border-bottom: 1px solid #f3f4f5;
     display: none;
     margin: 20px 0 -20px; }
     #header .menu a {
-      border-top: 1px solid #dde0e2;
+      border-top: 1px solid #f3f4f5;
       display: block;
       padding: 15px 0; }
       #header .menu a.active {
