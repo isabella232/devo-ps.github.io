@@ -1161,19 +1161,20 @@ img.avatar {
 /* Header */
 #header {
   padding: 20px 0; }
-  #header .logo:before {
-    font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
-    font-size: 24px;
-    font-size: 2.4rem;
-    font-family: 'icons';
-    font-variant: normal;
-    font-weight: normal;
-    speak: none;
-    text-transform: none;
-    -webkit-font-smoothing: antialiased;
-    content: '2';
-    float: left;
-    margin-right: 5px; }
+  #header .logo {
+    font-family: 'Roboto', 'Open Sans', Arial, sans-serif; }
+    #header .logo:before {
+      font-size: 24px;
+      font-size: 2.4rem;
+      font-family: 'icons';
+      font-variant: normal;
+      font-weight: normal;
+      speak: none;
+      text-transform: none;
+      -webkit-font-smoothing: antialiased;
+      content: '2';
+      float: left;
+      margin-right: 5px; }
 
 /* Main */
 #main {

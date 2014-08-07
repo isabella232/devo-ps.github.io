@@ -77,8 +77,8 @@ img.avatar {
 #header {
 	padding: $gutter 0;
 	.logo {
+    font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
 		&:before {
-      font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
 			@include font-size($large);
 			@include icon();
 			content: '2';
