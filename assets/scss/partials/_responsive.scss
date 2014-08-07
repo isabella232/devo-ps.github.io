@@ -129,9 +129,10 @@
         }
       }
       .sign-in {
-        border: 1px solid #FFF;
-        border-radius: $radius;
-        padding: $gutter/4 $gutter/2;
+        @include button();
+        @include font-size($pico);
+        padding: 1px $gutter/2;
+        text-transform: uppercase;
       }
     }
   }
