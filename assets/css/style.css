@@ -1323,7 +1323,7 @@ img.avatar {
         -ms-transform: rotate(45deg);
         -o-transform: rotate(45deg);
         transform: rotate(45deg);
-        width: 70px;
+        width: 75px;
         z-index: 999; }
     #main.landing .section.features .feature .preview {
       text-align: center; }
