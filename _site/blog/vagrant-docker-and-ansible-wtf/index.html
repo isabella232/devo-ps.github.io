@@ -28,53 +28,57 @@
 <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:100italic,300italic,400italic,700italic,100,300,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
   <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css'>
 </head>
 <body class='page-blog/vagrant-docker-and-ansible-wtf'>
   <header id='header'>
-    <a href='/' class='logo'>devo.ps</a>
+    <div class='wrapper'>
+      <a href='/' class='logo'>devo.ps</a>
 
-    <button class='toggle'>Menu</button>
-    <nav class='menu'>
-      <a href='http://docs.devo.ps/#need-help'>Help</a>
-      <a href='http://docs.devo.ps'>Documentation</a>
-      <a href='/blog'>Blog</a>
-      <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
-    </nav>
+      <button class='toggle'>Menu</button>
+      <nav class='menu'>
+        <a href='http://docs.devo.ps/#need-help'>Help</a>
+        <a href='http://docs.devo.ps'>Documentation</a>
+        <a href='/blog'>Blog</a>
+        <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
+      </nav>
+    </div>
   </header>
 
   
 <section id='main' class='blog post'>
-  <header class='header'>
-    <a href='/blog' class='back'><span>Back to the blog</span></a>
+  <div class='wrapper'>
+    <header class='header'>
+      <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-    <h1>Vagrant, Docker and Ansible. WTF?</h1>
+      <h1>Vagrant, Docker and Ansible. WTF?</h1>
 
-    <span class='meta'>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
-        Vincent Viallet
-      
-      
-      
-      
-      on <time datetime=''>September 25, 2013</time>
-    </span>
-  </header>
+      <span class='meta'>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
+          Vincent Viallet
+        
+        
+        on <time datetime=''>September 25, 2013</time>
+      </span>
+    </header>
 
-  <article class='content'>
-    <p>Given that we&#39;re building a SaaS that helps our client managing their infrastructure, our team is pretty familiar with leveraging VMs and configuration management tools. We&#39;ve actually been heavy users of Vagrant and <a href="http://devo.ps/blog/2013/07/03/ansible-simply-kicks-ass.html">Ansible</a> for the past year, and it&#39;s helped us tremendously normalize our development process.</p>
+    <article class='content'>
+      <p>Given that we&#39;re building a SaaS that helps our client managing their infrastructure, our team is pretty familiar with leveraging VMs and configuration management tools. We&#39;ve actually been heavy users of Vagrant and <a href="http://devo.ps/blog/2013/07/03/ansible-simply-kicks-ass.html">Ansible</a> for the past year, and it&#39;s helped us tremendously normalize our development process.</p>
 <p>As our platform grew in complexity, some additional needs emerged:</p>
 <ul>
 <li><strong>Containerization</strong>; we needed to be able to safely execute custom, and potentially harmful, code.</li>
@@ -260,11 +264,11 @@
 </ol>
 <p>It takes a bit of reading to get more familiar with these tools, and we&#39;ll likely follow up on this post in the next few weeks. However, especially as a small team, this kind of technology allows you to automate and commoditize huge parts of your development and ops workflows. We strongly encourage you to make that investment. It has helped us tremendously increase the pace and quality of our throughput.</p>
 
-    
-    <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/vagrant-docker-and-ansible-wtf' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=6444084' target='_blank'>Hacker News</a>.</h2>
+      
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/vagrant-docker-and-ansible-wtf' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=6444084' target='_blank'>Hacker News</a>.</h2>
 
-    <footer class='more'>
-      <section class='pitch'>
+      <footer class='more'>
+        <section class='pitch'>
   <h3>A single API for your servers</h3>
   <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
 <a class='button add' href='http://app.devo.ps'>Sign up for <strong>free</strong></a>
@@ -286,15 +290,18 @@
     <li class='rss'><a href='/atom.xml'>RSS feed</a></li>
   </ul>
 </section>
-    </footer>
-  </section>
+      </footer>
+    </section>
+  </div>
 </section>
 
 
   <nav id='footer'>
-    <a href='/about'>About</a>
-    <a href='/privacy'>Privacy</a>
-    <a href='/tos'>Terms of Service</a>
+    <div class='wrapper'>
+      <a href='/about'>About</a>
+      <a href='/privacy'>Privacy</a>
+      <a href='/tos'>Terms of Service</a>
+    </div>
   </nav>
 
   <!-- JS -->

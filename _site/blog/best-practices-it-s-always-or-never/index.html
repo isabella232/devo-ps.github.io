@@ -28,53 +28,57 @@
 <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:100italic,300italic,400italic,700italic,100,300,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
   <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css'>
 </head>
 <body class='page-blog/best-practices-it-s-always-or-never'>
   <header id='header'>
-    <a href='/' class='logo'>devo.ps</a>
+    <div class='wrapper'>
+      <a href='/' class='logo'>devo.ps</a>
 
-    <button class='toggle'>Menu</button>
-    <nav class='menu'>
-      <a href='http://docs.devo.ps/#need-help'>Help</a>
-      <a href='http://docs.devo.ps'>Documentation</a>
-      <a href='/blog'>Blog</a>
-      <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
-    </nav>
+      <button class='toggle'>Menu</button>
+      <nav class='menu'>
+        <a href='http://docs.devo.ps/#need-help'>Help</a>
+        <a href='http://docs.devo.ps'>Documentation</a>
+        <a href='/blog'>Blog</a>
+        <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
+      </nav>
+    </div>
   </header>
 
   
 <section id='main' class='blog post'>
-  <header class='header'>
-    <a href='/blog' class='back'><span>Back to the blog</span></a>
+  <div class='wrapper'>
+    <header class='header'>
+      <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-    <h1>Best Practices: It&#39;s Always Or Never (And Preferably Always)</h1>
+      <h1>Best Practices: It&#39;s Always Or Never (And Preferably Always)</h1>
 
-    <span class='meta'>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
-        Vincent Viallet
-      
-      
-      
-      
-      on <time datetime=''>February 11, 2013</time>
-    </span>
-  </header>
+      <span class='meta'>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
+          Vincent Viallet
+        
+        
+        on <time datetime=''>February 11, 2013</time>
+      </span>
+    </header>
 
-  <article class='content'>
-    <p>It&#39;s Monday morning. The development team needs a box and you&#39;re already contemplating the gazillion other urgent tasks that need to be done on the existing infrastructure. <em>Just that one time</em><sup>TM</sup>, you&#39;re going to forget about your own rules. You&#39;re just gonna spawn an instance, set up the few services needed and be done with it. You&#39;ll drop some of the usual time suckers: backup strategy, access rules, init scripts, documentation... You can&#39;t just do the whole of it AND handle the rest of your day-to-day responsibilities. After all, it&#39;s just a development server and you&#39;ll probably fold it in a couple weeks, or you&#39;ll clean it up once your plate is a tad less full.</p>
+    <article class='content'>
+      <p>It&#39;s Monday morning. The development team needs a box and you&#39;re already contemplating the gazillion other urgent tasks that need to be done on the existing infrastructure. <em>Just that one time</em><sup>TM</sup>, you&#39;re going to forget about your own rules. You&#39;re just gonna spawn an instance, set up the few services needed and be done with it. You&#39;ll drop some of the usual time suckers: backup strategy, access rules, init scripts, documentation... You can&#39;t just do the whole of it AND handle the rest of your day-to-day responsibilities. After all, it&#39;s just a development server and you&#39;ll probably fold it in a couple weeks, or you&#39;ll clean it up once your plate is a tad less full.</p>
 <p>A few weeks later, the box is still there and your backlog is far from looking less crowded. The development team just rolled out their production application on the same box. <strong>And things start crashing... badly.</strong></p>
 <p>After a couple of not so courteous emails from the dev team mentioning repetitive crashes, you log in the box and the fun starts. You can&#39;t figure out what services have been deployed, or how exactly they were installed. You can&#39;t restore the database because you don&#39;t know where the bloody backups are. You waste time to find out that CouchDB wasn&#39;t started at boot. All of this while receiving emails of &quot;encouragement&quot; from your colleagues.</p>
 <p>Just because of that &quot;one time&quot;. Except that it&#39;s never just that one time. </p>
@@ -95,11 +99,11 @@
 <p>Not building upon best practices is simply not an option. By doing so, you fail at investing in the foundation for a more robust infrastructure, and more importantly it is depriving you from scaling yourself.</p>
 <p><em><a href="http://www.flickr.com/photos/comedynose/4103140420/"><small>Picture from comedy_nose</small></a></em></p>
 
-    
-    <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/best-practices-it-s-always-or-never' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5200847' target='_blank'>Hacker News</a>.</h2>
+      
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/best-practices-it-s-always-or-never' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5200847' target='_blank'>Hacker News</a>.</h2>
 
-    <footer class='more'>
-      <section class='pitch'>
+      <footer class='more'>
+        <section class='pitch'>
   <h3>A single API for your servers</h3>
   <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
 <a class='button add' href='http://app.devo.ps'>Sign up for <strong>free</strong></a>
@@ -121,15 +125,18 @@
     <li class='rss'><a href='/atom.xml'>RSS feed</a></li>
   </ul>
 </section>
-    </footer>
-  </section>
+      </footer>
+    </section>
+  </div>
 </section>
 
 
   <nav id='footer'>
-    <a href='/about'>About</a>
-    <a href='/privacy'>Privacy</a>
-    <a href='/tos'>Terms of Service</a>
+    <div class='wrapper'>
+      <a href='/about'>About</a>
+      <a href='/privacy'>Privacy</a>
+      <a href='/tos'>Terms of Service</a>
+    </div>
   </nav>
 
   <!-- JS -->

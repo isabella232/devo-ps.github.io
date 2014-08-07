@@ -28,53 +28,57 @@
 <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:100italic,300italic,400italic,700italic,100,300,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
   <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css'>
 </head>
 <body class='page-blog/goodbye-node-forever-hello-pm2'>
   <header id='header'>
-    <a href='/' class='logo'>devo.ps</a>
+    <div class='wrapper'>
+      <a href='/' class='logo'>devo.ps</a>
 
-    <button class='toggle'>Menu</button>
-    <nav class='menu'>
-      <a href='http://docs.devo.ps/#need-help'>Help</a>
-      <a href='http://docs.devo.ps'>Documentation</a>
-      <a href='/blog'>Blog</a>
-      <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
-    </nav>
+      <button class='toggle'>Menu</button>
+      <nav class='menu'>
+        <a href='http://docs.devo.ps/#need-help'>Help</a>
+        <a href='http://docs.devo.ps'>Documentation</a>
+        <a href='/blog'>Blog</a>
+        <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
+      </nav>
+    </div>
   </header>
 
   
 <section id='main' class='blog post'>
-  <header class='header'>
-    <a href='/blog' class='back'><span>Back to the blog</span></a>
+  <div class='wrapper'>
+    <header class='header'>
+      <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-    <h1>Goodbye node-forever, hello PM2</h1>
+      <h1>Goodbye node-forever, hello PM2</h1>
 
-    <span class='meta'>
-      
-      
-      
-      
-        <img class='avatar' alt='Alexandre Strzelewicz' src='/images/team/alex-small.png'/> 
-        Alexandre Strzelewicz
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      on <time datetime=''>June 26, 2013</time>
-    </span>
-  </header>
+      <span class='meta'>
+        
+        
+          <img class='avatar' alt='Alexandre Strzelewicz' src='/images/team/alex-small.png'/> 
+          Alexandre Strzelewicz
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        on <time datetime=''>June 26, 2013</time>
+      </span>
+    </header>
 
-  <article class='content'>
-    <p>It&#39;s no secret that the devo.ps team has a crush on Javascript; node.js in the backend, AngularJS for our clients, there isn&#39;t much of our stack that isn&#39;t at least in part built with it. Our approach of building <a href="http://devo.ps/blog/2013/01/31/farewell-to-regular-web-development-approaches.html">static clients and RESTful JSON APIs</a> means that we run a lot of node.js and I must admit that, despite all of it awesomeness, node.js still is a bit of a headache when it comes to running in production. Tooling and best practices (think monitoring, logging, error traces...) are still lacking when compared to some of the more established languages.</p>
+    <article class='content'>
+      <p>It&#39;s no secret that the devo.ps team has a crush on Javascript; node.js in the backend, AngularJS for our clients, there isn&#39;t much of our stack that isn&#39;t at least in part built with it. Our approach of building <a href="http://devo.ps/blog/2013/01/31/farewell-to-regular-web-development-approaches.html">static clients and RESTful JSON APIs</a> means that we run a lot of node.js and I must admit that, despite all of it awesomeness, node.js still is a bit of a headache when it comes to running in production. Tooling and best practices (think monitoring, logging, error traces...) are still lacking when compared to some of the more established languages.</p>
 <p>So far, we had been relying on the pretty nifty <a href="https://github.com/nodejitsu/forever">node-forever</a>. Great tool, but a few things were missing:</p>
 <ul>
 <li>Limited monitoring and logging abilities,</li>
@@ -210,11 +214,11 @@ $ pm2 resurect // All my processes are now up and running
 </ul>
 <p>Special thanks to <a href="https://github.com/makara">Makara Wang</a> for concepts/tools and <a href="https://github.com/rlidwka">Alex Kocharin</a> for advices and pull requests.</p>
 
-    
-    <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/goodbye-node-forever-hello-pm2' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5945420' target='_blank'>Hacker News</a>.</h2>
+      
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/goodbye-node-forever-hello-pm2' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5945420' target='_blank'>Hacker News</a>.</h2>
 
-    <footer class='more'>
-      <section class='pitch'>
+      <footer class='more'>
+        <section class='pitch'>
   <h3>A single API for your servers</h3>
   <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
 <a class='button add' href='http://app.devo.ps'>Sign up for <strong>free</strong></a>
@@ -236,15 +240,18 @@ $ pm2 resurect // All my processes are now up and running
     <li class='rss'><a href='/atom.xml'>RSS feed</a></li>
   </ul>
 </section>
-    </footer>
-  </section>
+      </footer>
+    </section>
+  </div>
 </section>
 
 
   <nav id='footer'>
-    <a href='/about'>About</a>
-    <a href='/privacy'>Privacy</a>
-    <a href='/tos'>Terms of Service</a>
+    <div class='wrapper'>
+      <a href='/about'>About</a>
+      <a href='/privacy'>Privacy</a>
+      <a href='/tos'>Terms of Service</a>
+    </div>
   </nav>
 
   <!-- JS -->

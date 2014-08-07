@@ -28,31 +28,35 @@
 <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:100italic,300italic,400italic,700italic,100,300,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
   <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css'>
 </head>
 <body class='page-about'>
   <header id='header'>
-    <a href='/' class='logo'>devo.ps</a>
+    <div class='wrapper'>
+      <a href='/' class='logo'>devo.ps</a>
 
-    <button class='toggle'>Menu</button>
-    <nav class='menu'>
-      <a href='http://docs.devo.ps/#need-help'>Help</a>
-      <a href='http://docs.devo.ps'>Documentation</a>
-      <a href='/blog'>Blog</a>
-      <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
-    </nav>
+      <button class='toggle'>Menu</button>
+      <nav class='menu'>
+        <a href='http://docs.devo.ps/#need-help'>Help</a>
+        <a href='http://docs.devo.ps'>Documentation</a>
+        <a href='/blog'>Blog</a>
+        <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
+      </nav>
+    </div>
   </header>
 
   
 <section id='main' class='page'>
-  <header class='header'>
-    <h1>About</h1>
-  </header>
+  <div class='wrapper'>
+    <header class='header'>
+      <h1>About</h1>
+    </header>
 
-  <aside class='sidebar'>
-    <nav class='menu'>
+    <aside class='sidebar'>
+      <nav class='menu'>
   <!-- <a href='/features'>Features</a> -->
   <!-- <a href='/pricing'>Pricing</a> -->
   <a href='/about' class='active'>About</a>
@@ -66,10 +70,10 @@
 <a class='button add' href='http://app.devo.ps'>Sign up for <strong>free</strong></a>
 <small>Already have an account? <a href='https://app.devo.ps'>Sign in</a>.</small>
 </section>
-  </aside>
+    </aside>
 
-  <section class='content'>
-    <h2 id="what-is-devo-ps-">What is devo.ps?</h2>
+    <section class='content'>
+      <h2 id="what-is-devo-ps-">What is devo.ps?</h2>
 <p>devo.ps is the only API you&#39;ll need to manage your infrastructure.</p>
 <p>We&#39;re on a mission to lower the barriers of entries to <a href="http://en.wikipedia.org/wiki/DevOps">DevOps</a> by letting you deal with servers the same way you deal with code; you can deploy applications or provision servers with a a couple Git commands.</p>
 <h2 id="why-devo-ps-">Why devo.ps?</h2>
@@ -89,14 +93,17 @@
   <a href="https://github.com/zbal">GitHub</a> / <a href="https://twitter.com/zbalsh">Twitter</a></li>
 </ul>
 
-  </section>
+    </section>
+  </div>
 </section>
 
 
   <nav id='footer'>
-    <a href='/about'>About</a>
-    <a href='/privacy'>Privacy</a>
-    <a href='/tos'>Terms of Service</a>
+    <div class='wrapper'>
+      <a href='/about'>About</a>
+      <a href='/privacy'>Privacy</a>
+      <a href='/tos'>Terms of Service</a>
+    </div>
   </nav>
 
   <!-- JS -->

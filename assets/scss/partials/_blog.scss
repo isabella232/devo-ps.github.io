@@ -1,22 +1,30 @@
 .header {
   .back {
-    background: $light;
+    /*background: $light;*/
+    border: 1px solid $light;
     @include tooltip(bottom);
-    border-radius: 0 0 $radius $radius;
+    border-radius: 50%;
     color: $grey;
     display: block;
     @include font-size($large);
     left: 50%;
-    margin-left: -$gutter;
+    line-height: 1;
+    margin-left: (-$large/2) + px;
+    padding: $gutter/5;
     position: absolute;
     top: 0;
-    width: 2*$gutter;
     &:before {
       @include icon;
       content: '"';
     }
     &:hover {
+      border-color: $grey;
       color: $black;
+    }
+  }
+  &:hover {
+    .back {
+      opacity: 1;
     }
   }
 }
@@ -59,9 +67,7 @@
 }
 .posts {
   .post {
-    border-bottom: 1px solid $light;
-    margin-bottom: $gutter;
-    padding-bottom: $gutter;
+    margin-bottom: 2*$gutter;
     h2 {
       margin: 0;
     }
@@ -87,10 +93,8 @@
     text-align: left;
   }
   .more {
-    border-top: 1px solid $light;
     @include clearfix;
-    margin-top: 1.5*$gutter;
-    padding-top: 1.5*$gutter;
+    margin: 2*$gutter 0;
     input {
       padding: $gutter/2;
     }

@@ -28,53 +28,57 @@
 <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:100italic,300italic,400italic,700italic,100,300,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
   <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css'>
 </head>
 <body class='page-blog/zookeeper-vs-doozer-vs-etcd'>
   <header id='header'>
-    <a href='/' class='logo'>devo.ps</a>
+    <div class='wrapper'>
+      <a href='/' class='logo'>devo.ps</a>
 
-    <button class='toggle'>Menu</button>
-    <nav class='menu'>
-      <a href='http://docs.devo.ps/#need-help'>Help</a>
-      <a href='http://docs.devo.ps'>Documentation</a>
-      <a href='/blog'>Blog</a>
-      <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
-    </nav>
+      <button class='toggle'>Menu</button>
+      <nav class='menu'>
+        <a href='http://docs.devo.ps/#need-help'>Help</a>
+        <a href='http://docs.devo.ps'>Documentation</a>
+        <a href='/blog'>Blog</a>
+        <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
+      </nav>
+    </div>
   </header>
 
   
 <section id='main' class='blog post'>
-  <header class='header'>
-    <a href='/blog' class='back'><span>Back to the blog</span></a>
+  <div class='wrapper'>
+    <header class='header'>
+      <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-    <h1>ZooKeeper vs. Doozer vs. Etcd</h1>
+      <h1>ZooKeeper vs. Doozer vs. Etcd</h1>
 
-    <span class='meta'>
-      
-      
-        <img class='avatar' alt='Juha Suomalainen' src='/images/team/juha-small.png'/> 
-        Juha Suomalainen
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      on <time datetime=''>September 11, 2013</time>
-    </span>
-  </header>
+      <span class='meta'>
+        
+        
+        
+        
+          <img class='avatar' alt='Juha Suomalainen' src='/images/team/juha-small.png'/> 
+          Juha Suomalainen
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        on <time datetime=''>September 11, 2013</time>
+      </span>
+    </header>
 
-  <article class='content'>
-    <p>While <a href="http://devo.ps">devo.ps</a> is fast approaching a public release, the team has been dealing with an increasingly complex infrastructure. We more recently faced an interesting issue; how do you share configuration across a cluster of servers? More importantly, how do you do so in a resilient, secure, easily deployable and speedy fashion?</p>
+    <article class='content'>
+      <p>While <a href="http://devo.ps">devo.ps</a> is fast approaching a public release, the team has been dealing with an increasingly complex infrastructure. We more recently faced an interesting issue; how do you share configuration across a cluster of servers? More importantly, how do you do so in a resilient, secure, easily deployable and speedy fashion?</p>
 <p>That&#39;s what got us to evaluate some of the options available out there; ZooKeeper, Doozer and etcd. These tools all solve similar sets of problems but their approach differ quite significantly. Since we spent some time evaluating them, we thought we&#39;d share our findings.</p>
 <h3 id="zookeeper-the-old-dog">ZooKeeper, the old dog</h3>
 <p><a href="http://zookeeper.apache.org/">ZooKeeper</a> is the most well known (and oldest) project we&#39;ve looked into. It&#39;s used by a few big players (Rackspace, Yahoo, eBay, <a href="https://news.ycombinator.com/item?id=6367979">Youtube</a>) and is pretty mature.</p>
@@ -138,11 +142,11 @@ It was first released by the <a href="http://coreos.com">CoreOS</a> team a month
 <h3 id="conclusion">Conclusion</h3>
 <p>In the end, we decided to give etcd a try. So far it seems to work well for our needs and the very active development pace seems to validate our choice. It has proven resilient and will likely hold well until we have the resources to either customize its data propagation approach, or build our own solution that will answer some needs it is not likely to answer (we&#39;ve already looked into doing so with ZeroMQ and Go).</p>
 
-    
-    <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/zookeeper-vs-doozer-vs-etcd' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=6366665' target='_blank'>Hacker News</a>.</h2>
+      
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/zookeeper-vs-doozer-vs-etcd' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=6366665' target='_blank'>Hacker News</a>.</h2>
 
-    <footer class='more'>
-      <section class='pitch'>
+      <footer class='more'>
+        <section class='pitch'>
   <h3>A single API for your servers</h3>
   <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
 <a class='button add' href='http://app.devo.ps'>Sign up for <strong>free</strong></a>
@@ -164,15 +168,18 @@ It was first released by the <a href="http://coreos.com">CoreOS</a> team a month
     <li class='rss'><a href='/atom.xml'>RSS feed</a></li>
   </ul>
 </section>
-    </footer>
-  </section>
+      </footer>
+    </section>
+  </div>
 </section>
 
 
   <nav id='footer'>
-    <a href='/about'>About</a>
-    <a href='/privacy'>Privacy</a>
-    <a href='/tos'>Terms of Service</a>
+    <div class='wrapper'>
+      <a href='/about'>About</a>
+      <a href='/privacy'>Privacy</a>
+      <a href='/tos'>Terms of Service</a>
+    </div>
   </nav>
 
   <!-- JS -->

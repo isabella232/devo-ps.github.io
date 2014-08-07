@@ -28,53 +28,57 @@
 <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:100italic,300italic,400italic,700italic,100,300,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
   <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css'>
 </head>
 <body class='page-blog/farewell-to-regular-web-development-approaches'>
   <header id='header'>
-    <a href='/' class='logo'>devo.ps</a>
+    <div class='wrapper'>
+      <a href='/' class='logo'>devo.ps</a>
 
-    <button class='toggle'>Menu</button>
-    <nav class='menu'>
-      <a href='http://docs.devo.ps/#need-help'>Help</a>
-      <a href='http://docs.devo.ps'>Documentation</a>
-      <a href='/blog'>Blog</a>
-      <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
-    </nav>
+      <button class='toggle'>Menu</button>
+      <nav class='menu'>
+        <a href='http://docs.devo.ps/#need-help'>Help</a>
+        <a href='http://docs.devo.ps'>Documentation</a>
+        <a href='/blog'>Blog</a>
+        <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
+      </nav>
+    </div>
   </header>
 
   
 <section id='main' class='blog post'>
-  <header class='header'>
-    <a href='/blog' class='back'><span>Back to the blog</span></a>
+  <div class='wrapper'>
+    <header class='header'>
+      <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-    <h1>Farewell to Regular Web Development Approaches</h1>
+      <h1>Farewell to Regular Web Development Approaches</h1>
 
-    <span class='meta'>
-      
-      
-      
-      
-      
-      
-      
-      
-        <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
-        Ronan Berder
-      
-      
-      
-      
-      
-      
-      on <time datetime=''>January 31, 2013</time>
-    </span>
-  </header>
+      <span class='meta'>
+        
+        
+        
+        
+        
+        
+          <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
+          Ronan Berder
+        
+        
+        
+        
+        
+        
+        
+        
+        on <time datetime=''>January 31, 2013</time>
+      </span>
+    </header>
 
-  <article class='content'>
-    <p>At my <a href="http://wiredcraft.com">previous company</a>, we built Web applications for medium to large organizations, often in the humanitarian and non-profit space, facing original problems revolving around data. Things like building the <a href="http://wiredcraft.com/work/southern-sudan-referendum/index.html">voting infrastructure for the Southern Sudan Referendum</a> helped us diversify our technical chops. But until a year ago, we were still mostly building regular Web applications; the user requests a page that we build and serve back.</p>
+    <article class='content'>
+      <p>At my <a href="http://wiredcraft.com">previous company</a>, we built Web applications for medium to large organizations, often in the humanitarian and non-profit space, facing original problems revolving around data. Things like building the <a href="http://wiredcraft.com/work/southern-sudan-referendum/index.html">voting infrastructure for the Southern Sudan Referendum</a> helped us diversify our technical chops. But until a year ago, we were still mostly building regular Web applications; the user requests a page that we build and serve back.</p>
 <p><strong>Until we started falling in love with APIs and static clients.</strong></p>
 <p>It&#39;s not that we fundamentally disliked the previous approach. We just reached a point where we felt our goals weren&#39;t best served by this model. With lots of dynamic data, complex visualizations and a set of &quot;static&quot; interfaces, the traditional way was hindering our development speed and our ability to experiment. And so we got busy, experimenting at first with smaller parts of our projects (blog, help section, download pages...). We realized our use of complex pieces of softwares like content management systems had seriously biased our approach to problem solving. <strong>The CMS had become a boilerplate, an unchallenged dependency.</strong></p>
 <p>We&#39;ve gradually adopted a pattern of building front-ends as static clients (may they be Web, mobile or 3rd party integrations) combined with, usually, one RESTful JSON API in the backend. And it works marvelously, thanks in part to some awesome tech much smarter people figured out for us:</p>
@@ -90,11 +94,11 @@
 <p>A lot of things happen in parallel and changes on one side rarely impact the other: we can make drastic changes in the UI without any change on the backend. And there were a lot of unexpected gains too, in security, speed and overall maintainability. More importantly, we&#39;ve freed a lot of our resources to focus on building compelling user experiences instead of fighting a large piece of software to do what we want it to do.</p>
 <p>If you haven&#39;t tried building things that way yet, give it a try honestly (when relevant); it may be a larger initial investment in some cases but you&#39;ll come out on top at almost every level.</p>
 
-    
-    <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/farewell-to-regular-web-development-approaches' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5144188' target='_blank'>Hacker News</a>.</h2>
+      
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/farewell-to-regular-web-development-approaches' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5144188' target='_blank'>Hacker News</a>.</h2>
 
-    <footer class='more'>
-      <section class='pitch'>
+      <footer class='more'>
+        <section class='pitch'>
   <h3>A single API for your servers</h3>
   <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
 <a class='button add' href='http://app.devo.ps'>Sign up for <strong>free</strong></a>
@@ -116,15 +120,18 @@
     <li class='rss'><a href='/atom.xml'>RSS feed</a></li>
   </ul>
 </section>
-    </footer>
-  </section>
+      </footer>
+    </section>
+  </div>
 </section>
 
 
   <nav id='footer'>
-    <a href='/about'>About</a>
-    <a href='/privacy'>Privacy</a>
-    <a href='/tos'>Terms of Service</a>
+    <div class='wrapper'>
+      <a href='/about'>About</a>
+      <a href='/privacy'>Privacy</a>
+      <a href='/tos'>Terms of Service</a>
+    </div>
   </nav>
 
   <!-- JS -->

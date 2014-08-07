@@ -28,53 +28,57 @@
 <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:100italic,300italic,400italic,700italic,100,300,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
   <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css'>
 </head>
 <body class='page-blog/why-we-dropped-iodocs-and-swagger'>
   <header id='header'>
-    <a href='/' class='logo'>devo.ps</a>
+    <div class='wrapper'>
+      <a href='/' class='logo'>devo.ps</a>
 
-    <button class='toggle'>Menu</button>
-    <nav class='menu'>
-      <a href='http://docs.devo.ps/#need-help'>Help</a>
-      <a href='http://docs.devo.ps'>Documentation</a>
-      <a href='/blog'>Blog</a>
-      <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
-    </nav>
+      <button class='toggle'>Menu</button>
+      <nav class='menu'>
+        <a href='http://docs.devo.ps/#need-help'>Help</a>
+        <a href='http://docs.devo.ps'>Documentation</a>
+        <a href='/blog'>Blog</a>
+        <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
+      </nav>
+    </div>
   </header>
 
   
 <section id='main' class='blog post'>
-  <header class='header'>
-    <a href='/blog' class='back'><span>Back to the blog</span></a>
+  <div class='wrapper'>
+    <header class='header'>
+      <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-    <h1>Why We Dropped Swagger And I/O Docs</h1>
+      <h1>Why We Dropped Swagger And I/O Docs</h1>
 
-    <span class='meta'>
-      
-      
-      
-      
-      
-      
-      
-      
-        <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
-        Ronan Berder
-      
-      
-      
-      
-      
-      
-      on <time datetime=''>February 07, 2013</time>
-    </span>
-  </header>
+      <span class='meta'>
+        
+        
+        
+        
+        
+        
+          <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
+          Ronan Berder
+        
+        
+        
+        
+        
+        
+        
+        
+        on <time datetime=''>February 07, 2013</time>
+      </span>
+    </header>
 
-  <article class='content'>
-    <p>As we started investing in <a href="/blog/2013/01/31/farewell-to-regular-web-development-approaches.html">our new strategy</a> at <a href="http://wiredcraft.com">my previous company</a>, we looked around for solutions to document APIs. It may not be the sexiest part of the project, but documentation is the first step to designing a good API. And I mean <strong>first</strong> as in &quot;before you even start writing tests&quot; (yes, you should be writing tests first too).</p>
+    <article class='content'>
+      <p>As we started investing in <a href="/blog/2013/01/31/farewell-to-regular-web-development-approaches.html">our new strategy</a> at <a href="http://wiredcraft.com">my previous company</a>, we looked around for solutions to document APIs. It may not be the sexiest part of the project, but documentation is the first step to designing a good API. And I mean <strong>first</strong> as in &quot;before you even start writing tests&quot; (yes, you should be writing tests first too).</p>
 <p>We originally went with a simple Wiki page on Github, which served us just fine in the past. But it quickly became clear that it wasn&#39;t going to cut it. We started thinking about what good documentations is. We&#39;re fans of the single page approach that the <a href="http://backbonejs.com">Backbone.js documentation</a> illustrates well and clearly remembered <a href="http://developer.github.com/">Github</a> and <a href="https://stripe.com/docs">Stripe</a> as easy and well organized resources. Some Googling later, we were contemplating Wordnik&#39;s <a href="http://developers.helloreverb.com/swagger/">Swagger</a>
  and Mashery&#39;s <a href="http://www.mashery.com/product/io-docs">I/O Docs</a>. We later settled for I/O Docs as it is built with node.js and was more straightforward to set up (for us at least).</p>
 <p>Once again, we hit a wall with this approach:</p>
@@ -89,11 +93,11 @@
 <p>We&#39;re real suckers for Jekyll. We&#39;ve actually used it to build quite a few static clients for our APIs. One of the advantages of this approach is that we can bundle our documentation with our codebase by simply pushing it on the <code>gh-pages</code> branch, and it pops up as a Github page. That&#39;s tremendously important for us as it make it very easy for developers to keep the documentation and the code in synch.</p>
 <p>Carte is intentionally crude: <a href="https://github.com/devo-ps/carte">have a look at the README and hack at will</a>. Drop us a shout at <a href="https://twitter.com/devo_ps">@devo_ps</a> if you need help or want to suggest a feature.</p>
 
-    
-    <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/why-we-dropped-iodocs-and-swagger' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5181480' target='_blank'>Hacker News</a>.</h2>
+      
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/why-we-dropped-iodocs-and-swagger' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5181480' target='_blank'>Hacker News</a>.</h2>
 
-    <footer class='more'>
-      <section class='pitch'>
+      <footer class='more'>
+        <section class='pitch'>
   <h3>A single API for your servers</h3>
   <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
 <a class='button add' href='http://app.devo.ps'>Sign up for <strong>free</strong></a>
@@ -115,15 +119,18 @@
     <li class='rss'><a href='/atom.xml'>RSS feed</a></li>
   </ul>
 </section>
-    </footer>
-  </section>
+      </footer>
+    </section>
+  </div>
 </section>
 
 
   <nav id='footer'>
-    <a href='/about'>About</a>
-    <a href='/privacy'>Privacy</a>
-    <a href='/tos'>Terms of Service</a>
+    <div class='wrapper'>
+      <a href='/about'>About</a>
+      <a href='/privacy'>Privacy</a>
+      <a href='/tos'>Terms of Service</a>
+    </div>
   </nav>
 
   <!-- JS -->

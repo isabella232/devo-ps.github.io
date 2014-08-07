@@ -28,53 +28,57 @@
 <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:100italic,300italic,400italic,700italic,100,300,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
   <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css'>
 </head>
 <body class='page-blog/designing-a-restful-api-that-doesn-t-suck'>
   <header id='header'>
-    <a href='/' class='logo'>devo.ps</a>
+    <div class='wrapper'>
+      <a href='/' class='logo'>devo.ps</a>
 
-    <button class='toggle'>Menu</button>
-    <nav class='menu'>
-      <a href='http://docs.devo.ps/#need-help'>Help</a>
-      <a href='http://docs.devo.ps'>Documentation</a>
-      <a href='/blog'>Blog</a>
-      <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
-    </nav>
+      <button class='toggle'>Menu</button>
+      <nav class='menu'>
+        <a href='http://docs.devo.ps/#need-help'>Help</a>
+        <a href='http://docs.devo.ps'>Documentation</a>
+        <a href='/blog'>Blog</a>
+        <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
+      </nav>
+    </div>
   </header>
 
   
 <section id='main' class='blog post'>
-  <header class='header'>
-    <a href='/blog' class='back'><span>Back to the blog</span></a>
+  <div class='wrapper'>
+    <header class='header'>
+      <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-    <h1>Designing A RESTful API That Doesn&#39;t Suck</h1>
+      <h1>Designing A RESTful API That Doesn&#39;t Suck</h1>
 
-    <span class='meta'>
-      
-      
-      
-      
-      
-      
-      
-      
-        <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
-        Ronan Berder
-      
-      
-      
-      
-      
-      
-      on <time datetime=''>March 22, 2013</time>
-    </span>
-  </header>
+      <span class='meta'>
+        
+        
+        
+        
+        
+        
+          <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
+          Ronan Berder
+        
+        
+        
+        
+        
+        
+        
+        
+        on <time datetime=''>March 22, 2013</time>
+      </span>
+    </header>
 
-  <article class='content'>
-    <p>As we&#39;re getting closer to shipping the first version of <a href="http://devo.ps">devo.ps</a> and we are joined by a few new team members, the team took the time to review the few principles we followed when designing our RESTful JSON API. A lot of these can be found on <a href="https://blog.apigee.com/taglist/rest_api_design">apigee&#39;s blog</a> (a recommended read). Let me give you the gist of it:</p>
+    <article class='content'>
+      <p>As we&#39;re getting closer to shipping the first version of <a href="http://devo.ps">devo.ps</a> and we are joined by a few new team members, the team took the time to review the few principles we followed when designing our RESTful JSON API. A lot of these can be found on <a href="https://blog.apigee.com/taglist/rest_api_design">apigee&#39;s blog</a> (a recommended read). Let me give you the gist of it:</p>
 <ul>
 <li><strong>Design your API for developers first</strong>, they are the main users. In that respect, simplicity and intuitivity matter.</li>
 <li><strong>Use <a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">HTTP verbs</a></strong> instead of relying on parameters (e.g. <code>?action=create</code>). HTTP verbs map nicely with <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a>:<ul>
@@ -107,11 +111,11 @@
 <li><strong>Lowercase everywhere in URLs</strong>.</li>
 </ul>
 
-    
-    <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/designing-a-restful-api-that-doesn-t-suck' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5422402' target='_blank'>Hacker News</a>.</h2>
+      
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/designing-a-restful-api-that-doesn-t-suck' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5422402' target='_blank'>Hacker News</a>.</h2>
 
-    <footer class='more'>
-      <section class='pitch'>
+      <footer class='more'>
+        <section class='pitch'>
   <h3>A single API for your servers</h3>
   <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
 <a class='button add' href='http://app.devo.ps'>Sign up for <strong>free</strong></a>
@@ -133,15 +137,18 @@
     <li class='rss'><a href='/atom.xml'>RSS feed</a></li>
   </ul>
 </section>
-    </footer>
-  </section>
+      </footer>
+    </section>
+  </div>
 </section>
 
 
   <nav id='footer'>
-    <a href='/about'>About</a>
-    <a href='/privacy'>Privacy</a>
-    <a href='/tos'>Terms of Service</a>
+    <div class='wrapper'>
+      <a href='/about'>About</a>
+      <a href='/privacy'>Privacy</a>
+      <a href='/tos'>Terms of Service</a>
+    </div>
   </nav>
 
   <!-- JS -->

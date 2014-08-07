@@ -28,64 +28,68 @@
 <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:100italic,300italic,400italic,700italic,100,300,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
   <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css'>
 </head>
 <body class='page-blog/101-on-development-and-operations'>
   <header id='header'>
-    <a href='/' class='logo'>devo.ps</a>
+    <div class='wrapper'>
+      <a href='/' class='logo'>devo.ps</a>
 
-    <button class='toggle'>Menu</button>
-    <nav class='menu'>
-      <a href='http://docs.devo.ps/#need-help'>Help</a>
-      <a href='http://docs.devo.ps'>Documentation</a>
-      <a href='/blog'>Blog</a>
-      <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
-    </nav>
+      <button class='toggle'>Menu</button>
+      <nav class='menu'>
+        <a href='http://docs.devo.ps/#need-help'>Help</a>
+        <a href='http://docs.devo.ps'>Documentation</a>
+        <a href='/blog'>Blog</a>
+        <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
+      </nav>
+    </div>
   </header>
 
   
 <section id='main' class='blog post'>
-  <header class='header'>
-    <a href='/blog' class='back'><span>Back to the blog</span></a>
+  <div class='wrapper'>
+    <header class='header'>
+      <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-    <h1>101 On DevOps And How We Plan On Helping</h1>
+      <h1>101 On DevOps And How We Plan On Helping</h1>
 
-    <span class='meta'>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
-        Vincent Viallet
-      
-      
-      
-      
-      on <time datetime=''>October 23, 2012</time>
-    </span>
-  </header>
+      <span class='meta'>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
+          Vincent Viallet
+        
+        
+        on <time datetime=''>October 23, 2012</time>
+      </span>
+    </header>
 
-  <article class='content'>
-    <p>Here&#39;s what usually happens: on one side the development team wants to push new features as fast as possible to production, while on the other side, operations are trying to keep things stable. Both teams are evaluated on criteria that are often directly conflicting. The stronger team win one argument... Until the next crisis. And we&#39;re not even talking about other teams, they too have conflicting agendas to throw in the mix.</p>
+    <article class='content'>
+      <p>Here&#39;s what usually happens: on one side the development team wants to push new features as fast as possible to production, while on the other side, operations are trying to keep things stable. Both teams are evaluated on criteria that are often directly conflicting. The stronger team win one argument... Until the next crisis. And we&#39;re not even talking about other teams, they too have conflicting agendas to throw in the mix.</p>
 <p>There&#39;s no silver bullet for getting everyone to play nicely. That being said, having Dev and Ops on the path of cooperation is not impossible. <a href="http://en.wikipedia.org/wiki/Devops">DevOps</a> is exactly this; fostering a culture of best practices and collaboration between these teams.</p>
 <p>In a very similar fashion to what happened with the agile movement, a lot of tools and approaches emerged that can help: methodologies (SCRUMs, kanban...), tools for configuration management (Chef, Puppet), orchestration, automation, logging... But at the core lies the need for nurturing a specific culture.</p>
 <p>Operations teams have been slower to adopt these methodologies compared to development teams. The average system administrator spend more time working in FIFO, putting up fires, rather than making long term investments in automation or setting up best practices. Moreover, operations teams are usually faced with a logic of budget cuts and cost &quot;optimizations&quot;, compared to the larger R&amp;D budget development teams seem to enjoy.</p>
 <p>Even when conditions (and resources) are favorable to the growth of a proper culture, recruiting the right profiles can prove very challenging. We&#39;re here talking about people with a wide range of skills, on-hands experience and strong collaboration and organizational skills. All of this take time. Best practices are forged through years of experience.</p>
 <p>That is why we&#39;re building <a href="http://devo.ps">devo.ps</a>. We&#39;re trying to lower the barriers of entry to this field and help professionals scale themselves in their role. We&#39;re a motivated team of engineers who have worked on both sides of the fence, with small to very large code bases and infrastructures. We hope to untangle the mess that often is infrastructure and application management, letting technical teams focus on the higher value tasks of the job.</p>
 
-    
-    <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/101-on-development-and-operations' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5181253' target='_blank'>Hacker News</a>.</h2>
+      
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/101-on-development-and-operations' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5181253' target='_blank'>Hacker News</a>.</h2>
 
-    <footer class='more'>
-      <section class='pitch'>
+      <footer class='more'>
+        <section class='pitch'>
   <h3>A single API for your servers</h3>
   <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
 <a class='button add' href='http://app.devo.ps'>Sign up for <strong>free</strong></a>
@@ -107,15 +111,18 @@
     <li class='rss'><a href='/atom.xml'>RSS feed</a></li>
   </ul>
 </section>
-    </footer>
-  </section>
+      </footer>
+    </section>
+  </div>
 </section>
 
 
   <nav id='footer'>
-    <a href='/about'>About</a>
-    <a href='/privacy'>Privacy</a>
-    <a href='/tos'>Terms of Service</a>
+    <div class='wrapper'>
+      <a href='/about'>About</a>
+      <a href='/privacy'>Privacy</a>
+      <a href='/tos'>Terms of Service</a>
+    </div>
   </nav>
 
   <!-- JS -->

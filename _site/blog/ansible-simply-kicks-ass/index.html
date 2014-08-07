@@ -28,53 +28,57 @@
 <meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
 
   <!-- CSS -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:100italic,300italic,400italic,700italic,100,300,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
   <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css'>
 </head>
 <body class='page-blog/ansible-simply-kicks-ass'>
   <header id='header'>
-    <a href='/' class='logo'>devo.ps</a>
+    <div class='wrapper'>
+      <a href='/' class='logo'>devo.ps</a>
 
-    <button class='toggle'>Menu</button>
-    <nav class='menu'>
-      <a href='http://docs.devo.ps/#need-help'>Help</a>
-      <a href='http://docs.devo.ps'>Documentation</a>
-      <a href='/blog'>Blog</a>
-      <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
-    </nav>
+      <button class='toggle'>Menu</button>
+      <nav class='menu'>
+        <a href='http://docs.devo.ps/#need-help'>Help</a>
+        <a href='http://docs.devo.ps'>Documentation</a>
+        <a href='/blog'>Blog</a>
+        <a href='http://app.devo.ps' class='sign-in'>Sign in</a>
+      </nav>
+    </div>
   </header>
 
   
 <section id='main' class='blog post'>
-  <header class='header'>
-    <a href='/blog' class='back'><span>Back to the blog</span></a>
+  <div class='wrapper'>
+    <header class='header'>
+      <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-    <h1>Ansible Simply Kicks Ass</h1>
+      <h1>Ansible Simply Kicks Ass</h1>
 
-    <span class='meta'>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
-        Vincent Viallet
-      
-      
-      
-      
-      on <time datetime=''>July 03, 2013</time>
-    </span>
-  </header>
+      <span class='meta'>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
+          Vincent Viallet
+        
+        
+        on <time datetime=''>July 03, 2013</time>
+      </span>
+    </header>
 
-  <article class='content'>
-    <p>The devo.ps team has been putting quite a few tools to the test over the years when it comes to managing infrastructures. We&#39;ve developed some ourselves and have adopted others. While the choice to use one over another is not always as clear-cut as we&#39;d like (I&#39;d love to rant about monitoring but will leave that for a later post), we&#39;ve definitely developed kind of a crush for <a href="https://github.com/ansible/ansible">Ansible</a> in the past 6 months. We went through years of using Puppet, then Chef and more recently Salt Stack, before Ansible gained unanimous adoption among our team.</p>
+    <article class='content'>
+      <p>The devo.ps team has been putting quite a few tools to the test over the years when it comes to managing infrastructures. We&#39;ve developed some ourselves and have adopted others. While the choice to use one over another is not always as clear-cut as we&#39;d like (I&#39;d love to rant about monitoring but will leave that for a later post), we&#39;ve definitely developed kind of a crush for <a href="https://github.com/ansible/ansible">Ansible</a> in the past 6 months. We went through years of using Puppet, then Chef and more recently Salt Stack, before Ansible gained unanimous adoption among our team.</p>
 <p>What makes it awesome? Well, on top of my head:</p>
 <ul>
 <li>It&#39;s <strong>agent-less</strong> and works by default in <strong>push mode</strong> (that last point is subjective, I know).</li>
@@ -90,11 +94,11 @@
 <pre><code>pip install ansible
 </code></pre><p>Et voila! You gotta appreciate the simple things in life. Especially the life of a sysadmin.</p>
 
-    
-    <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/ansible-simply-kicks-ass' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5983918' target='_blank'>Hacker News</a>.</h2>
+      
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/ansible-simply-kicks-ass' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5983918' target='_blank'>Hacker News</a>.</h2>
 
-    <footer class='more'>
-      <section class='pitch'>
+      <footer class='more'>
+        <section class='pitch'>
   <h3>A single API for your servers</h3>
   <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
 <a class='button add' href='http://app.devo.ps'>Sign up for <strong>free</strong></a>
@@ -116,15 +120,18 @@
     <li class='rss'><a href='/atom.xml'>RSS feed</a></li>
   </ul>
 </section>
-    </footer>
-  </section>
+      </footer>
+    </section>
+  </div>
 </section>
 
 
   <nav id='footer'>
-    <a href='/about'>About</a>
-    <a href='/privacy'>Privacy</a>
-    <a href='/tos'>Terms of Service</a>
+    <div class='wrapper'>
+      <a href='/about'>About</a>
+      <a href='/privacy'>Privacy</a>
+      <a href='/tos'>Terms of Service</a>
+    </div>
   </nav>
 
   <!-- JS -->

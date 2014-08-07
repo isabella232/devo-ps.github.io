@@ -11,10 +11,19 @@ $body: 720px;
 /* General */
 
 body {
-  line-height: 150%;
+  line-height: 160%;
 	text-align: center;
   @include transition-property(font-size);
   @include transition-duration(0.2s);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
 }
 
 img.avatar {
@@ -55,10 +64,10 @@ img.avatar {
   }
 }
 
-#header,
-#main {
+.wrapper {
 	margin: 0 auto;
   max-width: $width;
+  position: relative;
   text-align: left;
   width: 90%;
 }
@@ -66,13 +75,13 @@ img.avatar {
 /* Header */
 
 #header {
-	border-bottom: 1px solid $line;
 	padding: $gutter 0;
 	.logo {
 		&:before {
+      font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
 			@include font-size($large);
 			@include icon();
-			content: '3';
+			content: '2';
 			float: left;
 			margin-right: $gutter/4;
 	  }
@@ -83,6 +92,9 @@ img.avatar {
 
 #main {
   position: relative;
+  .content {
+    margin-bottom: 2*$gutter;
+  }
 	.sidebar + .content {
     @include box-sizing(border-box);
     img {
@@ -128,7 +140,7 @@ img.avatar {
       }
     }
   }
-	> .header {
+	.wrapper > .header {
 		padding: 3*$gutter 0;
 		text-align: center;
 		h1 {
@@ -177,7 +189,11 @@ body.page-about {
 /* Footer */
 
 #footer {
-  padding: 2*$gutter 0;
+  background: $light;
+  padding: $gutter 0;
+  .wrapper {
+    text-align: right;
+  }
 	a {
     color: $grey;
   	@include font-size($small);
