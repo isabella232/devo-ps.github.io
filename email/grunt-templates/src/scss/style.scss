@@ -166,7 +166,7 @@ a {
 }
 
 .btn-primary {
-  @include button(#3598da, #3598da) }
+  @include button(#3598da, #3598da); }
 
 .btn-secondary {
   @include button(#50cd84, #50cd84); }
