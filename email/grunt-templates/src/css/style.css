@@ -1,0 +1,292 @@
+/* colors */
+/* font */
+/* size */
+/* gutter */
+/* width */
+/* radius */
+/*
+ * GLOBAL
+ */
+* {
+  font-size: 16px;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.6;
+  width: 100% !important;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+table td {
+  /* Let's make sure all tables have defaults */
+  vertical-align: top;
+}
+
+/*
+ * BODY AND CONTAINER
+ */
+body {
+  background-color: #f3f4f5;
+}
+
+.body-wrap {
+  width: 100%;
+  background-color: #f3f4f5;
+}
+
+.container {
+  display: block !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+  /* makes it centered */
+  clear: both !important;
+}
+
+.content {
+  display: block;
+  max-width: 600px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/*
+ * HEADER, MAIN, FOOTER
+ */
+.main {
+  color: #576671;
+  background: white;
+  border-radius: 2px;
+}
+
+.content-wrap {
+  padding: 20px;
+}
+
+.content-block {
+  padding: 0 0 20px;
+}
+
+.header {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.footer {
+  color: #a5adb3;
+  width: 100%;
+  padding: 20px;
+  clear: both;
+}
+
+.footer a {
+  color: #a5adb3;
+  text-decoration: underline;
+}
+
+.footer p, .footer a, .footer unsubscribe, .footer td {
+  font-size: 12px;
+}
+
+/*
+ * TYPOGRAPHY
+ */
+h1, h2, h3 {
+  color: #576671;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  line-height: 1.2;
+  margin: 40px 0 0;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 14px;
+}
+
+p, ul, ol {
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+p li, ul li, ol li {
+  margin-left: 5px;
+  list-style-position: inside;
+}
+
+/*
+ * LINKS AND BUTTONS
+ */
+a {
+  color: #1f8dd6;
+  text-decoration: none;
+}
+
+.btn-primary {
+  display: inline-block;
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 2;
+  text-align: center;
+  background-color: #3598da;
+  border: solid #3598da;
+  border-width: 10px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  display: inline-block;
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 2;
+  text-align: center;
+  background-color: #50cd84;
+  border: solid #50cd84;
+  border-width: 10px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/*
+ * UTILITIES
+ */
+.last {
+  margin-bottom: 0;
+}
+
+.first {
+  margin-top: 0;
+}
+
+.aligncenter {
+  text-align: center;
+}
+
+.alignright {
+  text-align: right;
+}
+
+.alignleft {
+  text-align: left;
+}
+
+.clear {
+  clear: both;
+}
+
+/*
+ * ALERTS
+ */
+.alert {
+  color: white;
+  font-size: 16px;
+  font-weight: 200;
+  text-align: center;
+  padding: 20px;
+  border-radius: 2px 2px 0 0;
+}
+
+.alert a {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.alert.alert-warning {
+  background: #ff8859;
+}
+
+.alert.alert-danger {
+  background: #ff5f5f;
+}
+
+.alert.alert-success {
+  background: #50cd84;
+}
+
+/*
+ * INVOICE
+ */
+.invoice {
+  text-align: left;
+  width: 80%;
+  margin: 40px auto;
+}
+
+.invoice td {
+  padding: 5px 0;
+}
+
+.invoice .invoice-items {
+  width: 100%;
+}
+
+.invoice .invoice-items td {
+  border-top: #eee 1px solid;
+}
+
+.invoice .invoice-items .total td {
+  font-weight: 200;
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+}
+
+/*
+ * RESPONSIVE
+ */
+@media only screen and (max-width: 640px) {
+  h1, h2, h3, h4 {
+    font-weight: 200 !important;
+    margin: 20px 0 5px !important;
+  }
+
+  h1 {
+    font-size: 22px !important;
+  }
+
+  h2 {
+    font-size: 18px !important;
+  }
+
+  h3 {
+    font-size: 16px !important;
+  }
+
+  .container {
+    width: 100% !important;
+  }
+
+  .content, .content-wrapper {
+    padding: 10px !important;
+  }
+
+  .invoice {
+    width: 100% !important;
+  }
+}
