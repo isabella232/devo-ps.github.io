@@ -2,20 +2,20 @@ devo.ps transactional email templates
 =====================================
 
 ## Manual generate
-- template/
+- templates/
 
 Use [premailer](https://github.com/premailer/premailer) to convert css into html inline-css.
 
 ```
-$ cd template
+$ cd templates
 $ premailer action.html > out-action.html
 ```
 
 ## Auto generate
-- grunt-template/
+- grunt-templates/
 
 ```
-$ cd grunt-template
+$ cd grunt-templates
 $ npm install
 $ grunt
 ```
