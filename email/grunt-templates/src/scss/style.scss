@@ -171,6 +171,11 @@ a {
 .btn-secondary {
   @include button(#50cd84, #50cd84); }
 
+.title {
+  margin-top: 0;
+  * { font-size: ($font-base)+2; }
+}
+
 
 /*
  * UTILITIES

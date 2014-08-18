@@ -150,6 +150,14 @@ a {
   border-radius: 2px;
   cursor: pointer; }
 
+.title {
+  margin-top: 0;
+}
+
+.title * {
+  font-size: 18px;
+}
+
 
 /*
  * UTILITIES
