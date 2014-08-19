@@ -24,7 +24,7 @@ $thin: 720px;
       max-width: $thin - 2*$gutter;
     }
     h1 {
-      @include font-size(40);
+      @include font-size(50);
       margin: 2*$gutter auto $gutter/2;
     }
     h2 {
@@ -89,18 +89,21 @@ $thin: 720px;
       .preview {
         text-align: center;
         img {
+          max-width: 100%;
           width: 300px;
           &:first-child {
             display: none;
           }
         }
       }
-      h2 {
-        margin-bottom: $gutter/2;
-        text-align: left;
-      }
-      img {
-        max-width: 100%;
+      .pitch {
+        h2 {
+          margin-bottom: $gutter/2;
+          text-align: left;
+        }
+        p {
+          color: $grey;
+        }
       }
     }
     .more {
