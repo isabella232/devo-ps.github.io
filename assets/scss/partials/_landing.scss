@@ -69,7 +69,7 @@ $thin: 720px;
       &.beta {
         overflow: hidden;
         &:before {
-          background: tint($purple, 60%);
+          background: tint($green, 20%);
           @include box-sizing(border-box);
           color: #FFF;
           content: 'Beta';

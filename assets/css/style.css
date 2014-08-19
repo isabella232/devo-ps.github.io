@@ -1259,6 +1259,8 @@ img.avatar {
     content: '2';
     float: left;
     margin-right: 5px; }
+  #header .signin {
+    font-weight: bold; }
 
 /* Main */
 #main {
@@ -1388,7 +1390,7 @@ img.avatar {
     #main.landing .section.features .feature.beta {
       overflow: hidden; }
       #main.landing .section.features .feature.beta:before {
-        background: #d0c1ea;
+        background: #73d79c;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
@@ -1728,36 +1730,6 @@ body.page-about #main .content ul {
       margin-left: 20px; }
       #header .menu a.active {
         color: inherit; }
-    #header .menu .sign-in {
-      background: #1F8DD6;
-      border-radius: 2px;
-      color: #FFF;
-      display: inline-block;
-      outline: none;
-      padding: 4px 20px;
-      -webkit-transition-property: background, border, color;
-      -moz-transition-property: background, border, color;
-      transition-property: background, border, color;
-      -webkit-transition-duration: 0.1s;
-      -moz-transition-duration: 0.1s;
-      transition-duration: 0.1s;
-      border: 1px solid #1b7ec0;
-      font-size: 10px;
-      font-size: 1rem;
-      padding: 1px 10px;
-      text-transform: uppercase; }
-      #header .menu .sign-in:hover, #header .menu .sign-in:focus {
-        background: #3598da;
-        color: #FFF;
-        text-decoration: none; }
-      #header .menu .sign-in:active, #header .menu .sign-in.active {
-        background: #1b7ec0;
-        color: #FFF;
-        text-decoration: none; }
-      #header .menu .sign-in[disabled=disabled], #header .menu .sign-in[disabled=true], #header .menu .sign-in[disabled] {
-        background: #fafafb;
-        border-color: #e1e1e1;
-        color: #79858d; }
   #main .sidebar {
     width: 220px; }
     #main .sidebar.sticky {
