@@ -130,12 +130,6 @@
           color: inherit;
         }
       }
-      .sign-in {
-        @include button();
-        @include font-size($pico);
-        padding: 1px $gutter/2;
-        text-transform: uppercase;
-      }
     }
   }
 
