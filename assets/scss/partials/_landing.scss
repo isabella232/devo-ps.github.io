@@ -18,6 +18,7 @@ $thin: 720px;
   &.hero {
     border-bottom: 1px solid $line;
     padding-bottom: 0;
+    padding-top: 2*$gutter;
     text-align: center;
     h1,
     h2 {
@@ -25,7 +26,7 @@ $thin: 720px;
     }
     h1 {
       @include font-size(50);
-      margin: 2*$gutter auto $gutter/2;
+      margin: 0 auto $gutter/2;
     }
     h2 {
       color: $grey;
@@ -67,23 +68,15 @@ $thin: 720px;
         }
       }
       &.beta {
-        overflow: hidden;
-        &:before {
-          background: tint($green, 20%);
-          @include box-sizing(border-box);
-          color: #FFF;
+        h2:after {
+          color: $green;
           content: 'Beta';
-          display: block;
-          @include font-size($micro);
-          padding: 1.5*$gutter 0 0;
-          position: absolute;
-          right: -1.5*$gutter;
-          top: -$gutter;
-          text-align: center;
+          display: inline-block;
+          @include font-size($small);
+          line-height: 1;
+          margin-left: $gutter/2;
           text-transform: uppercase;
-          @include transform(rotate(45deg));
-          width: 75px;
-          z-index: 999;
+          vertical-align: top;
         }
       }
       .preview {
