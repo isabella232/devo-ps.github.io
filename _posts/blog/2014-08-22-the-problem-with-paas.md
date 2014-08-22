@@ -28,7 +28,7 @@ All great; focus on developers and abstract everything they may not be comfortab
 
 The problem is this abstraction comes at a price:
 
-- **Fragmentation**: your application is now running on a swarm of micro-services. One for your code, another for your database and probably a bunch of other for caching, load balancing etc. You now have multiple points of failures and need to keep it in mind when architecting your code. It also means your main performance leverage is horizontal scaling.
+- **Fragmentation**: your application is now running on a swarm of micro-services. One for your code, another for your database and probably a bunch of other for caching, load balancing etc. You now have multiple points of failures and need to keep it in mind when designing your code. It also means your main performance leverage is horizontal scaling.
 
 - **Price**: while it may seem cheap at first (especially since providers usually have a free plan for hobbyists), it's been our experience that PaaS become expensive... quickly. As soon as your start scaling to a more serious setup, price goes up by combination of both raw compute and add-ons. It's also a lot more moving parts to deal with.
 
