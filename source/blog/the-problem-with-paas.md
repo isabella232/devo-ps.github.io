@@ -1,11 +1,15 @@
 ---
-published: true
-category: blog
+collection: blog
 title: The Problem With PaaS
-author: ronan
-hn: 
+tags:
+  - PaaS
+  - DevOps
 
-layout: post
+author: ronan
+hn: 5181480
+date: 2014-08-22
+
+template: post.html
 ---
 
 Our team spent the past decade building, deploying and scaling online applications, sometimes to millions of users, using anything from Perl to Go. We've worked with the largest organizations in the world, from Fortune 500 to the UN, governments as well as small, scrappy startups. And we had our fair share of servers crashing and burning. 
