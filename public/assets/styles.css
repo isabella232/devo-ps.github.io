@@ -1317,106 +1317,6 @@ img.avatar {
     text-align: center; }
     #main .wrapper > .header h1 {
       margin: 0; }
-  #main.landing .section h2 {
-    margin-bottom: 40px;
-    text-align: center; }
-  #main.landing .section.hero .wrapper, #main.landing .section.signup .wrapper {
-    text-align: center; }
-  #main.landing .section.hero .button, #main.landing .section.signup .button {
-    background: #50CD84;
-    border-radius: 2px;
-    color: #FFF;
-    display: inline-block;
-    outline: none;
-    padding: 4px 20px;
-    -webkit-transition-property: background, border, color;
-    -moz-transition-property: background, border, color;
-    transition-property: background, border, color;
-    -webkit-transition-duration: 0.1s;
-    -moz-transition-duration: 0.1s;
-    transition-duration: 0.1s;
-    border: 1px solid #48b876;
-    padding: 10px 40px; }
-    #main.landing .section.hero .button:hover, #main.landing .section.hero .button:focus, #main.landing .section.signup .button:hover, #main.landing .section.signup .button:focus {
-      background: #61d290;
-      color: #FFF;
-      text-decoration: none; }
-    #main.landing .section.hero .button:active, #main.landing .section.hero .button.active, #main.landing .section.signup .button:active, #main.landing .section.signup .button.active {
-      background: #48b876;
-      color: #FFF;
-      text-decoration: none; }
-    #main.landing .section.hero .button[disabled=disabled], #main.landing .section.hero .button[disabled=true], #main.landing .section.hero .button[disabled], #main.landing .section.signup .button[disabled=disabled], #main.landing .section.signup .button[disabled=true], #main.landing .section.signup .button[disabled] {
-      background: #fafafb;
-      border-color: #e1e1e1;
-      color: #79858d; }
-  #main.landing .section.hero {
-    border-bottom: 1px solid #dde0e2;
-    padding-bottom: 0;
-    padding-top: 40px;
-    text-align: center; }
-    #main.landing .section.hero h1, #main.landing .section.hero h2 {
-      max-width: 680px; }
-    #main.landing .section.hero h1 {
-      font-size: 50px;
-      font-size: 5rem;
-      margin: 0 auto 10px; }
-    #main.landing .section.hero h2 {
-      color: #a5adb3;
-      font-size: 18px;
-      font-size: 1.8rem;
-      margin: 0 auto; }
-    #main.landing .section.hero .button {
-      margin: 40px auto; }
-    #main.landing .section.hero img {
-      display: block;
-      margin: 0 auto;
-      max-width: 100%; }
-  #main.landing .section.features .header {
-    margin: 80px 0;
-    padding: 0;
-    text-align: center; }
-    #main.landing .section.features .header h1 {
-      margin: 0; }
-  #main.landing .section.features .feature {
-    margin: 80px 0;
-    position: relative; }
-    #main.landing .section.features .feature:after {
-      content: "";
-      display: table;
-      clear: both; }
-    #main.landing .section.features .feature:hover .preview img:first-child {
-      display: inline-block; }
-    #main.landing .section.features .feature:hover .preview img:last-child {
-      display: none; }
-    #main.landing .section.features .feature.beta h2:after {
-      color: #50CD84;
-      content: 'Beta';
-      display: inline-block;
-      font-size: 12px;
-      font-size: 1.2rem;
-      line-height: 1;
-      margin-left: 10px;
-      text-transform: uppercase;
-      vertical-align: top; }
-    #main.landing .section.features .feature .preview {
-      text-align: center; }
-      #main.landing .section.features .feature .preview img {
-        max-width: 100%;
-        width: 300px; }
-        #main.landing .section.features .feature .preview img:first-child {
-          display: none; }
-    #main.landing .section.features .feature .pitch h2 {
-      margin-bottom: 10px;
-      text-align: left; }
-    #main.landing .section.features .feature .pitch p {
-      color: #a5adb3; }
-  #main.landing .section.features .more {
-    border-top: 1px solid #dde0e2;
-    display: block;
-    text-align: center; }
-  #main.landing .section.signup {
-    margin: 80px 0;
-    text-align: center; }
   #main.blog {
     position: relative; }
     #main.blog .header .back {
@@ -1568,6 +1468,152 @@ img.avatar {
           padding-top: 5px;
           text-align: center; }
 
+body.page-front #header {
+  background: #3598da; }
+  body.page-front #header a {
+    color: #FFF; }
+body.page-front #main .section h2 {
+  margin-bottom: 40px;
+  text-align: center; }
+body.page-front #main .section.hero .wrapper, body.page-front #main .section.signup .wrapper {
+  text-align: center; }
+body.page-front #main .section.hero .button, body.page-front #main .section.signup .button {
+  background: #50CD84;
+  border-radius: 2px;
+  color: #FFF;
+  display: inline-block;
+  outline: none;
+  padding: 4px 20px;
+  -webkit-transition-property: background, border, color;
+  -moz-transition-property: background, border, color;
+  transition-property: background, border, color;
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  border: 1px solid #48b876;
+  padding: 7.5px 40px; }
+  body.page-front #main .section.hero .button:hover, body.page-front #main .section.hero .button:focus, body.page-front #main .section.signup .button:hover, body.page-front #main .section.signup .button:focus {
+    background: #61d290;
+    color: #FFF;
+    text-decoration: none; }
+  body.page-front #main .section.hero .button:active, body.page-front #main .section.hero .button.active, body.page-front #main .section.signup .button:active, body.page-front #main .section.signup .button.active {
+    background: #48b876;
+    color: #FFF;
+    text-decoration: none; }
+  body.page-front #main .section.hero .button[disabled=disabled], body.page-front #main .section.hero .button[disabled=true], body.page-front #main .section.hero .button[disabled], body.page-front #main .section.signup .button[disabled=disabled], body.page-front #main .section.signup .button[disabled=true], body.page-front #main .section.signup .button[disabled] {
+    background: #fafafb;
+    border-color: #e1e1e1;
+    color: #79858d; }
+body.page-front #main .section.hero {
+  background: #1F8DD6;
+  background-image: -webkit-linear-gradient( #3598da, #4ba3de);
+  background-image: linear-gradient( #3598da, #4ba3de);
+  padding-bottom: 0;
+  padding-top: 80px; }
+  body.page-front #main .section.hero:after {
+    content: "";
+    display: table;
+    clear: both; }
+  body.page-front #main .section.hero h1, body.page-front #main .section.hero h2 {
+    line-height: 120%;
+    max-width: 680px; }
+  body.page-front #main .section.hero h1 {
+    color: #FFF;
+    font-size: 48px;
+    font-size: 4.8rem;
+    margin: 0 auto 10px; }
+  body.page-front #main .section.hero h2 {
+    color: #e8f3fa;
+    font-size: 18px;
+    font-size: 1.8rem;
+    margin: 0 auto; }
+  body.page-front #main .section.hero .button {
+    border: 2px solid #FFF;
+    font-weight: bold;
+    margin: 40px auto 80px; }
+    body.page-front #main .section.hero .button:hover, body.page-front #main .section.hero .button:focus {
+      border-color: #d2e8f6; }
+      body.page-front #main .section.hero .button:hover.signup, body.page-front #main .section.hero .button:focus.signup {
+        background: #d2e8f6; }
+      body.page-front #main .section.hero .button:hover.video, body.page-front #main .section.hero .button:focus.video {
+        color: #d2e8f6; }
+    body.page-front #main .section.hero .button:active {
+      border-color: #FFF; }
+      body.page-front #main .section.hero .button:active.signup {
+        background: #FFF; }
+      body.page-front #main .section.hero .button:active.video {
+        color: #FFF; }
+    body.page-front #main .section.hero .button.signup {
+      background: #FFF;
+      color: #1F8DD6;
+      margin-right: 5px; }
+    body.page-front #main .section.hero .button.video {
+      background: transparent;
+      margin-left: 5px; }
+  body.page-front #main .section.hero .console {
+    box-shadow: rgba(0, 0, 0, 0.03) 0 1px 0 0;
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: left; }
+    body.page-front #main .section.hero .console .bar {
+      background: #092a40;
+      border-radius: 4px 4px 0 0;
+      padding: 5px 15px; }
+    body.page-front #main .section.hero .console .body {
+      background: #0c3855;
+      color: #FFF;
+      font-family: Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 14px;
+      font-size: 1.4rem;
+      margin: 0;
+      padding: 10px 15px; }
+body.page-front #main .section.features .header {
+  margin: 80px 0;
+  padding: 0;
+  text-align: center; }
+  body.page-front #main .section.features .header h1 {
+    margin: 0; }
+body.page-front #main .section.features .feature {
+  margin: 80px 0;
+  position: relative; }
+  body.page-front #main .section.features .feature:after {
+    content: "";
+    display: table;
+    clear: both; }
+  body.page-front #main .section.features .feature:hover .preview img:first-child {
+    display: inline-block; }
+  body.page-front #main .section.features .feature:hover .preview img:last-child {
+    display: none; }
+  body.page-front #main .section.features .feature.beta h2:after {
+    color: #50CD84;
+    content: 'Beta';
+    display: inline-block;
+    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 1;
+    margin-left: 10px;
+    text-transform: uppercase;
+    vertical-align: top; }
+  body.page-front #main .section.features .feature .preview {
+    text-align: center; }
+    body.page-front #main .section.features .feature .preview img {
+      max-width: 100%;
+      width: 300px; }
+      body.page-front #main .section.features .feature .preview img:first-child {
+        display: none; }
+  body.page-front #main .section.features .feature .pitch h2 {
+    margin-bottom: 10px;
+    text-align: left; }
+  body.page-front #main .section.features .feature .pitch p {
+    color: #a5adb3; }
+body.page-front #main .section.features .more {
+  border-top: 1px solid #dde0e2;
+  display: block;
+  text-align: center; }
+body.page-front #main .section.signup {
+  margin: 80px 0;
+  text-align: center; }
+
 /* About page */
 body.page-about #main .content ul {
   list-style: none;
@@ -1591,7 +1637,7 @@ body.page-about #main .content ul {
 
 /* Footer */
 #footer {
-  border-top: 1px solid #dde0e2;
+  background: #fafafb;
   padding: 20px 0; }
   #footer .wrapper {
     text-align: right; }

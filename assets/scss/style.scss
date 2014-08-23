@@ -145,14 +145,13 @@ img.avatar {
 			margin: 0;
 		}
 	}
-  &.landing {
-    @import 'partials/_landing.scss';
-  }
   &.blog {
     position: relative;
     @import 'partials/_blog.scss';
   }
 }
+
+@import 'partials/_landing.scss';
 
 /* About page */
 
@@ -187,7 +186,7 @@ body.page-about {
 /* Footer */
 
 #footer {
-  border-top: 1px solid $line;
+  background: $light;
   padding: $gutter 0;
   .wrapper {
     text-align: right;

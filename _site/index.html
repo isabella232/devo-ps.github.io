@@ -50,10 +50,34 @@
 <section id='main' class='landing'>
   <header class='hero section' name='hero'>
     <div class='wrapper'>
-      <h1>Manage servers with Git</h1>
-      <h2>Manage and automate all your servers with a few Git commands on any cloud.</h2>
-      <a class='button add' href='https://app.devo.ps'>Sign up for <strong>free</strong></a>
-      <img src='/images/hero.png' alt='devo.ps'/>
+      <h1>Manage your servers with Git</h1>
+      <h2>Create and automate your own servers on any cloud with a few git commands</h2>
+      <a href='https://app.devo.ps' class='button signup'>Try it for free</a>
+      <a href='https://app.devo.ps' class='button video'>See a demo</a>
+      <div class='console'>
+        <header class='bar'><img src='/images/controls.png'/></header>
+        <pre class='body'>$ git add nodes/laravel.yml
+$ git commit -m 'Update nginx domain'
+  [master 27ba3cb] Update nginx domain.
+   1 file changed, 2 insertions(+), 2 deletions(-)
+$ git push
+  Counting objects: 7, done.
+  Delta compression using up to 2 threads.
+  Compressing objects: 100% (3/3), done.
+  Writing objects: 100% (4/4), 444 bytes, done.
+  Total 4 (delta 1), reused 0 (delta 0)
+  remote: 
+  remote: [devo.ps] Git push accepted.
+  remote: [devo.ps] Modified node: nodes/laravel.yml
+  remote: [devo.ps] 
+  remote: [devo.ps] Nodes are being updated, you can watch the progress at:
+  remote: [devo.ps]     https://app.devo.ps/#/zbal/laravel/nodes
+  remote: [devo.ps] Or by using the devops cli with:
+  remote: [devo.ps]     devops logs --repo zbal/laravel --node <node_id>
+  remote: 
+  To git@git.devo.ps:zbal/laravel
+     078335f..27ba3cb  master -> master</pre>
+      </div>
     </div>
   </header>
 
@@ -142,7 +166,7 @@
   <section class='signup section' name='signup'>
     <div class='wrapper'>
       <h1>Dealing with servers doesn't have to be a pain</h1>
-      <a href='https://app.devo.ps' class='button add'>Sign up for <strong>free</strong></a>
+      <a href='https://app.devo.ps' class='button add'>Try it for free</a>
     </div>
   </section>
 </section>
