@@ -6,7 +6,7 @@ tags:
   - DevOps
 
 author: ronan
-hn: 5181480
+hn:
 date: 2014-08-22
 
 template: post.html
