@@ -48,6 +48,30 @@
       padding-bottom: $gutter;
     }
   }
+
+  body.page-front {
+    #header {
+      .toggle {
+        color: #FFF;
+      }
+      .menu {
+        border-bottom-color: tint($blue, 40%);
+        a {
+          border-top-color: tint($blue, 40%);
+        }
+      }
+    }
+
+    #main {
+      .section {
+        &.hero {
+          h1 {
+            @include font-size(36);
+          }
+        }
+      }
+    }
+  }
 }
 
 /* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
@@ -55,39 +79,6 @@
 @media (min-width: 481px) and (max-width: 641px) {
   html {
     font-size: 59%;
-  }
-
-  #header {
-    .toggle {
-      color: $grey;
-      float: right;
-      &:after {
-        @include icon;
-        content: '/';
-        margin-left: $gutter/4;
-      }
-      &.active {
-        &:after {
-          content: '\'';
-        }
-        + .menu {
-          display: block;
-        }
-      }
-    }
-    .menu {
-      border-bottom: 1px solid $light;
-      display: none;
-      margin: $gutter 0 (-$gutter);
-      a {
-        border-top: 1px solid $light;
-        display: block;
-        padding: 1.5*$gutter/2 0;
-        &.active {
-          color: inherit;
-        }
-      }
-    }
   }
 
   #main {
@@ -104,15 +95,23 @@
       }
     }
   }
+
+  body.page-front {
+    #main {
+      .section {
+        &.hero {
+          h1 {
+            @include font-size(42);
+          }
+        }
+      }
+    }
+  }
 }
 
 /* Portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 
 @media (min-width: 641px) {
-  html {
-    font-size: 62.5%;
-  }
-
   #header {
     @include clearfix;
     .logo {
@@ -175,15 +174,23 @@
       }
     }
   }
+
+  body.page-front {
+    #main {
+      .section {
+        &.hero {
+          h1 {
+            @include font-size(48);
+          }
+        }
+      }
+    }
+  }
 }
 
 /* Tablet, landscape iPad, lo-res laptops ands desktops */
 
 @media (min-width: 961px) {
-  html {
-    font-size: 62.5%;
-  }
-
   $sidebar: 240px;
   #main {
     .sidebar {

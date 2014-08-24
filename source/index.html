@@ -9,12 +9,12 @@ template: default.html
       <h1>Manage your servers with Git</h1>
       <h2>Create and automate your own servers on any cloud with a few git commands</h2>
       <a href='https://app.devo.ps' class='button signup'>Try it for free</a>
-      <a href='https://app.devo.ps' class='button video'>See a demo</a>
+      <!-- <a href='https://app.devo.ps' class='button video'>Watch a demo</a> -->
       <div class='console'>
         <header class='bar'><img src='/images/controls.png'/></header>
-        <pre class='body'>$ git add nodes/laravel.yml
-$ git commit -m 'Update nginx domain'
-  [master 27ba3cb] Update nginx domain.
+        <pre class='body'>$ git add nodes/web.yml
+$ git commit -m 'Adding NGINX server'
+  [master 27ba3cb] Adding NGINX server
    1 file changed, 2 insertions(+), 2 deletions(-)
 $ git push
   Counting objects: 7, done.
@@ -23,16 +23,16 @@ $ git push
   Writing objects: 100% (4/4), 444 bytes, done.
   Total 4 (delta 1), reused 0 (delta 0)
   remote: 
-  remote: [devo.ps] Git push accepted.
-  remote: [devo.ps] Modified node: nodes/laravel.yml
-  remote: [devo.ps] 
-  remote: [devo.ps] Nodes are being updated, you can watch the progress at:
-  remote: [devo.ps]     https://app.devo.ps/#/zbal/laravel/nodes
-  remote: [devo.ps] Or by using the devops cli with:
-  remote: [devo.ps]     devops logs --repo zbal/laravel --node <node_id>
+  remote: <strong>[devo.ps] Git push accepted.</strong>
+  remote: <strong>[devo.ps] 1 node updated: web (nodes/web.yml)</strong>
+  remote: <strong>[devo.ps] </strong>
+  remote: <strong>[devo.ps] Your nodes are being synced, to see their status:</strong>
+  remote: <strong>[devo.ps]   Go to: https://app.devo.ps/#/ninjacoder/meanjs/nodes</strong>
+  remote: <strong>[devo.ps]   Use the CLI: `devops logs --repo ninjacoder/meanjs --node &lt;node_id&gt;`</strong>
   remote: 
-  To git@git.devo.ps:zbal/laravel
-     078335f..27ba3cb  master -> master</pre>
+  To git@git.devo.ps:ninjacoder/meanjs
+     078335f..27ba3cb  master -&gt; master
+$ </pre>
       </div>
     </div>
   </header>

@@ -32,12 +32,10 @@ body.page-front {
         padding-top: 4*$gutter;
         h1,
         h2 {
-          line-height: 120%;
           max-width: $thin - 2*$gutter;
         }
         h1 {
           color: #FFF;
-          @include font-size(48);
           margin: 0 auto $gutter/2;
         }
         h2 {
@@ -49,6 +47,7 @@ body.page-front {
           border: 2px solid #FFF;
           font-weight: bold;
           margin: 2*$gutter auto 4*$gutter;
+          width: 6*$gutter;
           &:hover,
           &:focus {
             border-color: tint($blue, 80%);
@@ -71,15 +70,22 @@ body.page-front {
           &.signup {
             background: #FFF;
             color: $blue;
-            margin-right: $gutter/4;
+            /*margin-right: $gutter/4;*/
           }
           &.video {
             background: transparent;
             margin-left: $gutter/4;
+            &:before {
+              @include icon;
+              @include font-size();
+              content: 'r';
+              float: right;
+              margin-left: $gutter/4;
+            }
           }
         }
         .console {
-          box-shadow: rgba(0, 0, 0, 0.03) 0 1px 0 0;
+          /*box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0 0px;*/
           margin: 0 auto;
           max-width: 700px;
           text-align: left;
@@ -91,10 +97,17 @@ body.page-front {
           .body {
             background: shade($blue, 60%);
             color: #FFF;
-            font-family: Monaco, Consolas, 'Lucida Console', monospace;
+            font-family: 'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace;
             @include font-size($smaller);
+            height: 300px;
             margin: 0;
+            overflow-y: auto;
             padding:  $gutter/2 1.5*$gutter/2;
+            word-break: break-word;
+            strong {
+              color: tint($green, 20%);
+              font-weight: inherit;
+            }
           }
         }
       }
