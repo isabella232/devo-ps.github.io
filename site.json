@@ -9,8 +9,8 @@
             "url": "http://devo.ps",
             "author": "devo.ps",
             "email": "info@devo.ps",
-            "dga": "UA-34006371-1",
-            "dgauges": "510b396a613f5d2666000007",
+            "ga": "UA-34006371-1",
+            "gauges": "510b396a613f5d2666000007",
             "keywords": [
                 "devo.ps",
                 "DevOps",
