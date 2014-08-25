@@ -5,6 +5,9 @@ body.page-front {
     background: tint($blue, 10%);
     a {
       color: #FFF;
+      &:hover {
+        color: tint($blue, 80%);
+      }
     }
   }
 

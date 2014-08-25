@@ -59,10 +59,11 @@
         "vendor": {
             "js": [
                 "bower_components/jquery/dist/jquery.js",
-                "bower_components/highlightjs/highlight.pack.js",
-                "bower_components/jquery.typist/jquery.typist.js"
+                "bower_components/highlightjs/highlight.pack.js"
             ],
-            "css": []
+            "css": [
+                "bower_components/highlightjs/styles/github.css"
+            ]
         },
         "custom": {
             "js": [

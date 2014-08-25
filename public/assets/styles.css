@@ -1,3 +1,129 @@
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+.hljs {
+  display: block; padding: 0.5em;
+  color: #333;
+  background: #f8f8f8
+}
+
+.hljs-comment,
+.hljs-template_comment,
+.diff .hljs-header,
+.hljs-javadoc {
+  color: #998;
+  font-style: italic
+}
+
+.hljs-keyword,
+.css .rule .hljs-keyword,
+.hljs-winutils,
+.javascript .hljs-title,
+.nginx .hljs-title,
+.hljs-subst,
+.hljs-request,
+.hljs-status {
+  color: #333;
+  font-weight: bold
+}
+
+.hljs-number,
+.hljs-hexcolor,
+.ruby .hljs-constant {
+  color: #099;
+}
+
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-phpdoc,
+.tex .hljs-formula {
+  color: #d14
+}
+
+.hljs-title,
+.hljs-id,
+.coffeescript .hljs-params,
+.scss .hljs-preprocessor {
+  color: #900;
+  font-weight: bold
+}
+
+.javascript .hljs-title,
+.lisp .hljs-title,
+.clojure .hljs-title,
+.hljs-subst {
+  font-weight: normal
+}
+
+.hljs-class .hljs-title,
+.haskell .hljs-type,
+.vhdl .hljs-literal,
+.tex .hljs-command {
+  color: #458;
+  font-weight: bold
+}
+
+.hljs-tag,
+.hljs-tag .hljs-title,
+.hljs-rules .hljs-property,
+.django .hljs-tag .hljs-keyword {
+  color: #000080;
+  font-weight: normal
+}
+
+.hljs-attribute,
+.hljs-variable,
+.lisp .hljs-body {
+  color: #008080
+}
+
+.hljs-regexp {
+  color: #009926
+}
+
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.lisp .hljs-keyword,
+.tex .hljs-special,
+.hljs-prompt {
+  color: #990073
+}
+
+.hljs-built_in,
+.lisp .hljs-title,
+.clojure .hljs-built_in {
+  color: #0086b3
+}
+
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-pi,
+.hljs-doctype,
+.hljs-shebang,
+.hljs-cdata {
+  color: #999;
+  font-weight: bold
+}
+
+.hljs-deletion {
+  background: #fdd
+}
+
+.hljs-addition {
+  background: #dfd
+}
+
+.diff .hljs-change {
+  background: #0086b3
+}
+
+.hljs-chunk {
+  color: #aaa
+}
+
 /* Open Sans */
 /*
  * Font Definition for Open Sans. This stylesheet comes from
@@ -1472,6 +1598,8 @@ body.page-front #header {
   background: #3598da; }
   body.page-front #header a {
     color: #FFF; }
+    body.page-front #header a:hover {
+      color: #d2e8f6; }
 body.page-front #main .section h2 {
   margin-bottom: 40px;
   text-align: center; }
@@ -1668,6 +1796,23 @@ body.page-about #main .content ul {
 @media (max-width: 481px) {
   html {
     font-size: 57%; }
+  #main .sidebar {
+    border-bottom: 1px solid #fafafb;
+    margin-bottom: 20px;
+    padding-bottom: 20px; }
+    #main .sidebar:after {
+      content: "";
+      display: table;
+      clear: both; }
+  body.page-front #main .section.hero h1 {
+    font-size: 36px;
+    font-size: 3.6rem; }
+  body.page-front #main .section.hero h2 {
+    font-size: 18px;
+    font-size: 1.8rem; } }
+
+/* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (max-width: 640px) {
   #header .toggle {
     color: #a5adb3;
     float: right; }
@@ -1695,26 +1840,14 @@ body.page-about #main .content ul {
       padding: 15px 0; }
       #header .menu a.active {
         color: inherit; }
-  #main .sidebar {
-    border-bottom: 1px solid #fafafb;
-    margin-bottom: 20px;
-    padding-bottom: 20px; }
-    #main .sidebar:after {
-      content: "";
-      display: table;
-      clear: both; }
   body.page-front #header .toggle {
     color: #FFF; }
+    body.page-front #header .toggle:hover {
+      color: #d2e8f6; }
   body.page-front #header .menu {
-    border-bottom-color: #78bae6; }
+    border-bottom-color: #4ba3de; }
     body.page-front #header .menu a {
-      border-top-color: #78bae6; }
-  body.page-front #main .section.hero h1 {
-    font-size: 36px;
-    font-size: 3.6rem; }
-  body.page-front #main .section.hero h2 {
-    font-size: 18px;
-    font-size: 1.8rem; } }
+      border-top-color: #4ba3de; } }
 
 /* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 @media (min-width: 481px) and (max-width: 641px) {

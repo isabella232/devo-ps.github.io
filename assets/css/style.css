@@ -1472,6 +1472,8 @@ body.page-front #header {
   background: #3598da; }
   body.page-front #header a {
     color: #FFF; }
+    body.page-front #header a:hover {
+      color: #d2e8f6; }
 body.page-front #main .section h2 {
   margin-bottom: 40px;
   text-align: center; }
@@ -1668,6 +1670,23 @@ body.page-about #main .content ul {
 @media (max-width: 481px) {
   html {
     font-size: 57%; }
+  #main .sidebar {
+    border-bottom: 1px solid #fafafb;
+    margin-bottom: 20px;
+    padding-bottom: 20px; }
+    #main .sidebar:after {
+      content: "";
+      display: table;
+      clear: both; }
+  body.page-front #main .section.hero h1 {
+    font-size: 36px;
+    font-size: 3.6rem; }
+  body.page-front #main .section.hero h2 {
+    font-size: 18px;
+    font-size: 1.8rem; } }
+
+/* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (max-width: 640px) {
   #header .toggle {
     color: #a5adb3;
     float: right; }
@@ -1695,26 +1714,14 @@ body.page-about #main .content ul {
       padding: 15px 0; }
       #header .menu a.active {
         color: inherit; }
-  #main .sidebar {
-    border-bottom: 1px solid #fafafb;
-    margin-bottom: 20px;
-    padding-bottom: 20px; }
-    #main .sidebar:after {
-      content: "";
-      display: table;
-      clear: both; }
   body.page-front #header .toggle {
     color: #FFF; }
+    body.page-front #header .toggle:hover {
+      color: #d2e8f6; }
   body.page-front #header .menu {
-    border-bottom-color: #78bae6; }
+    border-bottom-color: #4ba3de; }
     body.page-front #header .menu a {
-      border-top-color: #78bae6; }
-  body.page-front #main .section.hero h1 {
-    font-size: 36px;
-    font-size: 3.6rem; }
-  body.page-front #main .section.hero h2 {
-    font-size: 18px;
-    font-size: 1.8rem; } }
+      border-top-color: #4ba3de; } }
 
 /* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 @media (min-width: 481px) and (max-width: 641px) {
