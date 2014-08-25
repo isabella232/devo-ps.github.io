@@ -15,7 +15,7 @@ template: post.html
 
 <script async class='speakerdeck-embed' data-id='9b9300600cbe01326b873a4a8db3af3a' data-ratio='1.33333333333333' src='//speakerdeck.com/assets/embed.js'></script>
 
-I gave a short (last minute) presentation at the [Shanghai Docker meetup last Saturday](http://www.meetup.com/Docker-Shanghai/events/197476672/). We talked about how experience using Docker while building [devo.ps](http://devo.ps) and gave some basic advices as to what to do (and what not to).
+I gave a short (last minute) presentation at the [Shanghai Docker meetup last Saturday](http://www.meetup.com/Docker-Shanghai/events/197476672/) at VMware's office. We talked about how experience using Docker while building [devo.ps](http://devo.ps) and gave some basic advices as to what to do (and what not to).
 
 ## Why we chose Docker?
 
