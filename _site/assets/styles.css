@@ -1521,8 +1521,6 @@ body.page-front #main .section.hero {
     margin: 0 auto 10px; }
   body.page-front #main .section.hero h2 {
     color: #e8f3fa;
-    font-size: 18px;
-    font-size: 1.8rem;
     margin: 0 auto; }
   body.page-front #main .section.hero .button {
     border: 2px solid #FFF;
@@ -1713,7 +1711,10 @@ body.page-about #main .content ul {
       border-top-color: #78bae6; }
   body.page-front #main .section.hero h1 {
     font-size: 36px;
-    font-size: 3.6rem; } }
+    font-size: 3.6rem; }
+  body.page-front #main .section.hero h2 {
+    font-size: 18px;
+    font-size: 1.8rem; } }
 
 /* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 @media (min-width: 481px) and (max-width: 641px) {
@@ -1742,7 +1743,10 @@ body.page-about #main .content ul {
       border-left: 1px solid #fafafb; }
   body.page-front #main .section.hero h1 {
     font-size: 42px;
-    font-size: 4.2rem; } }
+    font-size: 4.2rem; }
+  body.page-front #main .section.hero h2 {
+    font-size: 16px;
+    font-size: 1.6rem; } }
 
 /* Portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 @media (min-width: 641px) {
@@ -1808,7 +1812,10 @@ body.page-about #main .content ul {
       padding-right: 20px; }
   body.page-front #main .section.hero h1 {
     font-size: 48px;
-    font-size: 4.8rem; } }
+    font-size: 4.8rem; }
+  body.page-front #main .section.hero h2 {
+    font-size: 20px;
+    font-size: 2rem; } }
 
 /* Tablet, landscape iPad, lo-res laptops ands desktops */
 @media (min-width: 961px) {

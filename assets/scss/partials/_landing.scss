@@ -40,7 +40,6 @@ body.page-front {
         }
         h2 {
           color: tint($blue, 90%);
-          @include font-size($larger);
           margin: 0 auto;
         }
         .button {
