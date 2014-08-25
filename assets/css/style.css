@@ -1320,7 +1320,6 @@ img.avatar {
   #main.blog {
     position: relative; }
     #main.blog .header .back {
-      /*background: $light;*/
       border: 1px solid #fafafb;
       position: relative;
       border-radius: 50%;
@@ -1333,7 +1332,7 @@ img.avatar {
       margin-left: -12px;
       padding: 4px;
       position: absolute;
-      top: 0; }
+      top: 10px; }
       #main.blog .header .back span {
         background: #203442;
         border-radius: 2px;
@@ -1391,8 +1390,8 @@ img.avatar {
         -webkit-font-smoothing: antialiased;
         content: '"'; }
       #main.blog .header .back:hover {
-        border-color: #a5adb3;
-        color: #203442; }
+        border-color: #1F8DD6;
+        color: #1F8DD6; }
     #main.blog .header:hover .back {
       opacity: 1; }
     #main.blog .meta {

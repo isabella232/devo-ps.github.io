@@ -1,6 +1,5 @@
 .header {
   .back {
-    /*background: $light;*/
     border: 1px solid $light;
     @include tooltip(bottom);
     border-radius: 50%;
@@ -12,14 +11,14 @@
     margin-left: (-$large/2) + px;
     padding: $gutter/5;
     position: absolute;
-    top: 0;
+    top: $gutter/2;
     &:before {
       @include icon;
       content: '"';
     }
     &:hover {
-      border-color: $grey;
-      color: $black;
+      border-color: $blue;
+      color: $blue;
     }
   }
   &:hover {
