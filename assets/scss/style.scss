@@ -192,7 +192,7 @@ body.page-about {
     text-align: right;
   }
 	a {
-    color: $grey;
+    color: inherit;
   	@include font-size($small);
   	padding: 0 $gutter/2;
     &:hover {
