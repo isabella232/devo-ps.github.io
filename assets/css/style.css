@@ -1445,6 +1445,9 @@ img.avatar {
         margin: 0 auto;
         max-width: 720px;
         text-align: left; }
+      #main.blog.post h2.feedback {
+        margin: 60px 0;
+        text-align: center; }
       #main.blog.post .more {
         margin: 40px 0; }
         #main.blog.post .more:after {
@@ -1658,7 +1661,7 @@ body.page-about #main .content ul {
   #footer .wrapper {
     text-align: right; }
   #footer a {
-    color: #a5adb3;
+    color: inherit;
     font-size: 12px;
     font-size: 1.2rem;
     padding: 0 10px; }
@@ -1686,7 +1689,7 @@ body.page-about #main .content ul {
     font-size: 1.8rem; } }
 
 /* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-@media (max-width: 640px) {
+@media (max-width: 641px) {
   #header .toggle {
     color: #a5adb3;
     float: right; }
