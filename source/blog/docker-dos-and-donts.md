@@ -44,7 +44,7 @@ XXXX EXAMPLES OF THIS???? XXXX
     - Group your RUN commands (shell sequences) together per type (e.g. ssh related). This allows you to tune and forget a "feature" of your container and focus on the next one without ever blowing up your cache.
     - Maintain common command orders in between your various Dockerfile. This allow to use "common" caching from one container to another for as long as they share common features
 - **Maintain your containers in a registry**: it lets you deploy quickly, revert quickly and have matching versions of your containers. Same thing apply for your Dockerfiles: use a VCS. See  http://blog.docker.com/2013/07/how-to-use-your-own-registry/,
-[]Docker registry](https://github.com/docker/docker-registry) & [Docker hub](https://hub.docker.com/).
+[Docker registry](https://github.com/docker/docker-registry) & [Docker hub](https://hub.docker.com/).
 - **Plan your containers life-cycles**: if you are using Docker for computing purpose this may not be critical, but if you intend on having long-running containers it is absolutely required. Among other things:
     - Define what data are persistent, ephemeral or shared.
     - Define your best fit between named or anonymous volumes or devices (LVM / disks). See for example [our take on data migration of named docker containers](http://wiredcraft.com/posts/2014/06/25/ data_migration_of_named_docker_containers.html).
