@@ -1782,7 +1782,7 @@ body.page-about #main .content ul {
 /* Footer */
 #footer {
   background: #fafafb;
-  padding: 20px 0; }
+  padding: 30px 0; }
   #footer a {
     color: inherit;
     font-size: 12px;
@@ -1849,7 +1849,7 @@ body.page-about #main .content ul {
       #support .links a:last-child {
         border-radius: 0 0 2px 2px; }
       #support .links a:hover {
-        background: #1F8DD6; }
+        background: #364854; }
       #support .links a:before {
         font-family: 'icons';
         font-variant: normal;
