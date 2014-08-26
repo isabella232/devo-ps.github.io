@@ -27,8 +27,6 @@ I gave a short (last minute) presentation at the [Shanghai Docker meetup last Sa
 - **Bus-centric architecture**: we basically have RabbitMQ tying up a lot of micro-services.
 - **Non-ephemeral containers**: we actually treat containers more VMs with fairly long life-cycles. We actually built some interesting approaches to handle our use case.
 
-XXXX EXAMPLES OF THIS???? XXXX
-
 ## The don'ts
 
 - **Don't rush into building your own tools**: if you hit a wall, others probably have. GitHub and #docker on IRC (@freenode) are your friends; ask around and make sure you're not building something already solved. For example, [we used our DIY DNS management approach](http://wiredcraft.com/posts/2014/07/30/dns-and-docker- containers.html) until the recent etcd update.
