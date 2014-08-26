@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'/>
+  <title>ZooKeeper vs. Doozer vs. Etcd | devo.ps</title>
+
+  <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, Zookeper, Doozer, etcd, configuration, cluster'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  
+  <!-- Favicons -->
+  <link rel='shortcut icon' href='/assets/favicon.ico'>
+<link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
+<link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
+<link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
+<link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
+<link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
+<link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
+<link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
+<link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
+<meta name='msapplication-TileColor' content='#da532c'>
+<meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
+<meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+
+  <!-- CSS -->
+  <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
+</head>
+<body class='page-blog/zookeeper-vs-doozer-vs-etcd'>
+  <header id='header'>
+    <div class='wrapper'>
+      <a href='/' class='logo'>devo.ps</a>
+
+      <button class='toggle'>Menu</button>
+      <nav class='menu'>
+        <a href='http://docs.devo.ps/#need-help'>Help</a>
+        <a href='http://docs.devo.ps'>Documentation</a>
+        <a href='/about'>About</a>
+        <a href='/blog'>Blog</a>
+        <a href='http://app.devo.ps' class='signin'>Sign in</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<section id='main' class='blog post'>
+  <div class='wrapper'>
+    <header class='header'>
+      <a href='/blog' class='back'><span>Back to the blog</span></a>
+
+      <h1>ZooKeeper vs. Doozer vs. Etcd</h1>
+
+      <span class='meta'>
+        
+        
+        
+        
+          <img class='avatar' alt='Juha Suomalainen' src='/images/team/juha-small.png'/> 
+          Juha Suomalainen
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        on <time datetime=''>September 11, 2013</time>
+      </span>
+    </header>
+
+    <article class='content'>
+      <p>While <a href="http://devo.ps">devo.ps</a> is fast approaching a public release, the team has been dealing with an increasingly complex infrastructure. We more recently faced an interesting issue; how do you share configuration across a cluster of servers? More importantly, how do you do so in a resilient, secure, easily deployable and speedy fashion?</p>
+<p>That&#39;s what got us to evaluate some of the options available out there; ZooKeeper, Doozer and etcd. These tools all solve similar sets of problems but their approach differ quite significantly. Since we spent some time evaluating them, we thought we&#39;d share our findings.</p>
+<h3 id="zookeeper-the-old-dog">ZooKeeper, the old dog</h3>
+<p><a href="http://zookeeper.apache.org/">ZooKeeper</a> is the most well known (and oldest) project we&#39;ve looked into. It&#39;s used by a few big players (Rackspace, Yahoo, eBay, <a href="https://news.ycombinator.com/item?id=6367979">Youtube</a>) and is pretty mature.</p>
+<p>It was created by Yahoo to deal with distributed systems applications. I strongly recommend you <a href="http://developer.yahoo.com/blogs/hadoop/apache-zookeeper-making-417.html">read the &quot;making of&quot;</a> if you&#39;re interested in understanding where Yahoo came from when they wrote it. </p>
+<p>It stores variables in a structure similar to a file system, an approach that both Doozer and etcd still follow. With ZooKeeper, you maintain a cluster of servers communicating with each other that share the state of the distributed configuration data. Each cluster elects one &quot;leader&quot; and clients can connect to any of the servers within the cluster to retrieve the data. Zookeeper uses its own algorithm to handle distributed storage.</p>
+<ul>
+<li><strong>Pros</strong>:<ul>
+<li><strong>Mature technology</strong>; it is used by some big players (eBay, Yahoo et al).</li>
+<li><strong>Feature-rich</strong>; lots of client bindings, tools, API...</li>
+</ul>
+</li>
+<li><strong>Cons</strong>:<ul>
+<li><strong>Complex</strong>; ZooKeeper is not for the faint of heart. It is pretty heavy and will require you to maintain a fairly large stack.</li>
+<li><strong>It&#39;s... Java</strong>; not that we especially hate Java, but it is on the heavy side and introduce a lot of dependencies. We wanted to keep our machines as lean as possible and usually shy away from dependency heavy technologies.</li>
+<li><strong>Apache...</strong>; we have mixed feelings about the Apache Foundation. <a href="http://www.infoworld.com/d/open-source-software/has-apache-lost-its-way-225267">&quot;Has Apache Lost Its Way?&quot;</a> summarizes it pretty well.</li>
+</ul>
+</li>
+</ul>
+<h3 id="doozer-kinda-dead">Doozer, kinda dead</h3>
+<p><a href="https://github.com/ha/doozerd">Doozer</a> was developed by Heroku a few years ago. It&#39;s written in Go (yay!), which means it compiles into a single binary that runs without dependencies. On a side-note, if you&#39;re writing code to manage infrastructure, you should spend some time <a href="http://golang.org/">learning Go</a>.</p>
+<p>Doozer got some initial excitement from the developer community but seems to have stalled more recently, with many forks being sporadically maintained and no active core development.</p>
+<p>It is composed of <a href="https://github.com/ha/doozerd">a daemon</a> and <a href="https://github.com/ha/doozer">a client</a>. Once you have at least one Doozer server up, you can add any number of servers and have clients get and set data by talking to any of the servers within that cluster.</p>
+<p>It was one of the first practical implementations (as far as I know) of the <a href="http://en.wikipedia.org/wiki/Paxos_(computer_science">Paxos algorithm</a>). This means operations can be slow when compared to dealing with a straight database since cluster-wide consensus needs to be reached before committing any operation. </p>
+<p>Doozer was a step in the right direction. It is simple to use and setup. However,  after using it for a while we started noticing that a lot of its parts felt unfinished. Moreover, it wasn&#39;t answering some of our needs very well (encryption and ACL).</p>
+<ul>
+<li><strong>Pros</strong>:<ul>
+<li><strong>Easy to deploy, setup and use</strong> (Go, yay!)</li>
+<li><strong>It works</strong>; lots of people have actually used it in production.</li>
+</ul>
+</li>
+<li><strong>Cons</strong>:<ul>
+<li><strong>Pretty much dead</strong>: the core project hasn&#39;t been active in a while (1 commit since May) and is pretty fragmented (150 forks...).</li>
+<li><strong>Security</strong>; no encryption and a fairly simple secure-word based authentication.</li>
+<li><strong>No ACL</strong>; and we badly needed this.</li>
+</ul>
+</li>
+</ul>
+<h3 id="etcd">etcd</h3>
+<p>After experiencing the shortcomings of Doozer, we stumbled upon a new distributed configuration storage called <a href="https://github.com/coreos/etcd">etcd</a>. 
+It was first released by the <a href="http://coreos.com">CoreOS</a> team a month ago.</p>
+<p>Etcd and Doozer look pretty similar, at least on the surface. The most obvious technical difference is that ectd uses the <a href="http://en.wikipedia.org/wiki/Raft_%28computer_science%29">Raft algorithm</a> instead of Paxos. Raft is designed to be <a href="https://ramcloud.stanford.edu/wiki/download/attachments/11370504/raft.pdf">simpler</a> and <a href="http://kellabyte.com/2013/05/09/an-alternative-to-paxos-the-raft-consensus-algorithm/">easier</a> to implement than Paxos.</p>
+<p>Etcd&#39;s architecture is similar to Doozer&#39;s. It does, however, store data persistently (writes log and snapshots), which was of value to us for some edge cases. It also has a better take on security, with CA&#39;s, certs and private keys. While setting it up is not straightforward, it adds conveniency and safety of mind.</p>
+<p>Beyond the fact that it answered some of our more advanced needs, we were seduced (and impressed) by the development pace of the project.</p>
+<ul>
+<li><strong>Pros</strong>:<ul>
+<li><strong>Easy to deploy, setup and use</strong> (yay Go and yay HTTP interfaces!).</li>
+<li><strong>Data persistence</strong>.</li>
+<li><strong>Secure</strong>: encryption and  authentication by private keys.</li>
+<li><strong>Good documentation</strong> (if a little bit obscure at times).</li>
+<li>Planned ACL implementation.</li>
+</ul>
+</li>
+<li><strong>Cons</strong>:<ul>
+<li>(Very) <strong>young project</strong>; interfaces are still moving pretty quickly.</li>
+<li>Still not a perfect match, especially in the way that data is spread.</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-diy-approach-yeah-right-">The DIY approach (yeah, right..?)</h3>
+<p>It is only fair that technical teams may rely on their understanding of their infrastructure and coding skills to get <em>something that just works™</em> in place. We haven&#39;t seriously considered this approach as we felt that getting security and distributed state sharing right was going to be a bigger endeavor than we could afford (the backlog is full enough for now).</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>In the end, we decided to give etcd a try. So far it seems to work well for our needs and the very active development pace seems to validate our choice. It has proven resilient and will likely hold well until we have the resources to either customize its data propagation approach, or build our own solution that will answer some needs it is not likely to answer (we&#39;ve already looked into doing so with ZeroMQ and Go).</p>
+
+      
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/zookeeper-vs-doozer-vs-etcd' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=6366665' target='_blank'>Hacker News</a>.</h2>
+
+      <footer class='more'>
+        <section class='pitch'>
+  <h3>Manage servers with Git</h3>
+  <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
+<a href='https://app.devo.ps' class='button add'>Try it for <strong>free</strong></a>
+<small>Already have an account? <a href='https://app.devo.ps'>Sign in</a>.</small>
+</section>
+
+<section class='subscribe'>
+  <h3>Stay tuned</h3>
+  <ul>
+    <li class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
+  </div>
+</form></li>
+    <li class='twitter'><a href='http://twitter.com/devo_ps'>Follow us on twitter</a></li>
+    <li class='rss'><a href='/atom.xml'>RSS feed</a></li>
+  </ul>
+</section>
+      </footer>
+    </section>
+  </div>
+</section>
+
+
+  <nav id='footer'>
+    <div class='wrapper'>
+      <a href='/privacy'>Privacy</a>
+      <a href='/tos'>Terms of Service</a>
+    </div>
+  </nav>
+
+  <aside id='support'>
+    <h2><span>Need help?</span></h2>
+    <nav class='links'>
+      <a class='chat' href='https://www.hipchat.com/gyHEHtsXZ' target='_blank'>Chat with us</a>
+      <a class='help' href='mailto:help@devo.ps' target='_blank'>Contact the support</a>
+      <a class='documentation' href='http://docs.devo.ps' target='_blank'>Check the documentation</a>
+    </nav>
+  </aside>
+
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type='text/javascript'>
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type='text/javascript'>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

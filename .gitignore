@@ -3,6 +3,5 @@
 !.gitmodules
 *~
 
-server/node_modules/
-components/
-_site/
+node_modules/
+bower_components/
