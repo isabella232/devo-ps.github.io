@@ -13,13 +13,13 @@ date: 2014-08-27
 template: post.html
 ---
 
-I already said [what I think of the NoOps/PaaS approach](http://devo.ps/blog/the-problem-with-paas/): in my eyes, it basically means outsourcing your operations over to a team that will impose you the technologies you can work with and won't give you access to your own infrastructure. More or less a black-box. That approach obviously doesn't work well for a lot of people out there; the problem 
+I already said [what I think of the NoOps/PaaS approach](http://devo.ps/blog/the-problem-with-paas/): in my eyes, it basically means outsourcing your operations over to a team that will impose you the technologies you can work with and won't give you access to your own infrastructure. More or less a black-box. That approach obviously doesn't work well for a lot of people out there.
 
 ## Look at all the tools!
 
 The good news is that there are a plethora of really great Open Source tools to help you get stuff done. On top of my head:
 
-- **Configuration management**; Ansible, Salt Stack, Puppet...
+- **Configuration management**; Chef, Puppet, Ansible, Salt Stack...
 - **Monitoring & Reporting**: [Zabbix](http://www.zabbix.com/), [Munin](http://munin-monitoring.org), [Sensu](sensuapp.org), [Cacti](www.cacti.net), [Nagios](http://www.nagios.org), [Cabot](cabotapp.com)... 
 - **Continuous integration & Continuous delivery**: [Jenkins](http://jenkins-ci.org), [Buildbot](http://buildbot.net/), [Go](www.thoughtworks.com/products/go-continuous-delivery), [Gitlab CI](https://about.gitlab.com/gitlab-ci/)...
 
