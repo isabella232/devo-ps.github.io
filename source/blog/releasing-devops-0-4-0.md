@@ -14,7 +14,7 @@ template: post.html
 We just released a new version of devo.ps (0.4.0) with a lot more coming down over the next week. A quick list of changes we made:
 
 - Added the support for proper commiter information.
-- Added default settings for providers (location, size and image).
+- Added default settings for providers (location and image).
 - Added Laravel support.
 - Fixed EC2/AWS support.
 - Improved support for mySQL, PHP and NGINX.
