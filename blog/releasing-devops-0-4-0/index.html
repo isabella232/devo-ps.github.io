@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset='utf-8'/>
-  <title>101 On DevOps And How We Plan On Helping | devo.ps</title>
+  <title>Releasing devo.ps 0.4.0 | devo.ps</title>
 
   <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
-  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS'/>
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, release'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
   
   <!-- Favicons -->
@@ -30,7 +30,7 @@
   <!-- CSS -->
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
-<body class='page-blog/101-on-development-and-operations'>
+<body class='page-blog/releasing-devops-0-4-0'>
   <header id='header'>
     <div class='wrapper'>
       <a href='/' class='logo'>devo.ps</a>
@@ -52,7 +52,7 @@
     <header class='header'>
       <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-      <h1>101 On DevOps And How We Plan On Helping</h1>
+      <h1>Releasing devo.ps 0.4.0</h1>
 
       <span class='meta'>
         
@@ -63,28 +63,38 @@
         
         
         
-        
-        
-          <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
-          Vincent Viallet
-        
+          <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
+          Ronan Berder
         
         
         
-        on <time datetime=''>October 23, 2012</time>
+        
+        
+        
+        on <time datetime=''>August 28, 2014</time>
       </span>
     </header>
 
     <article class='content'>
-      <p>Here&#39;s what usually happens: on one side the development team wants to push new features as fast as possible to production, while on the other side, operations are trying to keep things stable. Both teams are evaluated on criteria that are often directly conflicting. The stronger team win one argument... Until the next crisis. And we&#39;re not even talking about other teams, they too have conflicting agendas to throw in the mix.</p>
-<p>There&#39;s no silver bullet for getting everyone to play nicely. That being said, having Dev and Ops on the path of cooperation is not impossible. <a href="http://en.wikipedia.org/wiki/Devops">DevOps</a> is exactly this; fostering a culture of best practices and collaboration between these teams.</p>
-<p>In a very similar fashion to what happened with the agile movement, a lot of tools and approaches emerged that can help: methodologies (SCRUMs, kanban...), tools for configuration management (Chef, Puppet), orchestration, automation, logging... But at the core lies the need for nurturing a specific culture.</p>
-<p>Operations teams have been slower to adopt these methodologies compared to development teams. The average system administrator spend more time working in FIFO, putting up fires, rather than making long term investments in automation or setting up best practices. Moreover, operations teams are usually faced with a logic of budget cuts and cost &quot;optimizations&quot;, compared to the larger R&amp;D budget development teams seem to enjoy.</p>
-<p>Even when conditions (and resources) are favorable to the growth of a proper culture, recruiting the right profiles can prove very challenging. We&#39;re here talking about people with a wide range of skills, on-hands experience and strong collaboration and organizational skills. All of this take time. Best practices are forged through years of experience.</p>
-<p>That is why we&#39;re building <a href="http://devo.ps">devo.ps</a>. We&#39;re trying to lower the barriers of entry to this field and help professionals scale themselves in their role. We&#39;re a motivated team of engineers who have worked on both sides of the fence, with small to very large code bases and infrastructures. We hope to untangle the mess that often is infrastructure and application management, letting technical teams focus on the higher value tasks of the job.</p>
+      <p>We just released a new version of devo.ps (0.4.0) with a lot more coming down over the next week. A quick list of changes we made:</p>
+<ul>
+<li>Added the support for proper commiter information.</li>
+<li>Added default settings for providers (location, size and image).</li>
+<li>Added Laravel support.</li>
+<li>Fixed EC2/AWS support.</li>
+<li>Improved support for mySQL, PHP and NGINX.</li>
+<li>Updated the on-boarding.</li>
+<li>Improved the  workflow for forking repositories.</li>
+<li>Improved tasks and nodes console with logs history for nodes.</li>
+<li>Improved error reporting.</li>
+<li>Improved support for variables</li>
+</ul>
+<p>We also started to update the <a href="http://devo.ps">documentation website](http://docs.devo.ps) and main website</a>.</p>
+<p>This is all preparatory work for us to add the ability for users to define one-click forks; we will start with the Mean.js and Laravel platform, allowing you to deploy your applications with devo.ps by simply inputing the URL of your app&#39;s git repository.</p>
+<p>More about this next week.</p>
 
       
-      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/101-on-development-and-operations' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=5181253' target='_blank'>Hacker News</a>.</h2>
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/releasing-devops-0-4-0' target='_blank'>Twitter</a>.</h2>
 
       <footer class='more'>
         <section class='pitch'>
