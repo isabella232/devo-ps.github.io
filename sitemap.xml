@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://devo.ps/blog/deploy-your-infrastructure-in-one-click</loc>
+    <lastmod>2014-09-02</lastmod>
+  </url>
+  
+  <url>
     <loc>http://devo.ps/blog/releasing-devops-0.5.0</loc>
     <lastmod>2014-09-02</lastmod>
   </url>
@@ -37,12 +42,12 @@
   </url>
   
   <url>
-    <loc>http://devo.ps/blog/meat-and-beer-with-hackers-founders</loc>
+    <loc>http://devo.ps/blog/code-reuse-with-nodejs</loc>
     <lastmod>2013-07-11</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/blog/code-reuse-with-nodejs</loc>
+    <loc>http://devo.ps/blog/meat-and-beer-with-hackers-founders</loc>
     <lastmod>2013-07-11</lastmod>
   </url>
   
