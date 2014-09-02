@@ -17,7 +17,7 @@ template: post.html
 
 We just released [devo.ps 0.5.0](http://devo.ps/blog/releasing-devops-0.5.0/) and are pretty excited about one feature in particular.
 
-### Introducing: the devo.ps button
+## Introducing: the devo.ps button
 
 Not unlike the Heroku button, we wanted to make the process of provisioning and setting up a complete infrastructure of your own, from server to continuous integration tasks, as easy as possible. The devo.ps button allows you to do all of that in one click.
 
@@ -25,7 +25,7 @@ Want to give it a try? Click on the link below to create in a few minutes a serv
 
 <a href='https://app.devo.ps/#/fork?git_url=https://github.com/devo-ps/laravel' target='_blank'>![Fork on devo.ps](https://app.devo.ps/assets/images/fork.png)</a>
 
-### How does it work?
+## How does it work?
 
 If you see the devo.ps button in the README page of a repository (for example on the [devo-ps/laravel repo](https://github.com/devo-ps/laravel)) it probably means it is designed to work with devo.ps.
 
@@ -41,7 +41,7 @@ This will effectively fork the repository in your account. Once the repo is read
 
 Once you confirmed this last step, your branch is activated and devo.ps will start provisioning and configuring your servers, along with the tasks which may allow you to build and deploy your app. In this specific case, you can go to the tasks section and run the build task that will fetch your app's code, build it and deploy it on your server, database configuration included.
 
-### What's next
+## What's next
 
 We're just getting started with it and will be adding more details on how to use the devo.ps button on the [documentation website](http://docs.devo.ps) in the next few days.
 
