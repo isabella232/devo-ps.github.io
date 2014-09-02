@@ -23,7 +23,7 @@ Not unlike the Heroku button, we wanted to make the process of provisioning and 
 
 Want to give it a try? Click on the link below to create in a few minutes a server and associated build task to deploy and run a Laravel app (see the [devo-ps/laravel repo](https://github.com/devo-ps/laravel) for more information):
 
-[![Fork on devo.ps](https://app.devo.ps/assets/images/fork.png)](https://app.devo.ps/#/fork?git_url=https://github.com/devo-ps/laravel)
+<a href='https://app.devo.ps/#/fork?git_url=https://github.com/devo-ps/laravel' target='_blank'>![Fork on devo.ps](https://app.devo.ps/assets/images/fork.png)</a>
 
 ### How does it work?
 
