@@ -11,7 +11,7 @@ date: 2014-09-02
 template: post.html
 ---
 
-We just released a new version of devo.ps (0.5.0). We are very excited to start rolling out the **devo.ps button** which allows our users to deploy entire infrastructures without leaving the browser with little or no configuration. more on this soon.
+We just released a new version of devo.ps (0.5.0). We are very excited to start rolling out the **[devo.ps button](devo.ps/blog/one-click-deploy-of-your-infrastructure/)** which allows our users to deploy entire infrastructures without leaving the browser with little or no configuration. more on this soon.
 
 A quick list of the changes we made:
 
