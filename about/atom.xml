@@ -3,12 +3,22 @@
  <title>devo.ps</title>
  <link href='/atom.xml' rel='self'/>
  <link href='/'/>
- <updated>2014-08-28T15:05:46.238Z</updated>
+ <updated>2014-09-02T11:41:39.249Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
    <email>info@devo.ps</email>
  </author>
+ 
+ 
+   <entry>
+     <title>Releasing devo.ps 0.5.0</title>
+     <link href='/blog/releasing-devops-0.5.0'/>
+     <updated>2014-09-02T00:00:00.000Z</updated>
+     <id>http://devo.ps/blog/releasing-devops-0.5.0</id>
+     <content type='html'></content>
+   </entry>
+ 
  
  
    <entry>
@@ -100,14 +110,6 @@
    </entry>
  
  
- 
-   <entry>
-     <title>Goodbye node-forever, hello PM2</title>
-     <link href='/blog/goodbye-node-forever-hello-pm2'/>
-     <updated>2013-06-26T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/goodbye-node-forever-hello-pm2</id>
-     <content type='html'></content>
-   </entry>
  
  
  
