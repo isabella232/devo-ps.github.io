@@ -3,7 +3,7 @@
  <title>devo.ps</title>
  <link href='/atom.xml' rel='self'/>
  <link href='/'/>
- <updated>2014-09-02T12:34:04.862Z</updated>
+ <updated>2014-09-02T12:37:18.594Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
@@ -13,9 +13,9 @@
  
    <entry>
      <title>One-Click Deploy Of Your Infrastructure</title>
-     <link href='/blog/deploy-your-infrastructure-in-one-click'/>
+     <link href='/blog/one-click-deploy-of-your-infrastructure'/>
      <updated>2014-09-02T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/deploy-your-infrastructure-in-one-click</id>
+     <id>http://devo.ps/blog/one-click-deploy-of-your-infrastructure</id>
      <content type='html'></content>
    </entry>
  
@@ -92,20 +92,20 @@
  
  
    <entry>
-     <title>Code Reuse With Node.js</title>
-     <link href='/blog/code-reuse-with-nodejs'/>
+     <title>Meat And Beer With Hackers + Founders</title>
+     <link href='/blog/meat-and-beer-with-hackers-founders'/>
      <updated>2013-07-11T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/code-reuse-with-nodejs</id>
+     <id>http://devo.ps/blog/meat-and-beer-with-hackers-founders</id>
      <content type='html'></content>
    </entry>
  
  
  
    <entry>
-     <title>Meat And Beer With Hackers + Founders</title>
-     <link href='/blog/meat-and-beer-with-hackers-founders'/>
+     <title>Code Reuse With Node.js</title>
+     <link href='/blog/code-reuse-with-nodejs'/>
      <updated>2013-07-11T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/meat-and-beer-with-hackers-founders</id>
+     <id>http://devo.ps/blog/code-reuse-with-nodejs</id>
      <content type='html'></content>
    </entry>
  
