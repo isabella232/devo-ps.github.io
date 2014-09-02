@@ -15,7 +15,7 @@ date: 2014-09-02
 template: post.html
 ---
 
-We just released [devo.ps 0.5.0](http://devo.ps/blog/releasing-devops-0.5.0/) and are pretty excited one feature in particular.
+We just released [devo.ps 0.5.0](http://devo.ps/blog/releasing-devops-0.5.0/) and are pretty excited about one feature in particular.
 
 ### Introducing: the devo.ps button
 
@@ -43,6 +43,8 @@ Once you confirmed this last step, your branch is activated and devo.ps will sta
 
 ### What's next
 
-We're just getting started with it and will be adding more details on how to use the devo.ps button on the [documentatoin website](http://docs.devo.ps) in the next few days. We have a lot more from where it came from, including better 
+We're just getting started with it and will be adding more details on how to use the devo.ps button on the [documentation website](http://docs.devo.ps) in the next few days.
+
+There's a lot more where that came from, including branching your infrastructures (think of doing performance and tuning on a "branch" of your production servers, with actual machines), provisioning of Vagrant machines replicating your servers and third party integrations (custom events coming from TravisCI or GitHub allowing you to trigger tasks).
 
 If you have questions, comments or suggestions, swing by the [devo.ps chat](https://www.hipchat.com/gyHEHtsXZ): there's always somebody up.
