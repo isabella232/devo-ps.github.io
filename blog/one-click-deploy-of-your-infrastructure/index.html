@@ -78,11 +78,11 @@
 
     <article class='content'>
       <p>We just released <a href="http://devo.ps/blog/releasing-devops-0.5.0/">devo.ps 0.5.0</a> and are pretty excited about one feature in particular.</p>
-<h3 id="introducing-the-devo-ps-button">Introducing: the devo.ps button</h3>
+<h2 id="introducing-the-devo-ps-button">Introducing: the devo.ps button</h2>
 <p>Not unlike the Heroku button, we wanted to make the process of provisioning and setting up a complete infrastructure of your own, from server to continuous integration tasks, as easy as possible. The devo.ps button allows you to do all of that in one click.</p>
 <p>Want to give it a try? Click on the link below to create in a few minutes a server and associated build task to deploy and run a Laravel app (see the <a href="https://github.com/devo-ps/laravel">devo-ps/laravel repo</a> for more information):</p>
 <p><a href='https://app.devo.ps/#/fork?git_url=https://github.com/devo-ps/laravel' target='_blank'><img src="https://app.devo.ps/assets/images/fork.png" alt="Fork on devo.ps"/></a></p>
-<h3 id="how-does-it-work-">How does it work?</h3>
+<h2 id="how-does-it-work-">How does it work?</h2>
 <p>If you see the devo.ps button in the README page of a repository (for example on the <a href="https://github.com/devo-ps/laravel">devo-ps/laravel repo</a>) it probably means it is designed to work with devo.ps.</p>
 <p><img src="http://devo.ps/images/posts/github-laravel-repo.png" alt="devo.ps button"/></p>
 <p>These repositories may include a <code>devops.yml</code> file at their root, allowing them to define a few things like a name, description and logo. Once you&#39;ve clicked on the devo.ps button, you will be redirected to our app and prompted with this information for you to review before confirming the fork.</p>
@@ -90,7 +90,7 @@
 <p>This will effectively fork the repository in your account. Once the repo is ready, you can click on it. You will then be asked to <a href="http://docs.devo.ps/manual/git-repositories/#branches">&quot;activate&quot; your branch</a>, allowing it to provision actual servers and run tasks. At the same time, you will be asked to review and potentially modify a few variables that were defined in the <code>devops.yml</code> file. These are usually things like the Git URL of the repo for your app, or some of the details related to the cloud provider you want to use (Digital Ocean, Rackspace, AWS, Linode...).</p>
 <p><img src="http://devo.ps/images/posts/devops-activate-confirm.png" alt="devo.ps fork confirm"/></p>
 <p>Once you confirmed this last step, your branch is activated and devo.ps will start provisioning and configuring your servers, along with the tasks which may allow you to build and deploy your app. In this specific case, you can go to the tasks section and run the build task that will fetch your app&#39;s code, build it and deploy it on your server, database configuration included.</p>
-<h3 id="what-s-next">What&#39;s next</h3>
+<h2 id="what-s-next">What&#39;s next</h2>
 <p>We&#39;re just getting started with it and will be adding more details on how to use the devo.ps button on the <a href="http://docs.devo.ps">documentation website</a> in the next few days.</p>
 <p>There&#39;s a lot more where that came from, including branching your infrastructures (think of doing performance and tuning on a &quot;branch&quot; of your production servers, with actual machines), provisioning of Vagrant machines replicating your servers and third party integrations (custom events coming from TravisCI or GitHub allowing you to trigger tasks).</p>
 <p>If you have questions, comments or suggestions, swing by the <a href="https://www.hipchat.com/gyHEHtsXZ">devo.ps chat</a>: there&#39;s always somebody up.</p>
