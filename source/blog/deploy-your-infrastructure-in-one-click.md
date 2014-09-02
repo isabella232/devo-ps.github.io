@@ -1,6 +1,6 @@
 ---
 collection: blog
-title: Deploy Your Infrastructure in One-Click
+title: One-Click Deploy Of Your Infrastructure
 tags:
   - Digital Ocean
   - DevOps
