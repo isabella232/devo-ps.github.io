@@ -1469,6 +1469,9 @@ img.avatar {
           display: block;
           padding-top: 5px;
           text-align: center; }
+      #main.blog.post #disqus_thread {
+        margin-bottom: 40px;
+        text-align: center; }
 
 body.page-front #header {
   background: #3598da; }
@@ -1518,8 +1521,6 @@ body.page-front #main .section.hero {
     content: "";
     display: table;
     clear: both; }
-  body.page-front #main .section.hero h1, body.page-front #main .section.hero h2 {
-    max-width: 680px; }
   body.page-front #main .section.hero h1 {
     color: #FFF;
     margin: 0 auto 10px; }
@@ -1562,29 +1563,73 @@ body.page-front #main .section.hero {
         content: 'r';
         float: right;
         margin-left: 5px; }
-  body.page-front #main .section.hero .console {
-    /*box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 0 0px;*/
+  body.page-front #main .section.hero .demo {
     margin: 0 auto;
     max-width: 700px;
     text-align: left; }
-    body.page-front #main .section.hero .console .bar {
-      background: #092a40;
+    body.page-front #main .section.hero .demo .bar {
       border-radius: 4px 4px 0 0;
-      padding: 5px 15px; }
-    body.page-front #main .section.hero .console .body {
-      background: #0c3855;
+      padding: 5px 15px;
+      position: relative;
+      text-align: center; }
+      body.page-front #main .section.hero .demo .bar img {
+        left: 15px;
+        margin-top: -5px;
+        position: absolute;
+        top: 50%; }
+    body.page-front #main .section.hero .demo .body {
+      position: relative; }
+      body.page-front #main .section.hero .demo .body pre {
+        height: 300px;
+        margin: 0;
+        overflow-y: auto;
+        padding: 10px 15px;
+        word-break: break-word; }
+  body.page-front #main .section.hero .editor .bar, body.page-front #main .section.hero .browser .bar {
+    background: #fafafb; }
+  body.page-front #main .section.hero .editor, body.page-front #main .section.hero .console {
+    font-size: 14px;
+    font-size: 1.4rem; }
+    body.page-front #main .section.hero .editor .body, body.page-front #main .section.hero .console .body {
+      background: #0c3855; }
+    body.page-front #main .section.hero .editor .body, body.page-front #main .section.hero .editor .body pre, body.page-front #main .section.hero .console .body, body.page-front #main .section.hero .console .body pre {
+      font-family: 'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace; }
+  body.page-front #main .section.hero .editor .body {
+    color: #d2d6d9; }
+    body.page-front #main .section.hero .editor .body .files {
+      background: #0f466b;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      bottom: 0;
       color: #FFF;
-      font-family: 'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace;
-      font-size: 14px;
-      font-size: 1.4rem;
-      height: 300px;
-      margin: 0;
-      overflow-y: auto;
       padding: 10px 15px;
-      word-break: break-word; }
-      body.page-front #main .section.hero .console .body strong {
-        color: #73d79c;
-        font-weight: inherit; }
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20%; }
+      body.page-front #main .section.hero .editor .body .files div div {
+        padding-left: 20px; }
+      body.page-front #main .section.hero .editor .body .files .active {
+        background: #125480;
+        margin: 0 -15px;
+        padding-left: 35px; }
+    body.page-front #main .section.hero .editor .body pre {
+      margin-left: 20%; }
+    body.page-front #main .section.hero .editor .body i {
+      color: #ff9f7a;
+      font-style: normal; }
+    body.page-front #main .section.hero .editor .body b {
+      color: #FFF;
+      font-weight: normal; }
+  body.page-front #main .section.hero .console .bar {
+    background: #092a40; }
+  body.page-front #main .section.hero .console .body {
+    background: #0c3855;
+    color: #FFF; }
+    body.page-front #main .section.hero .console .body strong {
+      color: #73d79c;
+      font-weight: inherit; }
 body.page-front #main .section.features .header {
   margin: 80px 0;
   padding: 0;

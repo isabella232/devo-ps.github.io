@@ -6,14 +6,49 @@ template: default.html
 <section id='main' class='landing'>
   <header class='hero section' name='hero'>
     <div class='wrapper'>
-      <h1>Manage your servers with Git</h1>
+      <h1>Server management that doesn't suck</h1>
       <h2>Create a server on any cloud, from AWS to Digital Ocean, with a git push</h2>
       <a href='https://app.devo.ps' class='button signup'>Try it for free</a>
       <!-- <a href='https://app.devo.ps' class='button video'>Watch a demo</a> -->
-      <div class='console'>
-        <header class='bar'><img src='/images/controls.png'/></header>
-        <pre class='body'>$ git add nodes/web.yml
-$ git commit -m 'Adding NGINX server'
+      <div class='demo editor'>
+        <header class='bar'><img src='/images/controls.png'/> nodes/web.yml</header>
+        <div class='body'>
+          <aside class='files'>
+            <div>
+              nodes/
+              <div>db.yml</div>
+              <div class='active'>web.yml</div>
+              
+            </div>
+            <div>tasks/</div>
+            <div>scripts/</div>
+            <div>README.md</div>
+          </aside>
+          <pre><i>id</i>: <b>web</b>
+<i>name</i>: <b>Web server</b>
+<i>type</i>: <b>server</b>
+
+<i>provider</i>:
+  <i>name</i>: <b>digitalocean</b>
+  <i>size</i>: <b>66</b>
+
+<i>services</i>:
+  <i>nodejs</i>: <b>*</b>
+  <i>nginx</i>: <b>*</b>
+
+<i>configuration</i>:
+  <i>nodejs</i>:
+    <i>packages</i>:
+      - <b>gulp</b>
+      - <b>forever</b>
+      - <b>bower</b></pre>
+        </div>
+      </div>
+      <div class='demo console'>
+        <header class='bar'><img src='/images/controls.png'/> Terminal</header>
+        <div class='body'>
+          <pre>$ git add nodes/web.yml
+$ git commit -m 'Installing NGINX and Node.js'
   [master 27ba3cb] Adding NGINX server
    1 file changed, 2 insertions(+), 2 deletions(-)
 $ git push
@@ -33,6 +68,7 @@ $ git push
   To git@git.devo.ps:ninjacoder/meanjs
      078335f..27ba3cb  master -&gt; master
 $ </pre>
+        </div>
       </div>
     </div>
   </header>
