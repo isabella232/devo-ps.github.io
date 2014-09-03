@@ -49,7 +49,7 @@ Our end goal is pretty much aligned with the [DevOps movement](http://en.wikiped
 
 - **Flexibility**: you deploy your own servers on Digital Ocean, AWS, Rackspace or Linode, and you're still able to SSH in and run whatever you want to run on it. There's nothing that you would be able to do on a regular Linux box that we would prevent you from doing. We do not install any agent, we merely enforce by default best-practices that we've learnt over the past decade of working with other teams.
 
-![Preview](http://devo.ps/images/posts/devops-tablet.png)
+![Preview](http://devo.ps/images/posts/devo.ps-tablet.png)
 
 We think we can do that while preserving the interest of your business, keeping costs low while ensuring that you have a solution that will grow with you all the way.
 
