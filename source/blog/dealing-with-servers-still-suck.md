@@ -19,6 +19,8 @@ date: 2014-09-03
 template: post.html
 ---
 
+<img src="http://devo.ps/images/posts/firestorm.gif" width="100%"/>
+
 The idea of dealing with servers is almost invariably cringe-inducing for developers. Sure, I know a few folks (me and my colleagues at [devo.ps](http://devo.ps) included) who actually get a kick out of it. But by and large, setting up infrastructure isn't the developer's favorite. There's definitely been a lot of awesome innovation in the past few years that made the whole thing manageable, especially with services like Heroku or TravisCI. But they are no silver bullets. At the end of the day, the whole experience sucks less, but it isn't near being enjoyable.
 
 ## What exactly am I babbling about?
@@ -46,6 +48,8 @@ Our end goal is pretty much aligned with the [DevOps movement](http://en.wikiped
 - **Collaboration**: since everything is organized around Git repositories, you can bring all the good habits of collaboration you have with software. Deploying the SSH keys of a user to your entire infrastructure can be as easy as adding him as a collaborator to a repository. Users have visibility of what others do and can contribute as easily as on GitHub. We're actually storing our public infrastructures blueprints on GitHub and [letting you fork them from there](http://devo.ps/blog/one-click-deploy-of-your-infrastructure/).
 
 - **Flexibility**: you deploy your own servers on Digital Ocean, AWS, Rackspace or Linode, and you're still able to SSH in and run whatever you want to run on it. There's nothing that you would be able to do on a regular Linux box that we would prevent you from doing. We do not install any agent, we merely enforce by default best-practices that we've learnt over the past decade of working with other teams.
+
+![Preview](http://devo.ps/images/posts/devops-tablet.png)
 
 We think we can do that while preserving the interest of your business, keeping costs low while ensuring that you have a solution that will grow with you all the way.
 
