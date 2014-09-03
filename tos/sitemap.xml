@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://devo.ps/blog/dealing-with-servers-still-suck</loc>
+    <lastmod>2014-09-03</lastmod>
+  </url>
+  
+  <url>
     <loc>http://devo.ps/blog/one-click-deploy-of-your-infrastructure</loc>
     <lastmod>2014-09-02</lastmod>
   </url>
@@ -118,22 +123,22 @@
   
   <url>
     <loc>http://devo.ps/</loc>
-    <lastmod>2014-09-02</lastmod>
+    <lastmod>2014-09-03</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/about</loc>
-    <lastmod>2014-09-02</lastmod>
+    <lastmod>2014-09-03</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/blog</loc>
-    <lastmod>2014-09-02</lastmod>
+    <lastmod>2014-09-03</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/privacy</loc>
-    <lastmod>2014-09-02</lastmod>
+    <lastmod>2014-09-03</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/tos</loc>
-    <lastmod>2014-09-02</lastmod>
+    <lastmod>2014-09-03</lastmod>
   </url>
 </urlset>
