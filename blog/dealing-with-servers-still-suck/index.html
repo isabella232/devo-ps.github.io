@@ -77,7 +77,8 @@
     </header>
 
     <article class='content'>
-      <p>The idea of dealing with servers is almost invariably cringe-inducing for developers. Sure, I know a few folks (me and my colleagues at <a href="http://devo.ps">devo.ps</a> included) who actually get a kick out of it. But by and large, setting up infrastructure isn&#39;t the developer&#39;s favorite. There&#39;s definitely been a lot of awesome innovation in the past few years that made the whole thing manageable, especially with services like Heroku or TravisCI. But they are no silver bullets. At the end of the day, the whole experience sucks less, but it isn&#39;t near being enjoyable.</p>
+      <p><img src="http://devo.ps/images/posts/firestorm.gif" width="100%"/></p>
+<p>The idea of dealing with servers is almost invariably cringe-inducing for developers. Sure, I know a few folks (me and my colleagues at <a href="http://devo.ps">devo.ps</a> included) who actually get a kick out of it. But by and large, setting up infrastructure isn&#39;t the developer&#39;s favorite. There&#39;s definitely been a lot of awesome innovation in the past few years that made the whole thing manageable, especially with services like Heroku or TravisCI. But they are no silver bullets. At the end of the day, the whole experience sucks less, but it isn&#39;t near being enjoyable.</p>
 <h2 id="what-exactly-am-i-babbling-about-">What exactly am I babbling about?</h2>
 <p>I&#39;ve already shared my thoughts about the <a href="http://devo.ps/blog/the-problem-with-paas/">NoOps/PaaS approach</a> as well as what I see is the problem with <a href="http://devo.ps/blog/managing-infrastructure-is-effin-hard/">more traditional approaches to infrastructure management</a>.</p>
 <p>Let me summarize it for you. Technical teams currently have essentially two options when dealing with infrastructure:</p>
@@ -93,9 +94,15 @@
 <p align='center'><img src="http://devo.ps/images/posts/gap.png" alt="Transition"/><br/><small>Very scientific view of the market</small></p>
 
 <p>Our end goal is pretty much aligned with the <a href="http://en.wikipedia.org/wiki/DevOps">DevOps movement</a> in that we intend to bridge the gap between the way developers and ops people look at infrastructure:</p>
-<p><strong>Low-barriers of entry</strong>: we&#39;re trying to make things simple and understandable for &quot;regular&quot; folks. You provision a new server by writing a simple, declarative description of what it supports and pushing it to a Git repository. You can also quickly script complex jobs to automate your deployment or database backup with a bit of YAML and Git magic.</p>
-<p><strong>Collaboration</strong>: since everything is organized around Git repositories, you can bring all the good habits of collaboration you have with software. Deploying the SSH keys of a user to your entire infrastructure can be as easy as adding him as a collaborator to a repository. Users have visibility of what others do and can contribute as easily as on GitHub. We&#39;re actually storing our public infrastructures blueprints on GitHub and <a href="http://devo.ps/blog/one-click-deploy-of-your-infrastructure/">letting you fork them from there</a>.</p>
-<p><strong>Flexibility</strong>: you deploy your own servers on Digital Ocean, AWS, Rackspace or Linode, and you&#39;re still able to SSH in and run whatever you want to run on it. There&#39;s nothing that you would be able to do on a regular Linux box that we would prevent you from doing. We do not install any agent, we merely enforce by default best-practices that we&#39;ve learnt over the past decade of working with other teams.</p>
+<ul>
+<li><p><strong>Low-barriers of entry</strong>: we&#39;re trying to make things simple and understandable for &quot;regular&quot; folks. You provision a new server by writing a simple, declarative description of what it supports and pushing it to a Git repository. You can also quickly script complex jobs to automate your deployment or database backup with a bit of YAML and Git magic.</p>
+</li>
+<li><p><strong>Collaboration</strong>: since everything is organized around Git repositories, you can bring all the good habits of collaboration you have with software. Deploying the SSH keys of a user to your entire infrastructure can be as easy as adding him as a collaborator to a repository. Users have visibility of what others do and can contribute as easily as on GitHub. We&#39;re actually storing our public infrastructures blueprints on GitHub and <a href="http://devo.ps/blog/one-click-deploy-of-your-infrastructure/">letting you fork them from there</a>.</p>
+</li>
+<li><p><strong>Flexibility</strong>: you deploy your own servers on Digital Ocean, AWS, Rackspace or Linode, and you&#39;re still able to SSH in and run whatever you want to run on it. There&#39;s nothing that you would be able to do on a regular Linux box that we would prevent you from doing. We do not install any agent, we merely enforce by default best-practices that we&#39;ve learnt over the past decade of working with other teams.</p>
+</li>
+</ul>
+<p><img src="http://devo.ps/images/posts/devops-tablet.png" alt="Preview"/></p>
 <p>We think we can do that while preserving the interest of your business, keeping costs low while ensuring that you have a solution that will grow with you all the way.</p>
 <p>But more importantly, we want to see the approach of true infrastructure as code succeed; we believe that it most likely the stronger force behind the DevOps movement, helping dev and ops folks get along.</p>
 
