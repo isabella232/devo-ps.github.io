@@ -43,7 +43,7 @@ Moreover, the transition between these two polarized ways of doing (which many s
 
 Our end goal is pretty much aligned with the [DevOps movement](http://en.wikipedia.org/wiki/DevOps) in that we intend to bridge the gap between the way developers and ops people look at infrastructure:
 
-- **Low-barriers of entry**: we're trying to make things simple and understandable for "regular" folks. You provision a new server by writing a simple, declarative description of what it supports and pushing it to a Git repository. You can also quickly script complex jobs to automate your deployment or database backup with a bit of YAML and Git magic.
+- **Low-barriers of entry**: we're trying to make things simple and understandable for "regular" folks. You provision a new server by writing a simple, declarative list of what it supports and pushing it to a Git repository. You can also quickly script complex jobs to automate your deployment or database backup with a bit of YAML and Git magic.
 
 - **Collaboration**: since everything is organized around Git repositories, you can bring all the good habits of collaboration you have with software. Deploying the SSH keys of a user to your entire infrastructure can be as easy as adding him as a collaborator to a repository. Users have visibility of what others do and can contribute as easily as on GitHub. We're actually storing our public infrastructures blueprints on GitHub and [letting you fork them from there](http://devo.ps/blog/one-click-deploy-of-your-infrastructure/).
 
