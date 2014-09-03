@@ -19,9 +19,9 @@ date: 2014-09-03
 template: post.html
 ---
 
-<img src="http://devo.ps/images/posts/firestorm.gif" width="100%"/>
-
 The idea of dealing with servers is almost invariably cringe-inducing for developers. Sure, I know a few folks (me and my colleagues at [devo.ps](http://devo.ps) included) who actually get a kick out of it. But by and large, setting up infrastructure isn't the developer's favorite. There's definitely been a lot of awesome innovation in the past few years that made the whole thing manageable, especially with services like Heroku or TravisCI. But they are no silver bullets. At the end of the day, the whole experience sucks less, but it isn't near being enjoyable.
+
+<img src="http://devo.ps/images/posts/firestorm.gif" width="100%"/>
 
 ## What exactly am I babbling about?
 
