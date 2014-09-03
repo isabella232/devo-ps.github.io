@@ -1,6 +1,6 @@
 ---
 collection: blog
-title: Dealing With Servers Still Suck
+title: Dealing With Servers Still Sucks
 tags:
   - DevOps
   - server
