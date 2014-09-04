@@ -22,7 +22,7 @@ First, a couple things:
 
 - **This setup isn't intended to be the lightest or smallest possible**. We're not dealing with containers here, we can afford installing a few useful tools.
 
-- **This setup is very much opinionated, though based off of our experience working with a lot of teams of various sizes. We're open to suggestions.
+- **This setup is very much opinionate**d, though based off of our experience working with a lot of teams of various sizes. We're open to suggestions.
 
 Let's get started:
 
@@ -67,11 +67,8 @@ Let's get started:
     - For **troubleshooting**:
     
         - **[htop](http://hisham.hm/htop/)** is a great alternative to top.
-        
         - **[iftop](http://www.ex-parrot.com/pdw/iftop/)** provides realtime bandwidth investigation capabilities.
-    
         - **sysstat** gives you the ultimate troubslehooting tools; iostat, mpstat, sar, etc.
-        
         - **[dstat](http://dag.wiee.rs/home-made/dstat/)** is a great collection of stat tools.
         
     - **Git & Subversion** since they're the more commonly used VCS.
