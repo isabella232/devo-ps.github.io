@@ -82,21 +82,21 @@
 <ul>
 <li><p><strong>This setup isn&#39;t intended to be the lightest or smallest possible</strong>. We&#39;re not dealing with containers here, we can afford installing a few useful tools.</p>
 </li>
-<li><p><strong>This setup is very much opinionate</strong>d, though based off of our experience working with a lot of teams of various sizes. We&#39;re open to suggestions.</p>
+<li><p><strong>This setup is very much opinionated</strong>, though based off of our experience working with a lot of teams of various sizes. We&#39;re open to suggestions.</p>
 </li>
 </ul>
 <p>Let&#39;s get started:</p>
 <ul>
-<li><p><strong>OS</strong>: pick <strong>Ubuntu 14.04.1 LTS</strong>. It&#39;s a popular choice, with lots of relatively fresh packages, and the <a href="https://wiki.ubuntu.com/LTS">Long Term Support</a> guarantee from Ubuntu.</p>
+<li><p><strong>Pick Ubuntu 14.04.1 LTS</strong>. It&#39;s a popular choice, with lots of relatively fresh packages, and the <a href="https://wiki.ubuntu.com/LTS">Long Term Support</a> guarantee from Ubuntu.</p>
 </li>
 <li><p><strong>Settings</strong>:</p>
 <ul>
 <li><p><strong>Set locales to UTF-8</strong> to avoid receiving annoying messages about &quot;no locale found&quot;.</p>
-<p>  locale-gen en_US.UTF-8 &amp;&amp; echo &#39;LC_ALL=&quot;en_US.UTF-8&quot;&#39; &gt;&gt; /etc/default/locale</p>
-</li>
+<pre><code>  locale-gen en_US.UTF-8 &amp;&amp; echo &#39;LC_ALL=&quot;en_US.UTF-8&quot;&#39; &gt;&gt; /etc/default/locale
+</code></pre></li>
 <li><p><strong>Set swappiness to 0</strong> to limit swap usage as much as possible.</p>
-<p>  echo &#39;vm.swappiness = 0&#39; &gt;&gt; /etc/sysctl.conf &amp;&amp; sysctl -p</p>
-</li>
+<pre><code>  echo &#39;vm.swappiness = 0&#39; &gt;&gt; /etc/sysctl.conf &amp;&amp; sysctl -p
+</code></pre></li>
 </ul>
 </li>
 <li><p><strong>Create a 2GB swap file at the root of the filesystem</strong> to prevent OOM (Out of Memory) errors. Often times, cloud instances don&#39;t come with a swap partition, which leads to error when the RAM starts to fill up.</p>
@@ -125,24 +125,29 @@
 </li>
 <li><p><strong>Packages</strong>:</p>
 <ul>
-<li><p>For <strong>troubleshooting</strong>:</p>
+<li><p>For <strong><a href="http://devo.ps/blog/troubleshooting-5minutes-on-a-yet-unknown-box/">troubleshooting</a></strong>:</p>
 <ul>
-<li><strong><a href="http://hisham.hm/htop/">htop</a></strong> is a great alternative to top.</li>
-<li><strong><a href="http://www.ex-parrot.com/pdw/iftop/">iftop</a></strong> provides realtime bandwidth investigation capabilities.</li>
-<li><strong>sysstat</strong> gives you the ultimate troubslehooting tools; iostat, mpstat, sar, etc.</li>
-<li><strong><a href="http://dag.wiee.rs/home-made/dstat/">dstat</a></strong> is a great collection of stat tools.</li>
+<li><p><strong><a href="http://hisham.hm/htop/">htop</a></strong> is a great alternative to top.</p>
+</li>
+<li><p><strong><a href="http://www.ex-parrot.com/pdw/iftop/">iftop</a></strong> provides realtime bandwidth investigation capabilities.</p>
+</li>
+<li><p><strong>sysstat</strong> gives you the ultimate troubslehooting tools; iostat, mpstat, sar, etc.</p>
+</li>
+<li><p><strong><a href="http://dag.wiee.rs/home-made/dstat/">dstat</a></strong> is a great collection of stat tools.</p>
+</li>
 </ul>
 </li>
 <li><p><strong>Git &amp; Subversion</strong> since they&#39;re the more commonly used VCS.</p>
 </li>
-<li><p><strong>make, gcc &amp; g++</strong> (we know it&#39;s controversial) are often required when building extensions (PECL, npm, pip...).</p>
+<li><p><strong>make, gcc &amp; g++</strong> (I know it may be controversial) are often required when building extensions (PECL, npm, pip...).</p>
 </li>
 <li><p><strong>postfix</strong> running standalone, listening only to localhost, allows you to send email and notifications.</p>
 </li>
 </ul>
 </li>
 </ul>
-<p>Feedback is welcome. And if you don&#39;t feel like setting up all of this by yourself, <strong><a href="http://app.devo.ps">create a free devo.ps account</a> and get your own Digital Ocean, AWS, Rackspace or Linode servers ready in a few minutes</strong>.</p>
+<p>Feedback is welcome.</p>
+<p>And if you don&#39;t feel like setting up all of this by yourself, <strong><a href="http://app.devo.ps">create a free devo.ps account</a> and get your own Digital Ocean, AWS, Rackspace or Linode servers ready in a few minutes</strong>.</p>
 
       
       <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/basic-setup-for-a-new-linux-server' target='_blank'>Twitter</a>.</h2>
