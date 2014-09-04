@@ -22,21 +22,21 @@ First, a couple things:
 
 - **This setup isn't intended to be the lightest or smallest possible**. We're not dealing with containers here, we can afford installing a few useful tools.
 
-- **This setup is very much opinionate**d, though based off of our experience working with a lot of teams of various sizes. We're open to suggestions.
+- **This setup is very much opinionated**, though based off of our experience working with a lot of teams of various sizes. We're open to suggestions.
 
 Let's get started:
 
-- **OS**: pick **Ubuntu 14.04.1 LTS**. It's a popular choice, with lots of relatively fresh packages, and the [Long Term Support](https://wiki.ubuntu.com/LTS) guarantee from Ubuntu.
+- **Pick Ubuntu 14.04.1 LTS**. It's a popular choice, with lots of relatively fresh packages, and the [Long Term Support](https://wiki.ubuntu.com/LTS) guarantee from Ubuntu.
 
 - **Settings**:
 
     - **Set locales to UTF-8** to avoid receiving annoying messages about "no locale found".
     
-        locale-gen en_US.UTF-8 && echo 'LC_ALL="en_US.UTF-8"' >> /etc/default/locale
+            locale-gen en_US.UTF-8 && echo 'LC_ALL="en_US.UTF-8"' >> /etc/default/locale
     
     - **Set swappiness to 0** to limit swap usage as much as possible.
     
-        echo 'vm.swappiness = 0' >> /etc/sysctl.conf && sysctl -p
+            echo 'vm.swappiness = 0' >> /etc/sysctl.conf && sysctl -p
     
 - **Create a 2GB swap file at the root of the filesystem** to prevent OOM (Out of Memory) errors. Often times, cloud instances don't come with a swap partition, which leads to error when the RAM starts to fill up.
 
@@ -64,17 +64,22 @@ Let's get started:
     
 - **Packages**:
 
-    - For **troubleshooting**:
+    - For **[troubleshooting](http://devo.ps/blog/troubleshooting-5minutes-on-a-yet-unknown-box/)**:
     
         - **[htop](http://hisham.hm/htop/)** is a great alternative to top.
+        
         - **[iftop](http://www.ex-parrot.com/pdw/iftop/)** provides realtime bandwidth investigation capabilities.
+        
         - **sysstat** gives you the ultimate troubslehooting tools; iostat, mpstat, sar, etc.
+        
         - **[dstat](http://dag.wiee.rs/home-made/dstat/)** is a great collection of stat tools.
         
     - **Git & Subversion** since they're the more commonly used VCS.
     
-    - **make, gcc & g++** (we know it's controversial) are often required when building extensions (PECL, npm, pip...).
+    - **make, gcc & g++** (I know it may be controversial) are often required when building extensions (PECL, npm, pip...).
     
     - **postfix** running standalone, listening only to localhost, allows you to send email and notifications.
 
-Feedback is welcome. And if you don't feel like setting up all of this by yourself, **[create a free devo.ps account](http://app.devo.ps) and get your own Digital Ocean, AWS, Rackspace or Linode servers ready in a few minutes**.
+Feedback is welcome.
+
+And if you don't feel like setting up all of this by yourself, **[create a free devo.ps account](http://app.devo.ps) and get your own Digital Ocean, AWS, Rackspace or Linode servers ready in a few minutes**.
