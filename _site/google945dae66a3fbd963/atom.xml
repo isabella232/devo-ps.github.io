@@ -3,12 +3,22 @@
  <title>devo.ps</title>
  <link href='/atom.xml' rel='self'/>
  <link href='/'/>
- <updated>2014-09-04T18:27:10.304Z</updated>
+ <updated>2014-09-04T18:29:38.065Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
    <email>info@devo.ps</email>
  </author>
+ 
+ 
+   <entry>
+     <title>Basic Setup For A New Linux Server</title>
+     <link href='/blog/basic-setup-for-a-new-linux-server'/>
+     <updated>2014-09-04T00:00:00.000Z</updated>
+     <id>http://devo.ps/blog/basic-setup-for-a-new-linux-server</id>
+     <content type='html'></content>
+   </entry>
+ 
  
  
    <entry>
@@ -100,14 +110,6 @@
    </entry>
  
  
- 
-   <entry>
-     <title>Meat And Beer With Hackers + Founders</title>
-     <link href='/blog/meat-and-beer-with-hackers-founders'/>
-     <updated>2013-07-11T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/meat-and-beer-with-hackers-founders</id>
-     <content type='html'></content>
-   </entry>
  
  
  
