@@ -67,23 +67,6 @@
       }
     }
   }
-
-  body.page-front {
-    #header {
-      .toggle {
-        color: #FFF;
-        &:hover {
-          color: tint($blue, 80%);
-        }
-      }
-      .menu {
-        border-bottom-color: tint($blue, 20%);
-        a {
-          border-top-color: tint($blue, 20%);
-        }
-      }
-    }
-  }
 }
 
 /* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
@@ -172,6 +155,12 @@
     }
     &.landing {
       .section {
+        &.how {
+          .steps,
+          .illustrations {
+            @include halves();
+          }
+        }
         &.features {
           .feature {
             &:nth-child(odd) {

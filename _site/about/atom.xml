@@ -3,12 +3,42 @@
  <title>devo.ps</title>
  <link href='/atom.xml' rel='self'/>
  <link href='/'/>
- <updated>2014-08-30T12:43:37.268Z</updated>
+ <updated>2014-09-04T18:27:10.304Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
    <email>info@devo.ps</email>
  </author>
+ 
+ 
+   <entry>
+     <title>Dealing With Servers Still Sucks</title>
+     <link href='/blog/dealing-with-servers-still-suck'/>
+     <updated>2014-09-03T00:00:00.000Z</updated>
+     <id>http://devo.ps/blog/dealing-with-servers-still-suck</id>
+     <content type='html'></content>
+   </entry>
+ 
+ 
+ 
+   <entry>
+     <title>One-Click Deploy Of Your Infrastructure</title>
+     <link href='/blog/one-click-deploy-of-your-infrastructure'/>
+     <updated>2014-09-02T00:00:00.000Z</updated>
+     <id>http://devo.ps/blog/one-click-deploy-of-your-infrastructure</id>
+     <content type='html'></content>
+   </entry>
+ 
+ 
+ 
+   <entry>
+     <title>Releasing devo.ps 0.5.0</title>
+     <link href='/blog/releasing-devops-0.5.0'/>
+     <updated>2014-09-02T00:00:00.000Z</updated>
+     <id>http://devo.ps/blog/releasing-devops-0.5.0</id>
+     <content type='html'></content>
+   </entry>
+ 
  
  
    <entry>
@@ -72,16 +102,6 @@
  
  
    <entry>
-     <title>Code Reuse With Node.js</title>
-     <link href='/blog/code-reuse-with-nodejs'/>
-     <updated>2013-07-11T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/code-reuse-with-nodejs</id>
-     <content type='html'></content>
-   </entry>
- 
- 
- 
-   <entry>
      <title>Meat And Beer With Hackers + Founders</title>
      <link href='/blog/meat-and-beer-with-hackers-founders'/>
      <updated>2013-07-11T00:00:00.000Z</updated>
@@ -91,23 +111,9 @@
  
  
  
-   <entry>
-     <title>Ansible Simply Kicks Ass</title>
-     <link href='/blog/ansible-simply-kicks-ass'/>
-     <updated>2013-07-03T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/ansible-simply-kicks-ass</id>
-     <content type='html'></content>
-   </entry>
  
  
  
-   <entry>
-     <title>Goodbye node-forever, hello PM2</title>
-     <link href='/blog/goodbye-node-forever-hello-pm2'/>
-     <updated>2013-06-26T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/goodbye-node-forever-hello-pm2</id>
-     <content type='html'></content>
-   </entry>
  
  
  

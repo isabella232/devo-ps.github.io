@@ -12,6 +12,7 @@
 $avatar: 22px;
 $width: 960px;
 $body: 720px;
+$code: 'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace;
 
 /* General */
 
@@ -71,6 +72,7 @@ img.avatar {
 /* Header */
 
 #header {
+  @include box-sizing(border-box);
 	padding: $gutter 0;
 	.logo {
 		&:before {
@@ -187,6 +189,7 @@ body.page-about {
 
 #footer {
   background: $light;
+  border-top: 1px solid $line;
   padding: 1.5*$gutter 0;
 	a {
     color: inherit;
