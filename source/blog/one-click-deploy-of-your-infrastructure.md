@@ -21,13 +21,13 @@ We just released [devo.ps 0.5.0](http://devo.ps/blog/releasing-devops-0.5.0/) an
 
 Not unlike the Heroku button, we wanted to make the process of provisioning and setting up a complete infrastructure of your own, from server to continuous integration tasks, as easy as possible. The devo.ps button allows you to do all of that in one click.
 
-Want to give it a try? Click on the link below to create in a few minutes a server and associated build task to deploy and run a Laravel app (see the [devo-ps/laravel repo](https://github.com/devo-ps/laravel) for more information):
+Want to give it a try? Click on the link below to create in a few minutes a server and associated build task to deploy and run a Laravel app (see the [devops-community/laravel repo](https://github.com/devops-community/laravel) for more information):
 
-<a href='https://app.devo.ps/#/fork?git_url=https://github.com/devo-ps/laravel' target='_blank'>![Fork on devo.ps](https://app.devo.ps/assets/images/fork.png)</a>
+<a href='https://app.devo.ps/#/fork?git_url=https://github.com/devops-community/laravel' target='_blank'>![Fork on devo.ps](https://app.devo.ps/assets/images/fork.png)</a>
 
 ## How does it work?
 
-If you see the devo.ps button in the README page of a repository (for example on the [devo-ps/laravel repo](https://github.com/devo-ps/laravel)) it probably means it is designed to work with devo.ps.
+If you see the devo.ps button in the README page of a repository (for example on the [devops-community/laravel repo](https://github.com/devops-community/laravel)) it probably means it is designed to work with devo.ps.
 
 ![devo.ps button](http://devo.ps/images/posts/github-laravel-repo.png)
 
