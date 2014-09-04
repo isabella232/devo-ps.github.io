@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://devo.ps/blog/basic-setup-for-a-new-linux-server</loc>
+    <lastmod>2014-09-04</lastmod>
+  </url>
+  
+  <url>
     <loc>http://devo.ps/blog/dealing-with-servers-still-suck</loc>
     <lastmod>2014-09-03</lastmod>
   </url>
@@ -44,11 +49,6 @@
   <url>
     <loc>http://devo.ps/blog/zookeeper-vs-doozer-vs-etcd</loc>
     <lastmod>2013-09-11</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://devo.ps/blog/basic-setup-for-a-new-linux-server</loc>
-    <lastmod>2013-09-04</lastmod>
   </url>
   
   <url>
