@@ -7,12 +7,12 @@
   </url>
   
   <url>
-    <loc>http://devo.ps/blog/one-click-deploy-of-your-infrastructure</loc>
+    <loc>http://devo.ps/blog/releasing-devops-0.5.0</loc>
     <lastmod>2014-09-02</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/blog/releasing-devops-0.5.0</loc>
+    <loc>http://devo.ps/blog/one-click-deploy-of-your-infrastructure</loc>
     <lastmod>2014-09-02</lastmod>
   </url>
   
@@ -47,12 +47,17 @@
   </url>
   
   <url>
-    <loc>http://devo.ps/blog/meat-and-beer-with-hackers-founders</loc>
-    <lastmod>2013-07-11</lastmod>
+    <loc>http://devo.ps/blog/basic-setup-for-a-new-linux-server</loc>
+    <lastmod>2013-09-04</lastmod>
   </url>
   
   <url>
     <loc>http://devo.ps/blog/code-reuse-with-nodejs</loc>
+    <lastmod>2013-07-11</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://devo.ps/blog/meat-and-beer-with-hackers-founders</loc>
     <lastmod>2013-07-11</lastmod>
   </url>
   
