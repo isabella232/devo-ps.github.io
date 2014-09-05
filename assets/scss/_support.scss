@@ -27,13 +27,6 @@
     margin: 0;
     opacity: 0.9;
     padding: $gutter/2;
-    &:before {
-      @include icon;
-      content: '0';
-    }
-    span {
-      display: none;
-    }
   }
   .links {
     bottom: 100%;
