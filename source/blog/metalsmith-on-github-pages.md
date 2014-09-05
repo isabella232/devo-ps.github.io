@@ -126,4 +126,4 @@ Every time you'll be pushing a new commit on the `metalsmith` branch, devo.ps wi
 
 There are obviously still a few rough edges: it'd be nice not to have to configure things manually on GitHub, it also would be nice to be able to not rely on a trick to prevent the task from running when the commit isn't related to the `metalsmith` branch.
 
-In the next couple weeks, we'll be adding some of these features and startint to integrate more tightly with GitHub.
+In the next couple weeks, we'll be adding some of these features and starting to integrate more tightly with GitHub.
