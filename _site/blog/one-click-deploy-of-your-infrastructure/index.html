@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset='utf-8'/>
-  <title>Using Metalsmith On GitHub pages | devo.ps</title>
+  <title>One-Click Deploy Of Your Infrastructure | devo.ps</title>
 
   <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
-  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, continuous integration, continuous delivery, continuous deployment, metalsmith, Node.js, GitHub, GitHub pages'/>
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, Digital Ocean, DevOps, devo.ps button, Laravel, one-click'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
   <meta name="msvalidate.01" content="86C1F235D57610586CFC5A2D77B7D446" />
   <meta http-equiv="Content-Language" content="en"/>
@@ -32,7 +32,7 @@
   <!-- CSS -->
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
-<body class='page-blog/using-metalsmith-on-github-pages'>
+<body class='page-blog/one-click-deploy-of-your-infrastructure'>
   <header id='header'>
     <div class='wrapper'>
       <a href='/' class='logo'>devo.ps</a>
@@ -54,7 +54,7 @@
     <header class='header'>
       <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-      <h1>Using Metalsmith On GitHub pages</h1>
+      <h1>One-Click Deploy Of Your Infrastructure</h1>
 
       <span class='meta'>
         
@@ -73,115 +73,31 @@
         
         
         
-        on <time datetime=''>September 05, 2014</time>
+        on <time datetime=''>September 02, 2014</time>
       </span>
     </header>
 
     <article class='content'>
-      <p>We love GitHub pages and use it more than we probably should.: our <a href="http://devo.ps">main website (devo.ps)</a> and <a href="http://docs.devo.ps">documentation</a> are actually GitHub pages. We use <a href="https://swiftype.com/">SwiftType</a> to provide a search on the documentation, but otherwise these are pretty regular static website. However, we don&#39;t use Jekyll; our team is more at ease with node.js than Ruby, which is why we usually prefer it <a href="http://www.metalsmith.io/">Metalsmith</a>. And since we&#39;re pretty lazy, we automate building and pushing to the <code>gh-pages</code> using <a href="http://devo.ps">devo.ps</a> (of course). Here&#39;s what it looks like.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>You&#39;ll need to have a few things in place already:</p>
-<ul>
-<li><p>A repo with <a href="https://pages.github.com/">GitHub pages</a> activated (duh). We&#39;ll assume you&#39;re using the <code>gh-pages</code> branch, though if it is your <code>*.github.io</code> repo it should be <code>master</code>.</p>
-<p>  <img src="/images/posts/github-pages-settings.png" alt="GitHub pages settings"/></p>
-</li>
-<li><p>A <a href="http:/app.devo.ps/">devo.ps account</a> (it&#39;s free) with (for the sake of this example) your Digital Ocean account tied up to it (though you could use AWS, Rackspace or Linode with minimum changes).</p>
-</li>
-<li><p>A <a href="http://">Metalsmith</a> site that has a Makefile along with a <code>make build</code> command (in our example we use it to install the npm dependencies as well as run bower and gulp).</p>
-</li>
-</ul>
-<h2 id="let-s-get-started">Let&#39;s get started</h2>
-<p>We&#39;ll be going through a step by step: I&#39;ll most likely prepare a repo very soon for you to fork, using our brand new <a href="http://devo.ps/blog/one-click-deploy-of-your-infrastructure/">devo.ps button</a> feature.</p>
-<ol>
-<li><p><a href="http://docs.devo.ps/how-to/add-a-node/">Add a node</a> (either to a new repo or an existing one) or use an existing node with the following services/configuration:</p>
-<pre><code> id: build-server
- name: Build server
- type: server
-
- provider:
-   name: digitalocean
-   size: 66
-
- services:
-   nodejs: *
-
- configuration:
-   nodejs:
-     packages:
-       - bower
-       - gulp
-</code></pre></li>
-<li><p>Once you&#39;ve added your node, copy its public SSH key from the details section:</p>
-<p> <img src="/images/posts/devops-ssh-key.png" alt="GitHub pages settings"/></p>
-</li>
-<li><p>Add that key as a deploy in the settings of your site&#39;s repo on GitHub:</p>
-<p> <img src="/images/posts/github-deploy-keys.png" alt="GitHub deploy key"/></p>
-</li>
-<li><p>We&#39;ll then add a task on devo.ps to do the bulk of the job:</p>
-<pre><code> type: task
- id: gh-pages-build
- name: Build and deploy on gh-pages
-
- vars:
-   # Feel free to edit the following values to match your use case
-   dir: /opt/example.com
-   build: _site
-   temp: /tmp/build
-   # You&#39;ll need to change that to match the Git URL of your site&#39;s repo
-   repo: git@github.com:my-account/my-repo.git
-   # We&#39;re here assuming we work out of the metalsmith branch
-   ref: refs/heads/metalsmith
-   dest: gh-pages
-
- targets:
-   - build-server
-
- triggers:
-   webhooks:
-     - path: XkYw58l2d7rehq2Dkh4Nmd
-
- steps:
-   # Hack to ensure we&#39;re building only when the right branch is updated
-   - run: if [ &quot;{{ trigger.payload.ref }}&quot; != &quot;{{ ref }}&quot; ]; then echo &quot;Wrong branch&quot; &gt;&amp;2 ; exit 1 ; fi
-
-   # Fetch our updates
-   - run: devops git update
-     options:
-       repo: &quot;{{ repo }}&quot;
-       dest: &quot;{{ dir }}&quot;
-       version: metalsmith
-
-   # Build the site
-   - run: cd {{ dir }} &amp;&amp; make build &amp;&amp; git stash save
-
-   # We copy the result of our build over to a temporary folder
-   - run: rm -Rf {{ temp }} &amp;&amp; cd {{ dir }} &amp;&amp; cp -a {{ build }} {{ temp }}
-
-   # We switch to `gh-pages` and trash its content
-   - run: cd {{ dir }} &amp;&amp; git checkout {{ dest }} &amp;&amp; git rm -r --ignore-unmatch * 
-
-   # We switch to `gh-pages` and trash its content
-   - run: cd {{ dir }} &amp;&amp; cp -a {{ temp }}/* .
-
-   # We switch to `gh-pages` and trash its content
-   - run: &gt; 
-       cd {{ dir }} &amp;&amp; 
-       git add . &amp;&amp; 
-       git commit -am &quot;Build triggered by commit {{ trigger.payload.after }} from {{ trigger.payload.head_commit.author.username }}&quot; &amp;&amp; 
-       git push origin {{ dest }}
-</code></pre></li>
-<li><p>Once that task is saved, we still need to point GitHub&#39;s webhook at it. You&#39;ll notice we added a <code>path: XkYw58l2d7rehq2Dkh4Nmd</code> in the <code>webhooks</code> section of the <code>triggers</code> attribute. It means that your task can be triggered by hitting the <code>https://wh.devo.ps/{USER}/{REPO}/XkYw58l2d7rehq2Dkh4Nmd</code> URL, where <code>{USER}</code> and <code>{REPO}</code> are your devo.ps username and repository name for this task. Go ahead and add this on GitHub in the &quot;Webhooks &amp; Services&quot; settings page:</p>
-<p> <img src="/images/posts/github-webhook.png" alt="GitHub webhook"/></p>
-</li>
-<li><p>Voila!</p>
-</li>
-</ol>
-<p>Every time you&#39;ll be pushing a new commit on the <code>metalsmith</code> branch, devo.ps will fetch the changes, build the site and push it back in the <code>gh-pages</code> branch. Since GitHub pages are public, wether or not the repo is private, we&#39;re actually able to do a fair amount of editing in branches before publishing this.</p>
-<p>There are obviously still a few rough edges: it&#39;d be nice not to have to configure things manually on GitHub, it also would be nice to be able to not rely on a trick to prevent the task from running when the commit isn&#39;t related to the <code>metalsmith</code> branch.</p>
-<p>In the next couple weeks, we&#39;ll be adding some of these features and start integrating more tightly with GitHub.</p>
+      <p>We just released <a href="http://devo.ps/blog/releasing-devops-0.5.0/">devo.ps 0.5.0</a> and are pretty excited about one feature in particular.</p>
+<h2 id="introducing-the-devo-ps-button">Introducing: the devo.ps button</h2>
+<p>Not unlike the Heroku button, we wanted to make the process of provisioning and setting up a complete infrastructure of your own, from server to continuous integration tasks, as easy as possible. The devo.ps button allows you to do all of that in one click.</p>
+<p>Want to give it a try? Click on the link below to create in a few minutes a server and associated build task to deploy and run a Laravel app (see the <a href="https://github.com/devops-community/laravel">devops-community/laravel repo</a> for more information):</p>
+<p><a href='https://app.devo.ps/#/fork?git_url=https://github.com/devops-community/laravel' target='_blank'><img src="https://app.devo.ps/assets/images/fork.png" alt="Fork on devo.ps"/></a></p>
+<h2 id="how-does-it-work-">How does it work?</h2>
+<p>If you see the devo.ps button in the README page of a repository (for example on the <a href="https://github.com/devops-community/laravel">devops-community/laravel repo</a>) it probably means it is designed to work with devo.ps.</p>
+<p><img src="http://devo.ps/images/posts/github-laravel-repo.png" alt="devo.ps button"/></p>
+<p>These repositories may include a <code>devops.yml</code> file at their root, allowing them to define a few things like a name, description and logo. Once you&#39;ve clicked on the devo.ps button, you will be redirected to our app and prompted with this information for you to review before confirming the fork.</p>
+<p><img src="http://devo.ps/images/posts/devops-fork-confirm.png" alt="devo.ps fork confirm"/></p>
+<p>This will effectively fork the repository in your account. Once the repo is ready, you can click on it. You will then be asked to <a href="http://docs.devo.ps/manual/git-repositories/#branches">&quot;activate&quot; your branch</a>, allowing it to provision actual servers and run tasks. At the same time, you will be asked to review and potentially modify a few variables that were defined in the <code>devops.yml</code> file. These are usually things like the Git URL of the repo for your app, or some of the details related to the cloud provider you want to use (Digital Ocean, Rackspace, AWS, Linode...).</p>
+<p><img src="http://devo.ps/images/posts/devops-activate-confirm.png" alt="devo.ps fork confirm"/></p>
+<p>Once you confirmed this last step, your branch is activated and devo.ps will start provisioning and configuring your servers, along with the tasks which may allow you to build and deploy your app. In this specific case, you can go to the tasks section and run the build task that will fetch your app&#39;s code, build it and deploy it on your server, database configuration included.</p>
+<h2 id="what-s-next">What&#39;s next</h2>
+<p>We&#39;re just getting started with it and will be adding more details on how to use the devo.ps button on the <a href="http://docs.devo.ps">documentation website</a> in the next few days.</p>
+<p>There&#39;s a lot more where that came from, including branching your infrastructures (think of doing performance and tuning on a &quot;branch&quot; of your production servers, with actual machines), provisioning of Vagrant machines replicating your servers and third party integrations (custom events coming from TravisCI or GitHub allowing you to trigger tasks).</p>
+<p>If you have questions, comments or suggestions, swing by the <a href="https://www.hipchat.com/gyHEHtsXZ">devo.ps chat</a>: there&#39;s always somebody up.</p>
 
       
-      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/using-metalsmith-on-github-pages' target='_blank'>Twitter</a>.</h2>
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/one-click-deploy-of-your-infrastructure' target='_blank'>Twitter</a>.</h2>
 
       <footer class='more'>
         <section class='pitch'>

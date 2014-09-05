@@ -3,7 +3,7 @@
  <title>devo.ps</title>
  <link href='/atom.xml' rel='self'/>
  <link href='/'/>
- <updated>2014-09-05T12:12:09.821Z</updated>
+ <updated>2014-09-05T12:34:42.281Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
@@ -12,10 +12,10 @@
  
  
    <entry>
-     <title>Using Metalsmith On GitHub pages</title>
-     <link href='/blog/using-metalsmith-on-github-pages'/>
+     <title>Metalsmith On GitHub pages</title>
+     <link href='/blog/metalsmith-on-github-pages'/>
      <updated>2014-09-05T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/using-metalsmith-on-github-pages</id>
+     <id>http://devo.ps/blog/metalsmith-on-github-pages</id>
      <content type='html'></content>
    </entry>
  
