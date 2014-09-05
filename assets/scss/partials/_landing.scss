@@ -3,10 +3,17 @@ $thin: 720px;
 body.page-front {
   #main {
     .section {
+      @include clearfix;
+      padding: 8rem 0 0;
+      .wrapper > .header {
+        padding: 0;
+        text-align: center;
+        h2 {
+          margin: 0 0 8rem;
+        }
+      }
       h2 {
         @include font-size($huge);
-        margin-bottom: 2*$gutter;
-        text-align: center;
       }
       h3 {
         @include font-size($large);
@@ -30,7 +37,6 @@ body.page-front {
         @include box-sizing(border-box);
         @include clearfix;
         padding-bottom: 0;
-        padding-top: 8rem;
         position: relative;
         h1 {
           margin: 0 auto $gutter/2;
@@ -78,30 +84,19 @@ body.page-front {
       }
       &.how {
         border-top: 1px solid $line;
-        @include clearfix;
-        padding: 8rem 0 0;
-        .header {
-          margin: 0 0 8rem;
-          padding: 0;
-        }
         @import 'partials/_how.scss';
-        .footer {
-          @include clearfix;
-        }
       }
       &.features {
-        .header {
-          margin: 4*$gutter 0;
-          padding: 0;
-          text-align: center;
-          h1 {
-            margin: 0;
-          }
-        }
         .feature {
           @include clearfix;
-          margin: 4*$gutter 0;
+          margin: 8rem 0;
           position: relative;
+          &:first-child {
+            margin-top: 0;
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
           &:hover {
             .preview {
               img {
@@ -152,9 +147,15 @@ body.page-front {
           text-align: center;
         }
       }
-      &.signup {
-        margin: 4*$gutter 0;
-        text-align: center;
+      &.pricing {
+        margin-bottom: 8rem;
+        .wrapper {
+          text-align: center;
+          .notification {
+            text-align: center;
+          }
+          @import '_pricing.scss';
+        }
       }
     }
   }
