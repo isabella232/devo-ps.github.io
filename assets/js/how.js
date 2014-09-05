@@ -1,22 +1,24 @@
 (function($) {
-    $.fn.typeText = function(content) {
+    $.fn.typeText = function(content, code) {
+        code = typeof code !== 'undefined' ? code : false;
+
         if (content.length > 0) {
             var line = content.shift(),
                 elem = this;
 
-            if (line.charAt(0) == '$') {
+            if (line.charAt(0) == '$' || code) {
                 var cursor = $('<span class="cursor">|</span>');
                 var blinking = setInterval(function () {
                     cursor.toggle();
                 }, 500);
-                elem.append('$ ');
+                if (!code) elem.append('$ ');
                 elem.append(cursor);
-                elem.scrollTop(elem[0].scrollHeight);
                 
-                var lineArray = line.substring(2).split(''),
+                var lineArray = code ? line.substring(0).split('') : line.substring(2).split(''),
                     current = 0;
 
                 setTimeout(function() {
+                    elem.scrollTop(elem[0].scrollHeight);
                     var typing = setInterval(function() {
                         if (current < lineArray.length) {
                             cursor.before(lineArray[current++]);
@@ -27,19 +29,20 @@
                                 cursor.after("\n");
                                 if (content.length > 0) {
                                     cursor.remove();
-                                    elem.typeText(content);
+                                    elem.typeText(content, code);
+                                    elem.scrollTop(elem[0].scrollHeight);
                                 }
-                            }, 1000);
+                            }, 400);
                         }
                         return;
                     }, 40);
-                }, 1000);
+                }, 400);
             }
             else {
                 setTimeout(function() {
                     elem.append(line + "\n");
                     elem.scrollTop(elem[0].scrollHeight);
-                    elem.typeText(content);
+                    elem.typeText(content, code);
                 }, 120);
             }
         }
@@ -47,21 +50,20 @@
 })(jQuery);
 
 $(function() {
+    if (!$('body.page-front').length) return;
+
     var slideshow_lock = false; // Disable slideshow on hover
     var browser_lock = false;
     var console_lock = false;
     var editor_lock = false;
+    
+    var terminal = $('#main .how .console .body pre'),
+        terminal_lines = terminal.html().split("\n");
+    terminal.empty();
 
-    if ($('#main .console').length) {
-        var terminal = $('#main .how .console .body pre'),
-            content = terminal.html(),
-            lines = content.split("\n"),
-            container = $('<span></span>');
-        terminal.empty();
-    }
-
-    $('#main .how .steps .step:first-child').addClass('active');
-    $('#main .how .illustration.'+ $('#main .how .steps .step:first-child').attr('rel')).addClass('active');
+    var editor = $('#main .how .editor .body pre'),
+        editor_lines = editor.text().split("\n");
+    editor.empty();
     
     $('#main .how .steps .step').hover(function () {
         slideshow_lock = true;
@@ -82,10 +84,26 @@ $(function() {
                 terminal.scrollTop(terminal[0].scrollHeight);
                 if (console_lock) return;
                 console_lock = true;
-                terminal.typeText(lines);
+                terminal.typeText(terminal_lines);
+                break;
+
+            case 'editor':
+                editor.scrollTop(editor[0].scrollHeight);
+                if (editor_lock) return;
+                editor_lock = true;
+
+                for (i = 0; i < 8; i++) {
+                    var line = editor_lines.shift();
+                    editor.append(line + "\n");
+                    editor.scrollTop(editor[0].scrollHeight);
+                }
+
+                editor.typeText(editor_lines, true);
                 break;
         }
     });
+
+    $('#main .how .steps .step:first-child').trigger('mouseenter');
 
     setInterval(function() {
         if (!slideshow_lock) {
