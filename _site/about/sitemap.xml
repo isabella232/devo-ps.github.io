@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://devo.ps/blog/using-metalsmith-on-github-pages</loc>
+    <lastmod>2014-09-05</lastmod>
+  </url>
+  
+  <url>
     <loc>http://devo.ps/blog/basic-setup-for-a-new-linux-server</loc>
     <lastmod>2014-09-04</lastmod>
   </url>
@@ -52,12 +57,12 @@
   </url>
   
   <url>
-    <loc>http://devo.ps/blog/code-reuse-with-nodejs</loc>
+    <loc>http://devo.ps/blog/meat-and-beer-with-hackers-founders</loc>
     <lastmod>2013-07-11</lastmod>
   </url>
   
   <url>
-    <loc>http://devo.ps/blog/meat-and-beer-with-hackers-founders</loc>
+    <loc>http://devo.ps/blog/code-reuse-with-nodejs</loc>
     <lastmod>2013-07-11</lastmod>
   </url>
   

@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset='utf-8'/>
-  <title>Releasing devo.ps 0.4.0 | devo.ps</title>
+  <title>Using Metalsmith On GitHub pages | devo.ps</title>
 
   <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
-  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, release'/>
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, continuous integration, continuous delivery, continuous deployment, metalsmith, Node.js, GitHub, GitHub pages'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
   <meta name="msvalidate.01" content="86C1F235D57610586CFC5A2D77B7D446" />
   <meta http-equiv="Content-Language" content="en"/>
@@ -32,7 +32,7 @@
   <!-- CSS -->
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
-<body class='page-blog/releasing-devops-0-4-0'>
+<body class='page-blog/using-metalsmith-on-github-pages'>
   <header id='header'>
     <div class='wrapper'>
       <a href='/' class='logo'>devo.ps</a>
@@ -54,7 +54,7 @@
     <header class='header'>
       <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-      <h1>Releasing devo.ps 0.4.0</h1>
+      <h1>Using Metalsmith On GitHub pages</h1>
 
       <span class='meta'>
         
@@ -73,30 +73,115 @@
         
         
         
-        on <time datetime=''>August 28, 2014</time>
+        on <time datetime=''>September 05, 2014</time>
       </span>
     </header>
 
     <article class='content'>
-      <p>We just released a new version of devo.ps (0.4.0) with a lot more coming down over the next week. A quick list of changes we made:</p>
+      <p>We love GitHub pages and use it more than we probably should.: our <a href="http://devo.ps">main website (devo.ps)</a> and <a href="http://docs.devo.ps">documentation</a> are actually GitHub pages. We use <a href="https://swiftype.com/">SwiftType</a> to provide a search on the documentation, but otherwise these are pretty regular static website. However, we don&#39;t use Jekyll; our team is more at ease with node.js than Ruby, which is why we usually prefer it <a href="http://www.metalsmith.io/">Metalsmith</a>. And since we&#39;re pretty lazy, we automate building and pushing to the <code>gh-pages</code> using <a href="http://devo.ps">devo.ps</a> (of course). Here&#39;s what it looks like.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You&#39;ll need to have a few things in place already:</p>
 <ul>
-<li>Added the support for proper commiter information.</li>
-<li>Added default settings for providers (location and image).</li>
-<li>Added Laravel support.</li>
-<li>Fixed EC2/AWS support.</li>
-<li>Improved support for mySQL, PHP and NGINX.</li>
-<li>Updated the on-boarding.</li>
-<li>Improved the  workflow for forking repositories.</li>
-<li>Improved tasks and nodes console with logs history for nodes.</li>
-<li>Improved error reporting.</li>
-<li>Improved support for variables</li>
+<li><p>A repo with <a href="https://pages.github.com/">GitHub pages</a> activated (duh). We&#39;ll assume you&#39;re using the <code>gh-pages</code> branch, though if it is your <code>*.github.io</code> repo it should be <code>master</code>.</p>
+<p>  <img src="/images/posts/github-pages-settings.png" alt="GitHub pages settings"/></p>
+</li>
+<li><p>A <a href="http:/app.devo.ps/">devo.ps account</a> (it&#39;s free) with (for the sake of this example) your Digital Ocean account tied up to it (though you could use AWS, Rackspace or Linode with minimum changes).</p>
+</li>
+<li><p>A <a href="http://">Metalsmith</a> site that has a Makefile along with a <code>make build</code> command (in our example we use it to install the npm dependencies as well as run bower and gulp).</p>
+</li>
 </ul>
-<p>We also started to update the <a href="http://docs.devo.ps">documentation website</a> and main <a href="http://devo.ps">website</a>.</p>
-<p>This is all preparatory work for us to add the ability for users to define one-click forks; we will start with the Mean.js and Laravel platform, allowing you to deploy your applications with devo.ps by simply inputing the URL of your app&#39;s git repository.</p>
-<p>More about this next week.</p>
+<h2 id="let-s-get-started">Let&#39;s get started</h2>
+<p>We&#39;ll be going through a step by step: I&#39;ll most likely prepare a repo very soon for you to fork, using our brand new <a href="http://devo.ps/blog/one-click-deploy-of-your-infrastructure/">devo.ps button</a> feature.</p>
+<ol>
+<li><p><a href="http://docs.devo.ps/how-to/add-a-node/">Add a node</a> (either to a new repo or an existing one) or use an existing node with the following services/configuration:</p>
+<pre><code> id: build-server
+ name: Build server
+ type: server
+
+ provider:
+   name: digitalocean
+   size: 66
+
+ services:
+   nodejs: *
+
+ configuration:
+   nodejs:
+     packages:
+       - bower
+       - gulp
+</code></pre></li>
+<li><p>Once you&#39;ve added your node, copy its public SSH key from the details section:</p>
+<p> <img src="/images/posts/devops-ssh-key.png" alt="GitHub pages settings"/></p>
+</li>
+<li><p>Add that key as a deploy in the settings of your site&#39;s repo on GitHub:</p>
+<p> <img src="/images/posts/github-deploy-keys.png" alt="GitHub deploy key"/></p>
+</li>
+<li><p>We&#39;ll then add a task on devo.ps to do the bulk of the job:</p>
+<pre><code> type: task
+ id: gh-pages-build
+ name: Build and deploy on gh-pages
+
+ vars:
+   # Feel free to edit the following values to match your use case
+   dir: /opt/example.com
+   build: _site
+   temp: /tmp/build
+   # You&#39;ll need to change that to match the Git URL of your site&#39;s repo
+   repo: git@github.com:my-account/my-repo.git
+   # We&#39;re here assuming we work out of the metalsmith branch
+   ref: refs/heads/metalsmith
+   dest: gh-pages
+
+ targets:
+   - build-server
+
+ triggers:
+   webhooks:
+     - path: XkYw58l2d7rehq2Dkh4Nmd
+
+ steps:
+   # Hack to ensure we&#39;re building only when the right branch is updated
+   - run: if [ &quot;{{ trigger.payload.ref }}&quot; != &quot;{{ ref }}&quot; ]; then echo &quot;Wrong branch&quot; &gt;&amp;2 ; exit 1 ; fi
+
+   # Fetch our updates
+   - run: devops git update
+     options:
+       repo: &quot;{{ repo }}&quot;
+       dest: &quot;{{ dir }}&quot;
+       version: metalsmith
+
+   # Build the site
+   - run: cd {{ dir }} &amp;&amp; make build &amp;&amp; git stash save
+
+   # We copy the result of our build over to a temporary folder
+   - run: rm -Rf {{ temp }} &amp;&amp; cd {{ dir }} &amp;&amp; cp -a {{ build }} {{ temp }}
+
+   # We switch to `gh-pages` and trash its content
+   - run: cd {{ dir }} &amp;&amp; git checkout {{ dest }} &amp;&amp; git rm -r --ignore-unmatch * 
+
+   # We switch to `gh-pages` and trash its content
+   - run: cd {{ dir }} &amp;&amp; cp -a {{ temp }}/* .
+
+   # We switch to `gh-pages` and trash its content
+   - run: &gt; 
+       cd {{ dir }} &amp;&amp; 
+       git add . &amp;&amp; 
+       git commit -am &quot;Build triggered by commit {{ trigger.payload.after }} from {{ trigger.payload.head_commit.author.username }}&quot; &amp;&amp; 
+       git push origin {{ dest }}
+</code></pre></li>
+<li><p>Once that task is saved, we still need to point GitHub&#39;s webhook at it. You&#39;ll notice we added a <code>path: XkYw58l2d7rehq2Dkh4Nmd</code> in the <code>webhooks</code> section of the <code>triggers</code> attribute. It means that your task can be triggered by hitting the <code>https://wh.devo.ps/{USER}/{REPO}/XkYw58l2d7rehq2Dkh4Nmd</code> URL, where <code>{USER}</code> and <code>{REPO}</code> are your devo.ps username and repository name for this task. Go ahead and add this on GitHub in the &quot;Webhooks &amp; Services&quot; settings page:</p>
+<p> <img src="/images/posts/github-webhook.png" alt="GitHub webhook"/></p>
+</li>
+<li><p>Voila!</p>
+</li>
+</ol>
+<p>Every time you&#39;ll be pushing a new commit on the <code>metalsmith</code> branch, devo.ps will fetch the changes, build the site and push it back in the <code>gh-pages</code> branch. Since GitHub pages are public, wether or not the repo is private, we&#39;re actually able to do a fair amount of editing in branches before publishing this.</p>
+<p>There are obviously still a few rough edges: it&#39;d be nice not to have to configure things manually on GitHub, it also would be nice to be able to not rely on a trick to prevent the task from running when the commit isn&#39;t related to the <code>metalsmith</code> branch.</p>
+<p>In the next couple weeks, we&#39;ll be adding some of these features and start integrating more tightly with GitHub.</p>
 
       
-      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/releasing-devops-0-4-0' target='_blank'>Twitter</a>.</h2>
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/using-metalsmith-on-github-pages' target='_blank'>Twitter</a>.</h2>
 
       <footer class='more'>
         <section class='pitch'>

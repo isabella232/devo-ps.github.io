@@ -3,12 +3,22 @@
  <title>devo.ps</title>
  <link href='/atom.xml' rel='self'/>
  <link href='/'/>
- <updated>2014-09-05T09:45:15.112Z</updated>
+ <updated>2014-09-05T12:12:09.821Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
    <email>info@devo.ps</email>
  </author>
+ 
+ 
+   <entry>
+     <title>Using Metalsmith On GitHub pages</title>
+     <link href='/blog/using-metalsmith-on-github-pages'/>
+     <updated>2014-09-05T00:00:00.000Z</updated>
+     <id>http://devo.ps/blog/using-metalsmith-on-github-pages</id>
+     <content type='html'></content>
+   </entry>
+ 
  
  
    <entry>
@@ -100,14 +110,6 @@
    </entry>
  
  
- 
-   <entry>
-     <title>ZooKeeper vs. Doozer vs. Etcd</title>
-     <link href='/blog/zookeeper-vs-doozer-vs-etcd'/>
-     <updated>2013-09-11T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/zookeeper-vs-doozer-vs-etcd</id>
-     <content type='html'></content>
-   </entry>
  
  
  
