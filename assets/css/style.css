@@ -1666,6 +1666,19 @@ body.page-front #main .section.how {
     overflow-y: auto;
     padding-top: 20px;
     text-align: center; }
+    body.page-front #main .section.how .illustrations .browser ul:before {
+      font-family: 'icons';
+      font-variant: normal;
+      font-weight: normal;
+      speak: none;
+      text-transform: none;
+      -webkit-font-smoothing: antialiased;
+      color: #a5adb3;
+      content: '2';
+      display: block;
+      font-size: 24px;
+      font-size: 2.4rem;
+      margin-bottom: 10px; }
     body.page-front #main .section.how .illustrations .browser ul li {
       background: #FFF;
       color: grey;

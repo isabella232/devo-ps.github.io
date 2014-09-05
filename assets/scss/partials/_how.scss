@@ -113,6 +113,14 @@
       overflow-y: auto;
       padding-top: $gutter;
       text-align: center;
+      &:before {
+        @include icon;
+        color: $grey;
+        content: '2';
+        display: block;
+        @include font-size($large);
+        margin-bottom: $gutter/2;
+      }
       li {
         background: #FFF;
         color: grey;

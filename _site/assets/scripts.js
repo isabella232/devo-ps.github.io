@@ -9198,6 +9198,8 @@ $(function() {
       'overflow': 'hidden'
   });
 });
+// DISCLAIMER: This is probably the worst code I have ever written
+
 (function($) {
     $.fn.typeText = function(content, code) {
         code = typeof code !== 'undefined' ? code : false;
@@ -9211,7 +9213,12 @@ $(function() {
                 var blinking = setInterval(function () {
                     cursor.toggle();
                 }, 500);
-                if (!code) elem.append('$ ');
+                if (!code) {
+                    elem.append('$ ');
+                }
+                else {
+                    highlight(elem);
+                }
                 elem.append(cursor);
                 
                 var lineArray = code ? line.substring(0).split('') : line.substring(2).split(''),
@@ -9248,6 +9255,24 @@ $(function() {
         }
     };
 })(jQuery);
+
+function highlight(elem) {
+    var text = elem.text(),
+        lines = text.split("\n"),
+        highlight = '';
+
+    for (i = 0; i < lines.length; i++) {
+        if (lines[i].indexOf(':') > -1) {
+            var split = lines[i].split(':');
+            highlight += '<i>'+ split[0] + '</i>:<b>' + split[1] +'</b>';
+        }
+        else {
+            highlight += lines[i];
+        }
+        if (i < lines.length - 1) highlight += "\n";
+    }
+    elem.html(highlight);
+}
 
 $(function() {
     if (!$('body.page-front').length) return;
@@ -9297,7 +9322,9 @@ $(function() {
                     editor.append(line + "\n");
                     editor.scrollTop(editor[0].scrollHeight);
                 }
-
+                highlight(editor);
+                editor.append("\n");
+                editor.html(editor.html().substring(0, editor.html().length - 1));
                 editor.typeText(editor_lines, true);
                 break;
         }
