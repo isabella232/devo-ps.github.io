@@ -35,7 +35,7 @@ You'll need to have a few things in place already:
 
 We'll be going through it step by step: I'll most likely prepare a repo very soon for you to fork, using our brand new [devo.ps button](http://devo.ps/blog/one-click-deploy-of-your-infrastructure/) feature.
 
-1. [Add a node](http://docs.devo.ps/how-to/add-a-node/) (either to a new repo or an existing one) or use an existing node with the following services/configuration:
+1. [Add a server](http://docs.devo.ps/how-to/add-a-node/) (either to a new repo or an existing one) or use an existing node with the following services/configuration:
 
         id: build-server
         name: Build server
@@ -54,11 +54,11 @@ We'll be going through it step by step: I'll most likely prepare a repo very soo
               - bower
               - gulp
 
-1. Once you've added your node, copy its public SSH key from the details section:
+1. Once you've added your server, copy its public SSH key from the details section:
 
     ![GitHub pages settings](http://devo.ps/images/posts/devops-ssh-key.png)
 
-1. Add that key as a deploy in the settings of your site's repo on GitHub:
+1. Add that key as a deploy key in the settings of your site's repo on GitHub:
 
     ![GitHub deploy key](http://devo.ps/images/posts/github-deploy-keys.png)
 
@@ -120,10 +120,10 @@ We'll be going through it step by step: I'll most likely prepare a repo very soo
 
     ![GitHub webhook](http://devo.ps/images/posts/github-webhook.png)
 
-1. Voila!
+1. Voilà!
 
-Every time you'll be pushing a new commit on the `metalsmith` branch, devo.ps will fetch the changes, build the site and push it back in the `gh-pages` branch. Since GitHub pages are public, wether or not the repo is private, we're actually able to do a fair amount of editing in branches before publishing this.
+Every time you'll be pushing a new commit on the `metalsmith` branch, devo.ps will fetch the changes, build the site and push it back in the `gh-pages` branch. Keep in mind that GitHub pages are public, wether or not the repo is.
 
 There are obviously still a few rough edges: it'd be nice not to have to configure things manually on GitHub, it also would be nice to be able to not rely on a trick to prevent the task from running when the commit isn't related to the `metalsmith` branch.
 
-In the next couple weeks, we'll be adding some of these features and start integrating more tightly with GitHub.
+In the next couple weeks, we'll be adding some of these features and startint to integrate more tightly with GitHub.
