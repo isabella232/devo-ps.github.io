@@ -9302,7 +9302,7 @@ $(function() {
                 browser_lock = true;
                 setTimeout(function() {
                     $('#main .how .browser ul li:first-child').removeClass('running').addClass('success');
-                }, 3000);
+                }, 4000);
                 break;
 
             case 'console':
