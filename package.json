@@ -50,7 +50,7 @@
     "gulp-sass": "*",
     "node-bourbon": "*",
     "mkdirp": "*",
-    "consolidate": "git+https://github.com/kuno/consolidate.js.git"
+    "consolidate": "*"
   },
   "devDependencies": {
     "eggshell": "0.1.19"
