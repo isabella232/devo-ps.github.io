@@ -14,3 +14,5 @@ This is the public facing website for [devo.ps](http://devo.ps).
 This will build the static version of the site in `_site/`:
 
     make build
+
+The build and push to the `master` branch is automated w/ devo.ps
