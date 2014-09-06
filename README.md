@@ -1,6 +1,16 @@
-This is the public facing website for [devo.ps](http://devo.ps), a simple way to manage complex infrastructure with Git.
+This is the public facing website for [devo.ps](http://devo.ps).
 
 ## Install
 
-1. `npm install`
-1. `bower install`
+    npm install
+    bower install
+
+## Run
+
+    gulp development --port 4000
+
+## Build
+
+This will build the static version of the site in `_site/`:
+
+    make build
