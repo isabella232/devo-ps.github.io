@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset='utf-8'/>
-  <title>Meat And Beer With Hackers + Founders | devo.ps</title>
+  <title>Releasing devo.ps 0.6.0 | devo.ps</title>
 
   <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
-  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, hackers, founders, Shanghai, meetup'/>
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, release'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
   <meta name="msvalidate.01" content="86C1F235D57610586CFC5A2D77B7D446" />
   <meta http-equiv="Content-Language" content="en"/>
@@ -32,7 +32,7 @@
   <!-- CSS -->
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
-<body class='page-blog/meat-and-beer-with-hackers-founders'>
+<body class='page-releasing-devops-0-6-0'>
   <header id='header'>
     <div class='wrapper'>
       <a href='/' class='logo'>devo.ps</a>
@@ -54,7 +54,7 @@
     <header class='header'>
       <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-      <h1>Meat And Beer With Hackers + Founders</h1>
+      <h1>Releasing devo.ps 0.6.0</h1>
 
       <span class='meta'>
         
@@ -65,25 +65,32 @@
         
         
         
-          <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
-          Ronan Berder
+        
+        
+          <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
+          Vincent Viallet
         
         
         
         
-        
-        
-        on <time datetime=''>July 11, 2013</time>
+        on <time datetime=''>September 02, 2014</time>
       </span>
     </header>
 
     <article class='content'>
-      <p><img src="http://devo.ps/images/posts/HF-BBQ.png" alt="H+F BBQ"/></p>
-<p>We&#39;ll be <a href="http://us2.campaign-archive1.com/?u=18eb8d6c34ad5d4e781541da9&amp;id=c76a2f828c&amp;e=">meeting at a yet to be confirmed venue</a> (maybe our rooftop, who knows) next Friday for meat, beers and good company with the <a href="http://wiredcraft.com">Wiredcraft</a> folks and the usual crowd from the <strong>Hackers + Founders</strong> event.</p>
-<p><a href="http://eepurl.com/CbCx5">Register to the Wiredcraft mailing list</a> and we&#39;ll send you the details next week once we&#39;ve sorted out the details.</p>
+      <p>We just pushed another devo.ps release (0.6.0). We are nearing a stable build and will most likely spend the next week adding more trigger for events (cron, GitHub events, devo.ps events...) and add more technologies. We have a few large updates to the documentation that should go live by next Wedneday as well.</p>
+<p>A quick list of some of the more visible things we&#39;ve done in this release:</p>
+<ul>
+<li><strong>Payload support for webhook triggers</strong>; we just wrote a post using this feature to add <a href="http://devo.ps/blog/metalsmith-on-github-pages/">Metalsmith support on GitHub pages</a>. You can now use parsed JSON payloads in your tasks trigger by webhooks.</li>
+<li><strong>Delete repositories</strong>; you can now remove repositories (long overdue).</li>
+<li><strong>devo.ps community</strong>. We started what will be the devo.ps community on GitHub: <a href="https://github.com/devops-community">https://github.com/devops-community</a>. We&#39;ll be posting public repositories of infrastructures you can fork using the <a href="devo.ps/blog/one-click-deploy-of-your-infrastructure/">devo.ps button</a>.</li>
+<li><strong>Infrastructure improvements</strong>; we made a few major changes in the way we manage and deploy the underlying devo.ps infrastructure. It now runs with the latest version of Docker, Ubuntu and uses <a href="http://consul.io">Consul</a>. This mostly mean faster deploy cycles and a much more robust service.</li>
+</ul>
+<p>We started updating the <a href="http://devo.ps">main website</a> and, as usual, are continuously improving the <a href="http://docs.devo.ps">documentation</a>.</p>
+<p>Next week will be an important milestone as we aim at releasing an official stable version of devo.ps. See you all in a week.</p>
 
       
-      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/meat-and-beer-with-hackers-founders' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=6025135' target='_blank'>Hacker News</a>.</h2>
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/releasing-devops-0-6-0' target='_blank'>Twitter</a>.</h2>
 
       <footer class='more'>
         <section class='pitch'>
