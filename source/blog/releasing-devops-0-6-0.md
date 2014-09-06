@@ -4,9 +4,9 @@ title: Releasing devo.ps 0.6.0
 tags:
   - release
 
-author: vincent
+author: ronan
 hn:
-date: 2014-09-02
+date: 2014-09-06
 
 template: post.html
 ---
