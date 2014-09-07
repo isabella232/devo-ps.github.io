@@ -16,7 +16,7 @@
      <link href='{{ site.url }}/{{ post.path }}'/>
      <updated>{{ post.date | date('c') }}</updated>
      <id>{{ site.url }}/{{ post.path }}</id>
-     <content type='html'>{{ post.excerpt | safe }}</content>
+     <content type='html'>{{ post.excerpt | safe }}<p><a href="{{ site.url }}/{{ post.path }}">Read more on the devo.ps blog</a></p></content>
    </entry>
  {% endif %}
  {% endfor %}

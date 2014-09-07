@@ -15,6 +15,8 @@ We just pushed another devo.ps release (0.6.0). We are nearing a stable build an
 
 A quick list of some of the more visible things we've done in this release:
 
+<!--more-->
+
 - **Payload support for webhook triggers**; we just wrote a post using this feature to add [Metalsmith support on GitHub pages](http://devo.ps/blog/metalsmith-on-github-pages/). You can now use parsed JSON payloads in your tasks trigger by webhooks.
 - **Delete repositories**; you can now remove repositories (long overdue).
 - **devo.ps community**. We started what will be the devo.ps community on GitHub: https://github.com/devops-community. We'll be posting public repositories of infrastructures you can fork using the [devo.ps button](devo.ps/blog/one-click-deploy-of-your-infrastructure/).
