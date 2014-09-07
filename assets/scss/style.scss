@@ -191,7 +191,7 @@ body.page-about {
 	a {
     color: inherit;
   	@include font-size($small);
-  	padding: 0 $gutter/2;
+  	margin-right: $gutter;
     &:hover {
       color: $black;
     }

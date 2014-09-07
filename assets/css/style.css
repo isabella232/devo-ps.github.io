@@ -1893,7 +1893,7 @@ body.page-about #main .content ul {
     color: inherit;
     font-size: 12px;
     font-size: 1.2rem;
-    padding: 0 10px; }
+    margin-right: 20px; }
     #footer a:hover {
       color: #203442; }
 
