@@ -1902,7 +1902,7 @@ body.page-about #main .content ul {
   bottom: 20px;
   color: #FFF;
   cursor: pointer;
-  right: 20px;
+  left: 20px;
   position: fixed; }
   #support:hover h2 {
     opacity: 1; }
@@ -1933,7 +1933,6 @@ body.page-about #main .content ul {
     height: 0;
     opacity: 0;
     position: absolute;
-    right: 0;
     visibility: hidden;
     width: 0; }
     #support .links a {

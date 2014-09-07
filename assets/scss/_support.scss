@@ -2,7 +2,7 @@
   bottom: $gutter;
   color: #FFF;
   cursor: pointer;
-  right: $gutter;
+  left: $gutter;
   position: fixed;
   &:hover {
     h2 {
@@ -34,7 +34,6 @@
     height: 0;
     opacity: 0;
     position: absolute;
-    right: 0;
     visibility: hidden;
     width: 0;
     a {
