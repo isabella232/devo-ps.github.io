@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <feed xmlns='http://www.w3.org/2005/Atom'>
  <title>{{ site.title }}</title>
- <link href='{{ url }}/atom.xml' rel='self'/>
- <link href='{{ url }}/'/>
+ <link href='{{ site.url }}/{{ url }}/atom.xml' rel='self'/>
+ <link href='{{ site.url }}/'/>
  <updated>{{ date | date('c') }}</updated>
  <id>{{ site.url }}/</id>
  <author>
@@ -13,10 +13,10 @@
  {% if loop.key < 10 %}
    <entry>
      <title>{{ post.title }}</title>
-     <link href='{{ url }}/{{ post.path }}'/>
+     <link href='{{ site.url }}/{{ post.path }}'/>
      <updated>{{ post.date | date('c') }}</updated>
      <id>{{ site.url }}/{{ post.path }}</id>
-     <content type='html'>{{ post.less | safe }}</content>
+     <content type='html'>{{ post.excerpt | safe }}</content>
    </entry>
  {% endif %}
  {% endfor %}
