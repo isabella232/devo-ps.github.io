@@ -1846,6 +1846,8 @@ body.page-front #main .section {
             body.page-front #main .section.pricing .wrapper .plans .plan h2 strong {
               color: #a5adb3;
               font-weight: normal; }
+              body.page-front #main .section.pricing .wrapper .plans .plan h2 strong small {
+                line-height: 1; }
           body.page-front #main .section.pricing .wrapper .plans .plan ul {
             list-style: none;
             margin: 0; }
