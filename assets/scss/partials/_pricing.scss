@@ -37,6 +37,9 @@
       strong {
         color: $grey;
         font-weight: normal;
+        small {
+          line-height: 1;
+        }
       }
     }
     ul {
