@@ -48,7 +48,9 @@
       li {
         border-bottom: 1px solid $light;
         padding: $gutter/2;
-        &:first-child 
+        &:last-child {
+          border-bottom: 0;
+        }
       }
     }
     .footer {
