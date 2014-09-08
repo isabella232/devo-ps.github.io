@@ -2018,13 +2018,14 @@ body.page-about #main .content ul {
 #footer {
   background: #fafafb;
   border-top: 1px solid #dde0e2;
-  padding: 30px 0;
-  text-align: right; }
+  padding: 30px 0; }
+  #footer .wrapper {
+    text-align: right; }
   #footer a {
     color: inherit;
     font-size: 12px;
     font-size: 1.2rem;
-    margin-right: 20px; }
+    margin-left: 20px; }
     #footer a:hover {
       color: #203442; }
 
@@ -2033,6 +2034,8 @@ body.page-about #main .content ul {
   bottom: 20px;
   color: #FFF;
   cursor: pointer;
+  font-size: 14px;
+  font-size: 1.4rem;
   left: 20px;
   position: fixed; }
   #support:hover h2 {
@@ -2070,8 +2073,7 @@ body.page-about #main .content ul {
       background: #203442;
       color: white;
       display: block;
-      font-size: 14px;
-      font-size: 1.4rem;
+      font-size: inherit;
       padding: 10px;
       text-align: left;
       white-space: nowrap; }

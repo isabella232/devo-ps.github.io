@@ -2,6 +2,7 @@
   bottom: $gutter;
   color: #FFF;
   cursor: pointer;
+  @include font-size($smaller);
   left: $gutter;
   position: fixed;
   &:hover {
@@ -40,7 +41,7 @@
       background: $black;
       color: white;
       display: block;
-      @include font-size($smaller);
+      font-size: inherit;
       padding: $gutter/2;
       text-align: left;
       white-space: nowrap;
