@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset='utf-8'/>
-  <title>San Francisco: Here We Come! | devo.ps</title>
+  <title>WTF Is DevOps? | devo.ps</title>
 
   <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
-  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, San Francisco'/>
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, Devops, best-practices, agile, ops'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
   <meta name="msvalidate.01" content="86C1F235D57610586CFC5A2D77B7D446" />
   <meta http-equiv="Content-Language" content="en"/>
@@ -32,7 +32,7 @@
   <!-- CSS -->
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
-<body class='page-blog/San-Francisco-Here-We-Come'>
+<body class='page-blog/wtf-is-devops'>
   <header id='header'>
     <div class='wrapper'>
       <a href='/' class='logo'>devo.ps</a>
@@ -54,7 +54,7 @@
     <header class='header'>
       <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-      <h1>San Francisco: Here We Come!</h1>
+      <h1>WTF Is DevOps?</h1>
 
       <span class='meta'>
         
@@ -73,25 +73,29 @@
         
         
         
-        on <time datetime=''>October 25, 2012</time>
+        on <time datetime=''>September 08, 2014</time>
       </span>
     </header>
 
     <article class='content'>
-      <p>It&#39;s been exactly a week since I landed in San Francisco: quite a bit happened in the mere few days I&#39;ve spent here:</p>
-<ol>
-<li><p>I attended Startup School and the reception prior to this at YCombinator&#39;s office.</p>
- <p align='center'><img src="/images/posts/startup-school.jpg" alt="Startup School"/></p></li>
-<li><p>I settled in my new place in the mission It&#39;s official, devo.ps is now headquartered in San Francisco.</p>
- <p align='center'><img src="/images/posts/settling-in-sf.jpg" alt="devo.ps HQ"/></p></li>
-<li><p>We just submitted our application to YCombinator. We&#39;re trying to not get our hopes too high. That being said, no matter what the outcome is we found the exercise very interesting; I&#39;d recommend any team working on a product to try and fill in <a href="http://ycombinator.com/apply.html">the application form</a>. Sequoia Capital has a set of <a href="http://www.sequoiacap.com/ideas">guidelines for business plans</a> that are also very useful.</p>
-<p> <a href="http://www.youtube.com/watch?v=1IMY_zduZI8">DevOps intro on youtube</a></p>
+      <p>I recently stumbled on an article by Jeff Knupp in my (ever growing) list of &quot;to read later&quot; bookmarks: <a href="http://jeffknupp.com/blog/2014/04/15/how-devops-is-killing-the-developer/">How &#39;DevOps&#39; is Killing the Developer</a>. In a nutshell, he makes the point that the DevOps movement, and its reliance on cross-functional profiles (aka &quot;full stack&quot; engineers) is fair in a startup environment where resource attrition favors Jack-of-all-trades, but is a poor strategy for larger and more resourceful established businesses. I think it misses the point entirely. More importantly, it goes along the lines of a lot of criticism and misunderstanding many other voiced with regards to DevOps.</p>
+<p>First, if you have no idea of what DevOps is, I suggest you check out the <a href="http://en.wikipedia.org/wiki/DevOps">Wikipedia page</a> as well a the more digestible <a href="http://newrelic.com/devops/what-is-devops">definition from NewRelic</a>. I&#39;ll wait here.</p>
+<p>I think the main issue with the DevOps movement is that it is usually pretty poorly outlined: there are a lot of fuzzy or twisted definitions out there, with some people attributing it more to automation and configuration management, and others to fostering the practice of ops by developers and development by sysadmins.</p>
+<p>And this pisses off a pretty large amount of folks (somehow). More often than not because not everybody is a jack-of-all-trades; good developers are usually busy developers and have enough to deal with without having to start chasing errors in the deployment pipeline. Same goes for ops folks: they&#39;re usually kept busy enough with keeping their whole infrastructure running without piling up learning Ruby or writing tests for provisioning.</p>
+<p>Well, it seems to me this isn&#39;t what DevOps is about. These are concrete manifestations of how some teams implement a DevOps approach for their specific problems, with the resources they have access to, not a mandatory to-do list. I clearly see 3 aspects that are thrown together in a confusing mix:</p>
+<ul>
+<li><p><strong>At its core, DevOps is about collaboration and communication</strong>. It isn&#39;t about Puppet, or automation, or full-stack developers, or monitoring. It is about breaking down walls between ops and developers.</p>
 </li>
-</ol>
-<p>We&#39;re still a few weeks away from our first beta but have already been welcoming several clients and talking to a few more to subscribe once we hit our first release this November. If you&#39;re interested in being included in our beta testing program, drop us a line at <a href="mailto:info@devo.ps">info@devo.ps</a>.</p>
+<li><p><strong>The usual outcome of this effort</strong> is often measured in shorter development cycles, more frequent deployments and higher reliability or quality of the produced software.</p>
+</li>
+<li><p><strong>To get there, people recommend a wide range of methods and best-pratices encouraging both sides to meet half-way</strong>. This means understanding each other&#39;s roles, tools and yes, sometimes, cross-functional profiles. But in that sense, it isn&#39;t much different from what you&#39;ll expect from a team lead or an entrepreneur: having at least some level of understanding of what each of your team members does is tremendously helpful in bridging the gap between them.</p>
+</li>
+</ul>
+<p>DevOps is about culture. Agile methodologies aim at improving communication and collaboration between development teams and their clients. The DevOps movement applies similar ideas at the intersection of development and ops teams.</p>
+<p>It is at this intersection <a href="http://devo.ps/blog/dealing-with-servers-still-suck/">that me and my team are working</a>: building a platform that helps both sides meeting half-way, by <a href="http://devo.ps/blog/one-click-deploy-of-your-infrastructure/">lowering the barriers of entries to managing infrastructure for developers</a> while keeping things transparent and familiar for ops people (as opposed to offering some kind of <a href="http://devo.ps/blog/managing-infrastructure-is-effin-hard/">black-box NoOps solution</a>).</p>
 
       
-      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/San-Francisco-Here-We-Come' target='_blank'>Twitter</a>.</h2>
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/wtf-is-devops' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=8284301' target='_blank'>Hacker News</a>.</h2>
 
       <footer class='more'>
         <section class='pitch'>
