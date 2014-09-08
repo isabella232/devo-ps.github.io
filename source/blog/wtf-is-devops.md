@@ -32,4 +32,4 @@ Well, it seems to me this isn't what DevOps is about. These are concrete manifes
 
 DevOps is about culture. Agile methodologies aim at improving communication and collaboration between development teams and their clients. The DevOps movement applies similar ideas at the intersection of development and ops teams.
 
-And that's pretty much what [we're trying to do with my team](http://devo.ps); lowering the barriers of entries to managing infrastructure for developers while keeping things transparent and familiar for ops people.
+It is at this intersection [that me and my team are working](http://devo.ps/blog/dealing-with-servers-still-suck/): building a platform that helps both sides meeting half-way, by [lowering the barriers of entries to managing infrastructure for developers](http://devo.ps/blog/one-click-deploy-of-your-infrastructure/) while keeping things transparent and familiar for ops people (as opposed to offering some kind of [black-box NoOps solution](http://devo.ps/blog/managing-infrastructure-is-effin-hard/)).
