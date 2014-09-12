@@ -2,11 +2,12 @@
 <html>
 <head>
   <meta charset='utf-8'/>
-  <title>Metalsmith On GitHub pages | devo.ps</title>
-
-  <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
-  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, continuous integration, continuous delivery, continuous deployment, metalsmith, Node.js, GitHub, GitHub pages'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
+
+  <title>Dealing With Servers Still Sucks | devo.ps</title>
+
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, DevOps, server, sysadmin, cloud, configuration management, orchestration, continuous delivery, continuous deployment, continuous integration'/>
+  <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
   <meta name="msvalidate.01" content="86C1F235D57610586CFC5A2D77B7D446" />
   <meta http-equiv="Content-Language" content="en"/>
   
@@ -32,7 +33,7 @@
   <!-- CSS -->
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
-<body class='page-blog/metalsmith-on-github-pages'>
+<body class='page-blog/dealing-with-servers-still-suck'>
   <header id='header'>
     <div class='wrapper'>
       <a href='/' class='logo'>devo.ps</a>
@@ -54,7 +55,7 @@
     <header class='header'>
       <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-      <h1>Metalsmith On GitHub pages</h1>
+      <h1>Dealing With Servers Still Sucks</h1>
 
       <span class='meta'>
         
@@ -73,115 +74,41 @@
         
         
         
-        on <time datetime=''>September 05, 2014</time>
+        on <time datetime=''>September 03, 2014</time>
       </span>
     </header>
 
     <article class='content'>
-      <p>We love GitHub pages and use it more than we probably should: our <a href="http://devo.ps">main website (devo.ps)</a> and <a href="http://docs.devo.ps">documentation</a> are actually GitHub pages. We use <a href="https://swiftype.com/">SwiftType</a> to provide search on the documentation, but otherwise these are pretty regular static websites. However, we don&#39;t use Jekyll; our team is more at ease with nNde.js than Ruby, which is why we usually prefer it <a href="http://www.metalsmith.io/">Metalsmith</a>. And since we&#39;re pretty lazy, we automate building and pushing to the <code>gh-pages</code> using <a href="http://devo.ps">devo.ps</a> (of course). Here&#39;s what it looks like.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>You&#39;ll need to have a few things in place already:</p>
+      <p>The idea of dealing with servers is almost invariably cringe-inducing for developers. Sure, I know a few folks (me and my colleagues at <a href="http://devo.ps">devo.ps</a> included) who actually get a kick out of it. But by and large, setting up infrastructure isn&#39;t the developer&#39;s favorite. There&#39;s definitely been a lot of awesome innovation in the past few years that made the whole thing manageable, especially with services like Heroku or TravisCI. But they are no silver bullets. At the end of the day, the whole experience sucks less, but it isn&#39;t near being enjoyable.</p>
+<h2 id="what-exactly-am-i-babbling-about-">What exactly am I babbling about?</h2>
+<p>I&#39;ve already shared my thoughts about the <a href="http://devo.ps/blog/the-problem-with-paas/">NoOps/PaaS approach</a> as well as what I see is the problem with <a href="http://devo.ps/blog/managing-infrastructure-is-effin-hard/">more traditional approaches to infrastructure management</a>.</p>
+<p>Let me summarize it for you. Technical teams currently have essentially two options when dealing with infrastructure:</p>
 <ul>
-<li><p>A repo with <a href="https://pages.github.com/">GitHub pages</a> activated (duh). We&#39;ll assume you&#39;re using the <code>gh-pages</code> branch, though if it is your <code>*.github.io</code> repo it should be <code>master</code>.</p>
-<p>  <img src="http://devo.ps/images/posts/github-pages-settings.png" alt="GitHub pages settings"/></p>
+<li><p><strong>NoOps</strong>: think PaaS (Heroku, dotCloud), Continuous Integration and Delivery SaaS (TravisCI, CodeShip.io, Wercker)... This is more or less the developer&#39;s answer to things; abstract away all infrastructure concerns. It&#39;s low barriers of entry and user-friendly but is also fragmented (lots of specialized services), limited (you&#39;re stuck with the workflow and tech supported) and is overall more or less a black-box. You&#39;re effectively logged out of your machines.</p>
 </li>
-<li><p>A <a href="http:/app.devo.ps/">devo.ps account</a> (it&#39;s free) with (for the sake of this example) your Digital Ocean account tied up to it (though you could use AWS, Rackspace or Linode with minimum changes).</p>
-</li>
-<li><p>A <a href="http://">Metalsmith</a> site that has a Makefile along with a <code>make build</code> command (in our example we use it to install the npm dependencies as well as run bower and gulp).</p>
+<li><p><strong>Tools</strong>: things like configuration management (Chef, Puppet, Ansible), Continuous Integration and Delivery (Capistrano, Fabric, Jenkins)... These are more an answer to the needs of the ops community: better tools to help them scale themselves. It&#39;s usually extremely powerful, flexible and transparent (OSS). Problem is, they&#39;re usually pretty high barriers of entry, not very user-friendly and still suffer from some level of fragmentation.</p>
 </li>
 </ul>
-<h2 id="let-s-get-started">Let&#39;s get started</h2>
-<p>We&#39;ll be going through it step by step: I&#39;ll most likely prepare a repo very soon for you to fork, using our brand new <a href="http://devo.ps/blog/one-click-deploy-of-your-infrastructure/">devo.ps button</a> feature.</p>
-<ol>
-<li><p><a href="http://docs.devo.ps/how-to/add-a-node/">Add a server</a> (either to a new repo or an existing one) or use an existing node with the following services/configuration:</p>
-<pre><code> id: build-server
- name: Build server
- type: server
+<h2 id="how-things-usually-play-out">How things usually play out</h2>
+<p>With the first option (NoOps), you can decide to not care (for now) about these problems. But you may have to deal with the consequences of your investment down the line (increasing costs and constraints when you start to scale). The alternative isn&#39;t necessarily sexier: lots of work to get things running, a steep learning curve and the ongoing cost of maintenance.</p>
+<p>Moreover, the transition between these two polarized ways of doing (which many successful business hit at some point) is often very painful.</p>
+<p align='center'><img src="http://devo.ps/images/posts/gap.png" alt="Transition"/><br/><small>Very scientific view of the market</small></p>
 
- provider:
-   name: digitalocean
-   size: 66
-
- services:
-   nodejs: *
-
- configuration:
-   nodejs:
-     packages:
-       - bower
-       - gulp
-</code></pre></li>
-<li><p>Once you&#39;ve added your server, copy its public SSH key from the details section:</p>
-<p> <img src="http://devo.ps/images/posts/devops-ssh-key.png" alt="GitHub pages settings"/></p>
+<p>Our end goal is pretty much aligned with the <a href="http://en.wikipedia.org/wiki/DevOps">DevOps movement</a> in that we intend to bridge the gap between the way developers and ops people look at infrastructure:</p>
+<ul>
+<li><p><strong>Low-barriers of entry</strong>: we&#39;re trying to make things simple and understandable for &quot;regular&quot; folks. You provision a new server by writing a simple, declarative list of what it supports and pushing it to a Git repository. You can also quickly script complex jobs to automate your deployment or database backup with a bit of YAML and Git magic.</p>
 </li>
-<li><p>Add that key as a deploy key in the settings of your site&#39;s repo on GitHub:</p>
-<p> <img src="http://devo.ps/images/posts/github-deploy-keys.png" alt="GitHub deploy key"/></p>
+<li><p><strong>Collaboration</strong>: since everything is organized around Git repositories, you can bring all the good habits of collaboration you have with software. Deploying the SSH keys of a user to your entire infrastructure can be as easy as adding him as a collaborator to a repository. Users have visibility of what others do and can contribute as easily as on GitHub. We&#39;re actually storing our public infrastructures blueprints on GitHub and <a href="http://devo.ps/blog/one-click-deploy-of-your-infrastructure/">letting you fork them from there</a>.</p>
 </li>
-<li><p>We&#39;ll then add a task on devo.ps to do the bulk of the job:</p>
-<pre><code> type: task
- id: gh-pages-build
- name: Build and deploy on gh-pages
-
- vars:
-   # Feel free to edit the following values to match your use case
-   dir: /opt/example.com
-   build: _site
-   temp: /tmp/build
-   # You&#39;ll need to change that to match the Git URL of your site&#39;s repo
-   repo: git@github.com:my-account/my-repo.git
-   # We&#39;re here assuming we work out of the metalsmith branch
-   ref: refs/heads/metalsmith
-   dest: gh-pages
-
- targets:
-   - build-server
-
- triggers:
-   webhooks:
-     - path: XkYw58l2d7rehq2Dkh4Nmd
-
- steps:
-   # Hack to ensure we&#39;re building only when the right branch is updated
-   - run: if [ &quot;{{ trigger.payload.ref }}&quot; != &quot;{{ ref }}&quot; ]; then echo &quot;Wrong branch&quot; &gt;&amp;2 ; exit 1 ; fi
-
-   # Fetch our updates
-   - run: devops git update
-     options:
-       repo: &quot;{{ repo }}&quot;
-       dest: &quot;{{ dir }}&quot;
-       version: metalsmith
-
-   # Build the site
-   - run: cd {{ dir }} &amp;&amp; make build &amp;&amp; git stash save
-
-   # We copy the result of our build over to a temporary folder
-   - run: rm -Rf {{ temp }} &amp;&amp; cd {{ dir }} &amp;&amp; cp -a {{ build }} {{ temp }}
-
-   # We switch to `gh-pages` and trash its content
-   - run: cd {{ dir }} &amp;&amp; git checkout {{ dest }} &amp;&amp; git rm -r --ignore-unmatch * 
-
-   # We copy back the build in the Git repo
-   - run: cd {{ dir }} &amp;&amp; cp -a {{ temp }}/* .
-
-   # We push our changes back
-   - run: &gt; 
-       cd {{ dir }} &amp;&amp; 
-       git add . &amp;&amp; 
-       git commit -am &quot;Build triggered by commit {{ trigger.payload.after }} from {{ trigger.payload.head_commit.author.username }}&quot; &amp;&amp; 
-       git push origin {{ dest }}
-</code></pre></li>
-<li><p>Once that task is saved, we still need to point GitHub&#39;s webhook at it. You&#39;ll notice we added a <code>path: XkYw58l2d7rehq2Dkh4Nmd</code> in the <code>webhooks</code> section of the <code>triggers</code> attribute. It means that your task can be triggered by hitting the <code>https://wh.devo.ps/{USER}/{REPO}/XkYw58l2d7rehq2Dkh4Nmd</code> URL, where <code>{USER}</code> and <code>{REPO}</code> are your devo.ps username and repository name for this task. Go ahead and add this on GitHub in the &quot;Webhooks &amp; Services&quot; settings page:</p>
-<p> <img src="http://devo.ps/images/posts/github-webhook.png" alt="GitHub webhook"/></p>
+<li><p><strong>Flexibility</strong>: you deploy your own servers on Digital Ocean, AWS, Rackspace or Linode, and you&#39;re still able to SSH in and run whatever you want to run on it. There&#39;s nothing that you would be able to do on a regular Linux box that we would prevent you from doing. We do not install any agent, we merely enforce by default best-practices that we&#39;ve learnt over the past decade of working with other teams.</p>
 </li>
-<li><p>Voilà!</p>
-</li>
-</ol>
-<p>Every time you&#39;ll be pushing a new commit on the <code>metalsmith</code> branch, devo.ps will fetch the changes, build the site and push it back in the <code>gh-pages</code> branch. Keep in mind that GitHub pages are public, wether or not the repo is.</p>
-<p>There are obviously still a few rough edges: it&#39;d be nice not to have to configure things manually on GitHub, it also would be nice to be able to not rely on a trick to prevent the task from running when the commit isn&#39;t related to the <code>metalsmith</code> branch.</p>
-<p>In the next couple weeks, we&#39;ll be adding some of these features and starting to integrate more tightly with GitHub.</p>
+</ul>
+<p><img src="http://devo.ps/images/posts/devops-preview.png" alt="Preview"/></p>
+<p>We think we can do that while preserving the interest of your business, keeping costs low while ensuring that you have a solution that will grow with you all the way.</p>
+<p>But more importantly, we want to see the approach of true infrastructure as code succeed; we believe that it most likely the stronger force behind the DevOps movement, helping dev and ops folks get along.</p>
 
       
-      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/metalsmith-on-github-pages' target='_blank'>Twitter</a>.</h2>
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/dealing-with-servers-still-suck' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=8262534' target='_blank'>Hacker News</a>.</h2>
 
       <footer class='more'>
         <section class='pitch'>

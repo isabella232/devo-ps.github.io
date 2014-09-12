@@ -2,11 +2,12 @@
 <html>
 <head>
   <meta charset='utf-8'/>
-  <title>WTF Is DevOps? | devo.ps</title>
-
-  <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
-  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, Devops, best-practices, agile, ops'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
+
+  <title>Managing Infrastructure Is Effin Hard | devo.ps</title>
+
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, PaaS, DevOps, infrastructure'/>
+  <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
   <meta name="msvalidate.01" content="86C1F235D57610586CFC5A2D77B7D446" />
   <meta http-equiv="Content-Language" content="en"/>
   
@@ -32,7 +33,7 @@
   <!-- CSS -->
   <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
 </head>
-<body class='page-blog/wtf-is-devops'>
+<body class='page-blog/managing-infrastructure-is-effin-hard'>
   <header id='header'>
     <div class='wrapper'>
       <a href='/' class='logo'>devo.ps</a>
@@ -54,7 +55,7 @@
     <header class='header'>
       <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-      <h1>WTF Is DevOps?</h1>
+      <h1>Managing Infrastructure Is Effin Hard</h1>
 
       <span class='meta'>
         
@@ -73,29 +74,39 @@
         
         
         
-        on <time datetime=''>September 08, 2014</time>
+        on <time datetime=''>August 27, 2014</time>
       </span>
     </header>
 
     <article class='content'>
-      <p>I recently stumbled on an article by Jeff Knupp in my (ever growing) list of &quot;to read later&quot; bookmarks: <a href="http://jeffknupp.com/blog/2014/04/15/how-devops-is-killing-the-developer/">How &#39;DevOps&#39; is Killing the Developer</a>. In a nutshell, he makes the point that the DevOps movement, and its reliance on cross-functional profiles (aka &quot;full stack&quot; engineers) is fair in a startup environment where resource attrition favors Jack-of-all-trades, but is a poor strategy for larger and more resourceful established businesses. I think it misses the point entirely. More importantly, it goes along the lines of a lot of criticism and misunderstanding many other voiced with regards to DevOps.</p>
-<p>First, if you have no idea of what DevOps is, I suggest you check out the <a href="http://en.wikipedia.org/wiki/DevOps">Wikipedia page</a> as well a the more digestible <a href="http://newrelic.com/devops/what-is-devops">definition from NewRelic</a>. I&#39;ll wait here.</p>
-<p>I think the main issue with the DevOps movement is that it is usually pretty poorly outlined: there are a lot of fuzzy or twisted definitions out there, with some people attributing it more to automation and configuration management, and others to fostering the practice of ops by developers and development by sysadmins.</p>
-<p>And this pisses off a pretty large amount of folks (somehow). More often than not because not everybody is a jack-of-all-trades; good developers are usually busy developers and have enough to deal with without having to start chasing errors in the deployment pipeline. Same goes for ops folks: they&#39;re usually kept busy enough with keeping their whole infrastructure running without piling up learning Ruby or writing tests for provisioning.</p>
-<p>Well, it seems to me this isn&#39;t what DevOps is about. These are concrete manifestations of how some teams implement a DevOps approach for their specific problems, with the resources they have access to, not a mandatory to-do list. I clearly see 3 aspects that are thrown together in a confusing mix:</p>
+      <p>I already said <a href="http://devo.ps/blog/the-problem-with-paas/">what I think of the NoOps/PaaS approach</a>: in my eyes, it basically means outsourcing your operations over to a team that will impose you the technologies you can work with and won&#39;t give you access to your own infrastructure. More or less a black-box. That approach obviously doesn&#39;t work well for a lot of people out there.</p>
+<h2 id="look-at-all-the-tools-">Look at all the tools!</h2>
+<p>The good news is that there are a plethora of really great Open Source tools to help you get stuff done. On top of my head:</p>
 <ul>
-<li><p><strong>At its core, DevOps is about collaboration and communication</strong>. It isn&#39;t about Puppet, or automation, or full-stack developers, or monitoring. It is about breaking down walls between ops and developers.</p>
+<li><strong>Configuration management</strong>; Chef, Puppet, Ansible, Salt Stack...</li>
+<li><strong>Monitoring &amp; Reporting</strong>: <a href="http://www.zabbix.com/">Zabbix</a>, <a href="http://munin-monitoring.org">Munin</a>, <a href="sensuapp.org">Sensu</a>, <a href="www.cacti.net">Cacti</a>, <a href="http://www.nagios.org">Nagios</a>, <a href="cabotapp.com">Cabot</a>... </li>
+<li><strong>Continuous integration &amp; Continuous delivery</strong>: <a href="http://jenkins-ci.org">Jenkins</a>, <a href="http://buildbot.net/">Buildbot</a>, <a href="www.thoughtworks.com/products/go-continuous-delivery">Go</a>, <a href="https://about.gitlab.com/gitlab-ci/">Gitlab CI</a>...</li>
+</ul>
+<p>The list is growing every day. I recommend you check the <a href="https://github.com/devo-ps/awesome-sysadmin">Awesome Sysadmin list</a> on GitHub.</p>
+<p>But these are just tools. You still need a qualified sysadmin/ops colleague to come in, install and, more importantly, maintain them over time. There is a pretty high barrier of entry to operate infrastructure properly; it takes a long time for somebody to accumulate the skills and knowledge required to build, automate and scale things, all while preventing the whole thing from crashing and burning.</p>
+<h2 id="wait-what-about-docker-">Wait, what about Docker?</h2>
+<p>Right. First, let me say that we love Docker at <a href="http://devo.ps">devo.ps</a>. <a href="http://wiredcraft.com">My other company</a> is even an official Docker SI partner. Heck, devo.ps itself is built on the damn thing.</p>
+<p>But, <a href="http://devo.ps/blog/docker-dos-and-donts/">as my colleague Vincent would put it</a>, Docker is no pixie dust: it isn&#39;t going to make your infrastructure issues magically disappear. It merely provide you with yet another tool which requires an additional set of skills and knowledge to maintain. It won&#39;t magically heal itself or scale. It requires security patches and updates.</p>
+<h2 id="so-what-do-people-do-">So what do people do?</h2>
+<p>Mostly, what I observed is one of these scenarios:</p>
+<ul>
+<li><p><strong>NoOps</strong>: Startups or medium-sized business often don&#39;t have the resources or workload to hire a sysadmin/SRE/ops full time. They often resort to the PaaS approach for that reason, choosing to outsource their operations and deal with the consequences later.</p>
 </li>
-<li><p><strong>The usual outcome of this effort</strong> is often measured in shorter development cycles, more frequent deployments and higher reliability or quality of the produced software.</p>
+<li><p><strong>DIY</strong>: we&#39;ve seen this one at a few startups. Somebody on the team gets to deal with the servers; the outcome is rarely great and the architecture almost invariably end up being reworked multiple times. Moreover it puts a developer in the very tough spot of being responsible for something he doesn&#39;t necessarily feel qualified for (or even enjoy doing).</p>
 </li>
-<li><p><strong>To get there, people recommend a wide range of methods and best-pratices encouraging both sides to meet half-way</strong>. This means understanding each other&#39;s roles, tools and yes, sometimes, cross-functional profiles. But in that sense, it isn&#39;t much different from what you&#39;ll expect from a team lead or an entrepreneur: having at least some level of understanding of what each of your team members does is tremendously helpful in bridging the gap between them.</p>
+<li><p><strong>Full ops</strong>: for the companies which &quot;made it&quot;, there comes a point at which they hire a proper ops team. They usually end up cleaning up and rebuilding a substantial part of the infrastructure. And even then, we&#39;ve worked with very resourceful and &quot;hot&quot; companies which still struggle to recruit: their developer to ops ratio is often way larger than it should.</p>
 </li>
 </ul>
-<p>DevOps is about culture. Agile methodologies aim at improving communication and collaboration between development teams and their clients. The DevOps movement applies similar ideas at the intersection of development and ops teams.</p>
-<p>It is at this intersection <a href="http://devo.ps/blog/dealing-with-servers-still-suck/">that me and my team are working</a>: building a platform that helps both sides meeting half-way, by <a href="http://devo.ps/blog/one-click-deploy-of-your-infrastructure/">lowering the barriers of entries to managing infrastructure for developers</a> while keeping things transparent and familiar for ops people (as opposed to offering some kind of <a href="http://devo.ps/blog/managing-infrastructure-is-effin-hard/">black-box NoOps solution</a>).</p>
+<p>Ops are hard and hiring people who can build, scale and maintain your infrastructure isn&#39;t that easy. We love working with servers, but most developers we meet don&#39;t fancy dealing with struggling yet again with packages to get NGINX, Redis and Node.js running on their box. A lot of what a knowledgeable sysadmin is more or less &quot;black magic&quot; to them.</p>
+<p>That&#39;s what we&#39;re set to fix with <a href="http://devo.ps">devo.ps</a>: lowering the barriers of entries to operations so that developers feel comfortable contributing on building things the right way.</p>
 
       
-      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/wtf-is-devops' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=8284301' target='_blank'>Hacker News</a>.</h2>
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/managing-infrastructure-is-effin-hard' target='_blank'>Twitter</a>.</h2>
 
       <footer class='more'>
         <section class='pitch'>
