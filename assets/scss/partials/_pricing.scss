@@ -1,7 +1,7 @@
+.notification {
+  text-align: center;
+}
 .plans {
-  @include clearfix;
-  margin-bottom: $gutter;
-  text-align: left;
   .plan {
     border: 1px solid $line;
     border-right-width: 0;
@@ -61,7 +61,12 @@
       }
     }
   }
-  & + h3 {
+  h3 {
+    clear: both;
+    @include clearfix;
     @include font-size($larger);
+    margin: 0;
+    padding-top: $gutter;
+    text-align: center;
   }
 }

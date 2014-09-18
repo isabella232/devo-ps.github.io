@@ -3,15 +3,6 @@ $thin: 720px;
 body.page-front {
   #main {
     .section {
-      @include clearfix;
-      padding: 8rem 0 0;
-      .wrapper > .header {
-        padding: 0;
-        text-align: center;
-        h2 {
-          margin: 0 0 8rem;
-        }
-      }
       h2 {
         @include font-size($huge);
       }
@@ -19,25 +10,20 @@ body.page-front {
         @include font-size($large);
       }
       .button {
-        &.signup {
-          @include button($green);
-          padding: 1.5*$gutter/4 2*$gutter;
-          width: 6*$gutter;
-        }
-      }
-      &.hero,
-      &.signup {
-        .wrapper {
-          text-align: center;
-        }
+        @include box-sizing(border-box);
+        padding: 1.5*$gutter/4 1.5*$gutter;
+        width: 10*$gutter;
       }
       &.hero {
         background: $light;
-        @include background-image(linear-gradient(#FFF, $light, $light));
+        border-bottom: 1px solid $line;
         @include box-sizing(border-box);
-        @include clearfix;
         padding-bottom: 0;
+        padding-top: 8rem;
         position: relative;
+        .wrapper {
+          text-align: center;
+        }
         h1 {
           margin: 0 auto $gutter/2;
         }
@@ -46,116 +32,75 @@ body.page-front {
           margin: 0 auto;
         }
         .button {
-          margin: 2*$gutter auto 8rem;
+          margin: 2*$gutter 0;
         }
         .preview {
-          text-align: center;
-          .bar,
-          .body {
+          display: block;
+          position: relative;
+          img.body {
             border: 1px solid $line;
-            display: block;
-            margin: 0 auto;
-            max-width: 800px;
-            width: 100%;
-          }
-          .bar {
-            background: #FFF;
-            border-radius: 2*$radius 2*$radius 0 0;
-            @include box-sizing(border-box);
-            color: $grey;
-            @include font-size($smaller);
-            line-height: 1;
-            padding: 1.5*$gutter/4 $gutter/2;
-            position: relative;
-            text-align: center;
-            img {
-              height: $gutter/2 - 2;
-              left: $gutter/2;
-              margin-top: -$gutter/4 + 1;
-              position: absolute;
-              top: 50%;
-            }
-          }
-          .body {
             border-width: 0 1px;
             @include box-sizing(border-box);
+            display: block;
+            width: 100%;
+          }
+          &:hover {
+            position: relative;
+            &:before {
+              background: rgba(255, 255, 255, 0.4);
+              bottom: 0;
+              content: ' ';
+              left: 0;
+              position: absolute;
+              right: 0;
+              top: 0;
+              z-index: 999;
+            }
+            &:after {
+              bottom: 0;
+              color: tint($blue, 20%);
+              content: 'R';
+              @include font-size($gigantic);
+              height: 50px;
+              @include icon;
+              margin: auto;
+              line-height: 1;
+              left: 0;
+              position: absolute;
+              right: 0;
+              top: 0;
+              z-index: 999;
+            }
           }
         }
-      }
-      &.how {
-        border-top: 1px solid $line;
-        @import 'partials/_how.scss';
       }
       &.features {
         .feature {
           @include clearfix;
-          margin: 8rem 0;
-          position: relative;
-          &:first-child {
-            margin-top: 0;
-          }
+          margin-bottom: 8rem;
           &:last-child {
             margin-bottom: 0;
           }
-          &:hover {
-            .preview {
-              img {
-                &:first-child {
-                  display: inline-block;
-                }
-                &:last-child {
-                  display: none;
-                }
-              }
-            }
-          }
-          &.beta {
-            h2:after {
-              color: $green;
-              content: 'Beta';
-              display: inline-block;
-              @include font-size($small);
-              line-height: 1;
-              margin-left: $gutter/2;
-              text-transform: uppercase;
-              vertical-align: top;
-            }
-          }
-          .preview {
-            text-align: center;
-            img {
-              max-width: 100%;
-              width: 300px;
-              &:first-child {
-                display: none;
-              }
-            }
-          }
-          .pitch {
-            h2 {
-              margin-bottom: $gutter/2;
-              text-align: left;
-            }
-            p {
-              color: $grey;
-            }
-          }
         }
-        .more {
-          border-top: 1px solid $line;
-          display: block;
-          text-align: center;
+        img {
+          border-radius: $radius;
+          width: 100%;
         }
       }
-      &.pricing {
-        margin-bottom: 8rem;
+      &.signup {
+        background: $light;
+        border: 1px solid $line;
+        border-width: 1px 0;
         .wrapper {
           text-align: center;
-          .notification {
-            text-align: center;
-          }
-          @import '_pricing.scss';
         }
+        h2 + .description {
+          margin-bottom: 2*$gutter;
+        }
+      }
+      &.how {
+        
+        @import 'partials/_how.scss';
       }
     }
   }

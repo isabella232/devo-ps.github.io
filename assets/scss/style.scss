@@ -6,7 +6,6 @@
 
 @import 'eggshell';
 
-
 /* Variables */
 
 $avatar: 22px;
@@ -20,7 +19,7 @@ body {
   line-height: 160%;
 	text-align: center;
   @include transition-property(font-size);
-  @include transition-duration(0.2s);
+  @include transition-duration(0.5s);
 }
 
 img.avatar {
@@ -55,12 +54,6 @@ img.avatar {
   }
 }
 
-.button {
-  strong {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  }
-}
-
 .wrapper {
 	margin: 0 auto;
   max-width: $width;
@@ -69,18 +62,48 @@ img.avatar {
   width: 90%;
 }
 
+/* Window bar mock */
+
+.bar {
+  background: #FFF;
+  border: 1px solid $line;
+  border-radius: 2*$radius 2*$radius 0 0;
+  color: $grey;
+  @include font-size($small);
+  line-height: 1;
+  padding: 1.5*$gutter/4 $gutter/2;
+  position: relative;
+  text-align: center;
+  img {
+    height: $gutter/2 - 2;
+    left: $gutter/2;
+    margin-top: -$gutter/4 + 1;
+    position: absolute;
+    top: 50%;
+  }
+}
+
+#modal {
+  max-width: 640px;
+  object {
+    display: block;
+  }
+}
+
 /* Header */
 
 #header {
+  border-bottom: 1px solid $line;
   @include box-sizing(border-box);
-	padding: $gutter 0;
+	padding: 1.5*$gutter 0;
 	.logo {
+    @include font-size($larger);
 		&:before {
-			@include font-size($large);
+			@include font-size($huge);
 			@include icon();
-			content: '2';
+			content: '3';
 			float: left;
-			margin-right: $gutter/4;
+			margin-right: 1.5*$gutter/4;
 	  }
 	}
   .signin {
@@ -143,7 +166,35 @@ img.avatar {
 	.wrapper > .header {
 		padding: 3*$gutter 0;
 		text-align: center;
+    h1 {
+      margin: 0;
+    }
+    & + .section {
+      padding-top: 0;
+    }
 	}
+  .section {
+    @include clearfix;
+    padding: 8rem 0;
+    .wrapper > .header {
+      padding: 0;
+      text-align: center;
+      h2 {
+        margin: 0 0 8rem;
+        & + .description {
+          @include font-size($larger);
+          margin: -8rem 0 8rem 0;
+          padding-top: $gutter;
+        }
+      }
+    }
+  }
+  &.pricing {
+    @import 'partials/_pricing.scss';
+  }
+  &.features {
+    @import 'partials/_features.scss';
+  }
   &.blog {
     position: relative;
     @import 'partials/_blog.scss';
@@ -187,16 +238,58 @@ body.page-about {
 #footer {
   background: $light;
   border-top: 1px solid $line;
-  padding: 1.5*$gutter 0;
-  .wrapper {
-    text-align: right;
+  @include clearfix;
+  @include font-size($smaller);
+  padding: 4rem 0;
+  h3 {
+    font-size: inherit;
+    margin-bottom: $gutter/2;
   }
-	a {
+  a {
     color: inherit;
-  	@include font-size($small);
-  	margin-left: $gutter;
+    display: block;
     &:hover {
-      color: $black;
+      color: shade($blue, 10%);
+    }
+  }
+  .product,
+  .help,
+  .company,
+  .subscribe {
+    @include box-sizing(border-box);
+    float: left;
+    width: 20%;
+    form * {
+      vertical-align: middle;
+    }
+    .field {
+      display: inline-block;
+    }
+    input:not([type=submit]) {
+      background: #FFF;
+      padding: 1.5*$gutter/4;
+    }
+    .button {
+      @include button($grey);
+      padding: 1.5*$gutter/4 $gutter;
+    }
+  }
+  .subscribe {
+    width: 40%;
+    &:hover {
+      .button {
+        @incude button($blue);
+      }
+    }
+  }
+  .legal {
+    clear: both;
+    color: $grey;
+    display: block;
+    padding-top: $gutter;
+    a {
+      display: inline;
+      margin-left: $gutter/2;
     }
   }
 }

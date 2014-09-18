@@ -54,7 +54,6 @@
       }
     }
     .menu {
-      border-bottom: 1px solid $light;
       display: none;
       margin: $gutter 0 (-$gutter);
       a {
@@ -120,7 +119,7 @@
     }
     .menu {
       float: right;
-      @include font-size($small);
+      line-height: 160%;
       a {
         margin-left: $gutter;
         &.active {
@@ -153,26 +152,26 @@
         @include halves();
       }
     }
+    &.features {
+      .feature {
+        &:nth-child(odd) {
+          > * {
+            @include halves;
+          }
+        }
+        &:nth-child(even) {
+          > * {
+            @include halves(true);
+          }
+        }
+      }
+    }
     &.landing {
       .section {
         &.how {
           .steps,
           .illustrations {
             @include halves();
-          }
-        }
-        &.features {
-          .feature {
-            &:nth-child(odd) {
-              > * {
-                @include halves;
-              }
-            }
-            &:nth-child(even) {
-              > * {
-                @include halves(true);
-              }
-            }
           }
         }
       }
@@ -188,6 +187,20 @@
           }
           h2 {
             @include font-size(20);
+          }
+        }
+        &.features {
+          .feature {
+            &:nth-child(odd) {
+              > * {
+                @include halves(true);
+              }
+            }
+            &:nth-child(even) {
+              > * {
+                @include halves;
+              }
+            }
           }
         }
       }

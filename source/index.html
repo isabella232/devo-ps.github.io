@@ -1,25 +1,95 @@
 ---
-title: A Single API For Your Servers
+title: Build and automate your own servers, deploy your apps on it
 template: default.html
 ---
 
 <section id='main' class='landing'>
   <header class='hero section' name='hero'>
     <div class='wrapper'>
-      <h1>Dealing with servers doesn't have to be a pain</h1>
-      <h2>Setup servers on your own cloud, deploy your code and automate things in minutes with Git</h2>
-      <a href='https://app.devo.ps' class='button signup'>Try it for <strong>free</strong></a>
-      <section class='preview'>
+      <h1>Dealing with servers doesn't have to suck</h1>
+      <h2>Build and automate your own servers, deploy your apps on it in a few minutes</h2>
+      <a href='https://app.devo.ps' class='button add signup'>Try it for free</a>
+      <a href='https://www.youtube.com/watch?v=RIsiAluCxU4' class='preview' title='Watch a demo'>
         <header class='bar'><img src='/images/controls.png'/> http://devo.ps</header>
         <img class='body' src='/images/devo.ps-notebook.png'/>
-      </section>
+      </a>
     </div>
   </header>
+
+  <section class='features section' name='features'>
+    <div class='wrapper'>
+      <article class='feature clouds'>
+        <section class='preview'>
+          <img src='/images/features/clouds.png' alt='Cloud providers'/>
+        </section>
+
+        <section class='pitch'>
+          <h3>Deploy your own machines on your preferred cloud</h3>
+          <p>PaaS can be a great way to get something up and running quickly, but you're effectively locked out of your infrastructure. With devo.ps, you can use your own account on Amazon EC2, Rackspace, Digital Ocean or Linode to provision new servers.</p>
+        </section>
+      </article>
+
+      <article class='feature configuration'>
+        <section class='preview'>
+          <img src='/images/features/configuration.png' alt='Node configuration'/>
+        </section>
+
+        <section class='pitch'>
+          <h3>Stop wasting time configuring your machines</h3>
+          <p>Ever spent half a day trying to configure your stack on a fresh instance? Googling instructions only get you so far, and even then you can't be sure things will hold in production. Just tell us what cloud you want to use and what services you need, we'll take care of the hard, tedious work.</p>
+        </section>
+      </article>
+
+      <article class='feature collaboration'>
+        <section class='preview'>
+          <img src='/images/features/collaborators.png' alt='Collaborators'/>
+        </section>
+
+        <section class='pitch'>
+          <h3>Give your whole team access to your infrastructure</h3>
+          <p>Tired of being asked to give access to a server by a team member? You're probably also taking care of deploying code, ensuring backups are running and managing the cloud provider account. With devo.ps you can safely invite collaborators and start managing servers together.</p>
+        </section>
+      </article>
+
+      <article class='feature automation'>
+        <section class='preview'>
+          <img src='/images/features/task.png' alt='Task runs'/>
+        </section>
+
+        <section class='pitch'>
+          <h3>Automate everything right from the start</h3>
+          <p>How many times did you promise yourself you would automate the most common tasks you run on a daily basis? Problem is, you never seem to find the time to get this done. With devo.ps, you can get started right away with setting up continuous deployment, scheduled backups and easily script jobs to run on any of your servers.</p>
+        </section>
+      </article>
+
+      <article class='feature collaboration'>
+        <section class='preview'>
+          <img src='/images/features/fork.png' alt='Forkable repositories'/>
+        </section>
+
+        <section class='pitch'>
+          <h3>Share and re-use your infrastructure like you do with code</h3>
+          <p>You don't need to start from scratch every time you start a new project. Simply <a href='http://devo.ps/blog/one-click-deploy-of-your-infrastructure/'>fork an existing repository from GitHub in one click</a> or use one of your existing project. Get up and running with database backups, deployment pipelines and server configuration in a few minutes.</p>
+        </section>
+      </article>
+    </div>
+  </section>
+
+  <section class='signup section' name='signup'>
+    <div class='wrapper'>
+      <header class='header'>
+        <h2>Our plans start at 0$</h2>
+        <p class='description'>Still not convinced? <a href=''>Come chat with us</a> and ask any question you may have.</p>
+      </header>
+      <a href='https://app.devo.ps' class='button add signup'>Try it for free</a>
+    </div>
+  </section>
 
   <section class='how section' name='how'>
     <div class='wrapper'>
       <header class='header'>
-        <h2>Manage servers like you manage code</h2>
+        <h2>How does it work?</h2>
+        <p class='description'>With devo.ps you manage servers like you manage code: with files in Git.</p>
       </header>
       
       <aside class='steps'>
@@ -132,149 +202,6 @@ $ </pre>
           </div>
         </article>
       </section>
-    </div>
-  </section>
-
-  <section class='features section' id='features' name='features'>
-    <div class='wrapper'>
-      <article class='feature git'>
-        <section class='pitch'>
-          <h3>Use a tool you know: Git</h3>
-          <p>Use the Git workflows you know work for your code to manage your servers: <code>fork</code> an entire continuous integration setup, <code>git add</code> a new box on Digital Ocean or accept <code>pull requests</code> for security patches.</p>
-        </section>
-
-        <section class='preview'>
-          <img src='/images/features/git.gif' alt='Git-powered'/>
-          <img src='/images/features/git.png' alt='Git-powered'/>
-        </section>
-      </article>
-
-      <article class='feature collaboration'>
-        <section class='pitch'>
-          <h3>Share and collaborate with your team</h3>
-          <p>Invite collaborators to your repositories and start collectively manage your infrastructure. No more wondering how your code gets pushed in production or who can help with adding a Ruby dependency on the dev server.</p>
-        </section>
-
-        <section class='preview'>
-          <img src='/images/features/sharing.gif' alt='Colaboration'/>
-          <img src='/images/features/sharing.png' alt='Colaboration'/>
-        </section>
-      </article>
-
-      <article class='feature'>
-        <section class='pitch'>
-          <h3>Don't deal with the hard stuff</h3>
-          <p>We take care of tedious tasks and make sure your servers are setup following industry best practices. Don't waste your time setting up iptables or deploying the SSH keys of your team on your servers.</p>
-        </section>
-
-        <section class='preview'>
-          <img src='/images/features/best-practices.gif' alt='Best practices'/>
-          <img src='/images/features/best-practices.png' alt='Best practices'/>
-        </section>
-      </article>
-
-      <article class='feature automation'>
-        <section class='pitch'>
-          <h3>Automate things in minutes, not hours</h3>
-          <p>We make automating your infrastructure downright easy; describe in a few lines your entire build and deployment pipelines and trigger them every time your code is updated on GitHub.</p>
-        </section>
-
-        <section class='preview'>
-          <img src='/images/features/automate.gif' alt='Automation'/>
-          <img src='/images/features/automate.png' alt='Automation'/>
-        </section>
-      </article>
-
-      <article class='feature activity'>
-        <section class='pitch'>
-          <h3>Keep an eye on any change</h3>
-          <p>Your whole infrastructure is in Git; see who does what and when at any moment on any of your machines, may this be a change of configuration on NGINX or a failed deployment.</p>
-        </section>
-
-        <section class='preview'>
-          <img src='/images/features/activity.gif' alt='Activity'/>
-          <img src='/images/features/activity.png' alt='Activity'/>
-        </section>
-      </article>
-
-      <!-- <article class='feature beta vm'>
-        <section class='pitch'>
-          <h3>Snapshot your servers as VM</h3>
-          <p>Need to do some work on your local? Don't waste your time setting up you local stack; at any time you can download a replica of any server as a virtual machine to work on your local.</p>
-        </section>
-
-        <section class='preview'>
-          <img src='/images/features/vm.gif' alt='Virtual Machine'/>
-          <img src='/images/features/vm.png' alt='Virtual Machine'/>
-        </section>
-      </article> -->
-    </div>
-  </section>
-
-  <section class='pricing section' id='pricing' name='pricing'>
-    <div class='wrapper'>
-      <header class='header'>
-        <h2>Plans & Pricing</h2>
-      </header>
-      
-      <div class='notification'>We'almost there, but while we iron out the last few details, devo.ps is free for all.</div>
-
-      <section class='plans'>
-        <article class='plan free'>
-          <h2>Free</h2>
-          <ul>
-            <li>1 node</li>
-            <li>Up to 10 tasks</li>
-            <li>10 days logs</li>
-            <li>Unlimited repositores</i>
-            <li>Unlimited collaborators</i>
-          </ul>
-          <footer class='footer'>
-            <a href='http://app.devo.ps/?plan=free' class='button add'>Sign up</a>
-          </footer>
-        </article>
-        <article class='plan bootstrap'>
-          <h2>Bootstrap <strong>$49<small>/month</small></strong></h2>
-          <ul>
-            <li>4 nodes</li>
-            <li>Up to 10 tasks per node</li>
-            <li>30 days logs</li>
-            <li>Unlimited repositores</i>
-            <li>Unlimited collaborators</i>
-          </ul>
-          <footer class='footer'>
-            <button class='button' disabled>Sign up</button>
-          </footer>
-        </article>
-        <article class='plan startup'>
-          <h2>Startup <strong>$99<small>/month</small></strong></h2>
-          <ul>
-            <li>10 nodes</li>
-            <li>Up to 10 tasks per node</li>
-            <li>30 days logs</li>
-            <li>Unlimited repositores</i>
-            <li>Unlimited collaborators</i>
-          </ul>
-          <footer class='footer'>
-            <button class='button' disabled>Sign up</button>
-          </footer>
-        </article>
-        <article class='plan business'>
-          <h2>Business <strong>$199<small>/month</small></strong></h2>
-          <ul>
-            <li>25 nodes</li>
-            <li>Up to 10 tasks per node</li>
-            <li>30 days logs</li>
-            <li>Unlimited repositores</i>
-            <li>Unlimited collaborators</i>
-          </ul>
-          <footer class='footer'>
-            <button class='button' disabled>Sign up</button>
-          </footer>
-        </article>
-      </section>
-
-      <h3>Have a question? <a class='chat' href='https://www.hipchat.com/gyHEHtsXZ' target='_blank'>Chat with our team</a>.</h3>
     </div>
   </section>
 </section>
