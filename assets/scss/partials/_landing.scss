@@ -58,18 +58,18 @@ body.page-front {
             z-index: 999;
           }
           &:after {
-            $size: 60px;
+            $size: 70px;
             background: #FFF;
             border-radius: 50%;
             @include box-sizing(border-box);
             color: $black;
             content: 'R';
-            @include font-size($gigantic);
+            @include font-size(60);
             height: $size;
             @include icon;
             line-height: 1;
             margin: auto;
-            opacity: 0.5;
+            opacity: 0.4;
             padding: 5px;
             width: $size;
           }
