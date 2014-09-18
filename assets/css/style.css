@@ -1672,13 +1672,12 @@ body.page-front #main .section.hero {
     body.page-front #main .section.hero .preview:after, body.page-front #main .section.hero .preview:before {
       bottom: 0;
       left: 0;
-      opacity: 0;
       position: absolute;
       right: 0;
       top: 0;
-      -webkit-transition-property: opacity;
-      -moz-transition-property: opacity;
-      transition-property: opacity;
+      -webkit-transition-property: color, opacity;
+      -moz-transition-property: color, opacity;
+      transition-property: color, opacity;
       -webkit-transition-duration: 0.2s;
       -moz-transition-duration: 0.2s;
       transition-duration: 0.2s;
@@ -1689,7 +1688,7 @@ body.page-front #main .section.hero {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-      color: #1F8DD6;
+      color: #203442;
       content: 'R';
       font-size: 48px;
       font-size: 4.8rem;
@@ -1702,15 +1701,18 @@ body.page-front #main .section.hero {
       -webkit-font-smoothing: antialiased;
       line-height: 1;
       margin: auto;
+      opacity: 0.5;
       padding: 5px;
       width: 60px; }
     body.page-front #main .section.hero .preview:before {
       background: #FFF;
       content: ' ';
+      opacity: 0;
       position: absolute; }
     body.page-front #main .section.hero .preview:hover:before {
       opacity: 0.4; }
     body.page-front #main .section.hero .preview:hover:after {
+      color: #1F8DD6;
       opacity: 1; }
 body.page-front #main .section.features .feature {
   margin-bottom: 8rem; }
