@@ -1656,7 +1656,10 @@ body.page-front #main .section.hero {
     margin: 40px 0; }
   body.page-front #main .section.hero .preview {
     display: block;
-    position: relative; }
+    position: relative;
+    margin: 0 auto;
+    max-width: 728px;
+    /* Size of the screenshot */ }
     body.page-front #main .section.hero .preview .body {
       border: 1px solid #dde0e2;
       border-width: 0 1px;
