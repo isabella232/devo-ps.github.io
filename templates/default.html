@@ -6,16 +6,17 @@
 
   <title>{{ title }} | {{ site.title }}</title>
 
+  <meta http-equiv='Content-Language' content='en'/>
   <meta name='keywords' content='{{ site.keywords | join(", ") }}{% if tags %}, {{ tags | join(", ") }}{% endif %}'/>
   {% if site.description %}<meta name='description' content='{{ site.description }}'/>{% endif %}
-  <meta name="msvalidate.01" content="86C1F235D57610586CFC5A2D77B7D446" />
-  <meta http-equiv="Content-Language" content="en"/>
+  <meta name='msvalidate.01' content='86C1F235D57610586CFC5A2D77B7D446'/>
+  <meta http-equiv='Content-Language' content='en'/>
   
   <!-- Favicons -->
   {% include 'partials/_favicons.html' %}
 
   <!-- CSS -->
-  <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
+  <link href='/assets/styles.css?20140907' rel='stylesheet' type='text/css'/>
 </head>
 <body class='page-{{ path | default("front") }}'>
   <header id='header'>
@@ -25,7 +26,6 @@
       <button class='toggle'>Menu</button>
       <nav class='menu'>
         <a href='https://www.hipchat.com/gyHEHtsXZ' target='_blank'>Chat with us</a>
-        <!-- <a href='/features'>Features</a> -->
         <a href='/pricing'>Pricing</a>
         <a href='http://app.devo.ps' class='signin'>Sign in</a>
       </nav>
