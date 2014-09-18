@@ -21,4 +21,6 @@ Today some exciting features with the release of devo.ps 0.8.0.
 - Updated the documentation.
 - Updated the main devo.ps website.
 
-New technologies are on the way for the next releases; including firewall management, PostgreSQL, Rails and more public repo to forf from. Stay tuned !
+New technologies are on the way for the next releases; including firewall management, PostgreSQL, Rails and more public repo to fork from. 
+
+Stay tuned !
