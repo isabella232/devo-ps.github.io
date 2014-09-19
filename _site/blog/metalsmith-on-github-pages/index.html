@@ -4,10 +4,10 @@
   <meta charset='utf-8'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
 
-  <title>Deploy Your Meteor Apps on Digital Ocean in 5 Minutes | devo.ps</title>
+  <title>Metalsmith On GitHub pages | devo.ps</title>
 
   <meta http-equiv='Content-Language' content='en'/>
-  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, Meteor, MongoDB, Node.js, Telescope, DevOps, continuous deployment'/>
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, continuous integration, continuous delivery, continuous deployment, metalsmith, Node.js, GitHub, GitHub pages'/>
   <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
   <meta name='msvalidate.01' content='86C1F235D57610586CFC5A2D77B7D446'/>
   <meta http-equiv='Content-Language' content='en'/>
@@ -34,7 +34,7 @@
   <!-- CSS -->
   <link href='/assets/styles.css?20140907' rel='stylesheet' type='text/css'/>
 </head>
-<body class='page-blog/deploy-your-meteor-apps-on-digital-ocean-in-5-minutes'>
+<body class='page-blog/metalsmith-on-github-pages'>
   <header id='header'>
     <div class='wrapper'>
       <a href='/' class='logo'>devo.ps</a>
@@ -54,7 +54,7 @@
     <header class='header'>
       <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-      <h1>Deploy Your Meteor Apps on Digital Ocean in 5 Minutes</h1>
+      <h1>Metalsmith On GitHub pages</h1>
 
       <span class='meta'>
         
@@ -65,45 +65,123 @@
         
         
         
-        
-        
-          <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
-          Vincent Viallet
-        
+          <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
+          Ronan Berder
         
         
         
-        on <time datetime=''>September 19, 2014</time>
+        
+        
+        
+        on <time datetime=''>September 05, 2014</time>
       </span>
     </header>
 
     <article class='content'>
-      <p>Some of my colleagues and friends have been playing with Meteor for a few of their projects: so far they seem to love it, but when it came to hosting their app they didn&#39;t have a straight answer. They gave a quick try at the default Meteor hosting, Modulus.io and Heroku. But being the server nerd I am (and being massively in love with Digital Ocean), I thought I&#39;d look into how to self host Metero apps.</p>
-<h2 id="how-to-get-it-done">How to get it done</h2>
+      <p>We love GitHub pages and use it more than we probably should: our <a href="http://devo.ps">main website (devo.ps)</a> and <a href="http://docs.devo.ps">documentation</a> are actually GitHub pages. We use <a href="https://swiftype.com/">SwiftType</a> to provide search on the documentation, but otherwise these are pretty regular static websites. However, we don&#39;t use Jekyll; our team is more at ease with nNde.js than Ruby, which is why we usually prefer it <a href="http://www.metalsmith.io/">Metalsmith</a>. And since we&#39;re pretty lazy, we automate building and pushing to the <code>gh-pages</code> using <a href="http://devo.ps">devo.ps</a> (of course). Here&#39;s what it looks like.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You&#39;ll need to have a few things in place already:</p>
 <ul>
-<li>Build your box on your prefered cloud provider (I use often use <a href="http://digitalocean.com">Digital Ocean</a> for development and <a href="http://Linode.com">Linode</a> for production), and <a href="http://devo.ps/blog/basic-setup-for-a-new-linux-server/">set up the basics</a>.</li>
-<li>Install Nginx: you may want to put several other apps on the same box and you don&#39;t want your node process to run as root (TCP80&lt;1024).</li>
-<li>Install MongoDB, setup your admin user and create a dedicated user for your app.</li>
-<li>Install Node.js, add your favorite node app manager (e.g. forever, <a href="http://devo.ps/blog/goodbye-node-forever-hello-pm2/">pm2</a>, <a href="http://supervisord.org/">supervisor</a>).</li>
-<li>Install Meteor: this is only needed to build your app. We&#39;re running in prod, we won&#39;t go the <code>mrt</code> way.</li>
-<li>Fetch your code from GitHub, and build your app  using the meteor command. Export it to its final location (<code>/var/www/example.com</code> for example).</li>
-<li>Tune your node manager to use the correct location and execute your app. Pass along the required ENV to let it connect to your Mongo database</li>
-<li>Setup your Nginx vhost, set the appropriate location so the requests get proxied over to your node process. Beware you need to do some custom tuning if you&#39;ve enabled websocket in your app.</li>
-<li>Voila!</li>
+<li><p>A repo with <a href="https://pages.github.com/">GitHub pages</a> activated (duh). We&#39;ll assume you&#39;re using the <code>gh-pages</code> branch, though if it is your <code>*.github.io</code> repo it should be <code>master</code>.</p>
+<p>  <img src="http://devo.ps/images/posts/github-pages-settings.png" alt="GitHub pages settings"/></p>
+</li>
+<li><p>A <a href="http:/app.devo.ps/">devo.ps account</a> (it&#39;s free) with (for the sake of this example) your Digital Ocean account tied up to it (though you could use AWS, Rackspace or Linode with minimum changes).</p>
+</li>
+<li><p>A <a href="http://">Metalsmith</a> site that has a Makefile along with a <code>make build</code> command (in our example we use it to install the npm dependencies as well as run bower and gulp).</p>
+</li>
 </ul>
-<h2 id="the-easy-way">The easy way</h2>
-<p>Obviously, we bundled all of this magic into a tiny repo you can fork <a href="https://github.com/devops-community/meteor">devops-community/meteor</a>) and get done with. We&#39;re deploying the fantastic <a href="http://telesc.pe">Telescope</a> app by defaut, but you can change the URL to that of your app in the setup wizard. Go ahead with the following <a href="http://devo.ps/blog/one-click-deploy-of-your-infrastructure/">devo.ps button</a>:</p>
-<p><a href='https://app.devo.ps/#/fork?git_url=https://github.com/devops-community/meteor' target='_blank'><img src="https://app.devo.ps/assets/images/fork.png" alt="Fork on devo.ps"/></a></p>
-<p>Once your node is synced and your build task is ran, you&#39;re good to go and can follow the Telescope instruction to <a href="http://www.telesc.pe/docs/configuring-telescope/">finalize the configuration</a>. I also recommend you point the Webhook of your GitHub repository to a Webhook that triggers the build task (simply uncomment the Webhook trigger in <code>tasks/build-meteor.yml</code>). This way, your app will be built and dpeloyed on every commit received by GitHub.</p>
-<p>This also led us to add a couple new services to <a href="http://devo.ps">devo.ps</a>:</p>
-<ul>
-<li><a href="http://docs.devo.ps/services/meteor/">Meteor</a>,</li>
-<li><a href="http://docs.devo.ps/services/mongodb/">MongoDB</a>.</li>
-</ul>
-<p>PS: we&#39;re started to add some setups at <a href="https://github.com/devops-community">devops-community</a>. Next on the list are Ruby on Rails and Django; <a href="http://twitter.com/devo_ps">let us know</a> if you&#39;d like to see something else.</p>
+<h2 id="let-s-get-started">Let&#39;s get started</h2>
+<p>We&#39;ll be going through it step by step: I&#39;ll most likely prepare a repo very soon for you to fork, using our brand new <a href="http://devo.ps/blog/one-click-deploy-of-your-infrastructure/">devo.ps button</a> feature.</p>
+<ol>
+<li><p><a href="http://docs.devo.ps/how-to/add-a-node/">Add a server</a> (either to a new repo or an existing one) or use an existing node with the following services/configuration:</p>
+<pre><code> id: build-server
+ name: Build server
+ type: server
+
+ provider:
+   name: digitalocean
+   size: 66
+
+ services:
+   nodejs: *
+
+ configuration:
+   nodejs:
+     packages:
+       - bower
+       - gulp
+</code></pre></li>
+<li><p>Once you&#39;ve added your server, copy its public SSH key from the details section:</p>
+<p> <img src="http://devo.ps/images/posts/devops-ssh-key.png" alt="GitHub pages settings"/></p>
+</li>
+<li><p>Add that key as a deploy key in the settings of your site&#39;s repo on GitHub:</p>
+<p> <img src="http://devo.ps/images/posts/github-deploy-keys.png" alt="GitHub deploy key"/></p>
+</li>
+<li><p>We&#39;ll then add a task on devo.ps to do the bulk of the job:</p>
+<pre><code> type: task
+ id: gh-pages-build
+ name: Build and deploy on gh-pages
+
+ vars:
+   # Feel free to edit the following values to match your use case
+   dir: /opt/example.com
+   build: _site
+   temp: /tmp/build
+   # You&#39;ll need to change that to match the Git URL of your site&#39;s repo
+   repo: git@github.com:my-account/my-repo.git
+   # We&#39;re here assuming we work out of the metalsmith branch
+   ref: refs/heads/metalsmith
+   dest: gh-pages
+
+ targets:
+   - build-server
+
+ triggers:
+   webhooks:
+     - path: XkYw58l2d7rehq2Dkh4Nmd
+
+ steps:
+   # Hack to ensure we&#39;re building only when the right branch is updated
+   - run: if [ &quot;{{ trigger.payload.ref }}&quot; != &quot;{{ ref }}&quot; ]; then echo &quot;Wrong branch&quot; &gt;&amp;2 ; exit 1 ; fi
+
+   # Fetch our updates
+   - run: devops git update
+     options:
+       repo: &quot;{{ repo }}&quot;
+       dest: &quot;{{ dir }}&quot;
+       version: metalsmith
+
+   # Build the site
+   - run: cd {{ dir }} &amp;&amp; make build &amp;&amp; git stash save
+
+   # We copy the result of our build over to a temporary folder
+   - run: rm -Rf {{ temp }} &amp;&amp; cd {{ dir }} &amp;&amp; cp -a {{ build }} {{ temp }}
+
+   # We switch to `gh-pages` and trash its content
+   - run: cd {{ dir }} &amp;&amp; git checkout {{ dest }} &amp;&amp; git rm -r --ignore-unmatch * 
+
+   # We copy back the build in the Git repo
+   - run: cd {{ dir }} &amp;&amp; cp -a {{ temp }}/* .
+
+   # We push our changes back
+   - run: &gt; 
+       cd {{ dir }} &amp;&amp; 
+       git add . &amp;&amp; 
+       git commit -am &quot;Build triggered by commit {{ trigger.payload.after }} from {{ trigger.payload.head_commit.author.username }}&quot; &amp;&amp; 
+       git push origin {{ dest }}
+</code></pre></li>
+<li><p>Once that task is saved, we still need to point GitHub&#39;s webhook at it. You&#39;ll notice we added a <code>path: XkYw58l2d7rehq2Dkh4Nmd</code> in the <code>webhooks</code> section of the <code>triggers</code> attribute. It means that your task can be triggered by hitting the <code>https://wh.devo.ps/{USER}/{REPO}/XkYw58l2d7rehq2Dkh4Nmd</code> URL, where <code>{USER}</code> and <code>{REPO}</code> are your devo.ps username and repository name for this task. Go ahead and add this on GitHub in the &quot;Webhooks &amp; Services&quot; settings page:</p>
+<p> <img src="http://devo.ps/images/posts/github-webhook.png" alt="GitHub webhook"/></p>
+</li>
+<li><p>Voilà!</p>
+</li>
+</ol>
+<p>Every time you&#39;ll be pushing a new commit on the <code>metalsmith</code> branch, devo.ps will fetch the changes, build the site and push it back in the <code>gh-pages</code> branch. Keep in mind that GitHub pages are public, wether or not the repo is.</p>
+<p>There are obviously still a few rough edges: it&#39;d be nice not to have to configure things manually on GitHub, it also would be nice to be able to not rely on a trick to prevent the task from running when the commit isn&#39;t related to the <code>metalsmith</code> branch.</p>
+<p>In the next couple weeks, we&#39;ll be adding some of these features and starting to integrate more tightly with GitHub.</p>
 
       
-      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/deploy-your-meteor-apps-on-digital-ocean-in-5-minutes' target='_blank'>Twitter</a>.</h2>
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/metalsmith-on-github-pages' target='_blank'>Twitter</a>.</h2>
 
       <footer class='more'>
         <section class='pitch'>

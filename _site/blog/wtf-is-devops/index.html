@@ -4,10 +4,10 @@
   <meta charset='utf-8'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
 
-  <title>Deploy Your Meteor Apps on Digital Ocean in 5 Minutes | devo.ps</title>
+  <title>WTF Is DevOps? | devo.ps</title>
 
   <meta http-equiv='Content-Language' content='en'/>
-  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, Meteor, MongoDB, Node.js, Telescope, DevOps, continuous deployment'/>
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, Devops, best-practices, agile, ops'/>
   <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
   <meta name='msvalidate.01' content='86C1F235D57610586CFC5A2D77B7D446'/>
   <meta http-equiv='Content-Language' content='en'/>
@@ -34,7 +34,7 @@
   <!-- CSS -->
   <link href='/assets/styles.css?20140907' rel='stylesheet' type='text/css'/>
 </head>
-<body class='page-blog/deploy-your-meteor-apps-on-digital-ocean-in-5-minutes'>
+<body class='page-blog/wtf-is-devops'>
   <header id='header'>
     <div class='wrapper'>
       <a href='/' class='logo'>devo.ps</a>
@@ -54,7 +54,7 @@
     <header class='header'>
       <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-      <h1>Deploy Your Meteor Apps on Digital Ocean in 5 Minutes</h1>
+      <h1>WTF Is DevOps?</h1>
 
       <span class='meta'>
         
@@ -65,45 +65,37 @@
         
         
         
-        
-        
-          <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
-          Vincent Viallet
-        
+          <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
+          Ronan Berder
         
         
         
-        on <time datetime=''>September 19, 2014</time>
+        
+        
+        
+        on <time datetime=''>September 08, 2014</time>
       </span>
     </header>
 
     <article class='content'>
-      <p>Some of my colleagues and friends have been playing with Meteor for a few of their projects: so far they seem to love it, but when it came to hosting their app they didn&#39;t have a straight answer. They gave a quick try at the default Meteor hosting, Modulus.io and Heroku. But being the server nerd I am (and being massively in love with Digital Ocean), I thought I&#39;d look into how to self host Metero apps.</p>
-<h2 id="how-to-get-it-done">How to get it done</h2>
+      <p>I recently stumbled on an article by Jeff Knupp in my (ever growing) list of &quot;to read later&quot; bookmarks: <a href="http://jeffknupp.com/blog/2014/04/15/how-devops-is-killing-the-developer/">How &#39;DevOps&#39; is Killing the Developer</a>. In a nutshell, he makes the point that the DevOps movement, and its reliance on cross-functional profiles (aka &quot;full stack&quot; engineers) is fair in a startup environment where resource attrition favors Jack-of-all-trades, but is a poor strategy for larger and more resourceful established businesses. I think it misses the point entirely. More importantly, it goes along the lines of a lot of criticism and misunderstanding many other voiced with regards to DevOps.</p>
+<p>First, if you have no idea of what DevOps is, I suggest you check out the <a href="http://en.wikipedia.org/wiki/DevOps">Wikipedia page</a> as well a the more digestible <a href="http://newrelic.com/devops/what-is-devops">definition from NewRelic</a>. I&#39;ll wait here.</p>
+<p>I think the main issue with the DevOps movement is that it is usually pretty poorly outlined: there are a lot of fuzzy or twisted definitions out there, with some people attributing it more to automation and configuration management, and others to fostering the practice of ops by developers and development by sysadmins.</p>
+<p>And this pisses off a pretty large amount of folks (somehow). More often than not because not everybody is a jack-of-all-trades; good developers are usually busy developers and have enough to deal with without having to start chasing errors in the deployment pipeline. Same goes for ops folks: they&#39;re usually kept busy enough with keeping their whole infrastructure running without piling up learning Ruby or writing tests for provisioning.</p>
+<p>Well, it seems to me this isn&#39;t what DevOps is about. These are concrete manifestations of how some teams implement a DevOps approach for their specific problems, with the resources they have access to, not a mandatory to-do list. I clearly see 3 aspects that are thrown together in a confusing mix:</p>
 <ul>
-<li>Build your box on your prefered cloud provider (I use often use <a href="http://digitalocean.com">Digital Ocean</a> for development and <a href="http://Linode.com">Linode</a> for production), and <a href="http://devo.ps/blog/basic-setup-for-a-new-linux-server/">set up the basics</a>.</li>
-<li>Install Nginx: you may want to put several other apps on the same box and you don&#39;t want your node process to run as root (TCP80&lt;1024).</li>
-<li>Install MongoDB, setup your admin user and create a dedicated user for your app.</li>
-<li>Install Node.js, add your favorite node app manager (e.g. forever, <a href="http://devo.ps/blog/goodbye-node-forever-hello-pm2/">pm2</a>, <a href="http://supervisord.org/">supervisor</a>).</li>
-<li>Install Meteor: this is only needed to build your app. We&#39;re running in prod, we won&#39;t go the <code>mrt</code> way.</li>
-<li>Fetch your code from GitHub, and build your app  using the meteor command. Export it to its final location (<code>/var/www/example.com</code> for example).</li>
-<li>Tune your node manager to use the correct location and execute your app. Pass along the required ENV to let it connect to your Mongo database</li>
-<li>Setup your Nginx vhost, set the appropriate location so the requests get proxied over to your node process. Beware you need to do some custom tuning if you&#39;ve enabled websocket in your app.</li>
-<li>Voila!</li>
+<li><p><strong>At its core, DevOps is about collaboration and communication</strong>. It isn&#39;t about Puppet, or automation, or full-stack developers, or monitoring. It is about breaking down walls between ops and developers.</p>
+</li>
+<li><p><strong>The usual outcome of this effort</strong> is often measured in shorter development cycles, more frequent deployments and higher reliability or quality of the produced software.</p>
+</li>
+<li><p><strong>To get there, people recommend a wide range of methods and best-pratices encouraging both sides to meet half-way</strong>. This means understanding each other&#39;s roles, tools and yes, sometimes, cross-functional profiles. But in that sense, it isn&#39;t much different from what you&#39;ll expect from a team lead or an entrepreneur: having at least some level of understanding of what each of your team members does is tremendously helpful in bridging the gap between them.</p>
+</li>
 </ul>
-<h2 id="the-easy-way">The easy way</h2>
-<p>Obviously, we bundled all of this magic into a tiny repo you can fork <a href="https://github.com/devops-community/meteor">devops-community/meteor</a>) and get done with. We&#39;re deploying the fantastic <a href="http://telesc.pe">Telescope</a> app by defaut, but you can change the URL to that of your app in the setup wizard. Go ahead with the following <a href="http://devo.ps/blog/one-click-deploy-of-your-infrastructure/">devo.ps button</a>:</p>
-<p><a href='https://app.devo.ps/#/fork?git_url=https://github.com/devops-community/meteor' target='_blank'><img src="https://app.devo.ps/assets/images/fork.png" alt="Fork on devo.ps"/></a></p>
-<p>Once your node is synced and your build task is ran, you&#39;re good to go and can follow the Telescope instruction to <a href="http://www.telesc.pe/docs/configuring-telescope/">finalize the configuration</a>. I also recommend you point the Webhook of your GitHub repository to a Webhook that triggers the build task (simply uncomment the Webhook trigger in <code>tasks/build-meteor.yml</code>). This way, your app will be built and dpeloyed on every commit received by GitHub.</p>
-<p>This also led us to add a couple new services to <a href="http://devo.ps">devo.ps</a>:</p>
-<ul>
-<li><a href="http://docs.devo.ps/services/meteor/">Meteor</a>,</li>
-<li><a href="http://docs.devo.ps/services/mongodb/">MongoDB</a>.</li>
-</ul>
-<p>PS: we&#39;re started to add some setups at <a href="https://github.com/devops-community">devops-community</a>. Next on the list are Ruby on Rails and Django; <a href="http://twitter.com/devo_ps">let us know</a> if you&#39;d like to see something else.</p>
+<p>DevOps is about culture. Agile methodologies aim at improving communication and collaboration between development teams and their clients. The DevOps movement applies similar ideas at the intersection of development and ops teams.</p>
+<p>It is at this intersection <a href="http://devo.ps/blog/dealing-with-servers-still-suck/">that me and my team are working</a>: building a platform that helps both sides meeting half-way, by <a href="http://devo.ps/blog/one-click-deploy-of-your-infrastructure/">lowering the barriers of entries to managing infrastructure for developers</a> while keeping things transparent and familiar for ops people (as opposed to offering some kind of <a href="http://devo.ps/blog/managing-infrastructure-is-effin-hard/">black-box NoOps solution</a>).</p>
 
       
-      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/deploy-your-meteor-apps-on-digital-ocean-in-5-minutes' target='_blank'>Twitter</a>.</h2>
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/wtf-is-devops' target='_blank'>Twitter</a> or keep the discussion going on <a href='http://news.ycombinator.com/item?id=8284301' target='_blank'>Hacker News</a>.</h2>
 
       <footer class='more'>
         <section class='pitch'>
