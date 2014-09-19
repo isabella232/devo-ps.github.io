@@ -80,10 +80,11 @@
     <article class='content'>
       <p>At <a href="http://devo.ps">devo.ps</a> we&#39;re always keen on simplifying our users&#39; life. Converting technologies and adapting well known OSS projects to make them devo.ps compatible is one of the way we found.</p>
 <p>Today we&#39;re glad to introduce you and add to the <a href="https://github.com/devops-community">devops-community</a> Github organization the new <a href="https://github.com/devops-community/meteor">Meteor repository</a>. It can be used as a boilerplate to build your meteor app and get it hosted on your favorite cloud provider.</p>
-<p>We&#39;ve selected a neat Meteor app for you to play with named <a href="http://telesc.pe">Telescope</a>. Once your node is synced and your build task is ran, you&#39;re good to go and can follow the Telescope instruction to <a href="http://www.telesc.pe/docs/configuring-telescope/">finalyze the configuration</a>.</p>
+<p>We&#39;ve selected a neat Meteor app for you to play with named <a href="http://telesc.pe">Telescope</a>. Once your node is synced and your build task is ran, you&#39;re good to go and can follow the Telescope instruction to <a href="http://www.telesc.pe/docs/configuring-telescope/">finalize the configuration</a>.</p>
 <p>No more complex setup, no more hassle setting up any of the services. Give it a shot using with our <a href="http://devo.ps/blog/one-click-deploy-of-your-infrastructure/">devo.ps button</a> feature.</p>
 <h2 id="under-the-hood">Under the hood</h2>
-<p>The provided node will setup for you:</p>
+<p>We&#39;ve bundled this repository with one <a href="http://docs.devo.ps/manual/nodes/">node</a> and one <a href="http://docs.devo.ps/manual/tasks/">task</a> as example.</p>
+<p>The provided server will setup for you:</p>
 <ul>
 <li><a href="http://docs.devo.ps/services/meteor/">Meteor</a>; obviously </li>
 <li><a href="http://docs.devo.ps/services/nginx/">Nginx</a>; to proxy the request to the Meteor app (including websocket support ;)</li>
@@ -93,12 +94,12 @@
 <p>A task is provided as well to build and deploy your app, long story short it fetches your app from its git url, builds it and starts it via foreverd.</p>
 <h2 id="customization">Customization</h2>
 <p>Feel free to hack in and customize the task to match your own app. </p>
-<p>A couple of customization would be:</p>
+<p>Some of the improvement might be any of the following:</p>
 <ul>
-<li>converting the task to listen to webhooks and automatically build and deploy any of your apps (see the <a href="http://docs.devo.ps/manual/tasks/#triggers">Trigger section</a> for more information about webhooks).</li>
-<li>implementing an update workflow along with its webhook and get your meteor app udpated automatically on commit. Our previous <a href="/blog/metalsmith-on-github-pages">gh-pages builder repo</a> is a great way to get started.</li>
-<li>fetching a bundled version of your app instead of bundling it &quot;on site&quot;</li>
-<li>using the task as a builder of meteor apps and simply push builds elsewhere</li>
+<li>Converting the task to listen to webhooks and automatically build and deploy any of your apps (see the <a href="http://docs.devo.ps/manual/tasks/#triggers">Trigger section</a> for more information about webhooks).</li>
+<li>Implementing an update workflow along with its webhook and get your meteor app udpated automatically on commit. Our previous <a href="/blog/metalsmith-on-github-pages">gh-pages builder repo</a> is a great way to get started.</li>
+<li>Fetching a bundled version of your app instead of bundling it &quot;on site&quot;</li>
+<li>Using the task as a builder of meteor apps and simply push builds elsewhere</li>
 <li>...</li>
 </ul>
 <p>Feel free to give us feedback and suggestion, pull requests are welcome! Let us know what is the next repo you want to see being added to devops-community.</p>
