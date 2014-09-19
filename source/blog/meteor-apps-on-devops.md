@@ -12,7 +12,7 @@ hn:
 date: 2014-09-19
 
 template: post.html
-draft: true
+draft: false
 ---
 
 At [devo.ps](http://devo.ps) we're always keen on simplifying our users' life. Converting technologies and adapting well known OSS projects to make them devo.ps compatible is one of the way we found.
@@ -34,11 +34,15 @@ The provided node will setup for you:
 
 A task is provided as well to build and deploy your app, long story short it fetches your app from its git url, builds it and starts it via foreverd.
 
-Feel free to hack in and customize the task to match your own app. A couple of ideas would be:
-- convert the task to listen to webhooks and automatically build and deploy any of your apps (see the [Trigger section](http://docs.devo.ps/manual/tasks/#triggers) for more information about webhooks).
-- implement an update workflow along with its webhook and get your meteor app udpated automatically on commit. Our previous [gh-pages builder repo](/blog/metalsmith-on-github-pages) is a great way to get started.
-- fetch a bundled version of your app instead of bundling it "on site"
-- use the task as a builder of meteor apps and simply push builds elsewhere
+## Customization
+
+Feel free to hack in and customize the task to match your own app. 
+
+A couple of customization would be:
+- converting the task to listen to webhooks and automatically build and deploy any of your apps (see the [Trigger section](http://docs.devo.ps/manual/tasks/#triggers) for more information about webhooks).
+- implementing an update workflow along with its webhook and get your meteor app udpated automatically on commit. Our previous [gh-pages builder repo](/blog/metalsmith-on-github-pages) is a great way to get started.
+- fetching a bundled version of your app instead of bundling it "on site"
+- using the task as a builder of meteor apps and simply push builds elsewhere
 - ...
 
 Feel free to give us feedback and suggestion, pull requests are welcome! Let us know what is the next repo you want to see being added to devops-community.
