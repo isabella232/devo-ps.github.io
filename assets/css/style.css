@@ -1675,14 +1675,15 @@ body.page-front #main .section.hero {
       position: absolute;
       right: 0;
       top: 0;
-      -webkit-transition-property: background, color, opacity;
-      -moz-transition-property: background, color, opacity;
-      transition-property: background, color, opacity;
+      -webkit-transition-property: color, opacity;
+      -moz-transition-property: color, opacity;
+      transition-property: color, opacity;
       -webkit-transition-duration: 0.2s;
       -moz-transition-duration: 0.2s;
       transition-duration: 0.2s;
       z-index: 999; }
     body.page-front #main .section.hero .preview:after {
+      background: #FFF;
       border-radius: 50%;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -1711,7 +1712,6 @@ body.page-front #main .section.hero {
     body.page-front #main .section.hero .preview:hover:before {
       opacity: 0.4; }
     body.page-front #main .section.hero .preview:hover:after {
-      background: #FFF;
       color: #1F8DD6;
       opacity: 1; }
 body.page-front #main .section.features .feature {
