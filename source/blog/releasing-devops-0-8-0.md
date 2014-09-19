@@ -11,7 +11,7 @@ date: 2014-09-19
 template: post.html
 ---
 
-Today some exciting features with the release of devo.ps 0.8.0. 
+Today some exciting features with the release of [devo.ps](http://devo.ps) 0.8.0. 
 
 - Added the following new technologies:
   - [MongoDB](http://docs.devo.ps/services/mongodb/); includes user management
