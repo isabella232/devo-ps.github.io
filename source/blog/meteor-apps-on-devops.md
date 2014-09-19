@@ -12,7 +12,6 @@ hn:
 date: 2014-09-19
 
 template: post.html
-draft: true
 ---
 
 Some of my colleagues and friends have been playing with Meteor for a few of their projects: so far they seem to love it, but when it came to hosting their app they didn't have a straight answer. They gave a quick try at the default Meteor hosting, Modulus.io and Heroku. But being the server nerd I am (and being massively in love with Digital Ocean), I thought I'd look into how to self host Metero apps.
