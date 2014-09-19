@@ -19,15 +19,15 @@ Some of my colleagues and friends have been playing with Meteor for a few of the
 
 ## How to get it done
 
-- Build your box on your prefered cloud provider, tune it up to your needs (users / firewall / etc.)
-- Install Nginx; you may want to put several other apps on the same box and you don't want your node process to run as root (TCP80<1024)
-- Install MongoDB, setup your admin user and create a dedicated user for your app
-- Install Node.js, add your favorite node app manager (e.g. forever, pm2, supervisor)
-- Install Meteor, effectively it only is required so you can build your app. We're running in prod, we won't go the mrt way
-- Fetch your code from GH, using the meteor command build your app and export it to its final location
-- Tune your node manager to use the correct location and execute your app; pass along the required ENV to let it connect to your Mongo database
-- Setup your nginx vhost, set the appropriate location so the requests get proxied over to your node process. Beware you need to do some custom tuning if you've enabled websocket in your app.
-- et voila
+- Build your box on your prefered cloud provider (I use often use [Digital Ocean](http://digitalocean.com) for development and [Linode](http://Linode.com) for production), and [set up the basics](http://devo.ps/blog/basic-setup-for-a-new-linux-server/).
+- Install Nginx: you may want to put several other apps on the same box and you don't want your node process to run as root (TCP80<1024).
+- Install MongoDB, setup your admin user and create a dedicated user for your app.
+- Install Node.js, add your favorite node app manager (e.g. forever, [pm2](http://devo.ps/blog/goodbye-node-forever-hello-pm2/), [supervisor](http://supervisord.org/)).
+- Install Meteor: this is only needed to build your app. We're running in prod, we won't go the `mrt` way.
+- Fetch your code from GitHub, and build your app  using the meteor command. Export it to its final location (`/var/www/example.com` for example).
+- Tune your node manager to use the correct location and execute your app. Pass along the required ENV to let it connect to your Mongo database
+- Setup your Nginx vhost, set the appropriate location so the requests get proxied over to your node process. Beware you need to do some custom tuning if you've enabled websocket in your app.
+- Voila!
 
 ## The easy way
 
