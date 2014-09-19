@@ -4,10 +4,10 @@
   <meta charset='utf-8'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
 
-  <title>About | devo.ps</title>
+  <title>Releasing devo.ps 0.7.0 | devo.ps</title>
 
   <meta http-equiv='Content-Language' content='en'/>
-  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS'/>
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, release'/>
   <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
   <meta name='msvalidate.01' content='86C1F235D57610586CFC5A2D77B7D446'/>
   <meta http-equiv='Content-Language' content='en'/>
@@ -34,7 +34,7 @@
   <!-- CSS -->
   <link href='/assets/styles.css?20140907' rel='stylesheet' type='text/css'/>
 </head>
-<body class='page-about'>
+<body class='page-blog/releasing-devops-0-7-0'>
   <header id='header'>
     <div class='wrapper'>
       <a href='/' class='logo'>devo.ps</a>
@@ -49,50 +49,93 @@
   </header>
 
   
-<section id='main' class='page'>
+<section id='main' class='blog post'>
   <div class='wrapper'>
     <header class='header'>
-      <h1>About</h1>
+      <a href='/blog' class='back'><span>Back to the blog</span></a>
+
+      <h1>Releasing devo.ps 0.7.0</h1>
+
+      <span class='meta'>
+        
+        
+        
+        
+        
+        
+        
+        
+          <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
+          Ronan Berder
+        
+        
+        
+        
+        
+        
+        on <time datetime=''>September 14, 2014</time>
+      </span>
     </header>
 
-    <aside class='sidebar'>
-      <nav class='menu'>
-  <!-- <a href='/features'>Features</a> -->
-  <!-- <a href='/pricing'>Pricing</a> -->
-  <a href='/about' class='active'>About</a>
-  <a href='/privacy'>Privacy</a>
-  <a href='/tos'>Terms of Service</a>
-</nav>
+    <article class='content'>
+      <p>Another week, another release. We&#39;ve pushed devo.ps 0.7.0 out. A few things we fixed and added:</p>
+<ul>
+<li>Collaborators are now synced; adding or removing a collaborator on a repo will add or remove their keys from the repo&#39;s servers.</li>
+<li>Improve the support for Nginx and MySQL (more commands, support for remote hosts).</li>
+<li>Added more settings for servers: fail2ban, swap, sysctl, packages, repositories management.</li>
+<li>Revamped the docs.devo.ps; we&#39;ve added examples and a more accurate list of attributes for all services.</li>
+<li>Miscellaneous: <ul>
+<li>Editing files doesn&#39;trequire to fill in the filename anymore,</li>
+<li>Switch to the latest task run in the console on trigger,</li>
+<li>Fixed node status notifications.</li>
+</ul>
+</li>
+</ul>
+<p>We&#39;re fast approaching our public release which will include more triggers (servers &amp; tasks events, cron, ...) and full support for LAMP and JS stacks.</p>
 
-<section class='pitch'>
-  <h3>A single API for your servers</h3>
+      
+      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http://devo.ps/blog/releasing-devops-0-7-0' target='_blank'>Twitter</a>.</h2>
+
+      <footer class='more'>
+        <section class='pitch'>
+  <h3>Manage servers with Git</h3>
   <p>Managing servers doesn't have to be painful: start using Git to control any cloud from Digital Ocean to AWS.</p>
 <a href='https://app.devo.ps' class='button add'>Try it for <strong>free</strong></a>
 <small>Already have an account? <a href='https://app.devo.ps'>Sign in</a>.</small>
 </section>
-    </aside>
 
-    <section class='content'>
-      <h2 id="what-is-devo-ps-">What is devo.ps?</h2>
-<p>devo.ps is the only API you&#39;ll need to manage your infrastructure.</p>
-<p>We&#39;re on a mission to lower the barriers of entries to <a href="http://en.wikipedia.org/wiki/DevOps">DevOps</a> by letting you deal with servers the same way you deal with code; you can deploy applications or provision servers with a a couple Git commands.</p>
-<h2 id="why-devo-ps-">Why devo.ps?</h2>
-<p>Managing infrastructure is still a painful experience for most teams out there.</p>
-<p>The options are mostly concentrated around either NoOps approaches (think PaaS for example) which leaves you with a fragmented and opaque solution, or tools with high barriers of entries (think orchestration and configuration management software) that require the supervision of a professional.</p>
-<p>We take care of best pratices, letting you focus on declaratively defining what you want your infrastructure to be and how you want it to behave, while giving you the convenience of the workflows you&#39;ve been acustomed with modern software developemnt; Pull Requests, branches, commits, forks, collaborators...</p>
-<h2 id="who-is-behind-devo-ps-">Who is behind devo.ps?</h2>
-<ul>
-<li><img src="/images/team/ronan.png" alt="Ronan Berder"/><h3 id="ronan-berder">Ronan Berder</h3>
-<h4 id="product-business-strategy">Product, Business &amp; Strategy</h4>
-  <a href="https://github.com/hunvreus">GitHub</a> / <a href="https://twitter.com/hunvreus">Twitter</a> / <a href="http://www.linkedin.com/in/ronanberder/">LinkedIn</a></li>
-<li><img src="/images/team/juha.png" alt="Juha Suomalainen"/><h3 id="juha-suomalainen">Juha Suomalainen</h3>
-<h4 id="development">Development</h4>
-  <a href="https://github.com/JuhaFinn">GitHub</a> / <a href="https://twitter.com/juhas">Twitter</a></li>
-<li><img src="/images/team/vincent.png" alt="Vincent Viallet"/><h3 id="vincent-viallet">Vincent Viallet</h3>
-<h4 id="ops">Ops</h4>
-  <a href="https://github.com/zbal">GitHub</a> / <a href="https://twitter.com/zbalsh">Twitter</a></li>
-</ul>
+<section class='subscribe'>
+  <h3>Stay tuned</h3>
+  <ul>
+    <li class='newsletter'><form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
+  </div>
+</form></li>
+    <li class='twitter'><a href='http://twitter.com/devo_ps'>Follow us on twitter</a></li>
+    <li class='rss'><a href='http://feeds.feedburner.com/devo/BQLM'>RSS feed</a></li>
+  </ul>
+</section>
 
+      </footer>
+
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'devo-ps'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </section>
   </div>
 </section>
