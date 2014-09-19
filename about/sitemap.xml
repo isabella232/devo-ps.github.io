@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://devo.ps/blog/meteor-apps-on-devops</loc>
+    <lastmod>2014-09-19</lastmod>
+  </url>
+  
+  <url>
     <loc>http://devo.ps/blog/releasing-devops-0-8-0</loc>
     <lastmod>2014-09-19</lastmod>
   </url>
