@@ -1,6 +1,6 @@
 ---
 collection: blog
-title: Meteor Apps on devo.ps
+title: Deploy Your Meteor Apps on Digital Ocean in 5 Minutes
 tags:
   - Meteor
   - MongoDB
@@ -12,40 +12,27 @@ hn:
 date: 2014-09-19
 
 template: post.html
-draft: false
+draft: true
 ---
 
-At [devo.ps](http://devo.ps) we're always keen on simplifying our users' life. Converting technologies and adapting well known OSS projects to make them devo.ps compatible is one of the way we found.
+Some of my colleagues and friends have been playing with Meteor for a few of their projects: so far they seem to love it, but when it came to hosting their app they didn't have a straight answer. They gave a quick try at the default Meteor hosting, Modulus.io and Heroku. But being the server nerd I am (and being massively in love with Digital Ocean), I thought I'd look into how to self host Metero apps.
 
-Today we're glad to introduce you and add to the [devops-community](https://github.com/devops-community) Github organization the new [Meteor repository](https://github.com/devops-community/meteor). It can be used as a boilerplate to build your meteor app and get it hosted on your favorite cloud provider.
+## How to get it done
 
-We've selected a neat Meteor app for you to play with named [Telescope](http://telesc.pe). Once your node is synced and your build task is ran, you're good to go and can follow the Telescope instruction to [finalize the configuration](http://www.telesc.pe/docs/configuring-telescope/).
+XXXX HERE TALK ABOUT THE STUFF TO DO XXXX
 
-No more complex setup, no more hassle setting up any of the services. Give it a shot using with our [devo.ps button](http://devo.ps/blog/one-click-deploy-of-your-infrastructure/) feature.
+## The easy way
 
-## Under the hood
+Obviously, we bundled all of this magic into a tiny repo you can fork [devops-community/meteor](https://github.com/devops-community/meteor)) and get done with. We're deploying the fantastic [Telescope](http://telesc.pe) app by defaut, but you can change the URL to that of your app in the setup wizard. Go ahead with the following [devo.ps button](http://devo.ps/blog/one-click-deploy-of-your-infrastructure/):
 
-We've bundled this repository with one [node](http://docs.devo.ps/manual/nodes/) and one [task](http://docs.devo.ps/manual/tasks/) as example.
+<a href='https://app.devo.ps/#/fork?git_url=https://github.com/devops-community/meteor' target='_blank'>![Fork on devo.ps](https://app.devo.ps/assets/images/fork.png)</a>
 
-The provided server will setup for you:
-- [Meteor](http://docs.devo.ps/services/meteor/); obviously 
-- [Nginx](http://docs.devo.ps/services/nginx/); to proxy the request to the Meteor app (including websocket support ;)
-- [MongoDB](http://docs.devo.ps/services/mongodb/); with its admin user and a dedicated admin user for your app
-- [Node.js](http://docs.devo.ps/services/nodejs/); to effectively power your app
+Once your node is synced and your build task is ran, you're good to go and can follow the Telescope instruction to [finalize the configuration](http://www.telesc.pe/docs/configuring-telescope/). I also recommend you point the Webhook of your GitHub repository to a Webhook that triggers the build task (simply uncomment the Webhook trigger in `tasks/build-meteor.yml`). This way, your app will be built and dpeloyed on every commit received by GitHub.
 
+This also led us to add a couple new services to [devo.ps](http://devo.ps):
 
-A task is provided as well to build and deploy your app, long story short it fetches your app from its git url, builds it and starts it via foreverd.
+- [Meteor](http://docs.devo.ps/services/meteor/),
+- [MongoDB](http://docs.devo.ps/services/mongodb/).
 
-## Customization
-
-Feel free to hack in and customize the task to match your own app. 
-
-Some of the improvement might be any of the following:
-- Converting the task to listen to webhooks and automatically build and deploy any of your apps (see the [Trigger section](http://docs.devo.ps/manual/tasks/#triggers) for more information about webhooks).
-- Implementing an update workflow along with its webhook and get your meteor app udpated automatically on commit. Our previous [gh-pages builder repo](/blog/metalsmith-on-github-pages) is a great way to get started.
-- Fetching a bundled version of your app instead of bundling it "on site"
-- Using the task as a builder of meteor apps and simply push builds elsewhere
-- ...
-
-Feel free to give us feedback and suggestion, pull requests are welcome! Let us know what is the next repo you want to see being added to devops-community.
+PS: we're started to add some setups at [devops-community](https://github.com/devops-community). Next on the list are Ruby on Rails and Django; [let us know](http://twitter.com/devo_ps) if you'd like to see something else.
 
