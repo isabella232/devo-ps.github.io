@@ -66,6 +66,22 @@
       }
     }
   }
+
+  #main {
+    .section {
+      &.features {
+        .feature {
+          margin-bottom: $gutter;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          .preview {
+            margin-bottom: $gutter;
+          }
+        }
+      }
+    }        
+  }
 }
 
 /* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
@@ -152,26 +168,23 @@
         @include halves();
       }
     }
-    &.features {
-      .feature {
-        &:nth-child(odd) {
-          > * {
-            @include halves;
+    
+    .section {
+      &.features {
+        .feature {
+          margin-bottom: 8rem;
+          &:last-child {
+            margin-bottom: 0;
           }
-        }
-        &:nth-child(even) {
-          > * {
-            @include halves(true);
+          &:nth-child(odd) {
+            > * {
+              @include halves;
+            }
           }
-        }
-      }
-    }
-    &.landing {
-      .section {
-        &.how {
-          .steps,
-          .illustrations {
-            @include halves();
+          &:nth-child(even) {
+            > * {
+              @include halves(true);
+            }
           }
         }
       }
@@ -187,20 +200,6 @@
           }
           h2 {
             @include font-size(20);
-          }
-        }
-        &.features {
-          .feature {
-            &:nth-child(odd) {
-              > * {
-                @include halves(true);
-              }
-            }
-            &:nth-child(even) {
-              > * {
-                @include halves;
-              }
-            }
           }
         }
       }
@@ -224,6 +223,36 @@
         display: inline-block;
         vertical-align: middle;
         width: auto;
+      }
+    }
+    .section {
+      &.how {
+        .steps,
+        .illustrations {
+          @include halves();
+        }
+      }
+      &.team {
+        @include clearfix;
+        position: relative;
+        .header {
+          margin-left: 50%;
+          padding-bottom: 8rem;
+          padding-left: $gutter;
+          text-align: left;
+          h2 + .description {
+            margin-bottom: 0;
+          }
+        }
+        .picture {
+          bottom: 0;
+          max-width: 50%;
+          padding-right: $gutter;
+          position: absolute;
+          img {
+            max-height: 360px;
+          }
+        }
       }
     }
   }

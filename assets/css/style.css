@@ -1714,14 +1714,10 @@ body.page-front #main .section.hero {
     body.page-front #main .section.hero .preview:hover:after {
       color: #1F8DD6;
       opacity: 1; }
-body.page-front #main .section.features .feature {
-  margin-bottom: 8rem; }
-  body.page-front #main .section.features .feature:after {
-    content: "";
-    display: table;
-    clear: both; }
-  body.page-front #main .section.features .feature:last-child {
-    margin-bottom: 0; }
+body.page-front #main .section.features .feature:after {
+  content: "";
+  display: table;
+  clear: both; }
 body.page-front #main .section.features .preview {
   text-align: center; }
   body.page-front #main .section.features .preview img {
@@ -1897,6 +1893,16 @@ body.page-front #main .section.how .illustrations .browser ul {
     body.page-front #main .section.how .illustrations .browser ul li small {
       font-size: 11px;
       font-size: 1.1rem; }
+body.page-front #main .section.team {
+  border-top: 1px solid #dde0e2;
+  padding-bottom: 0; }
+  body.page-front #main .section.team .picture {
+    text-align: center; }
+    body.page-front #main .section.team .picture img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      width: 460px; }
 
 /* About page */
 body.page-about #main .content ul {
@@ -2108,7 +2114,13 @@ body.page-about #main .content ul {
       display: block;
       padding: 15px 0; }
       #header .menu a.active {
-        color: inherit; } }
+        color: inherit; }
+  #main .section.features .feature {
+    margin-bottom: 20px; }
+    #main .section.features .feature:last-child {
+      margin-bottom: 0; }
+    #main .section.features .feature .preview {
+      margin-bottom: 20px; } }
 
 /* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 @media (min-width: 481px) and (max-width: 641px) {
@@ -2181,67 +2193,38 @@ body.page-about #main .content ul {
     #main.post .subscribe:nth-child(even), #main.post .pitch:nth-child(even) {
       float: right;
       padding-left: 20px; }
-  #main.features .feature:nth-child(odd) > * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 50%; }
-    #main.features .feature:nth-child(odd) > *:nth-child(odd) {
-      float: left;
-      padding-right: 20px; }
-    #main.features .feature:nth-child(odd) > *:nth-child(even) {
-      float: right;
-      padding-left: 20px; }
-  #main.features .feature:nth-child(even) > * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 50%; }
-    #main.features .feature:nth-child(even) > *:nth-child(odd) {
-      float: right;
-      padding-left: 20px; }
-    #main.features .feature:nth-child(even) > *:nth-child(even) {
-      float: left;
-      padding-right: 20px; }
-  #main.landing .section.how .steps, #main.landing .section.how .illustrations {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 50%; }
-    #main.landing .section.how .steps:nth-child(odd), #main.landing .section.how .illustrations:nth-child(odd) {
-      float: left;
-      padding-right: 20px; }
-    #main.landing .section.how .steps:nth-child(even), #main.landing .section.how .illustrations:nth-child(even) {
-      float: right;
-      padding-left: 20px; }
+  #main .section.features .feature {
+    margin-bottom: 8rem; }
+    #main .section.features .feature:last-child {
+      margin-bottom: 0; }
+    #main .section.features .feature:nth-child(odd) > * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 50%; }
+      #main .section.features .feature:nth-child(odd) > *:nth-child(odd) {
+        float: left;
+        padding-right: 20px; }
+      #main .section.features .feature:nth-child(odd) > *:nth-child(even) {
+        float: right;
+        padding-left: 20px; }
+    #main .section.features .feature:nth-child(even) > * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 50%; }
+      #main .section.features .feature:nth-child(even) > *:nth-child(odd) {
+        float: right;
+        padding-left: 20px; }
+      #main .section.features .feature:nth-child(even) > *:nth-child(even) {
+        float: left;
+        padding-right: 20px; }
   body.page-front #main .section.hero h1 {
     font-size: 40px;
     font-size: 4rem; }
   body.page-front #main .section.hero h2 {
     font-size: 20px;
-    font-size: 2rem; }
-  body.page-front #main .section.features .feature:nth-child(odd) > * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 50%; }
-    body.page-front #main .section.features .feature:nth-child(odd) > *:nth-child(odd) {
-      float: right;
-      padding-left: 20px; }
-    body.page-front #main .section.features .feature:nth-child(odd) > *:nth-child(even) {
-      float: left;
-      padding-right: 20px; }
-  body.page-front #main .section.features .feature:nth-child(even) > * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 50%; }
-    body.page-front #main .section.features .feature:nth-child(even) > *:nth-child(odd) {
-      float: left;
-      padding-right: 20px; }
-    body.page-front #main .section.features .feature:nth-child(even) > *:nth-child(even) {
-      float: right;
-      padding-left: 20px; } }
+    font-size: 2rem; } }
 
 /* Tablet, landscape iPad, lo-res laptops ands desktops */
 @media (min-width: 961px) {
@@ -2252,7 +2235,38 @@ body.page-about #main .content ul {
   #main.post .subscribe ul li.newsletter * {
     display: inline-block;
     vertical-align: middle;
-    width: auto; } }
+    width: auto; }
+  #main .section.how .steps, #main .section.how .illustrations {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%; }
+    #main .section.how .steps:nth-child(odd), #main .section.how .illustrations:nth-child(odd) {
+      float: left;
+      padding-right: 20px; }
+    #main .section.how .steps:nth-child(even), #main .section.how .illustrations:nth-child(even) {
+      float: right;
+      padding-left: 20px; }
+  #main .section.team {
+    position: relative; }
+    #main .section.team:after {
+      content: "";
+      display: table;
+      clear: both; }
+    #main .section.team .header {
+      margin-left: 50%;
+      padding-bottom: 8rem;
+      padding-left: 20px;
+      text-align: left; }
+      #main .section.team .header h2 + .description {
+        margin-bottom: 0; }
+    #main .section.team .picture {
+      bottom: 0;
+      max-width: 50%;
+      padding-right: 20px;
+      position: absolute; }
+      #main .section.team .picture img {
+        max-height: 360px; } }
 
 /* Big landscape tablets, laptops, and desktops */
 @media (min-width: 1025px) { }
