@@ -252,6 +252,26 @@ body.page-about {
       color: shade($blue, 10%);
     }
   }
+  form * {
+    vertical-align: middle;
+  }
+  .field {
+    display: inline-block;
+  }
+  input:not([type=submit]) {
+    background: #FFF;
+    padding: 1.5*$gutter/4;
+  }
+  .button {
+    @include button($grey);
+    padding: 1.5*$gutter/4 $gutter;
+  }
+  &:hover {
+    .button {
+      @include button();
+      padding: 1.5*$gutter/4 $gutter;
+    }
+  }
   .product,
   .help,
   .company,
@@ -259,20 +279,6 @@ body.page-about {
     @include box-sizing(border-box);
     float: left;
     width: 20%;
-    form * {
-      vertical-align: middle;
-    }
-    .field {
-      display: inline-block;
-    }
-    input:not([type=submit]) {
-      background: #FFF;
-      padding: 1.5*$gutter/4;
-    }
-    .button {
-      @include button($grey);
-      padding: 1.5*$gutter/4 $gutter;
-    }
   }
   .subscribe {
     width: 40%;

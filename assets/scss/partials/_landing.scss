@@ -53,24 +53,24 @@ body.page-front {
             position: absolute;
             right: 0;
             top: 0;
-            @include transition-property(color, opacity);
+            @include transition-property(background, opacity);
             @include transition-duration(0.2s);
             z-index: 999;
           }
           &:after {
-            $size: 70px;
-            background: #FFF;
+            $size: 42px;
+            background: $black;
             border-radius: 50%;
             @include box-sizing(border-box);
-            color: $black;
+            color: #FFF;
             content: 'R';
-            @include font-size(60);
+            @include font-size($huge);
             height: $size;
             @include icon;
             line-height: 1;
             margin: auto;
-            opacity: 0.4;
-            padding: 5px;
+            opacity: 0.6;
+            padding: $gutter/4;
             width: $size;
           }
           &:before {
@@ -84,7 +84,7 @@ body.page-front {
               opacity: 0.4;
             }
             &:after {
-              color: $blue;
+              background: $blue;
               opacity: 1;
             }
           }

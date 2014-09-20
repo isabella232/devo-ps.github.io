@@ -1801,24 +1801,24 @@ body.page-front #main .section.hero {
       position: absolute;
       right: 0;
       top: 0;
-      -webkit-transition-property: color, opacity;
-      -moz-transition-property: color, opacity;
-      transition-property: color, opacity;
+      -webkit-transition-property: background, opacity;
+      -moz-transition-property: background, opacity;
+      transition-property: background, opacity;
       -webkit-transition-duration: 0.2s;
       -moz-transition-duration: 0.2s;
       transition-duration: 0.2s;
       z-index: 999; }
     body.page-front #main .section.hero .preview:after {
-      background: #FFF;
+      background: #203442;
       border-radius: 50%;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-      color: #203442;
+      color: #FFF;
       content: 'R';
-      font-size: 60px;
-      font-size: 6rem;
-      height: 70px;
+      font-size: 32px;
+      font-size: 3.2rem;
+      height: 42px;
       font-family: 'icons';
       font-variant: normal;
       font-weight: normal;
@@ -1827,9 +1827,9 @@ body.page-front #main .section.hero {
       -webkit-font-smoothing: antialiased;
       line-height: 1;
       margin: auto;
-      opacity: 0.4;
+      opacity: 0.6;
       padding: 5px;
-      width: 70px; }
+      width: 42px; }
     body.page-front #main .section.hero .preview:before {
       background: #FFF;
       content: ' ';
@@ -1838,7 +1838,7 @@ body.page-front #main .section.hero {
     body.page-front #main .section.hero .preview:hover:before {
       opacity: 0.4; }
     body.page-front #main .section.hero .preview:hover:after {
-      color: #1F8DD6;
+      background: #1F8DD6;
       opacity: 1; }
 body.page-front #main .section.features .feature:after {
   content: "";
@@ -2070,46 +2070,73 @@ body.page-about #main .content ul {
     display: block; }
     #footer a:hover {
       color: #1b7ec0; }
+  #footer form * {
+    vertical-align: middle; }
+  #footer .field {
+    display: inline-block; }
+  #footer input:not([type=submit]) {
+    background: #FFF;
+    padding: 7.5px; }
+  #footer .button {
+    background: #a5adb3;
+    border-radius: 2px;
+    color: #FFF;
+    display: inline-block;
+    outline: none;
+    padding: 4px 20px;
+    -webkit-transition-property: background, border, color;
+    -moz-transition-property: background, border, color;
+    transition-property: background, border, color;
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    border: 1px solid #949ba1;
+    padding: 7.5px 20px; }
+    #footer .button:hover, #footer .button:focus {
+      background: #aeb5ba;
+      color: #FFF;
+      text-decoration: none; }
+    #footer .button:active, #footer .button.active {
+      background: #949ba1;
+      color: #FFF;
+      text-decoration: none; }
+    #footer .button[disabled=disabled], #footer .button[disabled=true], #footer .button[disabled] {
+      background: #fafafb;
+      border-color: #e1e1e1;
+      color: #79858d; }
+  #footer:hover .button {
+    background: #1F8DD6;
+    border-radius: 2px;
+    color: #FFF;
+    display: inline-block;
+    outline: none;
+    padding: 4px 20px;
+    -webkit-transition-property: background, border, color;
+    -moz-transition-property: background, border, color;
+    transition-property: background, border, color;
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    border: 1px solid #1b7ec0;
+    padding: 7.5px 20px; }
+    #footer:hover .button:hover, #footer:hover .button:focus {
+      background: #3598da;
+      color: #FFF;
+      text-decoration: none; }
+    #footer:hover .button:active, #footer:hover .button.active {
+      background: #1b7ec0;
+      color: #FFF;
+      text-decoration: none; }
+    #footer:hover .button[disabled=disabled], #footer:hover .button[disabled=true], #footer:hover .button[disabled] {
+      background: #fafafb;
+      border-color: #e1e1e1;
+      color: #79858d; }
   #footer .product, #footer .help, #footer .company, #footer .subscribe {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     float: left;
     width: 20%; }
-    #footer .product form *, #footer .help form *, #footer .company form *, #footer .subscribe form * {
-      vertical-align: middle; }
-    #footer .product .field, #footer .help .field, #footer .company .field, #footer .subscribe .field {
-      display: inline-block; }
-    #footer .product input:not([type=submit]), #footer .help input:not([type=submit]), #footer .company input:not([type=submit]), #footer .subscribe input:not([type=submit]) {
-      background: #FFF;
-      padding: 7.5px; }
-    #footer .product .button, #footer .help .button, #footer .company .button, #footer .subscribe .button {
-      background: #a5adb3;
-      border-radius: 2px;
-      color: #FFF;
-      display: inline-block;
-      outline: none;
-      padding: 4px 20px;
-      -webkit-transition-property: background, border, color;
-      -moz-transition-property: background, border, color;
-      transition-property: background, border, color;
-      -webkit-transition-duration: 0.1s;
-      -moz-transition-duration: 0.1s;
-      transition-duration: 0.1s;
-      border: 1px solid #949ba1;
-      padding: 7.5px 20px; }
-      #footer .product .button:hover, #footer .product .button:focus, #footer .help .button:hover, #footer .help .button:focus, #footer .company .button:hover, #footer .company .button:focus, #footer .subscribe .button:hover, #footer .subscribe .button:focus {
-        background: #aeb5ba;
-        color: #FFF;
-        text-decoration: none; }
-      #footer .product .button:active, #footer .product .button.active, #footer .help .button:active, #footer .help .button.active, #footer .company .button:active, #footer .company .button.active, #footer .subscribe .button:active, #footer .subscribe .button.active {
-        background: #949ba1;
-        color: #FFF;
-        text-decoration: none; }
-      #footer .product .button[disabled=disabled], #footer .product .button[disabled=true], #footer .product .button[disabled], #footer .help .button[disabled=disabled], #footer .help .button[disabled=true], #footer .help .button[disabled], #footer .company .button[disabled=disabled], #footer .company .button[disabled=true], #footer .company .button[disabled], #footer .subscribe .button[disabled=disabled], #footer .subscribe .button[disabled=true], #footer .subscribe .button[disabled] {
-        background: #fafafb;
-        border-color: #e1e1e1;
-        color: #79858d; }
   #footer .subscribe {
     width: 40%; }
     #footer .subscribe:hover .button {
