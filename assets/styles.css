@@ -1675,11 +1675,8 @@ img.avatar {
         text-align: left; }
       #main.blog.post .share {
         margin: 40px 0;
-        opacity: 0.6;
         text-align: center; }
-        #main.blog.post .share:hover {
-          opacity: 1; }
-        #main.blog.post .share .email {
+        #main.blog.post .share:hover .email {
           background: #50CD84;
           border-radius: 2px;
           color: #FFF;
@@ -1693,21 +1690,19 @@ img.avatar {
           -moz-transition-duration: 0.1s;
           transition-duration: 0.1s;
           border: 1px solid #48b876; }
-          #main.blog.post .share .email:hover, #main.blog.post .share .email:focus {
+          #main.blog.post .share:hover .email:hover, #main.blog.post .share:hover .email:focus {
             background: #61d290;
             color: #FFF;
             text-decoration: none; }
-          #main.blog.post .share .email:active, #main.blog.post .share .email.active {
+          #main.blog.post .share:hover .email:active, #main.blog.post .share:hover .email.active {
             background: #48b876;
             color: #FFF;
             text-decoration: none; }
-          #main.blog.post .share .email[disabled=disabled], #main.blog.post .share .email[disabled=true], #main.blog.post .share .email[disabled] {
+          #main.blog.post .share:hover .email[disabled=disabled], #main.blog.post .share:hover .email[disabled=true], #main.blog.post .share:hover .email[disabled] {
             background: #fafafb;
             border-color: #e1e1e1;
             color: #79858d; }
-          #main.blog.post .share .email:before {
-            content: '7'; }
-        #main.blog.post .share .hn {
+        #main.blog.post .share:hover .hn {
           background: #FF4F01;
           border-radius: 2px;
           color: #FFF;
@@ -1721,21 +1716,19 @@ img.avatar {
           -moz-transition-duration: 0.1s;
           transition-duration: 0.1s;
           border: 1px solid #e54700; }
-          #main.blog.post .share .hn:hover, #main.blog.post .share .hn:focus {
+          #main.blog.post .share:hover .hn:hover, #main.blog.post .share:hover .hn:focus {
             background: #ff601a;
             color: #FFF;
             text-decoration: none; }
-          #main.blog.post .share .hn:active, #main.blog.post .share .hn.active {
+          #main.blog.post .share:hover .hn:active, #main.blog.post .share:hover .hn.active {
             background: #e54700;
             color: #FFF;
             text-decoration: none; }
-          #main.blog.post .share .hn[disabled=disabled], #main.blog.post .share .hn[disabled=true], #main.blog.post .share .hn[disabled] {
+          #main.blog.post .share:hover .hn[disabled=disabled], #main.blog.post .share:hover .hn[disabled=true], #main.blog.post .share:hover .hn[disabled] {
             background: #fafafb;
             border-color: #e1e1e1;
             color: #79858d; }
-          #main.blog.post .share .hn:before {
-            content: 'Y'; }
-        #main.blog.post .share .facebook {
+        #main.blog.post .share:hover .facebook {
           background: #3B5998;
           border-radius: 2px;
           color: #FFF;
@@ -1749,21 +1742,19 @@ img.avatar {
           -moz-transition-duration: 0.1s;
           transition-duration: 0.1s;
           border: 1px solid #355088; }
-          #main.blog.post .share .facebook:hover, #main.blog.post .share .facebook:focus {
+          #main.blog.post .share:hover .facebook:hover, #main.blog.post .share:hover .facebook:focus {
             background: #4e69a2;
             color: #FFF;
             text-decoration: none; }
-          #main.blog.post .share .facebook:active, #main.blog.post .share .facebook.active {
+          #main.blog.post .share:hover .facebook:active, #main.blog.post .share:hover .facebook.active {
             background: #355088;
             color: #FFF;
             text-decoration: none; }
-          #main.blog.post .share .facebook[disabled=disabled], #main.blog.post .share .facebook[disabled=true], #main.blog.post .share .facebook[disabled] {
+          #main.blog.post .share:hover .facebook[disabled=disabled], #main.blog.post .share:hover .facebook[disabled=true], #main.blog.post .share:hover .facebook[disabled] {
             background: #fafafb;
             border-color: #e1e1e1;
             color: #79858d; }
-          #main.blog.post .share .facebook:before {
-            content: '9'; }
-        #main.blog.post .share .google {
+        #main.blog.post .share:hover .google {
           background: #d64937;
           border-radius: 2px;
           color: #FFF;
@@ -1777,21 +1768,19 @@ img.avatar {
           -moz-transition-duration: 0.1s;
           transition-duration: 0.1s;
           border: 1px solid #c04131; }
-          #main.blog.post .share .google:hover, #main.blog.post .share .google:focus {
+          #main.blog.post .share:hover .google:hover, #main.blog.post .share:hover .google:focus {
             background: #da5b4b;
             color: #FFF;
             text-decoration: none; }
-          #main.blog.post .share .google:active, #main.blog.post .share .google.active {
+          #main.blog.post .share:hover .google:active, #main.blog.post .share:hover .google.active {
             background: #c04131;
             color: #FFF;
             text-decoration: none; }
-          #main.blog.post .share .google[disabled=disabled], #main.blog.post .share .google[disabled=true], #main.blog.post .share .google[disabled] {
+          #main.blog.post .share:hover .google[disabled=disabled], #main.blog.post .share:hover .google[disabled=true], #main.blog.post .share:hover .google[disabled] {
             background: #fafafb;
             border-color: #e1e1e1;
             color: #79858d; }
-          #main.blog.post .share .google:before {
-            content: '%'; }
-        #main.blog.post .share .linkedin {
+        #main.blog.post .share:hover .linkedin {
           background: #0073b2;
           border-radius: 2px;
           color: #FFF;
@@ -1805,21 +1794,19 @@ img.avatar {
           -moz-transition-duration: 0.1s;
           transition-duration: 0.1s;
           border: 1px solid #0067a0; }
-          #main.blog.post .share .linkedin:hover, #main.blog.post .share .linkedin:focus {
+          #main.blog.post .share:hover .linkedin:hover, #main.blog.post .share:hover .linkedin:focus {
             background: #1981b9;
             color: #FFF;
             text-decoration: none; }
-          #main.blog.post .share .linkedin:active, #main.blog.post .share .linkedin.active {
+          #main.blog.post .share:hover .linkedin:active, #main.blog.post .share:hover .linkedin.active {
             background: #0067a0;
             color: #FFF;
             text-decoration: none; }
-          #main.blog.post .share .linkedin[disabled=disabled], #main.blog.post .share .linkedin[disabled=true], #main.blog.post .share .linkedin[disabled] {
+          #main.blog.post .share:hover .linkedin[disabled=disabled], #main.blog.post .share:hover .linkedin[disabled=true], #main.blog.post .share:hover .linkedin[disabled] {
             background: #fafafb;
             border-color: #e1e1e1;
             color: #79858d; }
-          #main.blog.post .share .linkedin:before {
-            content: '('; }
-        #main.blog.post .share .twitter {
+        #main.blog.post .share:hover .twitter {
           background: #55acee;
           border-radius: 2px;
           color: #FFF;
@@ -1833,22 +1820,68 @@ img.avatar {
           -moz-transition-duration: 0.1s;
           transition-duration: 0.1s;
           border: 1px solid #4c9ad6; }
-          #main.blog.post .share .twitter:hover, #main.blog.post .share .twitter:focus {
+          #main.blog.post .share:hover .twitter:hover, #main.blog.post .share:hover .twitter:focus {
             background: #66b4ef;
             color: #FFF;
             text-decoration: none; }
-          #main.blog.post .share .twitter:active, #main.blog.post .share .twitter.active {
+          #main.blog.post .share:hover .twitter:active, #main.blog.post .share:hover .twitter.active {
             background: #4c9ad6;
             color: #FFF;
             text-decoration: none; }
-          #main.blog.post .share .twitter[disabled=disabled], #main.blog.post .share .twitter[disabled=true], #main.blog.post .share .twitter[disabled] {
+          #main.blog.post .share:hover .twitter[disabled=disabled], #main.blog.post .share:hover .twitter[disabled=true], #main.blog.post .share:hover .twitter[disabled] {
             background: #fafafb;
             border-color: #e1e1e1;
             color: #79858d; }
-          #main.blog.post .share .twitter:before {
-            content: '5'; }
+        #main.blog.post .share:hover .email, #main.blog.post .share:hover .facebook, #main.blog.post .share:hover .google, #main.blog.post .share:hover .hn, #main.blog.post .share:hover .linkedin, #main.blog.post .share:hover .twitter {
+          padding: 0;
+          width: 30px; }
+        #main.blog.post .share .email:before {
+          content: '7'; }
+        #main.blog.post .share .hn:before {
+          content: 'Y'; }
+        #main.blog.post .share .facebook:before {
+          content: '9'; }
+        #main.blog.post .share .google:before {
+          content: '%'; }
+        #main.blog.post .share .linkedin:before {
+          content: '('; }
+        #main.blog.post .share .twitter:before {
+          content: '5'; }
         #main.blog.post .share a {
-          position: relative; }
+          background: #a5adb3;
+          border-radius: 2px;
+          color: #FFF;
+          display: inline-block;
+          outline: none;
+          padding: 4px 20px;
+          -webkit-transition-property: background, border, color;
+          -moz-transition-property: background, border, color;
+          transition-property: background, border, color;
+          -webkit-transition-duration: 0.1s;
+          -moz-transition-duration: 0.1s;
+          transition-duration: 0.1s;
+          border: 1px solid #949ba1;
+          padding: 0;
+          position: relative;
+          -webkit-transition-property: background, border-color;
+          -moz-transition-property: background, border-color;
+          transition-property: background, border-color;
+          -webkit-transition-duration: 0.5s;
+          -moz-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+          width: 30px; }
+          #main.blog.post .share a:hover, #main.blog.post .share a:focus {
+            background: #aeb5ba;
+            color: #FFF;
+            text-decoration: none; }
+          #main.blog.post .share a:active, #main.blog.post .share a.active {
+            background: #949ba1;
+            color: #FFF;
+            text-decoration: none; }
+          #main.blog.post .share a[disabled=disabled], #main.blog.post .share a[disabled=true], #main.blog.post .share a[disabled] {
+            background: #fafafb;
+            border-color: #e1e1e1;
+            color: #79858d; }
           #main.blog.post .share a span {
             background: #203442;
             border-radius: 2px;
@@ -1906,9 +1939,6 @@ img.avatar {
             speak: none;
             text-transform: none;
             -webkit-font-smoothing: antialiased; }
-          #main.blog.post .share a.email, #main.blog.post .share a.facebook, #main.blog.post .share a.google, #main.blog.post .share a.linkedin, #main.blog.post .share a.twitter, #main.blog.post .share a.hn {
-            padding: 0;
-            width: 30px; }
       #main.blog.post .subscribe {
         background: #f3f9fc;
         border-radius: 2px;
