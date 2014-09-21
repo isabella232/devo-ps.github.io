@@ -193,9 +193,6 @@ img.avatar {
   &.pricing {
     @import 'partials/_pricing.scss';
   }
-  &.features {
-    @import 'partials/_features.scss';
-  }
   &.blog {
     position: relative;
     @import 'partials/_blog.scss';

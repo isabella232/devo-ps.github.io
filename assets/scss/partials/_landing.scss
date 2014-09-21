@@ -12,7 +12,7 @@ body.page-front {
         padding: 1.5*$gutter/4 1.5*$gutter;
         width: 10*$gutter;
       }
-      &.hero {
+      &#hero {
         background: $light;
         border-bottom: 1px solid $line;
         @include box-sizing(border-box);
@@ -65,7 +65,7 @@ body.page-front {
             color: #FFF;
             content: 'R';
             @include font-size($huge);
-            height: $size;
+            height: $size + 1;
             @include icon;
             line-height: 1;
             margin: auto;
@@ -90,7 +90,7 @@ body.page-front {
           }
         }
       }
-      &.features {
+      &#features {
         .description {
           text-align: justify;
         }
@@ -105,7 +105,7 @@ body.page-front {
           }
         }
       }
-      &.signup {
+      &#signup {
         background: $light;
         border: 1px solid $line;
         border-width: 1px 0;
@@ -116,10 +116,10 @@ body.page-front {
           margin-bottom: 2*$gutter;
         }
       }
-      &.how {
+      &#how {
         @import 'partials/_how.scss';
       }
-      &.team {
+      &#team {
         border-top: 1px solid $line;
         padding-bottom: 0;
         .picture {

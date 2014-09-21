@@ -18,7 +18,7 @@
   body.page-front {
     #main {
       .section {
-        &.hero {
+        &#hero {
           h1 {
             @include font-size(32);
           }
@@ -69,7 +69,7 @@
 
   #main {
     .section {
-      &.features {
+      &#features {
         .feature {
           margin-bottom: $gutter;
           &:last-child {
@@ -109,7 +109,7 @@
   body.page-front {
     #main {
       .section {
-        &.hero {
+        &#hero {
           h1 {
             @include font-size(36);
           }
@@ -170,7 +170,7 @@
     }
     
     .section {
-      &.features {
+      &#features {
         .feature {
           margin-bottom: 8rem;
           &:last-child {
@@ -194,7 +194,7 @@
   body.page-front {
     #main {
       .section {
-        &.hero {
+        &#hero {
           h1 {
             @include font-size(40);
           }
@@ -226,13 +226,13 @@
       }
     }
     .section {
-      &.how {
+      &#how {
         .steps,
         .illustrations {
           @include halves();
         }
       }
-      &.team {
+      &#team {
         @include clearfix;
         position: relative;
         .header {
