@@ -1343,6 +1343,7 @@ table {
         border-top-color: #bbbec0; }
 
 /* Variables */
+/* Grayscale fix (see https://github.com/sass/libsass/issues/151#issuecomment-33536506) */
 /* General */
 body {
   line-height: 160%;
