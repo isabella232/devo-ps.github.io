@@ -10,7 +10,7 @@ tags:
   - continuous deployment
 
 author: vincent
-hn:
+hn: 8340140
 date: 2014-09-19
 
 template: post.html

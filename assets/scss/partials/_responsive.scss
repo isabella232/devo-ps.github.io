@@ -162,12 +162,6 @@
       float: right;
       padding-left: $gutter;
     }
-    &.post {
-      .subscribe,
-      .pitch {
-        @include halves();
-      }
-    }
     
     .section {
       &#features {
@@ -217,13 +211,6 @@
     }
     .sidebar + .content {
       margin-right: $sidebar;
-    }
-    &.post {
-      .subscribe ul li.newsletter * {
-        display: inline-block;
-        vertical-align: middle;
-        width: auto;
-      }
     }
     .section {
       &#how {

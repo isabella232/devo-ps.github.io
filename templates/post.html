@@ -22,10 +22,15 @@
     <article class='content'>
       {{ contents | safe }}
       
-      <h2 class='feedback'>Have some feedback? Let us know on <a href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url={{ site.url }}/{{ path }}' target='_blank'>Twitter</a>{% if hn %} or keep the discussion going on <a href='http://news.ycombinator.com/item?id={{ hn }}' target='_blank'>Hacker News</a>{% endif %}.</h2>
+      <footer class='share'>
+        {% include 'partials/_social.html' %}
+      </footer>
 
-      <footer class='more'>
-        {% include 'partials/sidebar.html' %}
+      <footer class='subscribe'>
+        <h2>Like what you just read?</h2>
+        <p>Leave us your email address and we'll shoot you an email once in a while to share new content. We mostly write about development, infrastructure and DevOps.</p>
+        {% include 'partials/subscribe.html' %}
+        <p>You can also <a href='http://feeds.feedburner.com/devo/BQLM' class='rss'>Subscribe to our RSS feed</a>.</p>
       </footer>
 
       {% include 'partials/_disqus.html' %}
