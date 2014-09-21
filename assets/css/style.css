@@ -1361,7 +1361,8 @@ img.avatar {
         #main .section .wrapper > .header h2 + .description {
           font-size: 18px;
           font-size: 1.8rem;
-          margin: -8rem 0 8rem 0;
+          margin: -8rem auto 8rem;
+          max-width: 720px;
           padding-top: 20px; }
   #main.pricing .notification {
     text-align: center; }
@@ -1714,6 +1715,8 @@ body.page-front #main .section.hero {
     body.page-front #main .section.hero .preview:hover:after {
       background: #1F8DD6;
       opacity: 1; }
+body.page-front #main .section.features .description {
+  text-align: justify; }
 body.page-front #main .section.features .feature:after {
   content: "";
   display: table;

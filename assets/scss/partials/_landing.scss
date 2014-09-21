@@ -91,6 +91,9 @@ body.page-front {
         }
       }
       &.features {
+        .description {
+          text-align: justify;
+        }
         .feature {
           @include clearfix;
         }
