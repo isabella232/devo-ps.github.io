@@ -84,37 +84,37 @@
   }
   .share {
     margin: 2*$gutter 0;
-    opacity: 0.6;
     text-align: center;
     &:hover {
-      opacity: 1;
+      .email { @include button($green); }
+      .hn { @include button(#FF4F01); }
+      .facebook { @include button(#3B5998); }
+      .google { @include button(#d64937); }
+      .linkedin { @include button(#0073b2); }
+      .twitter { @include button(#55acee); }
+      .email,
+      .facebook,
+      .google,
+      .hn,
+      .linkedin,
+      .twitter {
+        padding: 0;
+        width: 1.5*$gutter;
+      }
     }
-    .email {
-      @include button($green);
-      &:before { content: '7'; }
-    }
-    .hn {
-      @include button(#FF4F01);
-      &:before { content: 'Y'; }
-    }
-    .facebook {
-      @include button(#3B5998);
-      &:before { content: '9'; }
-    }
-    .google {
-      @include button(#d64937);
-      &:before { content: '%'; }
-    }
-    .linkedin {
-      @include button(#0073b2);
-      &:before { content: '('; }
-    }
-    .twitter {
-      @include button(#55acee);
-      &:before { content: '5'; }
-    }
+    .email:before { content: '7'; }
+    .hn:before { content: 'Y'; }
+    .facebook:before { content: '9'; }
+    .google:before { content: '%'; }
+    .linkedin:before { content: '('; }
+    .twitter:before { content: '5'; }
     a {
+      @include button($grey);
+      padding: 0;
       @include tooltip();
+      @include transition-property(background, border-color);
+      @include transition-duration(0.5s);
+      width: 1.5*$gutter;
       &:before {
         vertical-align: middle;
       }
@@ -126,15 +126,6 @@
         &:before {
           @include icon;
         }
-      }
-      &.email,
-      &.facebook,
-      &.google,
-      &.linkedin,
-      &.twitter,
-      &.hn {
-        padding: 0;
-        width: 1.5*$gutter;
       }
     }
   }
