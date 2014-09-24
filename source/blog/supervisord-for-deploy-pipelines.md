@@ -14,6 +14,18 @@ template: post.html
 draft: true
 ---
 
+INTRO
+
+Frame the problem: in what case do you use that tool? Anecdote? Support in devo.ps
+
+DEVELOPEMENT
+
+Gist of it and how you set it up (for what use case)
+
+Announcement about support in devo.ps
+
+
+
 Supervisor is a daemon allowing you to monitor and control processes. It lets you:
 
 - starts / stop / manage processes (long or short running) via unix or http xml/rpc requests
@@ -79,4 +91,4 @@ And you are now able to orchestrate several boxes at once very simply. Obviously
         supervisorctl -s http://$host:9001 -u secret_user -p secret_pass start deploy
     done
     
-And supervisor is not available in [devo.ps](http://devo.ps)! Hurray
+And supervisor is now available in [devo.ps](http://devo.ps)! Hurray
