@@ -14,7 +14,8 @@ template: post.html
 draft: true
 ---
 
-Supervisord is a program management daemon, among the features:
+Supervisor is a daemon allowing you to monitor and control processes. It lets you:
+
 - starts / stop / manage processes (long or short running) via unix or http xml/rpc requests
 - automatically or manually start processes
 - easily restart crashed programs
