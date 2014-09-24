@@ -2,7 +2,9 @@
 collection: blog
 title: Supervisord for deploy pipelines
 tags:
-  - release
+  - supervisord
+  - supervisor
+  - deploy
 
 author: vincent
 hn:
