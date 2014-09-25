@@ -14,19 +14,15 @@ template: post.html
 draft: true
 ---
 
-INTRO
+## INTRO
 
-Frame the problem: in what case do you use that tool? Anecdote? Support in devo.ps
+Running programs automatically as service is not always an easy task:
+- well known apps may come with their own custom modules to manage processes (ex. unicorn for uwsgi / python, pm2/forever for node), no unified approach
+- custom build code does not often come as a daemon, or init script
+- init script do not have the ability to respawn (usually) dead processes
+- one time script get lost in the PATH whereas having setup in a centralized location ease recurrent executions
 
-DEVELOPEMENT
-
-Gist of it and how you set it up (for what use case)
-
-Announcement about support in devo.ps
-
-
-
-Supervisor is a daemon allowing you to monitor and control processes. It lets you:
+Supervisord offers a solution to all the issues above and allows you to monitor and control processes. It lets you:
 
 - starts / stop / manage processes (long or short running) via unix or http xml/rpc requests
 - automatically or manually start processes
@@ -36,11 +32,25 @@ Supervisor is a daemon allowing you to monitor and control processes. It lets yo
 - perfect for custom processes that are not managed as services
 - side benefit: play very well with docker containers
 
+## Using Supervisord to manage deployments
+
+We're taking the mixed approach of running standalone commands and executing custom code as a service. Our example will be a deployement process.
+
 A deployment may involve more that simply restart a service, but require to install dependency, etc.
 
 When dealing with multiple servers, the deployment workflow may be different due to the various services involved; having supervisord doing some unified interface is extremely convenient.
 
-e.g. supervisord config
+### Supervisord setup
+
+Supervisord is often available within the package manager of your distrib (`apt-get install supervisor`), if not you should be able to install it via `pip` as well (`pip install supervisor`)
+
+We're creating here a simple config file that will define 2 programs:
+- `deploy` that will not start automatically and will require to be executed manually (`autostart` option), 
+- `app` that is a random node.js application that will start automatically 
+
+One can simply run `supervisorctl start deploy` and get the deploy process starting. Within the `deploy.sh`script, one can put any of the required logic needed to deploy the code
+
+e.g. supervisord config in `/etc/supervisor/conf.d/my_app.conf
 
     [program:deploy]
     command=/usr/local/bin/deploy.sh
@@ -53,7 +63,9 @@ e.g. supervisord config
     user=nobody
     autostart=true
 
-With the above config, one can simply run `supervisorctl start deploy` and get the deploy process starting. Within the `deploy.sh`script, one can put any of the required logic needed to deploy the code
+### Deployment script
+
+We're now preparing a simple script in `/usr/local/bin/deploy.sh` that will perform the operations required to deploy a new version of the code. Obviously this is only a sample! Be sure to set the execute flag or supervisord won't be able to execute it. (`chmod +x /usr/local/bin/deploy.sh`)
 
     #!/bin/bash
     ##################
@@ -74,9 +86,15 @@ With the above config, one can simply run `supervisorctl start deploy` and get t
         supervisorctl restart app
     fi
 
+## Enhancing the workflow with HTTP support for supervisord
+
+The 2 code snippets above let you simply run the deployment operations and get the app restarted if necessary. But supervisord does not allow (yet) remote control.
+
 This can then be very easily extended and triggered remotely by making use of the HTTP xml-rpc interface.
 
-Add the following to your supervisord config
+### Enabling HTTP xml-rpc
+
+Add the following to your supervisord config (`/etc/supervisor/conf.d/inet.conf`)
 
     [inet_http_server]
     port=*:9001
@@ -85,7 +103,13 @@ Add the following to your supervisord config
 
 Where the secret_hash is calculated as such `echo -n 'secret_pass' | sha1sum | cut -f1 -d' '`. You need then to prefix this hash with `{SHA}` as explained http://supervisord.org/configuration.html#inet-http-server-section-values
 
-And you are now able to orchestrate several boxes at once very simply. Obviously more logic is needed to play nice with the sequence, but you get the point...
+Best practices still recommend that:
+1. you don't set the password in clear in the config
+2. you protect your host via iptables and only allow selected hosts to reach the HTTP interface of supervisord
+
+### Multi host support
+
+Now that Supervisord allows remote connections, you can orchestrate several boxes at once very simply. Obviously more logic is needed to play nice with the sequence, but you get the point...
 
     for host in host1 host2 host3; do
         supervisorctl -s http://$host:9001 -u secret_user -p secret_pass start deploy
