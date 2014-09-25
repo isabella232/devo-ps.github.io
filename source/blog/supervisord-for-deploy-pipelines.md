@@ -50,7 +50,7 @@ We're creating here a simple config file that will define 2 programs:
 
 One can simply run `supervisorctl start deploy` and get the deploy process starting. Within the `deploy.sh`script, one can put any of the required logic needed to deploy the code
 
-e.g. supervisord config in `/etc/supervisor/conf.d/my_app.conf
+e.g. supervisord config in `/etc/supervisor/conf.d/my_app.conf`
 
     [program:deploy]
     command=/usr/local/bin/deploy.sh
