@@ -104,6 +104,7 @@ Add the following to your supervisord config (`/etc/supervisor/conf.d/inet.conf`
 Where the secret_hash is calculated as such `echo -n 'secret_pass' | sha1sum | cut -f1 -d' '`. You need then to prefix this hash with `{SHA}` as explained http://supervisord.org/configuration.html#inet-http-server-section-values
 
 Best practices still recommend that:
+
 1. you don't set the password in clear in the config
 2. you protect your host via iptables and only allow selected hosts to reach the HTTP interface of supervisord
 
