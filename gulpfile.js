@@ -65,11 +65,9 @@ gulp.task('fonts', function() {
 gulp.task('metalsmith', function(callback) {
     var metalsmith = new Metalsmith(process.cwd());
     var plugins = site.metalsmith || {};
-
     metalsmith.source(site.source);
     metalsmith.destination(site.destination);
     metalsmith.metadata(site.metadata);
-
     Object.keys(plugins).forEach(function(key) {
         var plugin;
         var opts = plugins[key];
@@ -85,10 +83,21 @@ gulp.task('metalsmith', function(callback) {
     });
 });
 
-//
-gulp.task('server', ['prepare', 'watch'], function(callback) {
-    var devApp, devServer, devAddress, devHost, url;
 
+// Rerun the task when a file changes
+gulp.task('watch', function() {
+    gulp.watch(site.assets.custom.scss, ['sass']);
+    gulp.watch(siteJS, ['concat-js']);
+    gulp.watch(siteCSS, ['concat-css']);
+    gulp.watch(['./public/**/*', './assets/**/*.{png}', './templates/**/*', './source/**/*'], ['metalsmith']);
+});
+
+// The default task (called when you run `gulp` from cli)
+gulp.task('default', ['sass', 'concat-js', 'concat-css', 'favicons', 'fonts', 'metalsmith']);
+
+gulp.task('development', ['sass', 'concat-js', 'concat-css', 'favicons', 'fonts', 'metalsmith'], function(callback) {
+
+    var devApp, devServer, devAddress, devHost, url;
     devApp = connect()
     .use(connect.logger('dev'))
     .use(connect.static(site.destination));
@@ -117,15 +126,3 @@ gulp.task('server', ['prepare', 'watch'], function(callback) {
         callback(); // we're done with this task for now
     });
 });
-
-// Rerun the task when a file changes
-gulp.task('watch', function() {
-    gulp.watch(site.assets.custom.scss, ['sass']);
-    gulp.watch(siteJS, ['concat-js']);
-    gulp.watch(siteCSS, ['concat-css']);
-    gulp.watch(['./public/**/*', './assets/**/*.{png}', './templates/**/*', './source/**/*'], ['metalsmith']);
-});
-
-// The default task (called when you run `gulp` from cli)
-gulp.task('default', ['sass', 'concat-js', 'concat-css', 'favicons', 'fonts', 'metalsmith']);
-gulp.task('development', ['sass', 'concat-js', 'concat-css', 'favicons', 'fonts', 'metalsmith', 'server']);
