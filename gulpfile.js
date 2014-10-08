@@ -12,12 +12,13 @@ var clean = require('gulp-clean');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var gutil = require('gulp-util');
+var merge = require('merge-stream');
 var log = gutil.log;
 var colors = gutil.colors;
 
 var site = require(path.resolve(__dirname, 'site.json'));
 var siteJS = site.assets.vendor.js.concat(site.assets.custom.js);
-var siteCSS = site.assets.vendor.css.concat(site.assets.custom.css);
+var siteCSS = site.assets.vendor.css.concat(site.assets.custom.scss);
 
 /*
  * Tasks
@@ -31,35 +32,22 @@ gulp.task('clean', function() {
         .pipe(clean());
 })
 
-gulp.task('sass', function() {
-    gulp.src(site.assets.custom.scss)
-        .pipe(sass({
-            includePaths: require('eggshell').includePaths
-        }))
-        .pipe(gulp.dest('./assets/css'));
-});
-
-gulp.task('concat-js', function() {
+gulp.task('js', function() {
     gulp.src(siteJS)
         .pipe(concat('scripts.js'))
-        .pipe(gulp.dest('./public/assets'));
+        .pipe(gulp.dest('./public'));
 });
 
-gulp.task('concat-css', function() {
-    gulp.src(siteCSS)
-        .pipe(concat('styles.css'))
-        .pipe(gulp.dest('./public/assets'));
+gulp.task('css', function() {
+    var vendor = gulp.src(site.assets.vendor.css);
+
+    var custom = gulp.src(site.assets.custom.scss)
+                     .pipe(sass({ includePaths: require('eggshell').includePaths }));
+
+    return merge(vendor, custom)
+           .pipe(concat('styles.css'))
+           .pipe(gulp.dest('./public'));
 });
-
-gulp.task('favicons', function() {
-    gulp.src(site.assets.custom.favicons)
-        .pipe(gulp.dest('./public/assets/favicons'));
-})
-
-gulp.task('fonts', function() {
-    gulp.src(site.assets.custom.fonts)
-        .pipe(gulp.dest('./public/assets/fonts'));
-})
 
 //
 gulp.task('metalsmith', function(callback) {
@@ -86,17 +74,15 @@ gulp.task('metalsmith', function(callback) {
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-    gulp.watch(site.assets.custom.scss, ['sass']);
-    gulp.watch(siteJS, ['concat-js']);
-    gulp.watch(siteCSS, ['concat-css']);
-    gulp.watch(['./public/**/*', './assets/**/*.{png}', './templates/**/*', './source/**/*'], ['metalsmith']);
+    gulp.watch(siteJS, ['js']);
+    gulp.watch(siteCSS, ['css']);
+    gulp.watch(['./public/**/*', './templates/**/*', './source/**/*'], ['metalsmith']);
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['sass', 'concat-js', 'concat-css', 'favicons', 'fonts', 'metalsmith']);
+gulp.task('default', ['css', 'js', 'metalsmith']);
 
-gulp.task('development', ['sass', 'concat-js', 'concat-css', 'favicons', 'fonts', 'metalsmith'], function(callback) {
-
+gulp.task('development', ['css', 'js', 'metalsmith'], function(callback) {
     var devApp, devServer, devAddress, devHost, url;
     devApp = connect()
     .use(connect.logger('dev'))

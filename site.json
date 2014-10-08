@@ -67,19 +67,10 @@
         },
         "custom": {
             "js": [
-                "assets/js/*.js"
-            ],
-            "css": [
-                "assets/css/*.css"
+                "js/*.js"
             ],
             "scss": [
-                "assets/scss/**/*.{scss,sass}"
-            ],
-            "fonts": [
-                "assets/fonts/*"
-            ],
-            "favicons": [
-                "assets/favicons/*"
+                "scss/**/*.{scss,sass}"
             ]
         }
     }
