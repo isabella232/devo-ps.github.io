@@ -35,7 +35,7 @@ gulp.task('clean', function() {
 gulp.task('js', function() {
     gulp.src(siteJS)
         .pipe(concat('scripts.js'))
-        .pipe(gulp.dest('./public'));
+        .pipe(gulp.dest('./assets'));
 });
 
 gulp.task('css', function() {
@@ -46,7 +46,7 @@ gulp.task('css', function() {
 
     return merge(vendor, custom)
            .pipe(concat('styles.css'))
-           .pipe(gulp.dest('./public'));
+           .pipe(gulp.dest('./assets'));
 });
 
 //
@@ -69,14 +69,6 @@ gulp.task('metalsmith', function(callback) {
         if (err) return callback(err);
         callback();
     });
-});
-
-
-// Rerun the task when a file changes
-gulp.task('watch', function() {
-    gulp.watch(siteJS, ['js']);
-    gulp.watch(siteCSS, ['css']);
-    gulp.watch(['./public/**/*', './templates/**/*', './source/**/*'], ['metalsmith']);
 });
 
 // The default task (called when you run `gulp` from cli)
@@ -111,4 +103,9 @@ gulp.task('development', ['css', 'js', 'metalsmith'], function(callback) {
         log('Done');
         callback(); // we're done with this task for now
     });
+
+    // Watching files
+    gulp.watch(siteJS, ['js']);
+    gulp.watch(siteCSS, ['css']);
+    gulp.watch(['./public/**/*', './assets/**/*', './templates/**/*', './source/**/*'], ['metalsmith']);
 });
