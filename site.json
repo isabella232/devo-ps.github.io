@@ -52,9 +52,8 @@
             "default": "page.html",
             "directory": "./templates"
         },
-        "metalsmith-assets": null,
-        "metalsmith-static": null
-    },             
+        "metalsmith-assets": null
+    },
     "assets": {
         "vendor": {
             "js": [
