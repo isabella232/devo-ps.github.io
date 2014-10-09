@@ -35,7 +35,7 @@ gulp.task('clean', function() {
 gulp.task('js', function() {
     gulp.src(siteJS)
         .pipe(concat('scripts.js'))
-        .pipe(gulp.dest('./public'));
+        .pipe(gulp.dest('./public/assets'));
 });
 
 gulp.task('css', function() {
@@ -46,7 +46,7 @@ gulp.task('css', function() {
 
     return merge(vendor, custom)
            .pipe(concat('styles.css'))
-           .pipe(gulp.dest('./public'));
+           .pipe(gulp.dest('./public/assets'));
 });
 
 //
