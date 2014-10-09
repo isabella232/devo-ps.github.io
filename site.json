@@ -53,7 +53,7 @@
             "directory": "./templates"
         },
         "metalsmith-assets": null
-    },             
+    },
     "assets": {
         "vendor": {
             "js": [
