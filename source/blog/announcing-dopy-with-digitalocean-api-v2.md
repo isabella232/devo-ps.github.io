@@ -13,7 +13,7 @@ template: post.html
 
 A few month back Digital Ocean announced the beta support of [its API v2](https://www.digitalocean.com/company/blog/api-v2-enters-public-beta/).
 
-Not many tools or library [supports it](https://www.digitalocean.com/community/questions/what-libraries-and-wrappers-are-there-for-digitalocean-s-apiv2), but thanks to [Igor](https://github.com/fizban79) pull request, [dopy](https://github.com/devo-ps/dopy) now supports version 2 of the API!
+Not many tools or library [supports it](https://www.digitalocean.com/community/questions/what-libraries-and-wrappers-are-there-for-digitalocean-s-apiv2), but thanks to [Igor A. Borisov](https://github.com/fizban79) pull request, [dopy](https://github.com/devo-ps/dopy) now supports version 2 of the API!
 
 ![Good news everyone!](/images/posts/good-news-everyone.jpg)
 
