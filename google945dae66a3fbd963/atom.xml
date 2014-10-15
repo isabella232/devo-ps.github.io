@@ -3,12 +3,22 @@
  <title>devo.ps</title>
  <link href='http://devo.ps//atom.xml' rel='self'/>
  <link href='http://devo.ps/'/>
- <updated>2014-10-11T12:02:00.737Z</updated>
+ <updated>2014-10-15T11:07:41.724Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
    <email>info@devo.ps</email>
  </author>
+ 
+ 
+   <entry>
+     <title>Releasing devo.ps 0.9.0</title>
+     <link href='http://devo.ps/blog/releasing-devops-0-9-0'/>
+     <updated>2014-10-15T00:00:00.000Z</updated>
+     <id>http://devo.ps/blog/releasing-devops-0-9-0</id>
+     <content type='html'><p>We&#39;re glad to introduce the new release of <a href="http://devo.ps">devo.ps</a> 0.9.0 with the following improvements:</p></content>
+   </entry>
+ 
  
  
    <entry>
@@ -100,14 +110,6 @@
    </entry>
  
  
- 
-   <entry>
-     <title>Releasing devo.ps 0.5.0</title>
-     <link href='http://devo.ps/blog/releasing-devops-0.5.0'/>
-     <updated>2014-09-02T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/releasing-devops-0.5.0</id>
-     <content type='html'><p>We just released a new version of devo.ps (0.5.0). We are very excited to start rolling out the <strong><a href="devo.ps/blog/one-click-deploy-of-your-infrastructure/">devo.ps button</a></strong> which allows our users to deploy entire infrastructures without leaving the browser with little or no configuration. more on this soon.</p></content>
-   </entry>
  
  
  
