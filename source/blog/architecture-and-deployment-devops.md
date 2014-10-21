@@ -19,8 +19,7 @@ devo.ps is a complex system with a lot of moving pieces both at the code and inf
 
 <p align='center'>![devo.ps architecture](/images/posts/devops-architecture.png)</p>
 
-Infrastructure
-==============
+## Infrastructure
 
 The devo.ps infrastructure is composed of 8 different components, each associated with a micro-service (API, Git, registry, ...) and each of them sitting in their own Docker container. This allows us to update them individually, pushing security updates when and where needed, easily reverting changes and more generally scale horizontally.
 
@@ -30,20 +29,17 @@ Host discovery and DNS are handled by [Consul](http://www.consul.io/), with a cl
 
 Each of the container then lives as a micro-service, performing tasks and handling requests independently. We can deploy releases on any of these when needed.
 
-Code
-====
+## Code
 
 We use AngularJS, Node.js, python and various other scripts to glue things together. The code base is split across multiple repos on GitHub to allow devs to work independently and get things moving fast and in parallel (which is why we built the multi-repos support [SweepBoard](http://sweepboard.com) in the first place).
 
-Development cycle
-=================
+## Development cycle
 
 To avoid conflicts/merging nightmares, features are developed independently on dedicated branches. New code is continuously deployed and heavily tested on dev environments before making their way back in the master branches. These are then tested on staging before being released on production.
 
 Upon deployment, each repo is tagged with the version number before being finally pushed on the production environment.
 
-Code deployment workflow
-===================
+## Code deployment workflow
 
 Our containers are running as micro-services and do not have to be taken down when a new release is deployed. Only the running code needs to be "refreshed" and the various inner-services updated.
 
