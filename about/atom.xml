@@ -3,12 +3,22 @@
  <title>devo.ps</title>
  <link href='http://devo.ps//atom.xml' rel='self'/>
  <link href='http://devo.ps/'/>
- <updated>2014-10-21T07:43:07.157Z</updated>
+ <updated>2014-10-21T07:54:40.958Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
    <email>info@devo.ps</email>
  </author>
+ 
+ 
+   <entry>
+     <title>Supervisord for deploy pipelines</title>
+     <link href='http://devo.ps/blog/supervisord-for-deploy-pipelines'/>
+     <updated>2014-10-21T00:00:00.000Z</updated>
+     <id>http://devo.ps/blog/supervisord-for-deploy-pipelines</id>
+     <content type='html'><p>Running programs automatically as service is not always an easy task. Some well known applications come with their own managers (e.g. unicorn, forever, pm2) but there is no unified approach across technologies.Custom build code often tend to come as a simple executable that runs in the foreground. And eventually init scripts simply ensure the services start but usually does not handle respawn.</p></content>
+   </entry>
+ 
  
  
    <entry>
@@ -27,16 +37,6 @@
      <updated>2014-10-11T00:00:00.000Z</updated>
      <id>http://devo.ps/blog/announcing-dopy-with-digitalocean-api-v2</id>
      <content type='html'><p>A few month back Digital Ocean announced the beta support of <a href="https://www.digitalocean.com/company/blog/api-v2-enters-public-beta/">its API v2</a>.</p></content>
-   </entry>
- 
- 
- 
-   <entry>
-     <title>Supervisord for deploy pipelines</title>
-     <link href='http://devo.ps/blog/supervisord-for-deploy-pipelines'/>
-     <updated>2014-09-24T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/supervisord-for-deploy-pipelines</id>
-     <content type='html'><p>Running programs automatically as service is not always an easy task. Some well known applications come with their own managers (e.g. unicorn, forever, pm2) but there is no unified approach across technologies.Custom build code often tend to come as a simple executable that runs in the foreground. And eventually init scripts simply ensure the services start but usually does not handle respawn.</p></content>
    </entry>
  
  

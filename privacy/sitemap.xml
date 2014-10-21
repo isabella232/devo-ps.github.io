@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://devo.ps/blog/supervisord-for-deploy-pipelines</loc>
+    <lastmod>2014-10-21</lastmod>
+  </url>
+  
+  <url>
     <loc>http://devo.ps/blog/releasing-devops-0-9-0</loc>
     <lastmod>2014-10-15</lastmod>
   </url>
@@ -9,11 +14,6 @@
   <url>
     <loc>http://devo.ps/blog/announcing-dopy-with-digitalocean-api-v2</loc>
     <lastmod>2014-10-11</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://devo.ps/blog/supervisord-for-deploy-pipelines</loc>
-    <lastmod>2014-09-24</lastmod>
   </url>
   
   <url>
