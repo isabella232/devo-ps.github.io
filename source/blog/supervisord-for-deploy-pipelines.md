@@ -25,6 +25,8 @@ Supervisord offers a solution to all the issues above and allows you to monitor 
 - perfect for custom processes that are not managed as services
 - side benefit: play very well with docker containers
 
+<p align='center'>![Supervisord](/images/posts/supervisord.png)</p>
+
 ## Using Supervisord to manage deployments
 
 We're taking the mixed approach of running standalone commands and executing custom code as a service. Our example will be a deployement process.
