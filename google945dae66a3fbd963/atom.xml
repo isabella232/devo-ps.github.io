@@ -3,12 +3,22 @@
  <title>devo.ps</title>
  <link href='http://devo.ps//atom.xml' rel='self'/>
  <link href='http://devo.ps/'/>
- <updated>2014-10-21T07:54:40.958Z</updated>
+ <updated>2014-10-21T09:58:56.923Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
    <email>info@devo.ps</email>
  </author>
+ 
+ 
+   <entry>
+     <title>Architecture and deployment of devo.ps</title>
+     <link href='http://devo.ps/blog/architecture-and-deployment-devops'/>
+     <updated>2014-10-21T00:00:00.000Z</updated>
+     <id>http://devo.ps/blog/architecture-and-deployment-devops</id>
+     <content type='html'><p>devo.ps is a complex system with a lot of moving pieces both at the code and infrastruture levels. We&#39;re deploying major releases at least once a week, and dozens of micro-releases in between for minor improvements. Having a simple yet reliable deployment workflow is essential for this to even be possible.</p></content>
+   </entry>
+ 
  
  
    <entry>
@@ -100,14 +110,6 @@
    </entry>
  
  
- 
-   <entry>
-     <title>Basic Setup For A New Linux Server</title>
-     <link href='http://devo.ps/blog/basic-setup-for-a-new-linux-server'/>
-     <updated>2014-09-04T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/basic-setup-for-a-new-linux-server</id>
-     <content type='html'><p>You just provisioned a new machine on AWS or Digital Ocean. It almost has that new car smell: great. Now what? You want to go from a vanilla install to a box that you&#39;ll be able to easily manage and has the <a href="http://devo.ps/blog/troubleshooting-5minutes-on-a-yet-unknown-box/">basic tools for troubleshootint it</a>. Let me share a few of the best practices we stick to when creating servers with <a href="http://devo.ps">devo.ps</a>. You should <a href="https://app.devo.ps">sign up for a free account</a> by the way: you&#39;ll get all of what I&#39;m about to list set up on your own Rackspace, Digital Ocean, Linode or AWS servers in a few minutes.</p></content>
-   </entry>
  
  
  
