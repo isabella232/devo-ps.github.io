@@ -78,13 +78,7 @@
     </header>
 
     <article class='content'>
-      <p>Running programs automatically as service is not always an easy task:</p>
-<ul>
-<li>well known apps may come with their own custom modules to manage processes (ex. unicorn for uwsgi / python, pm2/forever for node), no unified approach</li>
-<li>custom build code does not often come as a daemon, or init script</li>
-<li>init script do not have the ability to respawn (usually) dead processes</li>
-<li>one time script get lost in the PATH whereas having setup in a centralized location ease recurrent executions</li>
-</ul>
+      <p>Running programs automatically as service is not always an easy task. Some well known applications come with their own managers (e.g. unicorn, forever, pm2) but there is no unified approach across technologies.Custom build code often tend to come as a simple executable that runs in the foreground. And eventually init scripts simply ensure the services start but usually does not handle respawn.</p>
 <p>Supervisord offers a solution to all the issues above and allows you to monitor and control processes. It lets you:</p>
 <ul>
 <li>starts / stop / manage processes (long or short running) via unix or http xml/rpc requests</li>
@@ -99,7 +93,7 @@
 <p>We&#39;re taking the mixed approach of running standalone commands and executing custom code as a service. Our example will be a deployement process.</p>
 <p>A deployment may involve more that simply restart a service, but require to install dependency, etc.</p>
 <p>When dealing with multiple servers, the deployment workflow may be different due to the various services involved; having supervisord doing some unified interface is extremely convenient.</p>
-<h3 id="supervisord-setup">Supervisord setup</h3>
+<h2 id="supervisord-setup">Supervisord setup</h2>
 <p>Supervisord is often available within the package manager of your distrib (<code>apt-get install supervisor</code>), if not you should be able to install it via <code>pip</code> as well (<code>pip install supervisor</code>)</p>
 <p>We&#39;re creating here a simple config file that will define 2 programs:</p>
 <ul>
@@ -118,7 +112,7 @@ directory=/opt/app
 environment=&quot;NODE_ENV=prod&quot;
 user=nobody
 autostart=true
-</code></pre><h3 id="deployment-script">Deployment script</h3>
+</code></pre><h2 id="deployment-script">Deployment script</h2>
 <p>We&#39;re now preparing a simple script in <code>/usr/local/bin/deploy.sh</code> that will perform the operations required to deploy a new version of the code. Obviously this is only a sample! Be sure to set the execute flag or supervisord won&#39;t be able to execute it. (<code>chmod +x /usr/local/bin/deploy.sh</code>)</p>
 <pre><code>#!/bin/bash
 ##################
@@ -141,7 +135,7 @@ fi
 </code></pre><h2 id="enhancing-the-workflow-with-http-support-for-supervisord">Enhancing the workflow with HTTP support for supervisord</h2>
 <p>The 2 code snippets above let you simply run the deployment operations and get the app restarted if necessary. But supervisord does not allow (yet) remote control.</p>
 <p>This can then be very easily extended and triggered remotely by making use of the HTTP xml-rpc interface.</p>
-<h3 id="enabling-http-xml-rpc">Enabling HTTP xml-rpc</h3>
+<h2 id="enabling-http-xml-rpc">Enabling HTTP xml-rpc</h2>
 <p>Add the following to your supervisord config (<code>/etc/supervisor/conf.d/inet.conf</code>)</p>
 <pre><code>[inet_http_server]
 port=*:9001
@@ -153,7 +147,7 @@ password={SHA}secret_hash
 <li>you don&#39;t set the password in clear in the config</li>
 <li>you protect your host via iptables and only allow selected hosts to reach the HTTP interface of supervisord</li>
 </ol>
-<h3 id="multi-host-support">Multi host support</h3>
+<h2 id="multi-host-support">Multi host support</h2>
 <p>Now that Supervisord allows remote connections, you can orchestrate several boxes at once very simply. Obviously more logic is needed to play nice with the sequence, but you get the point...</p>
 <pre><code>for host in host1 host2 host3; do
     supervisorctl -s http://$host:9001 -u secret_user -p secret_pass start deploy
