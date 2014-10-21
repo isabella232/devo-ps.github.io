@@ -3,7 +3,7 @@
  <title>devo.ps</title>
  <link href='http://devo.ps//atom.xml' rel='self'/>
  <link href='http://devo.ps/'/>
- <updated>2014-10-15T11:11:43.652Z</updated>
+ <updated>2014-10-21T07:21:54.833Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
@@ -27,6 +27,16 @@
      <updated>2014-10-11T00:00:00.000Z</updated>
      <id>http://devo.ps/blog/announcing-dopy-with-digitalocean-api-v2</id>
      <content type='html'><p>A few month back Digital Ocean announced the beta support of <a href="https://www.digitalocean.com/company/blog/api-v2-enters-public-beta/">its API v2</a>.</p></content>
+   </entry>
+ 
+ 
+ 
+   <entry>
+     <title>Supervisord for deploy pipelines</title>
+     <link href='http://devo.ps/blog/supervisord-for-deploy-pipelines'/>
+     <updated>2014-09-24T00:00:00.000Z</updated>
+     <id>http://devo.ps/blog/supervisord-for-deploy-pipelines</id>
+     <content type='html'><p>Running programs automatically as service is not always an easy task:</p></content>
    </entry>
  
  
@@ -100,14 +110,6 @@
    </entry>
  
  
- 
-   <entry>
-     <title>Dealing With Servers Still Sucks</title>
-     <link href='http://devo.ps/blog/dealing-with-servers-still-suck'/>
-     <updated>2014-09-03T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/dealing-with-servers-still-suck</id>
-     <content type='html'><p>The idea of dealing with servers is almost invariably cringe-inducing for developers. Sure, I know a few folks (me and my colleagues at <a href="http://devo.ps">devo.ps</a> included) who actually get a kick out of it. But by and large, setting up infrastructure isn&#39;t the developer&#39;s favorite. There&#39;s definitely been a lot of awesome innovation in the past few years that made the whole thing manageable, especially with services like Heroku or TravisCI. But they are no silver bullets. At the end of the day, the whole experience sucks less, but it isn&#39;t near being enjoyable.</p></content>
-   </entry>
  
  
  
