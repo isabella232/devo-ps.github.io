@@ -13,7 +13,6 @@ hn:
 date: 2014-10-21
 
 template: post.html
-draft: true
 ---
 
 devo.ps is a complex system with a lot of moving pieces both at the code and infrastruture levels. We're deploying major releases at least once a week, and dozens of micro-releases in between for minor improvements. Having a simple yet reliable deployment workflow is essential for this to even be possible.
