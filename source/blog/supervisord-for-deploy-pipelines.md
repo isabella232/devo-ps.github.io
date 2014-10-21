@@ -11,10 +11,7 @@ hn:
 date: 2014-09-24
 
 template: post.html
-draft: true
 ---
-
-## INTRO
 
 Running programs automatically as service is not always an easy task:
 - well known apps may come with their own custom modules to manage processes (ex. unicorn for uwsgi / python, pm2/forever for node), no unified approach
