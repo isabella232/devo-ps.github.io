@@ -13,11 +13,7 @@ date: 2014-09-24
 template: post.html
 ---
 
-Running programs automatically as service is not always an easy task:
-- well known apps may come with their own custom modules to manage processes (ex. unicorn for uwsgi / python, pm2/forever for node), no unified approach
-- custom build code does not often come as a daemon, or init script
-- init script do not have the ability to respawn (usually) dead processes
-- one time script get lost in the PATH whereas having setup in a centralized location ease recurrent executions
+Running programs automatically as service is not always an easy task. Some well known applications come with their own managers (e.g. unicorn, forever, pm2) but there is no unified approach across technologies.Custom build code often tend to come as a simple executable that runs in the foreground. And eventually init scripts simply ensure the services start but usually does not handle respawn.
 
 Supervisord offers a solution to all the issues above and allows you to monitor and control processes. It lets you:
 
@@ -37,7 +33,7 @@ A deployment may involve more that simply restart a service, but require to inst
 
 When dealing with multiple servers, the deployment workflow may be different due to the various services involved; having supervisord doing some unified interface is extremely convenient.
 
-### Supervisord setup
+## Supervisord setup
 
 Supervisord is often available within the package manager of your distrib (`apt-get install supervisor`), if not you should be able to install it via `pip` as well (`pip install supervisor`)
 
@@ -60,7 +56,7 @@ e.g. supervisord config in `/etc/supervisor/conf.d/my_app.conf`
     user=nobody
     autostart=true
 
-### Deployment script
+## Deployment script
 
 We're now preparing a simple script in `/usr/local/bin/deploy.sh` that will perform the operations required to deploy a new version of the code. Obviously this is only a sample! Be sure to set the execute flag or supervisord won't be able to execute it. (`chmod +x /usr/local/bin/deploy.sh`)
 
@@ -89,7 +85,7 @@ The 2 code snippets above let you simply run the deployment operations and get t
 
 This can then be very easily extended and triggered remotely by making use of the HTTP xml-rpc interface.
 
-### Enabling HTTP xml-rpc
+## Enabling HTTP xml-rpc
 
 Add the following to your supervisord config (`/etc/supervisor/conf.d/inet.conf`)
 
@@ -105,7 +101,7 @@ Best practices still recommend that:
 1. you don't set the password in clear in the config
 2. you protect your host via iptables and only allow selected hosts to reach the HTTP interface of supervisord
 
-### Multi host support
+## Multi host support
 
 Now that Supervisord allows remote connections, you can orchestrate several boxes at once very simply. Obviously more logic is needed to play nice with the sequence, but you get the point...
 
