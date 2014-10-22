@@ -1,6 +1,6 @@
 ---
 collection: blog
-title: Architecture and deployment of devo.ps
+title: How We Use Docker To Run And Deploy devo.ps
 tags:
   - workflow
   - architecture
