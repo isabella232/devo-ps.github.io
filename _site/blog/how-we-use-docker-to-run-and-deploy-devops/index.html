@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+
+  <title>How We Use Docker To Run And Deploy devo.ps | devo.ps</title>
+
+  <meta http-equiv='Content-Language' content='en'/>
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, workflow, architecture, Docker, deploy, continuous deployment'/>
+  <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
+  <meta name='msvalidate.01' content='86C1F235D57610586CFC5A2D77B7D446'/>
+  <meta http-equiv='Content-Language' content='en'/>
+  
+  <!-- Favicons -->
+  <link rel='shortcut icon' href='/assets/favicon.ico'>
+<link rel='apple-touch-icon' sizes='57x57' href='/assets/favicons/apple-touch-icon-57x57.png'>
+<link rel='apple-touch-icon' sizes='114x114' href='/assets/favicons/apple-touch-icon-114x114.png'>
+<link rel='apple-touch-icon' sizes='72x72' href='/assets/favicons/apple-touch-icon-72x72.png'>
+<link rel='apple-touch-icon' sizes='144x144' href='/assets/favicons/apple-touch-icon-144x144.png'>
+<link rel='apple-touch-icon' sizes='60x60' href='/assets/favicons/apple-touch-icon-60x60.png'>
+<link rel='apple-touch-icon' sizes='120x120' href='/assets/favicons/apple-touch-icon-120x120.png'>
+<link rel='apple-touch-icon' sizes='76x76' href='/assets/favicons/apple-touch-icon-76x76.png'>
+<link rel='apple-touch-icon' sizes='152x152' href='/assets/favicons/apple-touch-icon-152x152.png'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-196x196.png' sizes='196x196'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-160x160.png' sizes='160x160'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-96x96.png' sizes='96x96'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-16x16.png' sizes='16x16'>
+<link rel='icon' type='image/png' href='/assets/favicons/favicon-32x32.png' sizes='32x32'>
+<meta name='msapplication-TileColor' content='#da532c'>
+<meta name='msapplication-TileImage' content='/assets/favicons/mstile-144x144.png'>
+<meta name='msapplication-config' content='/assets/favicons/browserconfig.xml'>
+
+  <!-- CSS -->
+  <link href='/assets/styles.css?20140921' rel='stylesheet' type='text/css'/>
+</head>
+<body class='page-blog/how-we-use-docker-to-run-and-deploy-devops'>
+  <header id='header'>
+    <div class='wrapper'>
+      <a href='/' class='logo'>devo.ps</a>
+
+      <button class='toggle'>Menu</button>
+      <nav class='menu'>
+        <a href='https://www.hipchat.com/gyHEHtsXZ' target='_blank'>Chat with us</a>
+        <a href='/pricing'>Pricing</a>
+        <a href='http://app.devo.ps' class='signin'>Sign in</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<section id='main' class='blog post'>
+  <div class='wrapper'>
+    <header class='header'>
+      <a href='/blog' class='back'><span>Back to the blog</span></a>
+
+      <h1>How We Use Docker To Run And Deploy devo.ps</h1>
+
+      <span class='meta'>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
+          Vincent Viallet
+        
+        
+        
+        
+        on <time datetime=''>October 21, 2014</time>
+      </span>
+    </header>
+
+    <article class='content'>
+      <p>devo.ps is a complex system with a lot of moving pieces both at the code and infrastruture levels. We&#39;re deploying major releases at least once a week, and dozens of micro-releases in between for minor improvements. Having a simple yet reliable deployment workflow is essential for this to even be possible.</p>
+<p align='center'><img src="/images/posts/devops-architecture.png" alt="devo.ps architecture"/></p>
+
+<h2 id="infrastructure">Infrastructure</h2>
+<p>The devo.ps infrastructure is composed of 8 different components, each associated with a micro-service (API, Git, registry, ...) and each of them sitting in their own Docker container. This allows us to update them individually, pushing security updates when and where needed, easily reverting changes and more generally scale horizontally.</p>
+<p>To orchestrate those containers, we opted for <a href="https://github.com/signalfuse/maestro-ng">maestro-ng</a> over <a href="http://www.fig.sh/">fig</a>. This allows us to easily manage the containers across several hosts, enforce the start order, mount volumes for data persistency and fetch and upgrade containers when new versions are available in our docker registry.</p>
+<p>Host discovery and DNS are handled by <a href="http://www.consul.io/">Consul</a>, with a cluster of consul hosts powered by <a href="https://registry.hub.docker.com/u/progrium/consul/">Progrium&#39;s awesome build</a> and agents running in the various containers. We expose the DNS on the docker bridge (<code>172.17.42.1</code>) allowing containers to reference this &quot;permanently available&quot; IP address in their config. One (small) problem remains though; referencing that IP address in the <code>resolv.conf</code> of an underlying docker hosts makes docker change the IP address of the bridge on start...</p>
+<p>Each of the container then lives as a micro-service, performing tasks and handling requests independently. We can deploy releases on any of these when needed.</p>
+<h2 id="code">Code</h2>
+<p>We use AngularJS, Node.js, python and various other scripts to glue things together. The code base is split across multiple repos on GitHub to allow devs to work independently and get things moving fast and in parallel (which is why we built the multi-repos support <a href="http://sweepboard.com">SweepBoard</a> in the first place).</p>
+<h2 id="development-cycle">Development cycle</h2>
+<p>To avoid conflicts/merging nightmares, features are developed independently on dedicated branches. New code is continuously deployed and heavily tested on dev environments before making their way back in the master branches. These are then tested on staging before being released on production.</p>
+<p>Upon deployment, each repo is tagged with the version number before being finally pushed on the production environment.</p>
+<h2 id="code-deployment-workflow">Code deployment workflow</h2>
+<p>Our containers are running as micro-services and do not have to be taken down when a new release is deployed. Only the running code needs to be &quot;refreshed&quot; and the various inner-services updated.</p>
+<p>The deployment workflow is almost the same on either dev / staging or production platform and rely heavily on <a href="http://supervisord.org/">supervisord</a>.</p>
+<p>Our code repositories are usually mounted in each of the containers as read-only volumes, making the latest code available at all time. A deployment script is then defined as a command in a supervisord configuration file and can be fired at any time to release the code.</p>
+<p>We&#39;re taking the exact logic described in a previous post about using <a href="/blog/supervisord-for-deploy-pipelines">supervisor for deployment pipelines</a> and can deploy in no time any release on either of our platforms.</p>
+<p>This allows us to build, push and release as frequently as needed with minimal manual intervention and yet the senerity of a reproductible deployment on any platform. This also allows us to reduce downtime to a matter of seconds.</p>
+<p>Oh and by the way, we&#39;re using devo.ps to deploy devo.ps !</p>
+
+      
+      <footer class='share'>
+        
+
+<a class='email' href='mailto:?body=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops'><span>Share by email</span></a>
+<a class='facebook' target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops'><span>Share on facebook</span></a>
+<a class='twitter' target='_blank' href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops'><span>Share on Twitter</span></a>
+<a class='google' target='_blank' href='https://plus.google.com/share?url=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops'><span>Share on Google+</span></a>
+<a class='linkedin' target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops&title=How%20We%20Use%20Docker%20To%20Run%20And%20Deploy%20devo.ps&source=devo.ps'><span>Share on LinkedIn</span></a>
+
+      </footer>
+
+      <footer class='subscribe'>
+        <h2>Like what you just read?</h2>
+        <p>Leave us your email address and we'll shoot you an email once in a while to share new content. We mostly write about development, infrastructure and DevOps.</p>
+        <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
+  </div>
+</form>
+        <p>You can also <a href='http://feeds.feedburner.com/devo/BQLM' class='rss'>Subscribe to our RSS feed</a>.</p>
+      </footer>
+
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'devo-ps'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </section>
+  </div>
+</section>
+
+
+  <nav id='footer'>
+    <div class='wrapper'>
+      <nav class='product'>
+        <h3>Product</h3>
+        <a href='/#pricing'>Pricing</a>
+        <a href='http://github.com/devops-community'>Community</a>
+        <!-- <a href='/features'>Features</a> -->
+      </nav>
+      <nav class='help'>
+        <h3>Help</h3>
+        <a class='chat' href='https://www.hipchat.com/gyHEHtsXZ' target='_blank'>Chat with us</a>
+        <a class='documentation' href='http://docs.devo.ps' target='_blank'>Documentation</a>
+        <a class='help' href='mailto:help@devo.ps' target='_blank'>Support</a>
+      </nav>
+      <nav class='company'>
+        <h3>Company</h3>
+        <a href='/about'>About</a>
+        <a href='/blog'>Blog</a>
+        <a href='http://twitter.com/devo_ps' target='_blank'>Twitter</a>
+      </nav>
+      <aside class='subscribe'>
+        <h3>Subscribe to our newsletter</h3>
+        <form action='http://wiredcraft.us2.list-manage1.com/subscribe/post?u=18eb8d6c34ad5d4e781541da9&amp;id=db875395f9' method='post' target='_blank'>
+  <div class='field'>
+    <input type='email' value='' name='EMAIL' class='required email' placeholder='Your email address'/>
+  </div>
+  <div class='field'>
+    <input type='submit' value='Subscribe' name='subscribe' class='button'/>
+  </div>
+</form>
+      </aside>
+      <small class='legal'>
+        Copyright © 2014 Wiredcraft Co. Ltd. <a href='/privacy'>Privacy</a> <a href='/tos'>Terms of Service</a>
+      </small>
+    </div>
+  </nav>
+
+  <div id='overlay'>
+    <div id='modal'></div>
+  </div>
+
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  <script type='text/javascript'>
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '510b396a613f5d2666000007');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+	<script type='text/javascript'>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34006371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

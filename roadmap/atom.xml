@@ -3,7 +3,7 @@
  <title>devo.ps</title>
  <link href='http://devo.ps//atom.xml' rel='self'/>
  <link href='http://devo.ps/'/>
- <updated>2014-10-23T08:05:12.374Z</updated>
+ <updated>2014-10-23T08:07:10.079Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
@@ -13,9 +13,9 @@
  
    <entry>
      <title>How We Use Docker To Run And Deploy devo.ps</title>
-     <link href='http://devo.ps/blog/architecture-and-deployment-devops'/>
+     <link href='http://devo.ps/blog/how-we-use-docker-to-run-and-deploy-devops'/>
      <updated>2014-10-21T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/architecture-and-deployment-devops</id>
+     <id>http://devo.ps/blog/how-we-use-docker-to-run-and-deploy-devops</id>
      <content type='html'><p>devo.ps is a complex system with a lot of moving pieces both at the code and infrastruture levels. We&#39;re deploying major releases at least once a week, and dozens of micro-releases in between for minor improvements. Having a simple yet reliable deployment workflow is essential for this to even be possible.</p></content>
    </entry>
  
