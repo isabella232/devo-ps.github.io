@@ -1,6 +1,6 @@
 ---
 collection: blog
-title: Supervisord for deploy pipelines
+title: Using Supervisord for Your Deploy Pipelines
 tags:
   - supervisord
   - supervisor
