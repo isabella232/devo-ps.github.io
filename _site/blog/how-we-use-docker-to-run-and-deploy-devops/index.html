@@ -4,10 +4,10 @@
   <meta charset='utf-8'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
 
-  <title>Designing A RESTful API That Doesn&#39;t Suck | devo.ps</title>
+  <title>How We Use Docker To Run And Deploy devo.ps | devo.ps</title>
 
   <meta http-equiv='Content-Language' content='en'/>
-  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, RESTful, API, best practices'/>
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, workflow, architecture, Docker, deploy, continuous deployment'/>
   <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
   <meta name='msvalidate.01' content='86C1F235D57610586CFC5A2D77B7D446'/>
   <meta http-equiv='Content-Language' content='en'/>
@@ -34,7 +34,7 @@
   <!-- CSS -->
   <link href='/assets/styles.css?20140921' rel='stylesheet' type='text/css'/>
 </head>
-<body class='page-blog/designing-a-restful-api-that-doesn-t-suck'>
+<body class='page-blog/how-we-use-docker-to-run-and-deploy-devops'>
   <header id='header'>
     <div class='wrapper'>
       <a href='/' class='logo'>devo.ps</a>
@@ -54,7 +54,7 @@
     <header class='header'>
       <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-      <h1>Designing A RESTful API That Doesn&#39;t Suck</h1>
+      <h1>How We Use Docker To Run And Deploy devo.ps</h1>
 
       <span class='meta'>
         
@@ -65,62 +65,50 @@
         
         
         
-          <img class='avatar' alt='Ronan Berder' src='/images/team/ronan-small.png'/> 
-          Ronan Berder
+        
+        
+          <img class='avatar' alt='Vincent Viallet' src='/images/team/vincent-small.png'/> 
+          Vincent Viallet
         
         
         
         
-        
-        
-        on <time datetime=''>March 22, 2013</time>
+        on <time datetime=''>October 21, 2014</time>
       </span>
     </header>
 
     <article class='content'>
-      <p>As we&#39;re getting closer to shipping the first version of <a href="http://devo.ps">devo.ps</a> and we are joined by a few new team members, the team took the time to review the few principles we followed when designing our RESTful JSON API. A lot of these can be found on <a href="https://blog.apigee.com/taglist/rest_api_design">apigee&#39;s blog</a> (a recommended read). Let me give you the gist of it:</p>
-<ul>
-<li><strong>Design your API for developers first</strong>, they are the main users. In that respect, simplicity and intuitivity matter.</li>
-<li><strong>Use <a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">HTTP verbs</a></strong> instead of relying on parameters (e.g. <code>?action=create</code>). HTTP verbs map nicely with <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a>:<ul>
-<li><code>POST</code> for <em>create</em>,</li>
-<li><code>GET</code> for <em>read</em>,</li>
-<li><code>DELETE</code> for <em>remove</em>,</li>
-<li><code>PUT</code> for <em>update</em> (and <code>PATCH</code> too).</li>
-</ul>
-</li>
-<li><strong>Use <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status codes</a></strong>, especially for errors (authentication required, error on the server side, incorrect parameters)... There are plenty to choose from, here are a few:<ul>
-<li><code>200</code>: <em>OK</em></li>
-<li><code>201</code>: <em>Created</em></li>
-<li><code>304</code>: <em>Not Modified</em></li>
-<li><code>400</code>: <em>Bad Request</em></li>
-<li><code>401</code>: <em>Unauthorized</em></li>
-<li><code>403</code>: <em>Forbidden</em></li>
-<li><code>404</code>: <em>Not Found</em></li>
-<li><code>500</code>: <em>Internal Server Error</em></li>
-</ul>
-</li>
-<li><strong>Simple URLs for resources: first a noun for the collection, then the item</strong>. For example <code>/emails</code> and <code>/emails/1234</code>; the former gives you the collection of emails, the second one a specific one identified by its internal id.</li>
-<li><strong>Use verbs for special actions</strong>. For example, <code>/search?q=my+keywords</code>.</li>
-<li><strong>Keep errors simple but verbose (and use HTTP codes)</strong>. We only send something like <code>{ message: &quot;Something terribly wrong happened&quot; }</code> with the proper status code (e.g. <code>401</code> if the call requires authentication) and log more verbose information (origin, error code...) in the backend for debugging and monitoring.</li>
-</ul>
-<p>Relying on HTTP status codes and verbs should already help you keep your API calls and responses lean enough. Less crucial, but still useful:</p>
-<ul>
-<li><strong>JSON first</strong>, then extend to other formats if needed and if time permits.</li>
-<li><strong><a href="http://en.wikipedia.org/wiki/Unix_time">Unix time</a></strong>, or you&#39;ll have a bad time.</li>
-<li><strong>Prepend your URLs with the API version</strong>, like <code>/v1/emails/1234</code>.</li>
-<li><strong>Lowercase everywhere in URLs</strong>.</li>
-</ul>
+      <p>devo.ps is a complex system with a lot of moving pieces both at the code and infrastruture levels. We&#39;re deploying major releases at least once a week, and dozens of micro-releases in between for minor improvements. Having a simple yet reliable deployment workflow is essential for this to even be possible.</p>
+<p align='center'><img src="/images/posts/devops-architecture.png" alt="devo.ps architecture"/></p>
+
+<h2 id="infrastructure">Infrastructure</h2>
+<p>The devo.ps infrastructure is composed of 8 different components, each associated with a micro-service (API, Git, registry, ...) and each of them sitting in their own Docker container. This allows us to update them individually, pushing security updates when and where needed, easily reverting changes and more generally scale horizontally.</p>
+<p>To orchestrate those containers, we opted for <a href="https://github.com/signalfuse/maestro-ng">maestro-ng</a> over <a href="http://www.fig.sh/">fig</a>. This allows us to easily manage the containers across several hosts, enforce the start order, mount volumes for data persistency and fetch and upgrade containers when new versions are available in our docker registry.</p>
+<p>Host discovery and DNS are handled by <a href="http://www.consul.io/">Consul</a>, with a cluster of consul hosts powered by <a href="https://registry.hub.docker.com/u/progrium/consul/">Progrium&#39;s awesome build</a> and agents running in the various containers. We expose the DNS on the docker bridge (<code>172.17.42.1</code>) allowing containers to reference this &quot;permanently available&quot; IP address in their config. One (small) problem remains though; referencing that IP address in the <code>resolv.conf</code> of an underlying docker hosts makes docker change the IP address of the bridge on start...</p>
+<p>Each of the container then lives as a micro-service, performing tasks and handling requests independently. We can deploy releases on any of these when needed.</p>
+<h2 id="code">Code</h2>
+<p>We use AngularJS, Node.js, python and various other scripts to glue things together. The code base is split across multiple repos on GitHub to allow devs to work independently and get things moving fast and in parallel (which is why we built the multi-repos support <a href="http://sweepboard.com">SweepBoard</a> in the first place).</p>
+<h2 id="development-cycle">Development cycle</h2>
+<p>To avoid conflicts/merging nightmares, features are developed independently on dedicated branches. New code is continuously deployed and heavily tested on dev environments before making their way back in the master branches. These are then tested on staging before being released on production.</p>
+<p>Upon deployment, each repo is tagged with the version number before being finally pushed on the production environment.</p>
+<h2 id="code-deployment-workflow">Code deployment workflow</h2>
+<p>Our containers are running as micro-services and do not have to be taken down when a new release is deployed. Only the running code needs to be &quot;refreshed&quot; and the various inner-services updated.</p>
+<p>The deployment workflow is almost the same on either dev / staging or production platform and rely heavily on <a href="http://supervisord.org/">supervisord</a>.</p>
+<p>Our code repositories are usually mounted in each of the containers as read-only volumes, making the latest code available at all time. A deployment script is then defined as a command in a supervisord configuration file and can be fired at any time to release the code.</p>
+<p>We&#39;re taking the exact logic described in a previous post about using <a href="/blog/supervisord-for-deploy-pipelines">supervisor for deployment pipelines</a> and can deploy in no time any release on either of our platforms.</p>
+<p>This allows us to build, push and release as frequently as needed with minimal manual intervention and yet the senerity of a reproductible deployment on any platform. This also allows us to reduce downtime to a matter of seconds.</p>
+<p>Oh and by the way, we&#39;re using devo.ps to deploy devo.ps !</p>
 
       
       <footer class='share'>
         
 
-<a class='email' href='mailto:?body=http%3A%2F%2Fdevo.ps%2Fblog%2Fdesigning-a-restful-api-that-doesn-t-suck'><span>Share by email</span></a>
-<a class='facebook' target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdevo.ps%2Fblog%2Fdesigning-a-restful-api-that-doesn-t-suck'><span>Share on facebook</span></a>
-<a class='twitter' target='_blank' href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http%3A%2F%2Fdevo.ps%2Fblog%2Fdesigning-a-restful-api-that-doesn-t-suck'><span>Share on Twitter</span></a>
-<a class='google' target='_blank' href='https://plus.google.com/share?url=http%3A%2F%2Fdevo.ps%2Fblog%2Fdesigning-a-restful-api-that-doesn-t-suck'><span>Share on Google+</span></a>
-<a class='linkedin' target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fdevo.ps%2Fblog%2Fdesigning-a-restful-api-that-doesn-t-suck&title=Designing%20A%20RESTful%20API%20That%20Doesn&#39;t%20Suck&source=devo.ps'><span>Share on LinkedIn</span></a>
-<a href='http://news.ycombinator.com/item?id=5422402' target='_blank' class='hn'><span>Discussion on HN</span></a>
+<a class='email' href='mailto:?body=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops'><span>Share by email</span></a>
+<a class='facebook' target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops'><span>Share on facebook</span></a>
+<a class='twitter' target='_blank' href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops'><span>Share on Twitter</span></a>
+<a class='google' target='_blank' href='https://plus.google.com/share?url=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops'><span>Share on Google+</span></a>
+<a class='linkedin' target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops&title=How%20We%20Use%20Docker%20To%20Run%20And%20Deploy%20devo.ps&source=devo.ps'><span>Share on LinkedIn</span></a>
+
       </footer>
 
       <footer class='subscribe'>
