@@ -2,12 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://devo.ps/blog/how-we-use-docker-to-run-and-deploy-devops</loc>
-    <lastmod>2014-10-21</lastmod>
+    <loc>http://devo.ps/blog/releasing-devops-0-10-0</loc>
+    <lastmod>2014-10-29</lastmod>
   </url>
   
   <url>
     <loc>http://devo.ps/blog/using-supervisord-for-your-deploy-pipelines</loc>
+    <lastmod>2014-10-21</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://devo.ps/blog/how-we-use-docker-to-run-and-deploy-devops</loc>
     <lastmod>2014-10-21</lastmod>
   </url>
   
@@ -178,22 +183,22 @@
   
   <url>
     <loc>http://devo.ps/</loc>
-    <lastmod>2014-10-23</lastmod>
+    <lastmod>2014-10-30</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/about</loc>
-    <lastmod>2014-10-23</lastmod>
+    <lastmod>2014-10-30</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/blog</loc>
-    <lastmod>2014-10-23</lastmod>
+    <lastmod>2014-10-30</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/privacy</loc>
-    <lastmod>2014-10-23</lastmod>
+    <lastmod>2014-10-30</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/tos</loc>
-    <lastmod>2014-10-23</lastmod>
+    <lastmod>2014-10-30</lastmod>
   </url>
 </urlset>
