@@ -16,7 +16,7 @@ Managing infrastructure is still a painful experience for most teams out there.
 
 The options are mostly concentrated around either NoOps approaches (think PaaS for example) which leaves you with a fragmented and opaque solution, or tools with high barriers of entries (think orchestration and configuration management software) that require the supervision of a professional.
 
-We take care of best pratices, letting you focus on declaratively defining what you want your infrastructure to be and how you want it to behave, while giving you the convenience of the workflows you've been acustomed with modern software developemnt; Pull Requests, branches, commits, forks, collaborators...
+We take care of best pratices, letting you focus on declaratively defining what you want your infrastructure to be and how you want it to behave, while giving you the convenience of the workflows you've been accustomed with modern software development; Pull Requests, branches, commits, forks, collaborators...
 
 ## Who is behind devo.ps?
 
