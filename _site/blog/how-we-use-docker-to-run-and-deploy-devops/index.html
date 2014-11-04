@@ -4,10 +4,10 @@
   <meta charset='utf-8'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
 
-  <title>Releasing devo.ps 0.11.0 | devo.ps</title>
+  <title>How We Use Docker To Run And Deploy devo.ps | devo.ps</title>
 
   <meta http-equiv='Content-Language' content='en'/>
-  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, release'/>
+  <meta name='keywords' content='devo.ps, DevOps, Cloud, servers, git, API, infrastructure, automation, Continuous Integration, Continuous Deployment, Configuration Management, Orchestration, System Administration, PaaS, IaaS, workflow, architecture, Docker, deploy, continuous deployment'/>
   <meta name='description' content='Dealing with servers doesn&#39;t have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.'/>
   <meta name='msvalidate.01' content='86C1F235D57610586CFC5A2D77B7D446'/>
   <meta http-equiv='Content-Language' content='en'/>
@@ -34,7 +34,7 @@
   <!-- CSS -->
   <link href='/assets/styles.css?20140921' rel='stylesheet' type='text/css'/>
 </head>
-<body class='page-blog/releasing-devops-0-11-0'>
+<body class='page-blog/how-we-use-docker-to-run-and-deploy-devops'>
   <header id='header'>
     <div class='wrapper'>
       <a href='/' class='logo'>devo.ps</a>
@@ -54,7 +54,7 @@
     <header class='header'>
       <a href='/blog' class='back'><span>Back to the blog</span></a>
 
-      <h1>Releasing devo.ps 0.11.0</h1>
+      <h1>How We Use Docker To Run And Deploy devo.ps</h1>
 
       <span class='meta'>
         
@@ -73,35 +73,41 @@
         
         
         
-        on <time datetime=''>November 04, 2014</time>
+        on <time datetime=''>October 21, 2014</time>
       </span>
     </header>
 
     <article class='content'>
-      <p>We&#39;re glad to introduce the new release of <a href="http://devo.ps">devo.ps</a> 0.11.0 with a lot of new features:</p>
-<ul>
-<li><strong>Stripe integration</strong>; new users are subscribed to the free plan.</li>
-<li><strong>Events</strong>; this is the exciting feature! We&#39;ll follow up with a more detailed blog post and documentation. Long story short, it allows to trigger tasks automatically at various time such as; server create complete, task start, server update successful (or failed), etc.</li>
-<li><strong>Update of the web interface</strong>; long awaited, it offers the following:<ul>
-<li>new user page,</li>
-<li>repository&#39;s home aggregating tasks and servers on the same page,</li>
-<li>better display of the tasks&#39; triggers.</li>
-</ul>
-</li>
-<li><strong>Better logs</strong>; more details about what happened during the update of a server or the execution of a task.</li>
-<li>Update of the various forkable repositories to use the new events (node created). You only need to activate your new repo and the server get provisioned and the application automatically deployed.</li>
-</ul>
-<p>More technologies will be released in the next feature, as well as backup support, documentation about events and crons, full new onboarding and much more! Stay tuned.</p>
+      <p>devo.ps is a complex system with a lot of moving pieces both at the code and infrastruture levels. We&#39;re deploying major releases at least once a week, and dozens of micro-releases in between for minor improvements. Having a simple yet reliable deployment workflow is essential for this to even be possible.</p>
+<p align='center'><img src="/images/posts/devops-architecture.png" alt="devo.ps architecture"/></p>
+
+<h2 id="infrastructure">Infrastructure</h2>
+<p>The devo.ps infrastructure is composed of 8 different components, each associated with a micro-service (API, Git, registry, ...) and each of them sitting in their own Docker container. This allows us to update them individually, pushing security updates when and where needed, easily reverting changes and more generally scale horizontally.</p>
+<p>To orchestrate those containers, we opted for <a href="https://github.com/signalfuse/maestro-ng">maestro-ng</a> over <a href="http://www.fig.sh/">fig</a>. This allows us to easily manage the containers across several hosts, enforce the start order, mount volumes for data persistency and fetch and upgrade containers when new versions are available in our docker registry.</p>
+<p>Host discovery and DNS are handled by <a href="http://www.consul.io/">Consul</a>, with a cluster of consul hosts powered by <a href="https://registry.hub.docker.com/u/progrium/consul/">Progrium&#39;s awesome build</a> and agents running in the various containers. We expose the DNS on the docker bridge (<code>172.17.42.1</code>) allowing containers to reference this &quot;permanently available&quot; IP address in their config. One (small) problem remains though; referencing that IP address in the <code>resolv.conf</code> of an underlying docker hosts makes docker change the IP address of the bridge on start...</p>
+<p>Each of the container then lives as a micro-service, performing tasks and handling requests independently. We can deploy releases on any of these when needed.</p>
+<h2 id="code">Code</h2>
+<p>We use AngularJS, Node.js, python and various other scripts to glue things together. The code base is split across multiple repos on GitHub to allow devs to work independently and get things moving fast and in parallel (which is why we built the multi-repos support <a href="http://sweepboard.com">SweepBoard</a> in the first place).</p>
+<h2 id="development-cycle">Development cycle</h2>
+<p>To avoid conflicts/merging nightmares, features are developed independently on dedicated branches. New code is continuously deployed and heavily tested on dev environments before making their way back in the master branches. These are then tested on staging before being released on production.</p>
+<p>Upon deployment, each repo is tagged with the version number before being finally pushed on the production environment.</p>
+<h2 id="code-deployment-workflow">Code deployment workflow</h2>
+<p>Our containers are running as micro-services and do not have to be taken down when a new release is deployed. Only the running code needs to be &quot;refreshed&quot; and the various inner-services updated.</p>
+<p>The deployment workflow is almost the same on either dev / staging or production platform and rely heavily on <a href="http://supervisord.org/">supervisord</a>.</p>
+<p>Our code repositories are usually mounted in each of the containers as read-only volumes, making the latest code available at all time. A deployment script is then defined as a command in a supervisord configuration file and can be fired at any time to release the code.</p>
+<p>We&#39;re taking the exact logic described in a previous post about using <a href="/blog/supervisord-for-deploy-pipelines">supervisor for deployment pipelines</a> and can deploy in no time any release on either of our platforms.</p>
+<p>This allows us to build, push and release as frequently as needed with minimal manual intervention and yet the senerity of a reproductible deployment on any platform. This also allows us to reduce downtime to a matter of seconds.</p>
+<p>Oh and by the way, we&#39;re using devo.ps to deploy devo.ps !</p>
 
       
       <footer class='share'>
         
 
-<a class='email' href='mailto:?body=http%3A%2F%2Fdevo.ps%2Fblog%2Freleasing-devops-0-11-0'><span>Share by email</span></a>
-<a class='facebook' target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdevo.ps%2Fblog%2Freleasing-devops-0-11-0'><span>Share on facebook</span></a>
-<a class='twitter' target='_blank' href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http%3A%2F%2Fdevo.ps%2Fblog%2Freleasing-devops-0-11-0'><span>Share on Twitter</span></a>
-<a class='google' target='_blank' href='https://plus.google.com/share?url=http%3A%2F%2Fdevo.ps%2Fblog%2Freleasing-devops-0-11-0'><span>Share on Google+</span></a>
-<a class='linkedin' target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fdevo.ps%2Fblog%2Freleasing-devops-0-11-0&title=Releasing%20devo.ps%200.11.0&source=devo.ps'><span>Share on LinkedIn</span></a>
+<a class='email' href='mailto:?body=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops'><span>Share by email</span></a>
+<a class='facebook' target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops'><span>Share on facebook</span></a>
+<a class='twitter' target='_blank' href='https://twitter.com/intent/tweet?text=@devo_ps%20&related=devo_ps&url=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops'><span>Share on Twitter</span></a>
+<a class='google' target='_blank' href='https://plus.google.com/share?url=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops'><span>Share on Google+</span></a>
+<a class='linkedin' target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fdevo.ps%2Fblog%2Fhow-we-use-docker-to-run-and-deploy-devops&title=How%20We%20Use%20Docker%20To%20Run%20And%20Deploy%20devo.ps&source=devo.ps'><span>Share on LinkedIn</span></a>
 
       </footer>
 
