@@ -3,12 +3,22 @@
  <title>devo.ps</title>
  <link href='http://devo.ps//atom.xml' rel='self'/>
  <link href='http://devo.ps/'/>
- <updated>2014-10-30T10:09:37.060Z</updated>
+ <updated>2014-11-04T12:48:07.970Z</updated>
  <id>http://devo.ps/</id>
  <author>
    <name>devo.ps</name>
    <email>info@devo.ps</email>
  </author>
+ 
+ 
+   <entry>
+     <title>Releasing devo.ps 0.11.0</title>
+     <link href='http://devo.ps/blog/releasing-devops-0-11-0'/>
+     <updated>2014-11-04T00:00:00.000Z</updated>
+     <id>http://devo.ps/blog/releasing-devops-0-11-0</id>
+     <content type='html'><p>We&#39;re glad to introduce the new release of <a href="http://devo.ps">devo.ps</a> 0.11.0 with a lot of new features:</p></content>
+   </entry>
+ 
  
  
    <entry>
@@ -100,14 +110,6 @@
    </entry>
  
  
- 
-   <entry>
-     <title>Releasing devo.ps 0.6.0</title>
-     <link href='http://devo.ps/blog/releasing-devops-0-6-0'/>
-     <updated>2014-09-06T00:00:00.000Z</updated>
-     <id>http://devo.ps/blog/releasing-devops-0-6-0</id>
-     <content type='html'><p>We just pushed another devo.ps release (0.6.0). We are nearing a stable build and will most likely spend the next week adding more trigger for events (cron, GitHub events, devo.ps events...) and add more technologies. We have a few large updates to the documentation that should go live by next Wedneday as well.</p></content>
-   </entry>
  
  
  
