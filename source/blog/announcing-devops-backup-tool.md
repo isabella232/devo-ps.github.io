@@ -37,7 +37,7 @@ pip install devopsbackup
 
 ## Usage
 
-`devops-backup` takes a similar concept with web servers in Debian; backup scripts are defined in a `scripts-available` folder and need to be `enabled` to run by default (via a simple symlink). This allows the `devops-backup` tool to run without any parameter and backup all the services enabled by default.
+`devops-backup` takes a similar concept with web servers in Debian; backup scripts are defined in a `scripts-available` folder and need to be *enabled* (via a simple symlink) to run by default. This allows the `devops-backup` tool to run without any parameter and backup all the services enabled by default.
 
 To enable (and disable) services' backup:
 
