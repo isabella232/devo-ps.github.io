@@ -17,7 +17,7 @@ Like it or not, if you're running a service online, you will most likely need to
 
 ## tl;dr
 
-Existing backup solutions mostly deal with files, which is why we came up with [Backupallthethings - batt](https://github.com/devo-ps/backupallthethings) to deal with backing up either folders or databases.
+Existing backup solutions mostly deal with files, which is why we came up with [Backupallthethings (or simply batt)](https://github.com/devo-ps/backupallthethings) to deal with backing up either folders or databases.
 
 ## Existing backup solutions
 
