@@ -58,9 +58,6 @@ Many options are available, among which:
 
 The full option list is available via `devops-backup -h` and more complete documentation on the [GitHub repository of the project](https://github.com/devo-ps/devops-backup).
 
-The project is extremly young and the backup methods are somehow archaic, but it does the job and make backup easy. Feel free to look around the various available backup scripts, suggest improvement, add more technologies, and so on.
+The project is extremly young and the backup methods are somehow archaic, but it does the job and make backup easy. Feel free to look around the various [available backup scripts](https://github.com/devo-ps/devops-backup/tree/master/scripts-available), suggest improvement, add more technologies, and so on.
 
 We're releasing this project under the MIT license, because we believe it is a need a lot of people have and at [devo.ps](http://devo.ps) we are not a backup company ... so, why not sharing it with everybody.
-
-
-
