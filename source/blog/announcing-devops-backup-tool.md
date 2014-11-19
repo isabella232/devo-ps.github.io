@@ -1,6 +1,6 @@
 ---
 collection: blog
-title: Announcing devops-backup tool
+title: Backitup, Straightforward Backups For Files and Databases
 tags:
   - backup
 
@@ -13,52 +13,52 @@ date: 2014-11-19
 template: post.html
 ---
 
-We're glad to announce today the first public version of the `devops-backup` tool. A simple backup tool that can backup your running services' data when you need data consistency and when file backup is not enough.
+Like it or not, if you're running a service online, you will most likely need to deal with data persistency, may this be databases or file storage. Parts of your architecture may be stateless (the cool kids these days are all about Docker), but you'll still need to worry about disaster recovery, crashes or corrupted data when dealing with production systems.
 
-Backup is a must have for most of the running boxes across the Internet when data persistency is required; web servers, databases, file storage servers, etc. Backup provides the safety net for disasters, mistakes, crashes, corruption, etc.
+## tl;dr
 
-Some *lucky* boxes may not need backup, usually ephemeral servers, data computing, etc.
+Existing backup solutions mostly deal with files, which is why we came up with [Backitup](https://github.com/devo-ps/backitup) to deal with backing up either folders or databases.
 
 ## Existing backup solutions
 
-Lots of amazing projects do a great job at performing and managing the backups. They offer very advanced features like encryption, remote storage, catalogs, file search, scheduling, etc. They come in many flavors; from full-fledged frameworks with server / agent approach (e.g. [bacula](http://bacula.org), [zmanda](http://zmanda.com)), to standalone tools (e.g. [bup](https://bup.github.io), [duplicity](http://duplicity.nongnu.org)).
+There's a plethora of projects doing a great job at dealing with backups. They offer advanced features like encryption, remote storage, catalogs, file search, scheduling, etc. For example, [bacula](http://bacula.org) & [zmanda](http://zmanda.com) with their server/agent approach, or standalone alternatives like [bup](https://bup.github.io) or [duplicity](http://duplicity.nongnu.org).
 
-Most of those tools heavily focus on file storage, backing up entire boxes, folders, etc. They do not (except a few) focus much on services backup and often rely on the administrator adding external scripts to do the job.  
-Most of the sysops know that copying raw MySQL files from a running MySQL server may give very inconsistent data (and even corrupted databases), unless very careful choices have been made (e.g. sync on commit, InnoDB tables, snapshot of the file system, you-name-it).
+They all focus on file storage, backing up entire boxes, folders, etc. They rarely care about services or databases, assuming these will be dumped as files. Problem is, it isn't always as simple as it looks like.
 
-`devops-backup` is by no means expected to replace full-fledged backup system. In fact we still heavily recommend everyone to use those backup systems. `devops-backup` acts as a very lightweight backup tool that take care of backing up folders as well as selected set of running services. It comes bundled with methods to locally backup numerous services like **MySQL**, **PostgreSQL**, **MongoDB**, **CouchDB**, **Redis** out of the box. 
+Sysadmins are familiar with copying raw MySQL files from a running MySQL server. They've also probably experienced getting inconsistent or corrupted data using that approach, unless they were extra careful (e.g. sync on commit, InnoDB tables, snapshot of the file system, ...).
 
-## Installation
+That's what led me to write `backitup`; it is by no mean intended to replace more complicated backup frameworks, but it does a decent job at handling files and more importantly provides simple methods to deal with databases (MySQL, PostgreSQL, MongoDB, CouchDB, Redis) following best-practices.
 
-`devops-backup` is available on [pypi](https://pypi.python.org/pypi/devopsbackup) and can be installed as simply as:
+## Installing it
+
+Just use [pypi](https://pypi.python.org/pypi/devopsbackup):
 
 ```
-pip install devopsbackup
+pip install backitup
 ```
 
 ## Usage
 
-`devops-backup` takes a similar concept with web servers in Debian; backup scripts are defined in a `scripts-available` folder and need to be *enabled* (via a simple symlink) to run by default. This allows the `devops-backup` tool to run without any parameter and backup all the enabled services.
-
-To enable and disable backup for services:
+`backitup` takes a similar concept with Web servers in Debian. Backup scripts are defined in a `scripts-available` folder that you enable (creating a symlink):
 
 ```
-devops-backup enable <service>
-devops-backup disable <service>
+backitup enable <service>
+backitup disable <service>
 ```
 
-To backup everything, simply run:
+Backing up all enabled services is then as simple as running:
 
 ```
-devops-backup
+backitup
 ```
 
-Many options are available, among which:
-- define the destination of the backup (using the `--path` argument)
-- backup individual services only, or sub-set of a service (e.g. `devops-backup mysql` or `devops-backup --mysql-db my_database`)
+There are a few options available:
 
-The full option list is available via `devops-backup -h` and more complete documentation on the [GitHub repository of the project](https://github.com/devo-ps/devops-backup).
+- Define the destination of the backup (using the `--path` argument),
+- Backup individual services only, or sub-set of a service (e.g. `backitup mysql` or `backitup --mysql-db my_database`)
 
-The project is extremly young and the backup methods are somehow primitive, but it does the job and makes backup easy. Feel free to look around the various [available backup scripts](https://github.com/devo-ps/devops-backup/tree/master/scripts-available), suggest improvement, add more technologies, and so on.
+The full list of options is available in the help (`backitup -h`) or on [GitHub](https://github.com/devo-ps/backitup).
 
-We're releasing this project under the MIT license, because we believe lots of people don't know or don't care how to get the backup done; but simply want the backup to work. At [devo.ps](http://devo.ps) we are not a backup company ... so, why not share it with everybody.
+## Next?
+
+This is obviously very early; things are still pretty crude but it gets the job done. However, we felt like sharing it and inviting as many people as possible to suggest improvements to our [existing backup scripts](https://github.com/devo-ps/backitup/tree/master/scripts-available).
