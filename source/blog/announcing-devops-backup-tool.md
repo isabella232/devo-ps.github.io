@@ -13,13 +13,19 @@ date: 2014-11-19
 template: post.html
 ---
 
-Backup is a must have for a vast majority of the running boxes across the Internet; the remaining ones are usually ephemeral servers, data computing and related and can be spawned on demand and have no value in terms of data persistancy. Backup provide the safety net to disasters, mistakes, crashes, corruption, etc.
+We're glad to announce today the first public version of the `devops-backup` tool. A simple backup tool that can backup your running services' data when you need data consistency and when file backup is not enough.
 
-Lots of amazing projects make a great job at performing and managing the backup. They offer very advanced features like encryption, remote storage, catalogs, search, scheduling, etc. They come also in many flavors; from full-fledged framework with server / agent approach (e.g. [bacula](), [zmanda]()), to standalone tools (e.g. [bup](), [duplicity]()).
+Backup is a must have for most of the running boxes across the Internet when data persistency is required; web servers, databases, file storage servers, etc. Backup provide the safety net to disasters, mistakes, crashes, corruption, etc.
+Some *lucky* boxes may not need backup, usually ephemeral servers, data computing, etc.
 
-Most of those tools heavily focus on file storage, backing up entire boxes, folders, etc. They do not (except a few) focus much on services backup and often rely on the administrator adding external scripts to do the job. Most of the sysops know that copying raw MySQL files in a running environment may give very inconsistent data (and even corrupted databases) unless very careful choices have been made (e.g. sync on commit, InnoDB tables, snapshot of the file system, you-name-it).
+## Existing backup solutions
 
-`devops-backup` is by no mean expected to replace full-fledged backup system, it acts as a very lightweight backup tool that take care of those in-between steps. It comes bundled with methods to backup numerous services like MySQL, PostgreSQL, MongoDB, CouchDB, Redis out of the box.
+Lots of amazing projects do a great job at performing and managing the backups. They offer very advanced features like encryption, remote storage, catalogs, search, scheduling, etc. They come in many flavors; from full-fledged frameworks with server / agent approach (e.g. [bacula](http://bacula.org), [zmanda](http://zmanda.com)), to standalone tools (e.g. [bup](https://bup.github.io), [duplicity](http://duplicity.nongnu.org)).
+
+Most of those tools heavily focus on file storage, backing up entire boxes, folders, etc. They do not (except a few) focus much on services backup and often rely on the administrator adding external scripts to do the job.  
+Most of the sysops know that copying raw MySQL files from a running MySQL server may give very inconsistent data (and even corrupted databases), unless very careful choices have been made (e.g. sync on commit, InnoDB tables, snapshot of the file system, you-name-it).
+
+`devops-backup` is by no mean expected to replace full-fledged backup system. In fact we still heavily recommend everyone to use those backup systems. `devops-backup` acts as a very lightweight backup tool that take care of those in-memory data and services. It comes bundled with methods to backup numerous services like MySQL, PostgreSQL, MongoDB, CouchDB, Redis out of the box. Backup files are then available locally on the servers.
 
 ## Installation
 
