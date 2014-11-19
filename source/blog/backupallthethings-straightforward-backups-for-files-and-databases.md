@@ -1,6 +1,6 @@
 ---
 collection: blog
-title: Backitup, Straightforward Backups For Files and Databases
+title: BackupAllTheThings, Straightforward Backups For Files and Databases
 tags:
   - backup
 
@@ -17,7 +17,7 @@ Like it or not, if you're running a service online, you will most likely need to
 
 ## tl;dr
 
-Existing backup solutions mostly deal with files, which is why we came up with [Backupallthethings (or simply batt)](https://github.com/devo-ps/backupallthethings) to deal with backing up either folders or databases.
+Existing backup solutions mostly deal with files, which is why we came up with [BackupAllTheThings (or simply batt)](https://github.com/devo-ps/backupallthethings) to deal with backing up either folders or databases.
 
 ## Existing backup solutions
 
@@ -27,7 +27,7 @@ They all focus on file storage, backing up entire boxes, folders, etc. They rare
 
 Sysadmins are familiar with copying raw MySQL files from a running MySQL server. They've also probably experienced getting inconsistent or corrupted data using that approach, unless they were extra careful (e.g. sync on commit, InnoDB tables, snapshot of the file system, ...). Even when dealing with commands like `mysqldump` it's hard to come up with the right set of parameters which may take up to 10 arguments such as `--single-transaction` or `--skip-lock-tables` depending on your database engine...
 
-That's what led me to write `backupallthethings`; it is by no mean intended to replace more complicated backup frameworks, but it does a decent job at handling files and more importantly provides simple methods to deal with databases (MySQL, PostgreSQL, MongoDB, CouchDB, Redis) following best-practices.
+That's what led me to write `BackupAllTheThings`; it is by no mean intended to replace more complicated backup frameworks, but it does a decent job at handling files and more importantly provides simple methods to deal with databases (MySQL, PostgreSQL, MongoDB, CouchDB, Redis) following best-practices.
 
 ## Installing it
 
@@ -39,7 +39,7 @@ pip install backupallthethings
 
 ## Usage
 
-`backupallthethings` takes a similar concept with Web servers in Debian. Backup scripts are defined in a `scripts-available` folder that you enable (creating a symlink):
+`BackupAllTheThings` takes a similar concept with Web servers in Debian. Backup scripts are defined in a `scripts-available` folder that you enable (creating a symlink):
 
 ```
 batt enable <service>
