@@ -4,8 +4,6 @@ title: BackupAllTheThings, Straightforward Backups For Files and Databases
 tags:
   - backup
 
-draft: true
-
 author: vincent
 hn:
 date: 2014-11-19
@@ -18,6 +16,8 @@ Like it or not, if you're running a service online, you will most likely need to
 ## tl;dr
 
 Existing backup solutions mostly deal with files, which is why we came up with [BackupAllTheThings (or simply batt)](https://github.com/devo-ps/backupallthethings) to deal with backing up either folders or databases.
+
+<p align='center'>![Backup All The Things](/images/posts/backup-all-the-things.jpg)</p>
 
 ## Existing backup solutions
 
