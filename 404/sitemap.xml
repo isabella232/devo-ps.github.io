@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://devo.ps/blog/releasing-devops-0-12</loc>
+    <lastmod>2014-11-19</lastmod>
+  </url>
+  
+  <url>
     <loc>http://devo.ps/blog/backupallthethings-straightforward-backups-for-files-and-databases</loc>
     <lastmod>2014-11-19</lastmod>
   </url>
@@ -193,22 +198,22 @@
   
   <url>
     <loc>http://devo.ps/</loc>
-    <lastmod>2014-11-19</lastmod>
+    <lastmod>2014-11-20</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/about</loc>
-    <lastmod>2014-11-19</lastmod>
+    <lastmod>2014-11-20</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/blog</loc>
-    <lastmod>2014-11-19</lastmod>
+    <lastmod>2014-11-20</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/privacy</loc>
-    <lastmod>2014-11-19</lastmod>
+    <lastmod>2014-11-20</lastmod>
   </url>
   <url>
     <loc>http://devo.ps/tos</loc>
-    <lastmod>2014-11-19</lastmod>
+    <lastmod>2014-11-20</lastmod>
   </url>
 </urlset>
