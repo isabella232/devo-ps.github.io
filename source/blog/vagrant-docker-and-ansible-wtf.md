@@ -17,7 +17,7 @@ collection: blog
 template: post.html
 ---
 
-Given that we're building a SaaS that helps our client managing their infrastructure, our team is pretty familiar with leveraging VMs and configuration management tools. We've actually been heavy users of Vagrant and [Ansible](http://devo.ps/blog/2013/07/03/ansible-simply-kicks-ass.html) for the past year, and it's helped us tremendously normalize our development process.
+Given that we're building a SaaS that helps our client managing their infrastructure, our team is pretty familiar with leveraging VMs and configuration management tools. We've actually been heavy users of Vagrant and [Ansible](http://devo.ps/blog/ansible-simply-kicks-ass/) for the past year, and it's helped us tremendously normalize our development process.
 
 As our platform grew in complexity, some additional needs emerged:
 
