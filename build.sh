@@ -23,7 +23,7 @@ cp -a _site/* $TMP_FOLDER
 
 # Stash changes to allow branch switch
 git stash
-git checkout master
+git checkout gh-pages
 git clean -f -d
 git clean -f -x
 git pull
